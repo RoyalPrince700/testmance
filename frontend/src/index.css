@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Custom styles for TestMancer */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Main background utility (now white by default) */
+.gradient-bg {
+  background-color: #ffffff;
+}
+
+/* Adjust text colors for white background (override Tailwind's white text utilities) */
+.text-white {
+  color: #111827 !important; /* gray-900 */
+}
+
+.text-white\/70 {
+  color: rgba(17, 24, 39, 0.7) !important;
+}
+
+.text-white\/60 {
+  color: rgba(17, 24, 39, 0.6) !important;
+}
+
+.text-white\/50 {
+  color: rgba(17, 24, 39, 0.5) !important;
+}
+
+.text-white\/30 {
+  color: rgba(17, 24, 39, 0.3) !important;
+}
+
+/* Input placeholder color overrides */
+.placeholder-white\/50::placeholder {
+  color: rgba(17, 24, 39, 0.5) !important;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Quiz animations */
+.quiz-option {
+  transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+  transform: scale(1.02);
+}
+
+.quiz-correct {
+  animation: correctAnswer 0.5s ease;
+}
+
+.quiz-wrong {
+  animation: wrongAnswer 0.5s ease;
+}
+
+@keyframes correctAnswer {
+  0% { background-color: transparent; }
+  50% { background-color: #10b981; }
+  100% { background-color: transparent; }
+}
+
+@keyframes wrongAnswer {
+  0% { background-color: transparent; }
+  50% { background-color: #ef4444; }
+  100% { background-color: transparent; }
+}
+
+/* Gem animation */
+.gem-earned {
+  animation: gemSparkle 1s ease;
+}
+
+@keyframes gemSparkle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
