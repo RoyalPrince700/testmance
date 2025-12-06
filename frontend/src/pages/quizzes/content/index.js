@@ -1,6 +1,7 @@
 // Import quiz content directly
 import { gns311Chapter1Quiz } from './gns311-chapter1';
 import { gns311Chapter2Quiz } from './gns311-chapter2';
+import { gns311Chapter3Quiz } from './gns311-chapter3';
 
 // Helper function to get quiz by course code and chapter title
 export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -9,6 +10,7 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
     'The Structure of Science, Scientific Methods and Revolution': gns311Chapter1Quiz,
     'Philosophical Problems and Scientific Explanations': gns311Chapter2Quiz,
     'Philosophical of problems and Scientific Explanations': gns311Chapter2Quiz, // Alternative title format
+    'Concept of Matter': gns311Chapter3Quiz,
     // Add more quizzes here as they're created
   };
 
@@ -16,6 +18,7 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
   const orderMap = {
     1: gns311Chapter1Quiz, // First chapter of GNS 311
     2: gns311Chapter2Quiz, // Second chapter of GNS 311
+    3: gns311Chapter3Quiz, // Third chapter of GNS 311
     // Add more orders here
   };
 
@@ -50,6 +53,7 @@ export const getQuizByOrder = (courseCode, chapterOrder) => {
     const orderMap = {
       1: gns311Chapter1Quiz,
       2: gns311Chapter2Quiz,
+      3: gns311Chapter3Quiz,
     };
     return orderMap[chapterOrder] || null;
   }
@@ -57,5 +61,5 @@ export const getQuizByOrder = (courseCode, chapterOrder) => {
 };
 
 // Re-export for convenience
-export { gns311Chapter1Quiz, gns311Chapter2Quiz };
+export { gns311Chapter1Quiz, gns311Chapter2Quiz, gns311Chapter3Quiz };
 

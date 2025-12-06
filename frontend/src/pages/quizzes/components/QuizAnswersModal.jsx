@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { X, CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const QuizAnswersModal = ({ 
-  isOpen, 
-  onClose, 
+const QuizAnswersModal = ({
+  isOpen,
+  onClose,
   questions = [],
   userAnswers = [],
-  quizTitle
+  quizTitle,
+  correctness = [] // Array indicating which answers are correct
 }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -27,7 +28,10 @@ const QuizAnswersModal = ({
 
   const currentQuestion = questions[currentQuestionIndex];
   const userAnswer = userAnswers[currentQuestionIndex];
-  const isCorrect = userAnswer === currentQuestion.correctAnswer;
+  // Use correctness array if available, otherwise fall back to question.correctAnswer
+  const isCorrect = correctness[currentQuestionIndex] !== undefined
+    ? correctness[currentQuestionIndex]
+    : userAnswer === currentQuestion.correctAnswer;
   const totalQuestions = questions.length;
 
   const handlePrevious = () => {
@@ -72,7 +76,7 @@ const QuizAnswersModal = ({
             <span className="text-sm font-medium text-gray-700">
               Question {currentQuestionIndex + 1} of {totalQuestions}
             </span>
-            <div className="flex gap-1">
+            <div className="flex gap-1 overflow-x-auto pb-1 max-w-full">
               {questions.map((_, index) => {
                 const userAns = userAnswers[index];
                 const correct = userAns === questions[index].correctAnswer;
@@ -80,7 +84,7 @@ const QuizAnswersModal = ({
                   <button
                     key={index}
                     onClick={() => goToQuestion(index)}
-                    className={`w-8 h-8 rounded text-xs font-medium transition-colors ${
+                    className={`flex-shrink-0 w-8 h-8 rounded text-xs font-medium transition-colors ${
                       index === currentQuestionIndex
                         ? 'bg-teal-500 text-white'
                         : correct

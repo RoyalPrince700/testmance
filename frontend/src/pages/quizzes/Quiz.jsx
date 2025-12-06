@@ -21,6 +21,7 @@ const Quiz = () => {
   const [showCongratulations, setShowCongratulations] = useState(false);
   const [showAnswersModal, setShowAnswersModal] = useState(false);
   const [results, setResults] = useState(null);
+  const [correctness, setCorrectness] = useState([]); // Array indicating which answers are correct
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [timeLeft, setTimeLeft] = useState(null);
@@ -81,50 +82,43 @@ const Quiz = () => {
           setCourse(courseData);
         }
 
-        // Try to load quiz from backend first
+        // Try to load local quiz content first (preferred for controlled content)
+        let localQuizContent = getQuizContent(
+          chapterData.title,
+          chapterData.order,
+          courseData?.code || 'GNS 311'
+        );
+
         let quizContent = null;
         let backendQuizId = null;
-        
-        try {
-          if (chapterData.quiz) {
-            // Try to get quiz by chapter ID
-            const quizResponse = await quizzesAPI.getByChapter(chapterId);
-            if (quizResponse.success && quizResponse.data) {
-              backendQuizId = quizResponse.data._id;
-              quizContent = {
-                _id: quizResponse.data._id,
-                title: quizResponse.data.title,
-                description: quizResponse.data.description,
-                questions: quizResponse.data.questions,
-                passingScore: quizResponse.data.passingScore,
-                timeLimit: quizResponse.data.timeLimit || 0,
-                gemsReward: 0 // Not used anymore, gems based on correct answers
-              };
-            } else if (chapterData.quiz._id) {
-              // Fallback: use quiz ID from chapter
-              backendQuizId = chapterData.quiz._id;
-            }
-          }
-        } catch (error) {
-          console.log('Backend quiz not found, using local quiz:', error);
-        }
 
-        // Fallback to local quiz content if backend quiz not found
-        let localQuizContent = null;
-        if (!quizContent) {
-          localQuizContent = getQuizContent(
-            chapterData.title,
-            chapterData.order,
-            courseData?.code || 'GNS 311'
-          );
-          
-          if (localQuizContent) {
-            quizContent = localQuizContent;
-          }
-          
-          // If chapter has a quiz ID, use it for submission
-          if (chapterData.quiz && chapterData.quiz._id) {
-            backendQuizId = chapterData.quiz._id;
+        if (localQuizContent) {
+          // Use local quiz content (preferred for consistency with chapter content)
+          quizContent = localQuizContent;
+        } else {
+          // Fallback to backend quiz if no local quiz found
+          try {
+            if (chapterData.quiz) {
+              // Try to get quiz by chapter ID
+              const quizResponse = await quizzesAPI.getByChapter(chapterId);
+              if (quizResponse.success && quizResponse.data) {
+                backendQuizId = quizResponse.data._id;
+                quizContent = {
+                  _id: quizResponse.data._id,
+                  title: quizResponse.data.title,
+                  description: quizResponse.data.description,
+                  questions: quizResponse.data.questions,
+                  passingScore: quizResponse.data.passingScore,
+                  timeLimit: quizResponse.data.timeLimit || 0,
+                  gemsReward: 0 // Not used anymore, gems based on correct answers
+                };
+              } else if (chapterData.quiz._id) {
+                // Fallback: use quiz ID from chapter
+                backendQuizId = chapterData.quiz._id;
+              }
+            }
+          } catch (error) {
+            console.log('Backend quiz not found:', error);
           }
         }
 
@@ -193,10 +187,14 @@ const Quiz = () => {
     let totalPoints = 0;
     let correctAnswers = 0;
     const totalPointsAvailable = quiz.questions.reduce((sum, q) => sum + q.points, 0);
+    const correctnessArray = [];
 
     quiz.questions.forEach((question, index) => {
       const userAnswer = answers[index];
-      if (userAnswer !== undefined && userAnswer === question.correctAnswer) {
+      const isCorrect = userAnswer !== undefined && userAnswer === question.correctAnswer;
+      correctnessArray[index] = isCorrect;
+
+      if (isCorrect) {
         totalPoints += question.points;
         correctAnswers += 1;
       }
@@ -222,7 +220,8 @@ const Quiz = () => {
       percentage: Math.round(percentage * 100) / 100,
       passed,
       gemsEarned,
-      xpEarned
+      xpEarned,
+      correctness: correctnessArray
     };
   };
 
@@ -248,8 +247,17 @@ const Quiz = () => {
               xpEarned: backendResult.xpEarned || 0,
               isFirstAttempt: backendResult.isFirstAttempt !== false
             });
+
+            // If backend returned questions with answers, use them for review
+            if (backendResult.questions) {
+              setQuizWithAnswers({
+                ...quiz,
+                questions: backendResult.questions
+              });
+            }
+
             setShowCongratulations(true);
-            
+
             // Always reload user to get updated gems and XP
             await loadUser();
             return;
@@ -289,8 +297,17 @@ const Quiz = () => {
               xpEarned: backendResult.xpEarned || 0,
               isFirstAttempt: backendResult.isFirstAttempt !== false
             });
+
+            // If backend returned questions with answers, use them for review
+            if (backendResult.questions) {
+              setQuizWithAnswers({
+                ...quiz,
+                questions: backendResult.questions
+              });
+            }
+
             setShowCongratulations(true);
-            
+
             // Always reload user to get updated gems and XP
             await loadUser();
             return;
@@ -308,18 +325,19 @@ const Quiz = () => {
       
       // Fallback to local calculation if no backend quiz or submission failed
       const scoreResult = calculateScore();
-      
+
       if (!scoreResult) {
         console.error('Failed to calculate score');
         return;
       }
-      
+
       // For local calculation, assume first attempt (since we can't check without backend)
       // Note: Gems won't actually be awarded without backend submission
       setResults({
         ...scoreResult,
         isFirstAttempt: true
       });
+      setCorrectness(scoreResult.correctness || []);
       setShowCongratulations(true);
       
       // Try to reload user anyway (in case backend submission succeeded but response was lost)
@@ -359,10 +377,16 @@ const Quiz = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Quiz not found</h2>
           <p className="text-gray-600 mb-6">No quiz available for this chapter.</p>
           <button
-            onClick={() => navigate(chapter ? `/chapters/${chapter._id}` : '/dashboard')}
+            onClick={() => {
+              if (course?._id) {
+                navigate(`/quiz-hub/courses/${course._id}`);
+              } else {
+                navigate('/quiz-hub');
+              }
+            }}
             className={`${colors.button} text-white px-6 py-2 rounded-lg font-semibold transition-colors`}
           >
-            {chapter ? 'Back to Chapter' : 'Back to Dashboard'}
+            Back to Quiz Hub
           </button>
         </div>
       </div>
@@ -380,7 +404,11 @@ const Quiz = () => {
             setShowCongratulations(false);
             // If answers modal is not open, navigate away
             if (!showAnswersModal) {
-              navigate(chapter ? `/chapters/${chapter._id}` : '/dashboard');
+              if (course?._id) {
+                navigate(`/quiz-hub/courses/${course._id}`);
+              } else {
+                navigate('/quiz-hub');
+              }
             }
           }}
           username={user?.username || 'Student'}
@@ -407,12 +435,17 @@ const Quiz = () => {
             if (results) {
               setShowCongratulations(true);
             } else {
-              navigate(chapter ? `/chapters/${chapter._id}` : '/dashboard');
+              if (course?._id) {
+                navigate(`/quiz-hub/courses/${course._id}`);
+              } else {
+                navigate('/quiz-hub');
+              }
             }
           }}
           questions={quizWithAnswers?.questions || quiz?.questions || []}
           userAnswers={answers}
           quizTitle={quiz?.title || quizWithAnswers?.title}
+          correctness={correctness}
         />
       </>
     );
@@ -424,18 +457,42 @@ const Quiz = () => {
   return (
     <div className="min-h-screen bg-white py-8 px-4">
       <div className="max-w-4xl mx-auto">
+        {/* Mobile Back Button - Top Position */}
+        <div className="block sm:hidden mb-4">
+          <button
+            onClick={() => {
+              if (course?._id) {
+                navigate(`/quiz-hub/courses/${course._id}`);
+              } else {
+                navigate('/quiz-hub');
+              }
+            }}
+            className={`flex items-center space-x-2 ${colors.text} hover:${colors.accent} transition-colors font-medium px-4 py-2 rounded-lg border ${colors.border} ${colors.bg}`}
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span>Back</span>
+          </button>
+        </div>
+
         {/* Header Card */}
         <div className="bg-white border-2 border-gray-200 rounded-2xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between flex-wrap gap-4">
+            {/* Desktop Back Button - Hidden on mobile */}
             <button
-              onClick={() => navigate(chapter ? `/chapters/${chapter._id}` : '/dashboard')}
-              className={`flex items-center space-x-2 ${colors.text} hover:${colors.accent} transition-colors font-medium`}
+              onClick={() => {
+                if (course?._id) {
+                  navigate(`/quiz-hub/courses/${course._id}`);
+                } else {
+                  navigate('/quiz-hub');
+                }
+              }}
+              className={`hidden sm:flex items-center space-x-2 ${colors.text} hover:${colors.accent} transition-colors font-medium`}
             >
               <ArrowLeft className="h-5 w-5" />
               <span>Back</span>
             </button>
 
-            <div className="text-center flex-1">
+            <div className="text-left flex-1">
               <h1 className={`text-2xl font-bold ${colors.text} mb-1`}>{quiz.title}</h1>
               <p className="text-gray-600 text-sm">{quiz.description}</p>
             </div>
@@ -499,7 +556,7 @@ const Quiz = () => {
                   }`}
                 >
                   <div className="flex items-start space-x-4">
-                    <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
+                    <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
                       isSelected 
                         ? `${colors.button} text-white` 
                         : 'bg-gray-200 text-gray-600'

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { coursesAPI } from '../../utils/api';
-import { BookOpen, ArrowRight, Target, Pencil, BarChart3, ChevronUp } from 'lucide-react';
+import { coursesAPI, quizzesAPI } from '../../utils/api';
+import { BookOpen, ArrowRight, Target, Pencil, BarChart3, ChevronUp, CheckCircle } from 'lucide-react';
 import { getQuizContent } from './content';
 
 const QuizCourseDetail = () => {
@@ -12,6 +12,7 @@ const QuizCourseDetail = () => {
   const [chaptersLoading, setChaptersLoading] = useState(true);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
+  const [quizCompletions, setQuizCompletions] = useState({});
 
   useEffect(() => {
     const loadCourseData = async () => {
@@ -30,6 +31,11 @@ const QuizCourseDetail = () => {
         const enrolledCourses = enrolledResponse.data || [];
         const enrolled = enrolledCourses.some(c => c._id === id || c._id === courseData._id);
         setIsEnrolled(enrolled);
+
+        // Load quiz completions for chapters with quizzes
+        if (enrolled) {
+          await loadQuizCompletions(chaptersResponse.data, courseData);
+        }
       } catch (error) {
         console.error('Failed to load course data:', error);
       } finally {
@@ -40,6 +46,29 @@ const QuizCourseDetail = () => {
 
     loadCourseData();
   }, [id]);
+
+  const loadQuizCompletions = async (chaptersData, courseData) => {
+    const completions = {};
+
+    for (const chapter of chaptersData) {
+      const quizContent = getQuizContent(chapter.title, chapter.order, courseData?.code);
+      if (quizContent) {
+        try {
+          // Try to get quiz results by chapter ID
+          const resultsResponse = await quizzesAPI.getResults(chapter._id);
+          if (resultsResponse.data && resultsResponse.data.length > 0) {
+            // Check if any attempt was completed (has results)
+            completions[chapter._id] = true;
+          }
+        } catch (error) {
+          // Quiz not completed or error - leave as false
+          console.log(`No quiz results for chapter ${chapter._id}`);
+        }
+      }
+    }
+
+    setQuizCompletions(completions);
+  };
 
   // Filter chapters that have quizzes in frontend content
   const chaptersWithQuizzes = chapters.filter(chapter => {
@@ -160,6 +189,7 @@ const QuizCourseDetail = () => {
             ) : (
               <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
                 {chaptersWithQuizzes.map((chapter) => {
+                  const isCompleted = quizCompletions[chapter._id];
                   return (
                     <Link
                       key={chapter._id}
@@ -167,20 +197,33 @@ const QuizCourseDetail = () => {
                       className="flex items-center justify-between bg-white hover:bg-gray-50 rounded-lg p-4 transition-colors border border-gray-200 hover:border-teal-300 group"
                     >
                       <div className="flex items-center space-x-4 flex-1 min-w-0">
-                        {/* Quiz Icon */}
-                        <div className="hidden lg:flex shrink-0 w-6 h-6 rounded-full bg-teal-500 items-center justify-center">
-                          <Target className="h-4 w-4 text-white fill-current" />
+                        {/* Quiz Icon or Completion Checkmark */}
+                        <div className={`hidden lg:flex shrink-0 w-6 h-6 rounded-full items-center justify-center ${
+                          isCompleted ? 'bg-green-500' : 'bg-teal-500'
+                        }`}>
+                          {isCompleted ? (
+                            <CheckCircle className="h-4 w-4 text-white fill-current" />
+                          ) : (
+                            <Target className="h-4 w-4 text-white fill-current" />
+                          )}
                         </div>
-                        
+
                         {/* Chapter Title */}
-                        <span className="text-gray-900 font-medium flex-1 truncate">
+                        <span className={`font-medium flex-1 truncate ${
+                          isCompleted ? 'text-gray-600' : 'text-gray-900'
+                        }`}>
                           {chapter.title}
+                          {isCompleted && (
+                            <span className="ml-2 text-green-600 text-sm font-normal">
+                              (Completed)
+                            </span>
+                          )}
                         </span>
                       </div>
-                      
+
                       {/* Quiz Link */}
                       <div className="flex items-center space-x-1 text-teal-600 group-hover:text-teal-700 font-medium ml-4 shrink-0">
-                        <span>Take Quiz</span>
+                        <span>{isCompleted ? 'Review Quiz' : 'Take Quiz'}</span>
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>

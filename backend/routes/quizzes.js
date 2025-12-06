@@ -381,6 +381,17 @@ router.post('/:id/submit', protect, async (req, res) => {
     // Commit transaction
     await session.commitTransaction();
 
+    // Include correct answers for quiz review
+    const questionsWithAnswers = quiz.questions.map(q => ({
+      _id: q._id,
+      question: q.question,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      points: q.points,
+      timeLimit: q.timeLimit,
+      explanation: q.explanation
+    }));
+
     res.json({
       success: true,
       message: result.passed ? 'Quiz passed!' : 'Quiz completed',
@@ -391,7 +402,8 @@ router.post('/:id/submit', protect, async (req, res) => {
         newGems: user.gems,
         newXp: user.xp,
         newLevel: user.level,
-        isFirstAttempt
+        isFirstAttempt,
+        questions: questionsWithAnswers // Include questions with correct answers for review
       }
     });
   } catch (error) {
