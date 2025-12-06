@@ -63,12 +63,14 @@ The `vercel.json` file in the frontend directory ensures that:
    PORT=10000
    MONGODB_URI=your-mongodb-connection-string
    FRONTEND_URL=https://your-frontend-app-name.vercel.app
+   BACKEND_URL=https://your-backend-app-name.onrender.com
    SESSION_SECRET=your-secure-random-string
    JWT_SECRET=your-jwt-secret-key
 
-   # Google OAuth (if using)
+   # Google OAuth (required)
    GOOGLE_CLIENT_ID=your-google-client-id
    GOOGLE_CLIENT_SECRET=your-google-client-secret
+   GOOGLE_CALLBACK_URL=https://your-backend-app-name.onrender.com/api/auth/google/callback
 
    # Cloudinary (if using file uploads)
    CLOUDINARY_CLOUD_NAME=your-cloudinary-cloud-name
@@ -84,6 +86,20 @@ The `vercel.json` file in the frontend directory ensures that:
    - Render will build and deploy your Express API
    - Note the URL provided by Render (e.g., `https://your-app-name.onrender.com`)
 
+## Google OAuth Configuration
+
+### 1. Google Cloud Console Setup
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Navigate to "APIs & Services" > "Credentials"
+3. Create or select your OAuth 2.0 Client ID
+4. Add authorized redirect URIs:
+   - For development: `http://localhost:5000/api/auth/google/callback`
+   - For production: `https://your-backend-app-name.onrender.com/api/auth/google/callback`
+
+### 2. Get OAuth Credentials
+- Copy the Client ID and Client Secret from Google Console
+- Add them to your Render environment variables
+
 ## Post-Deployment Configuration
 
 1. **Update Frontend Environment Variable**
@@ -93,12 +109,18 @@ The `vercel.json` file in the frontend directory ensures that:
    ```
    - Redeploy the frontend
 
-2. **Update Backend CORS**
-   - In Render, update `FRONTEND_URL` with your Vercel frontend URL:
+2. **Update Backend Environment Variables**
+   - In Render, set the following variables:
    ```
    FRONTEND_URL=https://your-frontend-app-name.vercel.app
+   BACKEND_URL=https://your-backend-app-name.onrender.com
+   GOOGLE_CALLBACK_URL=https://your-backend-app-name.onrender.com/api/auth/google/callback
    ```
    - Redeploy the backend
+
+3. **Update Google OAuth Authorized Redirect URIs**
+   - Add your production callback URL to Google OAuth Console
+   - Save the changes
 
 ## Troubleshooting
 
@@ -130,6 +152,25 @@ The `vercel.json` file in the frontend directory ensures that:
    - Update `FRONTEND_URL` in Render environment variables
    - Ensure it matches your Vercel domain exactly
 
+4. **OAuth Redirect Issues**
+   - Ensure `GOOGLE_CALLBACK_URL` is set to your production backend URL + `/api/auth/google/callback`
+   - Add the production callback URL to Google OAuth Console authorized redirect URIs
+   - Check that `FRONTEND_URL` is set to your Vercel domain (used for post-authentication redirect)
+
+### Common OAuth Issues
+
+1. **"redirect_uri_mismatch" Error**
+   - The callback URL in Google OAuth Console doesn't match the one in your backend
+   - Solution: Add `https://your-backend.onrender.com/api/auth/google/callback` to authorized redirect URIs
+
+2. **Redirecting to localhost after OAuth**
+   - `FRONTEND_URL` environment variable is not set correctly
+   - Solution: Set `FRONTEND_URL=https://your-frontend.vercel.app` in Render
+
+3. **OAuth callback URL hardcoded**
+   - Make sure `GOOGLE_CALLBACK_URL` is set in Render environment variables
+   - The backend now supports both `GOOGLE_CALLBACK_URL` and `BACKEND_URL` for flexibility
+
 ## Environment Variables Summary
 
 ### Frontend (Vercel)
@@ -140,8 +181,12 @@ The `vercel.json` file in the frontend directory ensures that:
 - `PORT`: `10000` (set by Render)
 - `MONGODB_URI`: MongoDB connection string
 - `FRONTEND_URL`: Your Vercel frontend URL (without trailing slash)
+- `BACKEND_URL`: Your Render backend URL (without trailing slash)
+- `GOOGLE_CALLBACK_URL`: Your Render backend URL + `/api/auth/google/callback`
 - `SESSION_SECRET`: Random secure string for sessions
 - `JWT_SECRET`: Random secure string for JWT tokens
+- `GOOGLE_CLIENT_ID`: From Google OAuth Console
+- `GOOGLE_CLIENT_SECRET`: From Google OAuth Console
 
 ## Testing Deployment
 
