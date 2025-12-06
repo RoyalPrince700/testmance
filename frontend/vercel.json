@@ -10,7 +10,7 @@
       }
     ],
     "rewrites": [
-      { "source": "/api/(.*)", "destination": "https://testmancernew.onrender.com/api/$1" },
+      { "source": "/api/(.*)", "destination": "https://testmance.onrender.com/api/$1" },
       { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
