@@ -174,7 +174,7 @@ The `vercel.json` file in the frontend directory ensures that:
 ## Environment Variables Summary
 
 ### Frontend (Vercel)
-- `VITE_API_URL`: Full URL to your Render backend API (including `/api`)
+- `VITE_API_URL`: Full URL to your Render backend API (must include `/api` at the end, e.g., `https://your-backend.onrender.com/api`)
 
 ### Backend (Render)
 - `NODE_ENV`: `production`
