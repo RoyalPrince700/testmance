@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Play } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Play, Loader } from 'lucide-react';
 
 const ChapterNavigation = ({ 
   prevChapter, 
@@ -8,7 +8,8 @@ const ChapterNavigation = ({
   hasQuiz, 
   onMarkComplete, 
   onTakeQuiz,
-  showMarkComplete = true
+  showMarkComplete = true,
+  isCompleting = false
 }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-8">
@@ -29,10 +30,24 @@ const ChapterNavigation = ({
           {!completed && showMarkComplete && (
             <button
               onClick={onMarkComplete}
-              className="flex items-center space-x-2 px-6 py-2 bg-green-500 hover:bg-green-600 rounded-lg text-white transition-colors"
+              disabled={isCompleting || completed}
+              className={`flex items-center space-x-2 px-6 py-2 rounded-lg text-white transition-colors ${
+                isCompleting || completed
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-green-500 hover:bg-green-600'
+              }`}
             >
-              <CheckCircle className="h-4 w-4" />
-              <span>Mark Complete</span>
+              {isCompleting ? (
+                <>
+                  <Loader className="h-4 w-4 animate-spin" />
+                  <span>Completing...</span>
+                </>
+              ) : (
+                <>
+                  <CheckCircle className="h-4 w-4" />
+                  <span>Mark Complete</span>
+                </>
+              )}
             </button>
           )}
 

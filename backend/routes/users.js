@@ -1,6 +1,6 @@
 const express = require('express');
 const User = require('../models/User');
-const { protect } = require('../middleware/auth');
+const { protect, optionalAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -41,6 +41,10 @@ router.get('/profile', protect, async (req, res) => {
           email: user.email,
           avatar: user.avatar,
           university: user.university,
+          faculty: user.faculty,
+          department: user.department,
+          academicLevel: user.academicLevel,
+          preferredAnalogy: user.preferredAnalogy,
           gems: user.gems,
           level: user.level,
           xp: user.xp,
@@ -162,6 +166,66 @@ router.put('/avatar', protect, async (req, res) => {
     });
   } catch (error) {
     console.error('Update avatar error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   GET /api/users/:userId
+// @desc    Get user profile by ID (respects visibility settings)
+// @access  Public (but respects profileVisibility)
+router.get('/:userId', optionalAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId)
+      .populate('university', 'name shortName location')
+      .select('username avatar university faculty department academicLevel profileVisibility gems level');
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+
+    // If profile visibility is off, only return basic info
+    if (!user.profileVisibility) {
+      return res.json({
+        success: true,
+        data: {
+          user: {
+            _id: user._id,
+            username: user.username,
+            avatar: user.avatar,
+            profileVisibility: false
+          },
+          visible: false
+        }
+      });
+    }
+
+    // If visibility is on, return full profile info
+    res.json({
+      success: true,
+      data: {
+        user: {
+          _id: user._id,
+          username: user.username,
+          avatar: user.avatar,
+          university: user.university,
+          faculty: user.faculty,
+          department: user.department,
+          academicLevel: user.academicLevel,
+          gems: user.gems,
+          level: user.level,
+          profileVisibility: user.profileVisibility
+        },
+        visible: true
+      }
+    });
+  } catch (error) {
+    console.error('Get user by ID error:', error);
     res.status(500).json({
       success: false,
       message: 'Server error'

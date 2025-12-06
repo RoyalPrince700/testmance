@@ -1,47 +1,91 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { coursesAPI, quizzesAPI, leaderboardAPI, usersAPI } from '../utils/api';
+import { coursesAPI, leaderboardAPI, usersAPI } from '../utils/api';
 import { BookOpen, Trophy, Target, TrendingUp, Clock, Award, Gem, Star } from 'lucide-react';
 
 const Dashboard = () => {
   const { user } = useAuth();
   const [stats, setStats] = useState(null);
   const [availableCourses, setAvailableCourses] = useState([]);
-  const [availableQuizzes, setAvailableQuizzes] = useState([]);
   const [userRank, setUserRank] = useState(null);
+  const [courseProgress, setCourseProgress] = useState({}); // Map of courseId -> progress data
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadDashboardData = async () => {
       try {
-        const [statsResponse, coursesResponse, quizzesResponse, rankResponse] = await Promise.all([
+        const [statsResponse, enrolledCoursesResponse, rankResponse] = await Promise.all([
           usersAPI.getStats(),
-          coursesAPI.getAll({ limit: 3 }),
-          quizzesAPI.getAvailable(),
+          coursesAPI.getEnrolled().catch(() => ({ data: [] })),
           leaderboardAPI.getUserRank()
         ]);
 
           setStats(statsResponse.data);
         
-        // Filter courses for the user's university if available
-        const userUniversityId = user?.university?._id || user?.university;
-        const allCourses = coursesResponse.data;
-        
-        // If we have university info, filter courses
-        const relevantCourses = userUniversityId 
-          ? allCourses.filter(course => {
-              const courseUniId = course.university?._id || course.university;
-              return courseUniId === userUniversityId;
-            })
-          : allCourses;
-
-        // Show all available courses for the user's university
-        setAvailableCourses(relevantCourses);
-        setAvailableQuizzes(quizzesResponse.data.slice(0, 3));
+        // Show only enrolled courses
+        setAvailableCourses(enrolledCoursesResponse.data || []);
         setUserRank(rankResponse.data);
+
+        // Fetch progress and chapters for each course
+        const progressPromises = (enrolledCoursesResponse.data || []).map(async (course) => {
+          try {
+            // Fetch both progress and chapters (like CourseDetail does)
+            const [progressResponse, chaptersResponse] = await Promise.all([
+              coursesAPI.getProgress(course._id).catch(() => ({ data: { completedChapters: 0, totalChapters: 0, progressPercentage: 0, completedChapterIds: [] } })),
+              coursesAPI.getChapters(course._id).catch(() => ({ data: [] }))
+            ]);
+
+            // Extract progress data
+            const progressData = progressResponse.data || progressResponse;
+            const chapters = chaptersResponse.data || chaptersResponse || [];
+            
+            // Use chapters.length for totalChapters (like CourseDetail does)
+            // This ensures we count only published/active chapters
+            const totalChapters = Array.isArray(chapters) ? chapters.length : (progressData.totalChapters || 0);
+            const completedChapterIds = progressData.completedChapterIds || [];
+            const completedChapters = completedChapterIds.length;
+            
+            // Recalculate progress percentage using actual chapters count
+            const progressPercentage = totalChapters > 0 
+              ? Math.round((completedChapters / totalChapters) * 100)
+              : 0;
+
+            return {
+              courseId: course._id,
+              progress: {
+                progressPercentage,
+                completedChapters,
+                totalChapters,
+                completedChapterIds
+              }
+            };
+          } catch (error) {
+            return {
+              courseId: course._id,
+              progress: {
+                progressPercentage: 0,
+                completedChapters: 0,
+                totalChapters: 0,
+                completedChapterIds: []
+              }
+            };
+          }
+        });
+
+        const progressResults = await Promise.all(progressPromises);
+        
+        const progressMap = {};
+        progressResults.forEach(({ courseId, progress }) => {
+          if (courseId) {
+            // Normalize ID to string for consistent key matching
+            const normalizedId = courseId.toString();
+            progressMap[normalizedId] = progress;
+          }
+        });
+        setCourseProgress(progressMap);
       } catch (error) {
-        console.error('Failed to load dashboard data:', error);
+        // Silently handle errors
       } finally {
         setLoading(false);
       }
@@ -52,10 +96,52 @@ const Dashboard = () => {
     }
   }, [user]);
 
+  // Refresh progress when page becomes visible (user navigates back)
+  useEffect(() => {
+    if (availableCourses.length === 0 || !user) return;
+
+    const refreshProgress = async () => {
+      try {
+        const progressPromises = availableCourses.map(course => 
+          coursesAPI.getProgress(course._id)
+            .then(response => ({ courseId: course._id, progress: response.data }))
+            .catch(() => null)
+        );
+
+        const progressResults = await Promise.all(progressPromises);
+        setCourseProgress(prevProgress => {
+          const progressMap = { ...prevProgress };
+          progressResults.forEach(result => {
+            if (result && result.courseId) {
+              // Normalize ID to string for consistent key matching
+              const normalizedId = result.courseId.toString();
+              progressMap[normalizedId] = result.progress;
+            }
+          });
+          return progressMap;
+        });
+      } catch (error) {
+        // Silently handle errors
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refreshProgress();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [availableCourses, user]);
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
       </div>
     );
   }
@@ -64,52 +150,68 @@ const Dashboard = () => {
     <div className="space-y-8">
       {/* Welcome Header */}
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-white mb-2">
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">
           Welcome back, {user?.username}! 👋
         </h1>
-        <p className="text-white/70 text-lg">
+        <p className="text-gray-600 text-lg">
           Ready to continue your learning adventure?
         </p>
       </div>
 
       {/* Stats Cards */}
-      <div className="flex items-center justify-between gap-4 bg-white/10 backdrop-blur-md rounded-lg p-4 card-hover">
+      <div className="flex items-center justify-between gap-4 bg-gray-50 border border-gray-200 rounded-lg p-4 card-hover">
         <div className="flex items-center space-x-2 flex-1">
-          <Gem className="h-4 w-4 text-yellow-400" />
+          <Gem className="h-4 w-4 text-yellow-500" />
           <div>
-            <p className="text-white/70 text-xs">Gems</p>
-            <p className="text-lg font-bold text-white">{user?.gems || 0}</p>
+            <p className="text-gray-600 text-xs">Gems</p>
+            <p className="text-lg font-bold text-gray-900">{user?.gems || 0}</p>
           </div>
         </div>
 
         <div className="flex items-center space-x-2 flex-1">
-          <TrendingUp className="h-4 w-4 text-blue-400" />
+          <TrendingUp className="h-4 w-4 text-blue-500" />
           <div>
-            <p className="text-white/70 text-xs">Level</p>
-            <p className="text-lg font-bold text-white">{user?.level || 1}</p>
+            <p className="text-gray-600 text-xs">Level</p>
+            <p className="text-lg font-bold text-gray-900">{user?.level || 1}</p>
           </div>
         </div>
 
         <div className="flex items-center space-x-2 flex-1">
-          <BookOpen className="h-4 w-4 text-green-400" />
+          <BookOpen className="h-4 w-4 text-green-500" />
           <div>
-            <p className="text-white/70 text-xs">Chapters</p>
-            <p className="text-lg font-bold text-white">{stats?.completedChapters || 0}</p>
+            <p className="text-gray-600 text-xs">Chapters</p>
+            <p className="text-lg font-bold text-gray-900">{stats?.completedChapters || 0}</p>
           </div>
         </div>
 
         <div className="flex items-center space-x-2 flex-1">
-          <Trophy className="h-4 w-4 text-purple-400" />
+          <Trophy className="h-4 w-4 text-purple-500" />
           <div>
-            <p className="text-white/70 text-xs">Global Rank</p>
-            <p className="text-lg font-bold text-white">#{userRank?.globalRank || 'N/A'}</p>
+            <p className="text-gray-600 text-xs">Global Rank</p>
+            <p className="text-lg font-bold text-gray-900">#{userRank?.globalRank || 'N/A'}</p>
           </div>
         </div>
       </div>
 
       {/* Available Courses */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {availableCourses.map((course, index) => {
+      {availableCourses.length === 0 ? (
+        <div className="bg-white border border-gray-200 rounded-lg p-12 text-center mb-12">
+          <BookOpen className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">No Enrolled Courses</h3>
+          <p className="text-gray-600 mb-6">
+            Start your learning journey by enrolling in courses that interest you!
+          </p>
+          <Link
+            to="/courses"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            <BookOpen className="h-5 w-5" />
+            Browse Courses
+          </Link>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {availableCourses.map((course, index) => {
           // Color palettes similar to the screenshot
           const colors = [
             { // Pink/Red theme (English)
@@ -136,7 +238,16 @@ const Dashboard = () => {
           ];
           
           const theme = colors[index % colors.length];
-          const progress = 0; // Default to 0 since we don't have per-course progress yet
+          // Normalize course ID for consistent lookup
+          const courseId = course._id?.toString() || course._id;
+          const progressData = courseProgress[courseId] || { progressPercentage: 0, completedChapters: 0, totalChapters: 0 };
+          
+          // Ensure progress is a number and handle edge cases
+          const progress = typeof progressData.progressPercentage === 'number' 
+            ? progressData.progressPercentage 
+            : (progressData.completedChapters && progressData.totalChapters 
+                ? Math.round((progressData.completedChapters / progressData.totalChapters) * 100)
+                : 0);
 
           return (
             <div key={course._id} className="bg-white rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300">
@@ -149,7 +260,7 @@ const Dashboard = () => {
               {/* Progress Bar */}
               <div className="h-2 bg-gray-100 rounded-full mb-8 overflow-hidden">
                 <div 
-                  className={`h-full rounded-full ${theme.bar}`} 
+                  className={`h-full rounded-full transition-all duration-300 ${theme.bar}`} 
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -170,6 +281,7 @@ const Dashboard = () => {
 
               {/* Course Info */}
               <div className="text-center mb-8">
+                <p className="text-sm font-semibold text-gray-600 mb-1">{course.code}</p>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
                 <p className="text-gray-500 text-sm">{course.description?.substring(0, 50)}...</p>
                 
@@ -192,81 +304,41 @@ const Dashboard = () => {
             </div>
           );
         })}
-      </div>
-
-      {/* Recent Activity & Quick Actions */}
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Available Quizzes */}
-        <div className="bg-white/10 backdrop-blur-md rounded-lg p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Take a Quiz</h2>
-            <Link
-              to="/quizzes"
-              className="text-white/70 hover:text-white text-sm font-medium"
-            >
-              View All →
-            </Link>
-          </div>
-
-          <div className="space-y-4">
-            {availableQuizzes.map((quiz) => (
-              <Link
-                key={quiz._id}
-                to={`/quizzes/${quiz._id}`}
-                className="block bg-white/5 rounded-lg p-4 hover:bg-white/10 transition-colors card-hover"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-white font-semibold">{quiz.title}</h3>
-                    <p className="text-white/70 text-sm">{quiz.description}</p>
-                    <div className="flex items-center space-x-4 mt-2">
-                      <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded">
-                        {quiz.gemsReward} gems
-                      </span>
-                      {quiz.hasPassed ? (
-                        <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">
-                          Completed
-                        </span>
-                      ) : (
-                        <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded">
-                          Available
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="ml-4">
-                    <Target className="h-6 w-6 text-white/60" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
-      </div>
+      )}
 
       {/* Achievements */}
-      <div className="bg-white/10 backdrop-blur-md rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-white mb-6">Recent Achievements</h2>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Recent Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {Array.isArray(stats?.achievements) && stats.achievements.includes('firstChapter') && (
-            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-4 text-center">
-              <Award className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
-              <h3 className="text-white font-semibold">First Chapter!</h3>
-              <p className="text-white/70 text-sm">Completed your first chapter</p>
-            </div>
-          )}
-          {Array.isArray(stats?.achievements) && stats.achievements.includes('firstQuiz') && (
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg p-4 text-center">
-              <Target className="h-8 w-8 text-blue-400 mx-auto mb-2" />
-              <h3 className="text-white font-semibold">Quiz Master</h3>
-              <p className="text-white/70 text-sm">Took your first quiz</p>
-            </div>
-          )}
-          {Array.isArray(stats?.achievements) && stats.achievements.includes('perfectScore') && (
-            <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-lg p-4 text-center">
-              <Trophy className="h-8 w-8 text-green-400 mx-auto mb-2" />
-              <h3 className="text-white font-semibold">Perfect Score!</h3>
-              <p className="text-white/70 text-sm">Got 100% on a quiz</p>
+          {Array.isArray(stats?.achievements) && stats.achievements.length > 0 ? (
+            <>
+              {stats.achievements.includes('firstChapter') && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center">
+                  <Award className="h-8 w-8 text-yellow-600 mx-auto mb-2" />
+                  <h3 className="text-gray-900 font-semibold">First Chapter!</h3>
+                  <p className="text-gray-600 text-sm">Completed your first chapter</p>
+                </div>
+              )}
+              {stats.achievements.includes('firstQuiz') && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+                  <Target className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                  <h3 className="text-gray-900 font-semibold">Quiz Master</h3>
+                  <p className="text-gray-600 text-sm">Took your first quiz</p>
+                </div>
+              )}
+              {stats.achievements.includes('perfectScore') && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+                  <Trophy className="h-8 w-8 text-green-600 mx-auto mb-2" />
+                  <h3 className="text-gray-900 font-semibold">Perfect Score!</h3>
+                  <p className="text-gray-600 text-sm">Got 100% on a quiz</p>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="col-span-full text-center py-8 text-gray-500">
+              <Award className="h-12 w-12 mx-auto mb-2 text-gray-300" />
+              <p>No achievements yet. Start learning to unlock achievements!</p>
             </div>
           )}
         </div>

@@ -11,38 +11,46 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #ffffff;
+  color: #000000; /* Default text color should be black, not white */
 }
 
-/* Main background utility (now white by default) */
+/* Main background utility - gradient for auth pages */
 .gradient-bg {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
 }
 
-/* Adjust text colors for white background (override Tailwind's white text utilities) */
+/* Ensure Tailwind text color utilities work properly and override defaults */
+/* This ensures text-white works when explicitly used */
 .text-white {
-  color: #111827 !important; /* gray-900 */
+  color: #ffffff !important;
 }
 
-.text-white\/70 {
-  color: rgba(17, 24, 39, 0.7) !important;
+/* Ensure gray text colors work properly - these are commonly used throughout the app */
+.text-gray-400 {
+  color: #9ca3af !important;
 }
 
-.text-white\/60 {
-  color: rgba(17, 24, 39, 0.6) !important;
+.text-gray-500 {
+  color: #6b7280 !important;
 }
 
-.text-white\/50 {
-  color: rgba(17, 24, 39, 0.5) !important;
+.text-gray-600 {
+  color: #4b5563 !important;
 }
 
-.text-white\/30 {
-  color: rgba(17, 24, 39, 0.3) !important;
+.text-gray-700 {
+  color: #374151 !important;
 }
 
-/* Input placeholder color overrides */
-.placeholder-white\/50::placeholder {
-  color: rgba(17, 24, 39, 0.5) !important;
+.text-gray-800 {
+  color: #1f2937 !important;
 }
+
+.text-gray-900 {
+  color: #111827 !important;
+}
+
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

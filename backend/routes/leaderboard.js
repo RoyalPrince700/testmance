@@ -18,7 +18,7 @@ router.get('/global', optionalAuth, async (req, res) => {
 
     const leaderboard = await User.find(query)
       .populate('university', 'name shortName')
-      .select('username avatar gems level xp completedChapters quizAttempts')
+      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
       .sort({ gems: -1, xp: -1 })
       .limit(parseInt(limit));
 
@@ -55,7 +55,7 @@ router.get('/university/:universityId', optionalAuth, async (req, res) => {
       isActive: true
     })
     .populate('university', 'name shortName')
-    .select('username avatar gems level xp completedChapters quizAttempts')
+    .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
     .sort({ gems: -1, xp: -1 })
     .limit(parseInt(limit));
 
@@ -72,6 +72,165 @@ router.get('/university/:universityId', optionalAuth, async (req, res) => {
     });
   } catch (error) {
     console.error('Get university leaderboard error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   GET /api/leaderboard/faculty
+// @desc    Get faculty-specific leaderboard
+// @access  Public
+router.get('/faculty', optionalAuth, async (req, res) => {
+  try {
+    const { faculty, university, limit = 50 } = req.query;
+
+    if (!faculty) {
+      return res.status(400).json({
+        success: false,
+        message: 'Faculty parameter is required'
+      });
+    }
+
+    let query = {
+      faculty: faculty,
+      isActive: true
+    };
+
+    if (university) {
+      query.university = university;
+    }
+
+    const leaderboard = await User.find(query)
+      .populate('university', 'name shortName')
+      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
+      .sort({ gems: -1, xp: -1 })
+      .limit(parseInt(limit));
+
+    const rankedLeaderboard = leaderboard.map((user, index) => ({
+      ...user.toObject(),
+      rank: index + 1,
+      stats: user.getStats()
+    }));
+
+    res.json({
+      success: true,
+      count: rankedLeaderboard.length,
+      data: rankedLeaderboard
+    });
+  } catch (error) {
+    console.error('Get faculty leaderboard error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   GET /api/leaderboard/department
+// @desc    Get department-specific leaderboard
+// @access  Public
+router.get('/department', optionalAuth, async (req, res) => {
+  try {
+    const { department, faculty, university, limit = 50 } = req.query;
+
+    if (!department) {
+      return res.status(400).json({
+        success: false,
+        message: 'Department parameter is required'
+      });
+    }
+
+    let query = {
+      department: department,
+      isActive: true
+    };
+
+    if (faculty) {
+      query.faculty = faculty;
+    }
+
+    if (university) {
+      query.university = university;
+    }
+
+    const leaderboard = await User.find(query)
+      .populate('university', 'name shortName')
+      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
+      .sort({ gems: -1, xp: -1 })
+      .limit(parseInt(limit));
+
+    const rankedLeaderboard = leaderboard.map((user, index) => ({
+      ...user.toObject(),
+      rank: index + 1,
+      stats: user.getStats()
+    }));
+
+    res.json({
+      success: true,
+      count: rankedLeaderboard.length,
+      data: rankedLeaderboard
+    });
+  } catch (error) {
+    console.error('Get department leaderboard error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   GET /api/leaderboard/level
+// @desc    Get level-specific leaderboard
+// @access  Public
+router.get('/level', optionalAuth, async (req, res) => {
+  try {
+    const { academicLevel, department, faculty, university, limit = 50 } = req.query;
+
+    if (!academicLevel) {
+      return res.status(400).json({
+        success: false,
+        message: 'Academic level parameter is required'
+      });
+    }
+
+    let query = {
+      academicLevel: academicLevel,
+      isActive: true
+    };
+
+    if (department) {
+      query.department = department;
+    }
+
+    if (faculty) {
+      query.faculty = faculty;
+    }
+
+    if (university) {
+      query.university = university;
+    }
+
+    const leaderboard = await User.find(query)
+      .populate('university', 'name shortName')
+      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
+      .sort({ gems: -1, xp: -1 })
+      .limit(parseInt(limit));
+
+    const rankedLeaderboard = leaderboard.map((user, index) => ({
+      ...user.toObject(),
+      rank: index + 1,
+      stats: user.getStats()
+    }));
+
+    res.json({
+      success: true,
+      count: rankedLeaderboard.length,
+      data: rankedLeaderboard
+    });
+  } catch (error) {
+    console.error('Get level leaderboard error:', error);
     res.status(500).json({
       success: false,
       message: 'Server error'

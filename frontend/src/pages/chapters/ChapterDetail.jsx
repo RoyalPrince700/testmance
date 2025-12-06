@@ -2,21 +2,29 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { chaptersAPI, coursesAPI } from '../../utils/api';
 import { BookOpen } from 'lucide-react';
-import { ChapterHeader, SectionViewer, ChapterNavigation } from './components';
+import { ChapterHeader, SectionViewer, ChapterNavigation, CongratulationsModal } from './components';
 import { getChapterContent } from './content';
+import { getQuizContent } from '../quizzes/content';
+import { useAuth } from '../../contexts/AuthContext';
 
 const ChapterDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [chapter, setChapter] = useState(null);
   const [course, setCourse] = useState(null);
   const [allChapters, setAllChapters] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [loading, setLoading] = useState(true);
   const [completed, setCompleted] = useState(false);
+  const [wasCompletedBefore, setWasCompletedBefore] = useState(false);
   const [progress, setProgress] = useState(null);
   const [chapterContent, setChapterContent] = useState(null);
   const [isLastSection, setIsLastSection] = useState(false);
+  const [showCongratulations, setShowCongratulations] = useState(false);
+  const [gemsEarned, setGemsEarned] = useState(3);
+  const [isCompleting, setIsCompleting] = useState(false);
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
   useEffect(() => {
     const loadChapterData = async () => {
@@ -29,12 +37,22 @@ const ChapterDetail = () => {
         // Load course details first (needed for content lookup)
         let courseData = null;
         if (chapterData.course) {
-          const courseResponse = await coursesAPI.getById(chapterData.course._id || chapterData.course);
+          const courseId = chapterData.course._id || chapterData.course;
+          const [courseResponse, enrolledResponse] = await Promise.all([
+            coursesAPI.getById(courseId),
+            coursesAPI.getEnrolled().catch(() => ({ data: [] }))
+          ]);
+          
           courseData = courseResponse.data;
           setCourse(courseData);
 
+          // Check if user is enrolled in this course
+          const enrolledCourses = enrolledResponse.data || [];
+          const enrolled = enrolledCourses.some(c => c._id === courseId || c._id === courseData._id);
+          setIsEnrolled(enrolled);
+
           // Load all chapters for navigation
-          const chaptersResponse = await coursesAPI.getChapters(chapterData.course._id || chapterData.course);
+          const chaptersResponse = await coursesAPI.getChapters(courseId);
           const chapters = chaptersResponse.data;
           setAllChapters(chapters);
 
@@ -68,10 +86,13 @@ const ChapterDetail = () => {
         try {
           const progressResponse = await chaptersAPI.getProgress(id);
           setProgress(progressResponse.data);
-          setCompleted(progressResponse.data.isCompleted);
+          const wasCompleted = progressResponse.data.isCompleted;
+          setCompleted(wasCompleted);
+          setWasCompletedBefore(wasCompleted); // Track if it was already completed
         } catch (progressError) {
           // User might not be authenticated or chapter not completed
           console.log('Progress not available:', progressError);
+          setWasCompletedBefore(false);
         }
       } catch (error) {
         console.error('Failed to load chapter:', error);
@@ -84,25 +105,58 @@ const ChapterDetail = () => {
   }, [id]);
 
   const handleMarkComplete = async () => {
+    // Prevent multiple clicks - disable immediately
+    if (isCompleting || completed) {
+      return;
+    }
+
+    setIsCompleting(true);
+    
     try {
-      await chaptersAPI.complete(id);
+      const response = await chaptersAPI.complete(id);
       setCompleted(true);
-      // Reload progress to get updated stats
+      
+      // Get gems earned from response
+      if (response.data?.data?.gemsEarned) {
+        setGemsEarned(response.data.data.gemsEarned);
+      }
+      
+      // Show congratulations modal - this is a first completion since API call succeeded
+      // wasCompletedBefore tracks if it was completed before this attempt
+      setShowCongratulations(true);
+      
+      // Reload progress to get updated stats and refresh user data
       try {
         const progressResponse = await chaptersAPI.getProgress(id);
         setProgress(progressResponse.data);
+        // Reload user data to ensure gems are synced
+        if (window.location.pathname.includes('/chapters')) {
+          // Trigger a user data refresh if auth context supports it
+          const event = new CustomEvent('userDataRefresh');
+          window.dispatchEvent(event);
+        }
       } catch (e) {
         // Ignore
       }
     } catch (error) {
       console.error('Failed to mark chapter complete:', error);
-      alert('Failed to mark chapter as complete. Please try again.');
+      // Check if error is because chapter was already completed
+      if (error.response?.status === 400 && error.response?.data?.message?.includes('already completed')) {
+        setWasCompletedBefore(true);
+        setCompleted(true);
+        setGemsEarned(3); // They already earned 3 gems
+        setShowCongratulations(true);
+      } else {
+        alert('Failed to mark chapter as complete. Please try again.');
+      }
+    } finally {
+      setIsCompleting(false);
     }
   };
 
   const handleTakeQuiz = () => {
-    if (chapter?.quiz) {
-      navigate(`/quizzes/${chapter.quiz._id || chapter.quiz}`);
+    if (chapter?._id) {
+      navigate(`/quizzes/${chapter._id}`);
     }
   };
 
@@ -130,16 +184,58 @@ const ChapterDetail = () => {
     );
   }
 
+  if (!isEnrolled && !loading && course) {
+    return (
+      <div className="text-center py-12">
+        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course Not Enrolled</h3>
+        <p className="text-gray-600 mb-4">You need to enroll in this course to access its chapters.</p>
+        <div className="flex gap-4 justify-center">
+          <Link
+            to={`/courses/${course._id}`}
+            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
+          >
+            Enroll in Course
+          </Link>
+          <Link
+            to="/courses"
+            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg text-white transition-colors"
+          >
+            Browse Courses
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   const prevChapter = currentIndex > 0 ? allChapters[currentIndex - 1] : null;
   const nextChapter = currentIndex >= 0 && currentIndex < allChapters.length - 1 ? allChapters[currentIndex + 1] : null;
-  const hasQuiz = chapter.quiz && (chapter.quiz._id || chapter.quiz);
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Check if quiz exists in frontend content
+  const hasQuiz = chapter && course ? getQuizContent(chapter.title, chapter.order, course.code) !== null : false;
+  const chapterId = chapter?._id;
+  const courseId = course?._id || chapter?.course?._id || chapter?.course;
+
   return (
     <div className="max-w-5xl mx-auto">
+      {/* Congratulations Modal */}
+      <CongratulationsModal
+        isOpen={showCongratulations}
+        onClose={() => setShowCongratulations(false)}
+        username={user?.username || 'Student'}
+        chapterTitle={chapter?.title}
+        chapterOrder={chapter?.order}
+        isFirstCompletion={!wasCompletedBefore}
+        hasQuiz={hasQuiz}
+        quizId={chapterId}
+        courseId={courseId}
+        gemsEarned={gemsEarned}
+      />
+
       <ChapterHeader 
         chapter={chapter}
         course={course}
@@ -162,6 +258,7 @@ const ChapterDetail = () => {
               onLastSection={setIsLastSection}
               onMarkComplete={handleMarkComplete}
               completed={completed}
+              isCompleting={isCompleting}
             />
           );
         }
@@ -195,6 +292,7 @@ const ChapterDetail = () => {
         onMarkComplete={handleMarkComplete}
         onTakeQuiz={handleTakeQuiz}
         showMarkComplete={!chapterContent || !chapterContent.sections}
+        isCompleting={isCompleting}
       />
     </div>
   );

@@ -10,7 +10,11 @@ const handleResponse = async (response) => {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong');
+    // Preserve the status code and message for better error handling
+    const error = new Error(data.message || 'Something went wrong');
+    error.status = response.status;
+    error.data = data;
+    throw error;
   }
 
   return data;
@@ -36,14 +40,9 @@ const apiRequest = async (endpoint, options = {}) => {
 
 // Auth API
 export const authAPI = {
-  login: (credentials) => apiRequest('/auth/login', {
+  googleLogin: (googleData) => apiRequest('/auth/google/mobile', {
     method: 'POST',
-    body: JSON.stringify(credentials),
-  }),
-
-  register: (userData) => apiRequest('/auth/register', {
-    method: 'POST',
-    body: JSON.stringify(userData),
+    body: JSON.stringify(googleData),
   }),
 
   getMe: () => apiRequest('/auth/me'),
@@ -75,6 +74,16 @@ export const coursesAPI = {
   getChapters: (id) => apiRequest(`/courses/${id}/chapters`),
 
   getProgress: (id) => apiRequest(`/courses/${id}/progress`),
+
+  enroll: (id) => apiRequest(`/courses/${id}/enroll`, {
+    method: 'POST',
+  }),
+
+  unenroll: (id) => apiRequest(`/courses/${id}/unenroll`, {
+    method: 'POST',
+  }),
+
+  getEnrolled: () => apiRequest('/courses/user/enrolled'),
 };
 
 // Chapters API
@@ -92,9 +101,16 @@ export const chaptersAPI = {
 export const quizzesAPI = {
   getById: (id) => apiRequest(`/quizzes/${id}`),
 
+  getByChapter: (chapterId) => apiRequest(`/quizzes/chapter/${chapterId}`),
+
   submit: (id, answers) => apiRequest(`/quizzes/${id}/submit`, {
     method: 'POST',
     body: JSON.stringify({ answers }),
+  }),
+
+  submitByChapter: (chapterId, answers, quizData) => apiRequest(`/quizzes/chapter/${chapterId}/submit`, {
+    method: 'POST',
+    body: JSON.stringify({ answers, quizData }),
   }),
 
   getResults: (id) => apiRequest(`/quizzes/${id}/results`),
@@ -114,6 +130,21 @@ export const leaderboardAPI = {
     return apiRequest(`/leaderboard/university/${universityId}?${query}`);
   },
 
+  getFaculty: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiRequest(`/leaderboard/faculty?${query}`);
+  },
+
+  getDepartment: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiRequest(`/leaderboard/department?${query}`);
+  },
+
+  getLevel: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiRequest(`/leaderboard/level?${query}`);
+  },
+
   getUserRank: () => apiRequest('/leaderboard/user/rank'),
 
   getStats: () => apiRequest('/leaderboard/stats'),
@@ -125,10 +156,17 @@ export const usersAPI = {
 
   getStats: () => apiRequest('/users/stats'),
 
+  updateProfile: (data) => apiRequest('/auth/update-profile', {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  }),
+
   updateAvatar: (avatar) => apiRequest('/users/avatar', {
     method: 'PUT',
     body: JSON.stringify({ avatar }),
   }),
+
+  getUserById: (userId) => apiRequest(`/users/${userId}`),
 };
 
 // Uploads API (for file uploads)
@@ -169,6 +207,14 @@ export const uploadsAPI = {
 // Health check
 export const healthAPI = {
   check: () => apiRequest('/health'),
+};
+
+// AI API
+export const aiAPI = {
+  explain: (topic, content, analogy) => apiRequest('/ai/explain', {
+    method: 'POST',
+    body: JSON.stringify({ topic, content, analogy }),
+  }),
 };
 
 export default apiRequest;

@@ -44,6 +44,38 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route   GET /api/courses/user/enrolled
+// @desc    Get user's enrolled courses
+// @access  Private
+router.get('/user/enrolled', protect, async (req, res) => {
+  try {
+    const User = require('../models/User');
+    const user = await User.findById(req.user._id)
+      .populate({
+        path: 'enrolledCourses',
+        match: { isPublished: true, isActive: true },
+        populate: {
+          path: 'university',
+          select: 'name shortName'
+        }
+      });
+
+    const enrolledCourses = user.enrolledCourses.filter(course => course !== null);
+
+    res.json({
+      success: true,
+      count: enrolledCourses.length,
+      data: enrolledCourses
+    });
+  } catch (error) {
+    console.error('Get enrolled courses error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
 // @route   GET /api/courses/:id
 // @desc    Get single course with chapters
 // @access  Public
@@ -160,6 +192,109 @@ router.get('/:id/progress', protect, async (req, res) => {
     });
   } catch (error) {
     console.error('Get course progress error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   POST /api/courses/:id/enroll
+// @desc    Enroll user in a course
+// @access  Private
+router.post('/:id/enroll', protect, async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) {
+      return res.status(404).json({
+        success: false,
+        message: 'Course not found'
+      });
+    }
+
+    if (!course.isPublished || !course.isActive) {
+      return res.status(400).json({
+        success: false,
+        message: 'Course is not available for enrollment'
+      });
+    }
+
+    const User = require('../models/User');
+    const user = await User.findById(req.user._id);
+
+    const isEnrolled = user.enrolledCourses.some(
+      enrolledId => enrolledId.toString() === course._id.toString()
+    );
+
+    if (isEnrolled) {
+      return res.status(400).json({
+        success: false,
+        message: 'Already enrolled in this course'
+      });
+    }
+
+    user.enrolledCourses.push(course._id);
+    await user.save();
+
+    // Update course total students count (count enrolled students)
+    await course.updateStudentCount();
+
+    res.json({
+      success: true,
+      message: 'Successfully enrolled in course',
+      data: { courseId: course._id }
+    });
+  } catch (error) {
+    console.error('Enroll course error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   POST /api/courses/:id/unenroll
+// @desc    Unenroll user from a course
+// @access  Private
+router.post('/:id/unenroll', protect, async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) {
+      return res.status(404).json({
+        success: false,
+        message: 'Course not found'
+      });
+    }
+
+    const User = require('../models/User');
+    const user = await User.findById(req.user._id);
+
+    const isEnrolled = user.enrolledCourses.some(
+      enrolledId => enrolledId.toString() === course._id.toString()
+    );
+
+    if (!isEnrolled) {
+      return res.status(400).json({
+        success: false,
+        message: 'Not enrolled in this course'
+      });
+    }
+
+    user.enrolledCourses = user.enrolledCourses.filter(
+      courseId => courseId.toString() !== course._id.toString()
+    );
+    await user.save();
+
+    // Update course total students count (count enrolled students)
+    await course.updateStudentCount();
+
+    res.json({
+      success: true,
+      message: 'Successfully unenrolled from course',
+      data: { courseId: course._id }
+    });
+  } catch (error) {
+    console.error('Unenroll course error:', error);
     res.status(500).json({
       success: false,
       message: 'Server error'

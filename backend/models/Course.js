@@ -87,20 +87,16 @@ courseSchema.virtual('chapterCount').get(function() {
   return this.chapters.length;
 });
 
-// Update total students count
+// Update total students count - count enrolled students
 courseSchema.methods.updateStudentCount = async function() {
   const User = mongoose.model('User');
-  const Chapter = mongoose.model('Chapter');
 
-  // Count unique users who have completed at least one chapter in this course
-  const chapters = await Chapter.find({ course: this._id }).select('_id');
-  const chapterIds = chapters.map(ch => ch._id);
-
-  const uniqueStudents = await User.distinct('username', {
-    'completedChapters.chapter': { $in: chapterIds }
+  // Count users who have enrolled in this course
+  const enrolledCount = await User.countDocuments({
+    enrolledCourses: this._id
   });
 
-  this.totalStudents = uniqueStudents.length;
+  this.totalStudents = enrolledCount;
   await this.save();
 };
 

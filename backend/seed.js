@@ -3,13 +3,13 @@ const User = require('./models/User');
 const University = require('./models/University');
 const Course = require('./models/Course');
 const Chapter = require('./models/Chapter');
-const Quiz = require('./models/Quiz');
 require('dotenv').config();
 
 // Import data files
 const universitiesData = require('./data/universities');
 const coursesData = require('./data/courses');
 const chaptersData = require('./data/chapters');
+const { getQuiz } = require('./data/quizzes');
 
 const seedData = async () => {
   try {
@@ -57,6 +57,7 @@ const seedData = async () => {
     }
 
     // 3. Sync Chapters
+    const chapterMap = {};
     for (const chapterData of chaptersData) {
       // Find the course ID using the code
       const courseId = courseMap[chapterData.courseCode];
@@ -68,7 +69,7 @@ const seedData = async () => {
 
       const { courseCode, ...chapterFields } = chapterData;
 
-      await Chapter.findOneAndUpdate(
+      const chapter = await Chapter.findOneAndUpdate(
         { title: chapterFields.title, course: courseId },
         { 
           ...chapterFields, 
@@ -78,10 +79,17 @@ const seedData = async () => {
         },
         { upsert: true, new: true }
       );
+      
+      // Store chapter mapping for quiz creation
+      const chapterKey = `${chapterData.courseCode}_${chapterFields.title}`;
+      chapterMap[chapterKey] = chapter._id;
     }
     console.log(`Synced ${chaptersData.length} chapters.`);
 
-    // 4. Create/Update Sample User (Optional, keeps it ensuring access)
+    // Note: Quizzes are now handled in frontend (frontend/src/pages/quizzes/content/)
+    // No need to create quizzes in backend anymore
+
+    // 5. Create/Update Sample User (Optional, keeps it ensuring access)
     const sampleUserEmail = 'test@example.com';
     const uniId = Object.values(universityMap)[0]; // Default to first uni
     

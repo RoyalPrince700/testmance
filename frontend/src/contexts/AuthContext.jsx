@@ -41,32 +41,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const login = async (credentials) => {
-    try {
-      setLoading(true);
-      setError(null);
+// Manual login/register removed - only Google OAuth is supported
 
-      const response = await authAPI.login(credentials);
-      const { user, token } = response.data;
-
-      localStorage.setItem('token', token);
-      setUser(user);
-
-      return { success: true };
-    } catch (err) {
-      setError(err.message);
-      return { success: false, error: err.message };
-    } finally {
-      setLoading(false);
-    }
+  const googleLogin = () => {
+    // Redirect to Google OAuth
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    window.location.href = `${apiUrl}/api/auth/google`;
   };
 
-  const register = async (userData) => {
+  const googleLoginMobile = async (googleData) => {
     try {
       setLoading(true);
       setError(null);
 
-      const response = await authAPI.register(userData);
+      const response = await authAPI.googleLogin(googleData);
       const { user, token } = response.data;
 
       localStorage.setItem('token', token);
@@ -117,8 +105,8 @@ export const AuthProvider = ({ children }) => {
     user,
     loading,
     error,
-    login,
-    register,
+    googleLogin,
+    googleLoginMobile,
     logout,
     clearError,
     updateProfile,

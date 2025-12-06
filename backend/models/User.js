@@ -19,8 +19,20 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: function() {
+      // Password is required only if user doesn't have Google ID
+      return !this.googleId;
+    },
     minlength: 6
+  },
+  googleId: {
+    type: String,
+    unique: true,
+    sparse: true
+  },
+  googleProfile: {
+    type: Object,
+    default: null
   },
   avatar: {
     type: String, // Cloudinary URL
@@ -30,6 +42,27 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'University',
     required: true
+  },
+  faculty: {
+    type: String,
+    trim: true,
+    default: null
+  },
+  department: {
+    type: String,
+    trim: true,
+    default: null
+  },
+  academicLevel: {
+    type: String,
+    trim: true,
+    default: null,
+    enum: ['100', '200', '300', '400', '500', '600', null]
+  },
+  preferredAnalogy: {
+    type: String,
+    default: null,
+    enum: ['general', 'football', 'gaming', 'movies', 'fashion', 'cooking', 'music', null]
   },
   gems: {
     type: Number,
@@ -43,6 +76,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  enrolledCourses: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Course'
+  }],
   completedChapters: [{
     chapter: {
       type: mongoose.Schema.Types.ObjectId,
@@ -84,14 +121,25 @@ const userSchema = new mongoose.Schema({
   isActive: {
     type: Boolean,
     default: true
+  },
+  profileVisibility: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true
 });
 
-// Hash password before saving
+// Capitalize first letter of username
+userSchema.pre('save', function() {
+  if (this.isModified('username') && this.username) {
+    this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
+  }
+});
+
+// Hash password before saving (only for users with passwords)
 userSchema.pre('save', async function() {
-  if (!this.isModified('password')) return;
+  if (!this.isModified('password') || !this.password) return;
 
   const salt = await bcrypt.genSalt(12);
   this.password = await bcrypt.hash(this.password, salt);
