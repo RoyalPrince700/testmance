@@ -4,13 +4,7 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: function() {
-      // Username is required only if user has completed profile setup
-      // For Google OAuth users who haven't set up their profile yet, username is optional
-      return this.isProfileSetupComplete !== false;
-    },
-    unique: true,
-    sparse: true, // Allow null values in unique index
+    default: null, // Allow null initially
     trim: true,
     minlength: 3,
     maxlength: 30
