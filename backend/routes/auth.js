@@ -55,8 +55,16 @@ async (accessToken, refreshToken, profile, done) => {
       return done(new Error('No universities available. Please contact administrator.'), null);
     }
 
+    // Auto-generate username from Gmail
+    let username = null;
+    if (profile.emails[0].value.endsWith('@gmail.com')) {
+      const gmailUsername = profile.emails[0].value.split('@')[0];
+      username = gmailUsername.charAt(0).toUpperCase() + gmailUsername.slice(1);
+    }
+
     user = new User({
       email: profile.emails[0].value,
+      username: username, // Auto-set from Gmail
       googleId: profile.id,
       googleProfile: profile,
       university: defaultUniversity._id,
@@ -124,6 +132,7 @@ router.get('/me', protect, async (req, res) => {
 // @access  Private
 router.post('/setup-profile', protect, [
   body('username')
+    .optional()
     .isLength({ min: 3, max: 30 })
     .matches(/^[a-zA-Z0-9_]+$/)
     .withMessage('Username must be 3-30 characters and contain only letters, numbers, and underscores'),
@@ -142,26 +151,28 @@ router.post('/setup-profile', protect, [
     }
 
     const { username, avatar } = req.body;
-
-    // Check if username already exists
-    const existingUser = await User.findOne({
-      username: { $regex: new RegExp(`^${username}$`, 'i') }
-    });
-    if (existingUser) {
-      return res.status(400).json({
-        success: false,
-        message: 'Username already taken'
-      });
-    }
-
-    // Capitalize first letter of username
-    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
-
-    // Update user profile
     const updateData = {
-      username: capitalizedUsername,
       isProfileSetupComplete: true
     };
+
+    // Only update username if provided
+    if (username) {
+      // Check if username already exists (case-insensitive)
+      const existingUser = await User.findOne({
+        username: { $regex: new RegExp(`^${username}$`, 'i') },
+        _id: { $ne: req.user._id } // Exclude current user
+      });
+      if (existingUser) {
+        return res.status(400).json({
+          success: false,
+          message: 'Username already taken'
+        });
+      }
+
+      // Capitalize first letter of username
+      const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
+      updateData.username = capitalizedUsername;
+    }
 
     if (avatar) {
       updateData.avatar = avatar;

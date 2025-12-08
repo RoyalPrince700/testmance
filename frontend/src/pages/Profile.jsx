@@ -358,7 +358,7 @@ const Profile = () => {
               </div>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">{user?.username}</h1>
+              <h1 className="text-3xl font-bold text-gray-900">{user?.username || 'Username not set'}</h1>
               <p className="text-gray-600">{user?.email}</p>
               {user?.university && (
                 <p className="text-gray-500 text-sm">

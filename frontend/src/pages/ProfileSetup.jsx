@@ -18,12 +18,12 @@ const ProfileSetup = () => {
   const navigate = useNavigate();
   const [saving, setSaving] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(user?.avatar || '');
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState(user?.username || '');
   const [usernameError, setUsernameError] = useState('');
 
   const validateUsername = (value) => {
     if (!value) {
-      return 'Username is required';
+      return ''; // Username is now optional
     }
     if (value.length < 3) {
       return 'Username must be at least 3 characters';
@@ -54,10 +54,16 @@ const ProfileSetup = () => {
 
     try {
       setSaving(true);
-      const response = await authAPI.setupProfile({
-        username,
+      const profileData = {
         avatar: selectedAvatar
-      });
+      };
+
+      // Only include username if it was changed or is not empty
+      if (username && username !== user?.username) {
+        profileData.username = username;
+      }
+
+      const response = await authAPI.setupProfile(profileData);
 
       if (response.success) {
         // Reload user data to get updated profile
@@ -92,33 +98,32 @@ const ProfileSetup = () => {
             Complete Your Profile
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Choose a username and avatar to finish setting up your account
+            Your username has been set from your Gmail. You can change it later in your profile settings.
           </p>
         </div>
 
         <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Username Input */}
+            {/* Username Display */}
             <div>
               <label className="flex items-center space-x-2 text-gray-700 text-sm font-medium mb-2">
                 <User className="h-4 w-4" />
-                <span>Username</span>
+                <span>Username (Optional)</span>
               </label>
               <input
                 type="text"
                 value={username}
                 onChange={handleUsernameChange}
-                className={`w-full px-4 py-2 bg-white border rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 bg-gray-50 border rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent ${
                   usernameError ? 'border-red-300' : 'border-gray-300'
                 }`}
-                placeholder="Enter your username"
-                required
+                placeholder="Enter a custom username (optional)"
               />
               {usernameError && (
                 <p className="mt-1 text-sm text-red-600">{usernameError}</p>
               )}
               <p className="mt-1 text-xs text-gray-500">
-                3-30 characters, letters, numbers, and underscores only
+                Leave empty to keep your Gmail username. 3-30 characters, letters, numbers, and underscores only.
               </p>
             </div>
 
@@ -159,7 +164,7 @@ const ProfileSetup = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={saving || !username || !!usernameError}
+              disabled={saving || !!usernameError}
               className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Save className="h-5 w-5" />

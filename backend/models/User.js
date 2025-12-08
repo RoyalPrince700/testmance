@@ -137,8 +137,15 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Capitalize first letter of username
+// Auto-generate username from Gmail if not set
 userSchema.pre('save', function() {
+  // Auto-generate username from Gmail if not set and it's a Gmail account
+  if (!this.username && this.email && this.email.endsWith('@gmail.com')) {
+    const gmailUsername = this.email.split('@')[0];
+    this.username = gmailUsername.charAt(0).toUpperCase() + gmailUsername.slice(1);
+  }
+
+  // Capitalize first letter of username
   if (this.isModified('username') && this.username) {
     this.username = this.username.charAt(0).toUpperCase() + this.username.slice(1);
   }
