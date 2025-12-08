@@ -95,9 +95,7 @@ router.post('/:id/complete', protect, async (req, res) => {
         message: 'Chapter already completed',
         data: {
           gemsEarned: 0,
-          newGems: userBeforeUpdate.gems,
-          newXp: userBeforeUpdate.xp,
-          newLevel: userBeforeUpdate.level
+          newGems: userBeforeUpdate.gems
         }
       });
     }
@@ -106,10 +104,6 @@ router.post('/:id/complete', protect, async (req, res) => {
     // Only update if chapter is NOT already in completedChapters array
     const isFirstCompletion = userBeforeUpdate.completedChapters.length === 0;
     const gemsEarned = 3;
-    const xpEarned = 10;
-    const currentXp = userBeforeUpdate.xp || 0;
-    const newXp = currentXp + xpEarned;
-    const newLevel = Math.floor(newXp / 100) + 1;
 
     // Use findOneAndUpdate with a condition that checks chapter is not in array
     // This ensures atomic operation - only updates if condition is met
@@ -128,11 +122,7 @@ router.post('/:id/complete', protect, async (req, res) => {
           }
         },
         $inc: {
-          gems: gemsEarned,
-          xp: xpEarned
-        },
-        $set: {
-          level: newLevel
+          gems: gemsEarned
         }
       },
       {
@@ -152,9 +142,7 @@ router.post('/:id/complete', protect, async (req, res) => {
         message: 'Chapter already completed',
         data: {
           gemsEarned: 0,
-          newGems: currentUser.gems,
-          newXp: currentUser.xp,
-          newLevel: currentUser.level
+          newGems: currentUser.gems
         }
       });
     }
@@ -170,9 +158,7 @@ router.post('/:id/complete', protect, async (req, res) => {
       message: 'Chapter completed successfully',
       data: {
         gemsEarned: gemsEarned,
-        newGems: updatedUser.gems,
-        newXp: updatedUser.xp,
-        newLevel: updatedUser.level
+        newGems: updatedUser.gems
       }
     });
   } catch (error) {

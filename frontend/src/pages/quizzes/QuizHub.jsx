@@ -100,8 +100,8 @@ const QuizHub = () => {
 
               {/* Course Info */}
               <div className="text-center mb-8">
-                <p className="text-sm font-semibold text-gray-600 mb-1">{course.code}</p>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
+                <h3 className="text-2xl font-black text-gray-900 mb-1">{course.code}</h3>
+                <p className="text-lg font-semibold text-gray-700 mb-2">{course.title}</p>
                 <p className="text-gray-500 text-sm">{course.description?.substring(0, 50)}...</p>
                 
                 <div className="flex items-center justify-center mt-4 space-x-1">

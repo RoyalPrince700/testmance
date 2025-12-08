@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { GraduationCap, CheckCircle, XCircle } from 'lucide-react';
+import { CheckCircle, XCircle } from 'lucide-react';
+import testmancerLogo from '../assets/testmancer-logo.png';
+
+let userLoaded = false;
 
 const AuthCallback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { loadUser } = useAuth();
+  const { loadUser, user } = useAuth();
   const [status, setStatus] = useState('processing'); // 'processing', 'success', 'error'
   const [message, setMessage] = useState('Processing your authentication...');
 
@@ -40,8 +43,16 @@ const AuthCallback = () => {
         setStatus('success');
         setMessage('Authentication successful! Redirecting...');
 
-        // Redirect to dashboard after a short delay
-        setTimeout(() => navigate('/dashboard'), 2000);
+        // Redirect based on profile setup status
+        setTimeout(() => {
+          // Load user data again after loadUser call
+          const updatedUser = JSON.parse(localStorage.getItem('user') || '{}');
+          if (updatedUser.isProfileSetupComplete === false) {
+            navigate('/profile-setup');
+          } else {
+            navigate('/dashboard');
+          }
+        }, 2000);
 
       } catch (err) {
         console.error('Auth callback error:', err);
@@ -54,12 +65,30 @@ const AuthCallback = () => {
     handleCallback();
   }, [searchParams, navigate, loadUser]);
 
+  // Handle redirection after user data is loaded
+  useEffect(() => {
+    if (user && status === 'success' && !userLoaded) {
+      userLoaded = true;
+      setTimeout(() => {
+        if (user.isProfileSetupComplete === false) {
+          navigate('/profile-setup');
+        } else {
+          navigate('/dashboard');
+        }
+      }, 2000);
+    }
+  }, [user, status, navigate]);
+
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center">
-            <GraduationCap className="h-12 w-12 text-purple-600" />
+            <img
+              src={testmancerLogo}
+              alt="TestMancer Logo"
+              className="h-12 w-12 object-contain"
+            />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
             TestMancer

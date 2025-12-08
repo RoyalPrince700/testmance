@@ -10,7 +10,7 @@ import { useAuth } from '../../contexts/AuthContext';
 const ChapterDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, loadUser } = useAuth();
   const [chapter, setChapter] = useState(null);
   const [course, setCourse] = useState(null);
   const [allChapters, setAllChapters] = useState([]);
@@ -129,12 +129,8 @@ const ChapterDetail = () => {
       try {
         const progressResponse = await chaptersAPI.getProgress(id);
         setProgress(progressResponse.data);
-        // Reload user data to ensure gems are synced
-        if (window.location.pathname.includes('/chapters')) {
-          // Trigger a user data refresh if auth context supports it
-          const event = new CustomEvent('userDataRefresh');
-          window.dispatchEvent(event);
-        }
+        // Reload user data to ensure gems are synced immediately
+        await loadUser();
       } catch (e) {
         // Ignore
       }

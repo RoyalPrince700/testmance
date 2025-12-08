@@ -30,10 +30,13 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await authAPI.getMe();
       setUser(response.data.user);
+      // Store user data in localStorage for AuthCallback access
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       setError(null);
     } catch (err) {
       console.error('Failed to load user:', err);
       localStorage.removeItem('token');
+      localStorage.removeItem('user');
       setUser(null);
       setError('Session expired. Please login again.');
     } finally {
@@ -71,6 +74,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setUser(null);
     setError(null);
   };
@@ -83,6 +87,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await authAPI.updateProfile(data);
       setUser(response.data.user);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       return { success: true };
     } catch (err) {
       setError(err.message);
@@ -113,6 +118,7 @@ export const AuthProvider = ({ children }) => {
     updateAvatar,
     loadUser,
     isAuthenticated: !!user,
+    isAdmin: user?.isAdmin === true,
   };
 
   return (

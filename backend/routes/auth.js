@@ -55,15 +55,13 @@ async (accessToken, refreshToken, profile, done) => {
       return done(new Error('No universities available. Please contact administrator.'), null);
     }
 
-    const username = profile.displayName.replace(/\s+/g, '').toLowerCase().substring(0, 30);
-
     user = new User({
-      username: username,
       email: profile.emails[0].value,
       googleId: profile.id,
       googleProfile: profile,
       university: defaultUniversity._id,
-      avatar: profile.photos && profile.photos[0] ? profile.photos[0].value : null
+      avatar: null, // Don't auto-assign avatar from Google profile - user must choose manually
+      isProfileSetupComplete: false // Mark as needing profile setup
     });
 
     await user.save();
@@ -117,6 +115,74 @@ router.get('/me', protect, async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Server error'
+    });
+  }
+});
+
+// @route   POST /api/auth/setup-profile
+// @desc    Complete profile setup for new users (username/avatar selection)
+// @access  Private
+router.post('/setup-profile', protect, [
+  body('username')
+    .isLength({ min: 3, max: 30 })
+    .matches(/^[a-zA-Z0-9_]+$/)
+    .withMessage('Username must be 3-30 characters and contain only letters, numbers, and underscores'),
+  body('avatar')
+    .optional()
+    .isString()
+], async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
+      });
+    }
+
+    const { username, avatar } = req.body;
+
+    // Check if username already exists
+    const existingUser = await User.findOne({
+      username: { $regex: new RegExp(`^${username}$`, 'i') }
+    });
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: 'Username already taken'
+      });
+    }
+
+    // Capitalize first letter of username
+    const capitalizedUsername = username.charAt(0).toUpperCase() + username.slice(1);
+
+    // Update user profile
+    const updateData = {
+      username: capitalizedUsername,
+      isProfileSetupComplete: true
+    };
+
+    if (avatar) {
+      updateData.avatar = avatar;
+    }
+
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      updateData,
+      { new: true, runValidators: true }
+    ).populate('university', 'name shortName');
+
+    res.json({
+      success: true,
+      message: 'Profile setup completed successfully',
+      data: { user }
+    });
+  } catch (error) {
+    console.error('Profile setup error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error during profile setup'
     });
   }
 });

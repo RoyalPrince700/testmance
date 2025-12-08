@@ -42,6 +42,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/testmance
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/admin', require('./routes/admin'));
 app.use('/api/universities', require('./routes/universities'));
 app.use('/api/courses', require('./routes/courses'));
 app.use('/api/chapters', require('./routes/chapters'));

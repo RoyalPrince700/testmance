@@ -19,7 +19,7 @@ router.get('/global', optionalAuth, async (req, res) => {
     const leaderboard = await User.find(query)
       .populate('university', 'name shortName')
       .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1, xp: -1 })
+      .sort({ gems: -1 })
       .limit(parseInt(limit));
 
     // Add rank to each user
@@ -105,7 +105,7 @@ router.get('/faculty', optionalAuth, async (req, res) => {
     const leaderboard = await User.find(query)
       .populate('university', 'name shortName')
       .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1, xp: -1 })
+      .sort({ gems: -1 })
       .limit(parseInt(limit));
 
     const rankedLeaderboard = leaderboard.map((user, index) => ({
@@ -158,7 +158,7 @@ router.get('/department', optionalAuth, async (req, res) => {
     const leaderboard = await User.find(query)
       .populate('university', 'name shortName')
       .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1, xp: -1 })
+      .sort({ gems: -1 })
       .limit(parseInt(limit));
 
     const rankedLeaderboard = leaderboard.map((user, index) => ({
@@ -215,7 +215,7 @@ router.get('/level', optionalAuth, async (req, res) => {
     const leaderboard = await User.find(query)
       .populate('university', 'name shortName')
       .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1, xp: -1 })
+      .sort({ gems: -1 })
       .limit(parseInt(limit));
 
     const rankedLeaderboard = leaderboard.map((user, index) => ({
@@ -247,8 +247,7 @@ router.get('/user/rank', protect, async (req, res) => {
     const globalRank = await User.countDocuments({
       isActive: true,
       $or: [
-        { gems: { $gt: req.user.gems } },
-        { gems: req.user.gems, xp: { $gt: req.user.xp } }
+        { gems: { $gt: req.user.gems } }
       ]
     }) + 1;
 
@@ -257,8 +256,7 @@ router.get('/user/rank', protect, async (req, res) => {
       university: req.user.university,
       isActive: true,
       $or: [
-        { gems: { $gt: req.user.gems } },
-        { gems: req.user.gems, xp: { $gt: req.user.xp } }
+        { gems: { $gt: req.user.gems } }
       ]
     }) + 1;
 

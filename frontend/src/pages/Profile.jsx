@@ -374,7 +374,7 @@ const Profile = () => {
           {!editing && (
             <button
               onClick={() => setEditing(true)}
-              className="flex items-center justify-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors w-full md:w-auto"
+              className="flex items-center justify-center space-x-2 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors w-full md:w-auto"
             >
               <Edit className="h-4 w-4" />
               <span>Edit Profile</span>

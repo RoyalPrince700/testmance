@@ -123,7 +123,7 @@ router.get('/:id', protect, async (req, res) => {
 // @access  Private
 router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
   const session = await mongoose.startSession();
-  
+
   try {
     session.startTransaction();
 
@@ -141,7 +141,7 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
     // Find or create quiz for this chapter
     const Chapter = require('../models/Chapter');
     const chapter = await Chapter.findById(req.params.chapterId).session(session);
-    
+
     if (!chapter) {
       await session.abortTransaction();
       return res.status(404).json({
@@ -152,26 +152,49 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
 
     let quiz = await Quiz.findOne({ chapter: req.params.chapterId }).session(session);
 
-    // If quiz doesn't exist and we have quizData, create it
-    if (!quiz && quizData) {
-      quiz = await Quiz.create([{
-        title: quizData.title,
-        description: quizData.description,
-        chapter: req.params.chapterId,
-        course: chapter.course,
-        questions: quizData.questions,
-        passingScore: quizData.passingScore || 70,
-        timeLimit: quizData.timeLimit || 0,
-        isActive: true
-      }], { session });
-      quiz = quiz[0];
+    // If quiz doesn't exist, or exists but has different question count, create/update it
+    if (!quiz || (quizData && quiz.questions.length !== quizData.questions.length)) {
+      if (quiz) {
+        // Update existing quiz with new content
+        quiz = await Quiz.findByIdAndUpdate(
+          quiz._id,
+          {
+            title: quizData.title,
+            description: quizData.description,
+            questions: quizData.questions,
+            passingScore: quizData.passingScore || 70,
+            timeLimit: quizData.timeLimit || 0,
+            isActive: true
+          },
+          { new: true, session }
+        );
+        console.log(`Updated existing quiz ${quiz._id} for chapter ${req.params.chapterId} from ${quiz.questions.length} to ${quizData.questions.length} questions`);
+      } else {
+        // Create new quiz
+        const quizId = new mongoose.Types.ObjectId();
 
-      // Link quiz to chapter
-      await Chapter.findByIdAndUpdate(
-        req.params.chapterId,
-        { quiz: quiz._id },
-        { session }
-      );
+        quiz = await Quiz.create([{
+          _id: quizId,
+          title: quizData.title,
+          description: quizData.description,
+          chapter: req.params.chapterId,
+          course: chapter.course,
+          questions: quizData.questions,
+          passingScore: quizData.passingScore || 70,
+          timeLimit: quizData.timeLimit || 0,
+          isActive: true
+        }], { session });
+        quiz = quiz[0];
+
+        // Link quiz to chapter
+        await Chapter.findByIdAndUpdate(
+          req.params.chapterId,
+          { quiz: quiz._id },
+          { session }
+        );
+
+        console.log(`Created new quiz ${quiz._id} for chapter ${req.params.chapterId}`);
+      }
     }
 
     if (!quiz) {
@@ -204,9 +227,17 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
       }
     }
 
-    // Re-fetch user from database within transaction
-    const user = await User.findById(req.user._id).session(session);
-    if (!user) {
+    // Calculate score
+    const result = quiz.calculateScore(answers);
+    const gemsEarned = result.correctAnswers; // 1 gem per correct answer on first attempt
+
+    // Use atomic operation to ensure first-attempt-only gems
+    const quizObjectId = quiz._id;
+    const userId = req.user._id;
+
+    // First, check if this is the first attempt by trying to find user without this quiz
+    const userBeforeUpdate = await User.findById(userId).session(session);
+    if (!userBeforeUpdate) {
       await session.abortTransaction();
       return res.status(404).json({
         success: false,
@@ -214,37 +245,40 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
       });
     }
 
-    // Check if this is the first attempt
-    const existingAttempts = user.quizAttempts.filter(
+    // Check if user already attempted this quiz
+    // Use quiz._id for consistency - the quiz should be found/created consistently
+    const existingAttempts = userBeforeUpdate.quizAttempts.filter(
       attempt => attempt.quiz && attempt.quiz.toString() === quiz._id.toString()
     );
+
     const isFirstAttempt = existingAttempts.length === 0;
 
-    // Calculate score
-    const result = quiz.calculateScore(answers);
-    let gemsEarned = 0;
+    // Award gems only on first attempt
+    let finalGemsEarned = isFirstAttempt ? gemsEarned : 0;
 
-    // Award gems only on first attempt: 1 gem per correct answer
-    if (isFirstAttempt) {
-      gemsEarned = result.correctAnswers; // 1 gem per correct answer
-      user.gems += gemsEarned;
-    }
+    // Update user with attempt and gems
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $push: {
+          quizAttempts: {
+            quiz: quizObjectId,
+            score: result.percentage,
+            totalQuestions: result.totalQuestions,
+            gemsEarned: finalGemsEarned
+          }
+        },
+        $inc: {
+          gems: finalGemsEarned
+        }
+      },
+      {
+        new: true,
+        session: session
+      }
+    );
 
-    // Update XP (XP can be earned on every attempt)
-    const xpEarned = Math.floor(result.percentage / 10); // 10 XP per 10% score
-    user.xp += xpEarned;
-    user.level = Math.floor(user.xp / 100) + 1;
-
-    // Record attempt
-    user.quizAttempts.push({
-      quiz: quiz._id,
-      score: result.percentage,
-      totalQuestions: result.totalQuestions,
-      gemsEarned
-    });
-
-    // Save user with all updates atomically within transaction
-    await user.save({ session });
+    const finalNewGems = updatedUser.gems;
 
     // Commit transaction
     await session.commitTransaction();
@@ -254,11 +288,8 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
       message: result.passed ? 'Quiz passed!' : 'Quiz completed',
       data: {
         ...result,
-        gemsEarned,
-        xpEarned,
-        newGems: user.gems,
-        newXp: user.xp,
-        newLevel: user.level,
+        gemsEarned: finalGemsEarned,
+        newGems: finalNewGems,
         isFirstAttempt
       }
     });
@@ -283,11 +314,11 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
 // 1. Uses MongoDB transactions to prevent race conditions (atomic check-and-update)
 // 2. Validates answers array length matches quiz questions (prevents manipulation)
 // 3. Validates each answer index is within valid range (prevents invalid answers)
-// 4. Only awards gems on first attempt (checked within transaction)
-// 5. Re-fetches user from database within transaction to ensure latest state
+// 4. Only awards gems on first attempt using atomic operations (prevents race conditions)
+// 5. Uses atomic findOneAndUpdate with condition to ensure first-attempt-only gems
 router.post('/:id/submit', protect, async (req, res) => {
   const session = await mongoose.startSession();
-  
+
   try {
     session.startTransaction();
 
@@ -334,10 +365,17 @@ router.post('/:id/submit', protect, async (req, res) => {
       }
     }
 
-    // Re-fetch user from database within transaction to ensure we have the latest state
-    // Use req.user._id which was already validated by protect middleware
-    const user = await User.findById(req.user._id).session(session);
-    if (!user) {
+    // Calculate score
+    const result = quiz.calculateScore(answers);
+    const gemsEarned = result.correctAnswers; // 1 gem per correct answer on first attempt
+
+    // Use atomic operation to ensure first-attempt-only gems
+    const quizObjectId = new mongoose.Types.ObjectId(req.params.id);
+    const userId = req.user._id;
+
+    // First, check if this is the first attempt by trying to find user without this quiz
+    const userBeforeUpdate = await User.findById(userId).session(session);
+    if (!userBeforeUpdate) {
       await session.abortTransaction();
       return res.status(404).json({
         success: false,
@@ -345,38 +383,39 @@ router.post('/:id/submit', protect, async (req, res) => {
       });
     }
 
-    // Check if this is the first attempt (any attempt, not just passed)
-    // Check within transaction to prevent race conditions
-    const existingAttempts = user.quizAttempts.filter(
+    // Check if user already attempted this quiz
+    const existingAttempts = userBeforeUpdate.quizAttempts.filter(
       attempt => attempt.quiz && attempt.quiz.toString() === req.params.id
     );
+
     const isFirstAttempt = existingAttempts.length === 0;
 
-    // Calculate score
-    const result = quiz.calculateScore(answers);
-    let gemsEarned = 0;
+    // Award gems only on first attempt
+    let finalGemsEarned = isFirstAttempt ? gemsEarned : 0;
 
-    // Award gems only on first attempt: 1 gem per correct answer
-    if (isFirstAttempt) {
-      gemsEarned = result.correctAnswers; // 1 gem per correct answer
-      user.gems += gemsEarned;
-    }
+    // Update user with attempt and gems
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $push: {
+          quizAttempts: {
+            quiz: quizObjectId,
+            score: result.percentage,
+            totalQuestions: result.totalQuestions,
+            gemsEarned: finalGemsEarned
+          }
+        },
+        $inc: {
+          gems: finalGemsEarned
+        }
+      },
+      {
+        new: true,
+        session: session
+      }
+    );
 
-    // Update XP (XP can be earned on every attempt)
-    const xpEarned = Math.floor(result.percentage / 10); // 10 XP per 10% score
-    user.xp += xpEarned;
-    user.level = Math.floor(user.xp / 100) + 1;
-
-    // Record attempt (always record, even if no gems earned)
-    user.quizAttempts.push({
-      quiz: req.params.id,
-      score: result.percentage,
-      totalQuestions: result.totalQuestions,
-      gemsEarned
-    });
-
-    // Save user with all updates atomically within transaction
-    await user.save({ session });
+    const finalNewGems = updatedUser.gems;
 
     // Commit transaction
     await session.commitTransaction();
@@ -397,11 +436,8 @@ router.post('/:id/submit', protect, async (req, res) => {
       message: result.passed ? 'Quiz passed!' : 'Quiz completed',
       data: {
         ...result,
-        gemsEarned,
-        xpEarned,
-        newGems: user.gems,
-        newXp: user.xp,
-        newLevel: user.level,
+        gemsEarned: finalGemsEarned,
+        newGems: finalNewGems,
         isFirstAttempt,
         questions: questionsWithAnswers // Include questions with correct answers for review
       }
@@ -458,6 +494,48 @@ router.get('/:id/results', protect, async (req, res) => {
     });
   } catch (error) {
     console.error('Get quiz results error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
+// @route   GET /api/quizzes/chapter/:chapterId/results
+// @desc    Get user's quiz results by chapter ID
+// @access  Private
+router.get('/chapter/:chapterId/results', protect, async (req, res) => {
+  try {
+    // Find quiz by chapter ID
+    const quiz = await Quiz.findOne({ chapter: req.params.chapterId });
+    if (!quiz) {
+      return res.status(404).json({
+        success: false,
+        message: 'Quiz not found for this chapter'
+      });
+    }
+
+    const attempts = req.user.quizAttempts.filter(
+      attempt => attempt.quiz.toString() === quiz._id.toString()
+    );
+
+    const bestAttempt = attempts.reduce((best, current) =>
+      current.score > best.score ? current : best,
+      attempts[0] || { score: 0 }
+    );
+
+    res.json({
+      success: true,
+      data: {
+        quizId: quiz._id,
+        attempts: attempts.length,
+        bestScore: bestAttempt.score,
+        hasPassed: bestAttempt.score >= quiz.passingScore,
+        totalGemsEarned: attempts.reduce((sum, attempt) => sum + attempt.gemsEarned, 0)
+      }
+    });
+  } catch (error) {
+    console.error('Get quiz results by chapter error:', error);
     res.status(500).json({
       success: false,
       message: 'Server error'

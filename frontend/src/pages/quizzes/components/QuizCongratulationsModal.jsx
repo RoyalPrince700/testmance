@@ -2,16 +2,15 @@ import { useEffect } from 'react';
 import { X, Gem, ArrowRight, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const QuizCongratulationsModal = ({ 
-  isOpen, 
-  onClose, 
-  username, 
+const QuizCongratulationsModal = ({
+  isOpen,
+  onClose,
+  username,
   quizTitle,
   score,
   correctAnswers,
   totalQuestions,
   gemsEarned = 0,
-  xpEarned = 0,
   passed = false,
   isFirstAttempt = true,
   chapterId,
@@ -132,15 +131,6 @@ const QuizCongratulationsModal = ({
                       💡 To earn more gems, take quizzes you haven't attempted before!
                     </p>
                   </div>
-                </div>
-              )}
-
-              {/* XP Earned */}
-              {xpEarned > 0 && (
-                <div className="bg-teal-50 border-2 border-teal-200 rounded-xl p-3 mb-4">
-                  <p className="text-teal-700 font-semibold">
-                    +{xpEarned} XP Earned! ⚡
-                  </p>
                 </div>
               )}
             </>

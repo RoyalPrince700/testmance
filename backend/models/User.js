@@ -4,8 +4,13 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
+    required: function() {
+      // Username is required only if user has completed profile setup
+      // For Google OAuth users who haven't set up their profile yet, username is optional
+      return this.isProfileSetupComplete !== false;
+    },
     unique: true,
+    sparse: true, // Allow null values in unique index
     trim: true,
     minlength: 3,
     maxlength: 30
@@ -37,6 +42,10 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String, // Cloudinary URL
     default: null
+  },
+  isProfileSetupComplete: {
+    type: Boolean,
+    default: true // Default to true for existing users and manual registration
   },
   university: {
     type: mongoose.Schema.Types.ObjectId,
@@ -123,6 +132,10 @@ const userSchema = new mongoose.Schema({
     default: true
   },
   profileVisibility: {
+    type: Boolean,
+    default: false
+  },
+  isAdmin: {
     type: Boolean,
     default: false
   }

@@ -141,7 +141,7 @@ const Courses = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
       </div>
     );
   }
@@ -170,7 +170,7 @@ const Courses = () => {
               placeholder="Search courses..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+              className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             />
           </div>
 
@@ -180,7 +180,7 @@ const Courses = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 appearance-none"
+              className="pl-10 pr-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 appearance-none"
             >
               {categories.map(category => (
                 <option key={category} value={category} className="bg-white">
@@ -229,7 +229,7 @@ const Courses = () => {
 
                     {/* Course Meta */}
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
+                      <span className="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded">
                         {course.category}
                       </span>
                       <div className="flex items-center space-x-1">
@@ -260,7 +260,7 @@ const Courses = () => {
                     <button
                       onClick={(e) => handleUnenroll(course._id, e)}
                       disabled={isEnrolling}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-teal-100 text-teal-700 rounded-lg hover:bg-teal-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <CheckCircle className="h-4 w-4" />
                       <span>{isEnrolling ? 'Unenrolling...' : 'Enrolled'}</span>
@@ -269,7 +269,7 @@ const Courses = () => {
                     <button
                       onClick={(e) => handleEnroll(course._id, e)}
                       disabled={isEnrolling}
-                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <PlusCircle className="h-4 w-4" />
                       <span>{isEnrolling ? 'Enrolling...' : isAuthenticated ? 'Enroll' : 'Enroll (Login Required)'}</span>

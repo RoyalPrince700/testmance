@@ -171,8 +171,8 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
           dangerouslySetInnerHTML={{ __html: currentSection.content }}
         />
 
-        {/* AI Explanation Button */}
-        <div className="mt-8 flex justify-center">
+        {/* AI Explanation Button - Commented out for now */}
+        {/* <div className="mt-8 flex justify-center">
           <button
             onClick={handleExplainClick}
             disabled={isExplaining}
@@ -186,7 +186,7 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
             )}
             <span className="font-semibold">Explain this section with AI</span>
           </button>
-        </div>
+        </div> */}
 
         {/* AI Explanation Panel */}
         {showExplanation && (

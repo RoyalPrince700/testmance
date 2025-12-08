@@ -54,8 +54,14 @@ const authorize = (...roles) => {
       });
     }
 
-    // For now, all authenticated users have access
-    // In the future, we can add role-based authorization
+    // Check if user is admin for admin-only routes
+    if (roles.includes('admin') && !req.user.isAdmin) {
+      return res.status(403).json({
+        success: false,
+        message: 'Not authorized to access this resource'
+      });
+    }
+
     next();
   };
 };

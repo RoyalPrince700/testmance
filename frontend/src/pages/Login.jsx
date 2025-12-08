@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { GraduationCap } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
+import testmancerLogo from '../assets/testmancer-logo.png';
 
 const Login = () => {
   const { googleLogin, clearError } = useAuth();
@@ -15,12 +15,16 @@ const Login = () => {
   }, [clearError]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center">
-            <GraduationCap className="h-12 w-12 text-purple-600" />
+            <img
+              src={testmancerLogo}
+              alt="TestMancer Logo"
+              className="h-12 w-12 object-contain"
+            />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">
             Welcome to TestMancer
@@ -39,7 +43,7 @@ const Login = () => {
         <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm card-hover">
           <button
             onClick={googleLogin}
-            className="w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors flex items-center justify-center gap-3"
+            className="w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors flex items-center justify-center gap-3"
           >
             <FcGoogle className="h-5 w-5" />
             Continue with Google

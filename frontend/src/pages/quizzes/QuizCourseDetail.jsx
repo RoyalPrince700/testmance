@@ -12,7 +12,7 @@ const QuizCourseDetail = () => {
   const [chaptersLoading, setChaptersLoading] = useState(true);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
-  const [quizCompletions, setQuizCompletions] = useState({});
+  const [quizAttempts, setQuizAttempts] = useState({});
 
   useEffect(() => {
     const loadCourseData = async () => {
@@ -32,9 +32,9 @@ const QuizCourseDetail = () => {
         const enrolled = enrolledCourses.some(c => c._id === id || c._id === courseData._id);
         setIsEnrolled(enrolled);
 
-        // Load quiz completions for chapters with quizzes
+        // Load quiz attempts for chapters with quizzes
         if (enrolled) {
-          await loadQuizCompletions(chaptersResponse.data, courseData);
+          await loadQuizAttempts(chaptersResponse.data, courseData);
         }
       } catch (error) {
         console.error('Failed to load course data:', error);
@@ -47,7 +47,7 @@ const QuizCourseDetail = () => {
     loadCourseData();
   }, [id]);
 
-  const loadQuizCompletions = async (chaptersData, courseData) => {
+  const loadQuizAttempts = async (chaptersData, courseData) => {
     const completions = {};
 
     for (const chapter of chaptersData) {
@@ -55,19 +55,19 @@ const QuizCourseDetail = () => {
       if (quizContent) {
         try {
           // Try to get quiz results by chapter ID
-          const resultsResponse = await quizzesAPI.getResults(chapter._id);
-          if (resultsResponse.data && resultsResponse.data.length > 0) {
-            // Check if any attempt was completed (has results)
+          const resultsResponse = await quizzesAPI.getResultsByChapter(chapter._id);
+          if (resultsResponse.data && resultsResponse.data.attempts > 0) {
+            // Check if quiz has been attempted (any attempts)
             completions[chapter._id] = true;
           }
         } catch (error) {
-          // Quiz not completed or error - leave as false
-          console.log(`No quiz results for chapter ${chapter._id}`);
+          // Quiz not attempted or error - leave as false
+          console.log(`No quiz attempts for chapter ${chapter._id}`);
         }
       }
     }
 
-    setQuizCompletions(completions);
+    setQuizAttempts(completions);
   };
 
   // Filter chapters that have quizzes in frontend content
@@ -189,7 +189,7 @@ const QuizCourseDetail = () => {
             ) : (
               <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
                 {chaptersWithQuizzes.map((chapter) => {
-                  const isCompleted = quizCompletions[chapter._id];
+                  const hasBeenAttempted = quizAttempts[chapter._id];
                   return (
                     <Link
                       key={chapter._id}
@@ -197,11 +197,11 @@ const QuizCourseDetail = () => {
                       className="flex items-center justify-between bg-white hover:bg-gray-50 rounded-lg p-4 transition-colors border border-gray-200 hover:border-teal-300 group"
                     >
                       <div className="flex items-center space-x-4 flex-1 min-w-0">
-                        {/* Quiz Icon or Completion Checkmark */}
+                        {/* Quiz Icon or Attempt Checkmark */}
                         <div className={`hidden lg:flex shrink-0 w-6 h-6 rounded-full items-center justify-center ${
-                          isCompleted ? 'bg-green-500' : 'bg-teal-500'
+                          hasBeenAttempted ? 'bg-green-500' : 'bg-teal-500'
                         }`}>
-                          {isCompleted ? (
+                          {hasBeenAttempted ? (
                             <CheckCircle className="h-4 w-4 text-white fill-current" />
                           ) : (
                             <Target className="h-4 w-4 text-white fill-current" />
@@ -210,12 +210,12 @@ const QuizCourseDetail = () => {
 
                         {/* Chapter Title */}
                         <span className={`font-medium flex-1 truncate ${
-                          isCompleted ? 'text-gray-600' : 'text-gray-900'
+                          hasBeenAttempted ? 'text-gray-600' : 'text-gray-900'
                         }`}>
                           {chapter.title}
-                          {isCompleted && (
+                          {hasBeenAttempted && (
                             <span className="ml-2 text-green-600 text-sm font-normal">
-                              (Completed)
+                              (Attempted)
                             </span>
                           )}
                         </span>
@@ -223,7 +223,7 @@ const QuizCourseDetail = () => {
 
                       {/* Quiz Link */}
                       <div className="flex items-center space-x-1 text-teal-600 group-hover:text-teal-700 font-medium ml-4 shrink-0">
-                        <span>{isCompleted ? 'Review Quiz' : 'Take Quiz'}</span>
+                        <span>{hasBeenAttempted ? 'Retake Quiz' : 'Take Quiz'}</span>
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </Link>

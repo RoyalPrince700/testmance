@@ -47,6 +47,11 @@ export const authAPI = {
 
   getMe: () => apiRequest('/auth/me'),
 
+  setupProfile: (data) => apiRequest('/auth/setup-profile', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }),
+
   updateProfile: (data) => apiRequest('/auth/update-profile', {
     method: 'PUT',
     body: JSON.stringify(data),
@@ -114,6 +119,7 @@ export const quizzesAPI = {
   }),
 
   getResults: (id) => apiRequest(`/quizzes/${id}/results`),
+  getResultsByChapter: (chapterId) => apiRequest(`/quizzes/chapter/${chapterId}/results`),
 
   getAvailable: () => apiRequest('/quizzes/user/available'),
 };
@@ -215,6 +221,27 @@ export const aiAPI = {
     method: 'POST',
     body: JSON.stringify({ topic, content, analogy }),
   }),
+};
+
+// Admin API
+export const adminAPI = {
+  getStats: () => apiRequest('/admin/stats'),
+
+  getUsers: (params = {}) => {
+    const query = new URLSearchParams(params).toString();
+    return apiRequest(`/admin/users?${query}`);
+  },
+
+  updateUser: (userId, data) => apiRequest(`/admin/users/${userId}`, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+  }),
+
+  deleteUser: (userId) => apiRequest(`/admin/users/${userId}`, {
+    method: 'DELETE',
+  }),
+
+  getUniversities: () => apiRequest('/admin/universities'),
 };
 
 export default apiRequest;

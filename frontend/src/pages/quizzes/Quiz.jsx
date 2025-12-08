@@ -13,7 +13,6 @@ const Quiz = () => {
 
   const [quiz, setQuiz] = useState(null);
   const [quizWithAnswers, setQuizWithAnswers] = useState(null); // Quiz with correct answers for review
-  const [quizId, setQuizId] = useState(null); // Backend quiz ID
   const [chapter, setChapter] = useState(null);
   const [course, setCourse] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -82,48 +81,15 @@ const Quiz = () => {
           setCourse(courseData);
         }
 
-        // Try to load local quiz content first (preferred for controlled content)
-        let localQuizContent = getQuizContent(
+        // Load local quiz content (required for all quizzes)
+        const quizContent = getQuizContent(
           chapterData.title,
           chapterData.order,
           courseData?.code || 'GNS 311'
         );
 
-        let quizContent = null;
-        let backendQuizId = null;
-
-        if (localQuizContent) {
-          // Use local quiz content (preferred for consistency with chapter content)
-          quizContent = localQuizContent;
-        } else {
-          // Fallback to backend quiz if no local quiz found
-          try {
-            if (chapterData.quiz) {
-              // Try to get quiz by chapter ID
-              const quizResponse = await quizzesAPI.getByChapter(chapterId);
-              if (quizResponse.success && quizResponse.data) {
-                backendQuizId = quizResponse.data._id;
-                quizContent = {
-                  _id: quizResponse.data._id,
-                  title: quizResponse.data.title,
-                  description: quizResponse.data.description,
-                  questions: quizResponse.data.questions,
-                  passingScore: quizResponse.data.passingScore,
-                  timeLimit: quizResponse.data.timeLimit || 0,
-                  gemsReward: 0 // Not used anymore, gems based on correct answers
-                };
-              } else if (chapterData.quiz._id) {
-                // Fallback: use quiz ID from chapter
-                backendQuizId = chapterData.quiz._id;
-              }
-            }
-          } catch (error) {
-            console.log('Backend quiz not found:', error);
-          }
-        }
-
         if (!quizContent) {
-          console.error('Quiz not found for chapter:', chapterData.title);
+          console.error('Quiz content not found for chapter:', chapterData.title);
           setLoading(false);
           return;
         }
@@ -139,7 +105,6 @@ const Quiz = () => {
           // For now, store the quiz content - we'll handle answers separately
           setQuizWithAnswers(quizContent);
         }
-        setQuizId(backendQuizId);
         setAnswers(new Array(quizContent.questions.length).fill(null));
         setTimeLeft((quizContent.timeLimit || 0) * 60); // Convert minutes to seconds
       } catch (error) {
@@ -203,14 +168,11 @@ const Quiz = () => {
     const percentage = totalPointsAvailable > 0 ? (totalPoints / totalPointsAvailable) * 100 : 0;
     const passed = percentage >= quiz.passingScore;
 
-    // Calculate gems and XP (local fallback - backend handles this for first attempts)
+    // Calculate gems (local fallback - backend handles this for first attempts)
     let gemsEarned = 0;
-    let xpEarned = 0;
 
     // Note: Gems are only awarded on first attempt via backend
     // This is just for display if backend submission fails
-    // XP based on percentage (10 XP per 10% score)
-    xpEarned = Math.floor(percentage / 10);
 
     return {
       totalPoints,
@@ -220,130 +182,62 @@ const Quiz = () => {
       percentage: Math.round(percentage * 100) / 100,
       passed,
       gemsEarned,
-      xpEarned,
       correctness: correctnessArray
     };
   };
 
   const handleSubmit = async () => {
-    if (submitting || !quiz) return;
+    if (submitting || !quiz || !chapterId || !chapter) return;
 
     setSubmitting(true);
     try {
-      // If we have a backend quiz ID, submit to backend
-      if (quizId) {
-        try {
-          const submitResponse = await quizzesAPI.submit(quizId, answers);
-          if (submitResponse.success && submitResponse.data) {
-            const backendResult = submitResponse.data;
-            setResults({
-              totalPoints: backendResult.totalPoints,
-              maxPoints: backendResult.maxPoints,
-              correctAnswers: backendResult.correctAnswers,
-              totalQuestions: backendResult.totalQuestions,
-              percentage: backendResult.percentage,
-              passed: backendResult.passed,
-              gemsEarned: backendResult.gemsEarned || 0,
-              xpEarned: backendResult.xpEarned || 0,
-              isFirstAttempt: backendResult.isFirstAttempt !== false
-            });
+      // Always use chapter-based submission for consistency
+      const submitResponse = await quizzesAPI.submitByChapter(chapterId, answers, {
+        title: quiz.title,
+        description: quiz.description,
+        questions: quiz.questions,
+        passingScore: quiz.passingScore,
+        timeLimit: quiz.timeLimit
+      });
 
-            // If backend returned questions with answers, use them for review
-            if (backendResult.questions) {
-              setQuizWithAnswers({
-                ...quiz,
-                questions: backendResult.questions
-              });
-            }
+      if (submitResponse.success && submitResponse.data) {
+        const backendResult = submitResponse.data;
+        setResults({
+          totalPoints: backendResult.totalPoints,
+          maxPoints: backendResult.maxPoints,
+          correctAnswers: backendResult.correctAnswers,
+          totalQuestions: backendResult.totalQuestions,
+          percentage: backendResult.percentage,
+          passed: backendResult.passed,
+          gemsEarned: backendResult.gemsEarned || 0,
+          isFirstAttempt: backendResult.isFirstAttempt !== false
+        });
 
-            setShowCongratulations(true);
-
-            // Always reload user to get updated gems and XP
-            await loadUser();
-            return;
-          }
-        } catch (error) {
-          console.error('Failed to submit to backend, trying chapter submission:', error);
-          // Check if it's an authentication error (401) - don't proceed if user is logged out
-          if (error.status === 401 || (error.message && (error.message.includes('401') || error.message.includes('Not authorized') || error.message.includes('token')))) {
-            setSubmitting(false);
-            return;
-          }
-          // Fall through to try chapter-based submission
-        }
-      }
-      
-      // If no backend quiz ID but we have chapter, try submitting by chapter ID
-      if (chapterId && chapter) {
-        try {
-          const submitResponse = await quizzesAPI.submitByChapter(chapterId, answers, {
-            title: quiz.title,
-            description: quiz.description,
-            questions: quiz.questions,
-            passingScore: quiz.passingScore,
-            timeLimit: quiz.timeLimit
+        // If backend returned questions with answers, use them for review
+        if (backendResult.questions) {
+          setQuizWithAnswers({
+            ...quiz,
+            questions: backendResult.questions
           });
-          
-          if (submitResponse.success && submitResponse.data) {
-            const backendResult = submitResponse.data;
-            setResults({
-              totalPoints: backendResult.totalPoints,
-              maxPoints: backendResult.maxPoints,
-              correctAnswers: backendResult.correctAnswers,
-              totalQuestions: backendResult.totalQuestions,
-              percentage: backendResult.percentage,
-              passed: backendResult.passed,
-              gemsEarned: backendResult.gemsEarned || 0,
-              xpEarned: backendResult.xpEarned || 0,
-              isFirstAttempt: backendResult.isFirstAttempt !== false
-            });
-
-            // If backend returned questions with answers, use them for review
-            if (backendResult.questions) {
-              setQuizWithAnswers({
-                ...quiz,
-                questions: backendResult.questions
-              });
-            }
-
-            setShowCongratulations(true);
-
-            // Always reload user to get updated gems and XP
-            await loadUser();
-            return;
-          }
-        } catch (error) {
-          console.error('Failed to submit by chapter, using local calculation:', error);
-          // Check if it's an authentication error (401) - don't proceed if user is logged out
-          if (error.status === 401 || (error.message && (error.message.includes('401') || error.message.includes('Not authorized') || error.message.includes('token')))) {
-            setSubmitting(false);
-            return;
-          }
-          // Fall through to local calculation
         }
-      }
-      
-      // Fallback to local calculation if no backend quiz or submission failed
-      const scoreResult = calculateScore();
 
-      if (!scoreResult) {
-        console.error('Failed to calculate score');
+        setShowCongratulations(true);
+
+        // Always reload user to get updated gems
+        await loadUser();
+        return;
+      }
+    } catch (error) {
+      console.error('Failed to submit quiz:', error);
+      // Check if it's an authentication error (401) - don't proceed if user is logged out
+      if (error.status === 401 || (error.message && (error.message.includes('401') || error.message.includes('Not authorized') || error.message.includes('token')))) {
+        setSubmitting(false);
         return;
       }
 
-      // For local calculation, assume first attempt (since we can't check without backend)
-      // Note: Gems won't actually be awarded without backend submission
-      setResults({
-        ...scoreResult,
-        isFirstAttempt: true
-      });
-      setCorrectness(scoreResult.correctness || []);
-      setShowCongratulations(true);
-      
-      // Try to reload user anyway (in case backend submission succeeded but response was lost)
-      await loadUser();
-    } catch (error) {
+      // Show error for other failures
       console.error('Failed to submit quiz:', error);
+      alert('Failed to submit quiz. Please check your connection and try again.');
     } finally {
       setSubmitting(false);
     }
@@ -417,7 +311,6 @@ const Quiz = () => {
           correctAnswers={results?.correctAnswers}
           totalQuestions={results?.totalQuestions}
           gemsEarned={results?.gemsEarned}
-          xpEarned={results?.xpEarned}
           passed={results?.passed}
           isFirstAttempt={results?.isFirstAttempt !== false}
           chapterId={chapter?._id}

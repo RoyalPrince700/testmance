@@ -4,6 +4,11 @@ import { chapter2Content } from './chapter2-gns311';
 import { chapter3Content } from './chapter3-gns311';
 import { chapter4Content } from './chapter4-gns311';
 import { chapter5Content } from './chapter5-gns311';
+import { chapter6Content } from './chapter6-gns311';
+import { chapter7Content } from './chapter7-gns311';
+import { chapter8Content } from './chapter8-gns311';
+import { chapter9Content } from './chapter9-gns311';
+import { chapter10Content } from './chapter10-gns311';
 
 // Debug: Check if import worked
 console.log('chapter1Content imported:', typeof chapter1Content, !!chapter1Content);
@@ -11,6 +16,11 @@ console.log('chapter2Content imported:', typeof chapter2Content, !!chapter2Conte
 console.log('chapter3Content imported:', typeof chapter3Content, !!chapter3Content);
 console.log('chapter4Content imported:', typeof chapter4Content, !!chapter4Content);
 console.log('chapter5Content imported:', typeof chapter5Content, !!chapter5Content);
+console.log('chapter6Content imported:', typeof chapter6Content, !!chapter6Content);
+console.log('chapter7Content imported:', typeof chapter7Content, !!chapter7Content);
+console.log('chapter8Content imported:', typeof chapter8Content, !!chapter8Content);
+console.log('chapter9Content imported:', typeof chapter9Content, !!chapter9Content);
+console.log('chapter10Content imported:', typeof chapter10Content, !!chapter10Content);
 
 // Helper function to get content by chapter title, order, or course code
 export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -25,6 +35,11 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     'Concept of Matter': chapter3Content,
     'Conservation of Conventional and Renewable Energy Sources and Their Conversion Techniques': chapter4Content,
     'Applications of Blood Group Systems and DNA Finger Printings': chapter5Content,
+    'Medicinal Plants: Myths, Facts, Conservation and Tissue Culture Techniques': chapter6Content,
+    'Atmospheric Environment, Air Pollution and Public Health': chapter7Content,
+    'Food Production and Preservation for Food Security: The Place of Cooperatives in Nigeria': chapter8Content,
+    'Global Threat of Counterfeit Medicines': chapter9Content,
+    'Fundamentals of Poultry Production': chapter10Content,
     // Add more chapters here as they're created
   };
 
@@ -35,6 +50,11 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     3: chapter3Content, // Third chapter of GNS 311
     4: chapter4Content, // Fourth chapter of GNS 311
     5: chapter5Content, // Fifth chapter of GNS 311
+    6: chapter6Content, // Sixth chapter of GNS 311
+    7: chapter7Content, // Seventh chapter of GNS 311
+    8: chapter8Content, // Eighth chapter of GNS 311
+    9: chapter9Content, // Ninth chapter of GNS 311
+    10: chapter10Content, // Tenth chapter of GNS 311
     // Add more orders here
   };
 
@@ -70,5 +90,5 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
 };
 
 // Re-export for convenience
-export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content };
+export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter8Content, chapter9Content, chapter10Content };
 

@@ -2,6 +2,8 @@
 import { gns311Chapter1Quiz } from './gns311-chapter1';
 import { gns311Chapter2Quiz } from './gns311-chapter2';
 import { gns311Chapter3Quiz } from './gns311-chapter3';
+import { gns311Chapter4Quiz } from './gns311-chapter4';
+import { gns311Chapter5Quiz } from './gns311-chapter5';
 
 // Helper function to get quiz by course code and chapter title
 export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -11,6 +13,8 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
     'Philosophical Problems and Scientific Explanations': gns311Chapter2Quiz,
     'Philosophical of problems and Scientific Explanations': gns311Chapter2Quiz, // Alternative title format
     'Concept of Matter': gns311Chapter3Quiz,
+    'Conservation of Conventional and Renewable Energy Sources and Their Conversion Techniques': gns311Chapter4Quiz,
+    'Applications of Blood Group Systems and DNA Finger Printings': gns311Chapter5Quiz,
     // Add more quizzes here as they're created
   };
 
@@ -19,6 +23,8 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
     1: gns311Chapter1Quiz, // First chapter of GNS 311
     2: gns311Chapter2Quiz, // Second chapter of GNS 311
     3: gns311Chapter3Quiz, // Third chapter of GNS 311
+    4: gns311Chapter4Quiz, // Fourth chapter of GNS 311
+    5: gns311Chapter5Quiz, // Fifth chapter of GNS 311
     // Add more orders here
   };
 
@@ -54,6 +60,8 @@ export const getQuizByOrder = (courseCode, chapterOrder) => {
       1: gns311Chapter1Quiz,
       2: gns311Chapter2Quiz,
       3: gns311Chapter3Quiz,
+      4: gns311Chapter4Quiz,
+      5: gns311Chapter5Quiz,
     };
     return orderMap[chapterOrder] || null;
   }
@@ -61,5 +69,5 @@ export const getQuizByOrder = (courseCode, chapterOrder) => {
 };
 
 // Re-export for convenience
-export { gns311Chapter1Quiz, gns311Chapter2Quiz, gns311Chapter3Quiz };
+export { gns311Chapter1Quiz, gns311Chapter2Quiz, gns311Chapter3Quiz, gns311Chapter4Quiz, gns311Chapter5Quiz };
 
