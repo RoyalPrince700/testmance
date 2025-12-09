@@ -4,6 +4,11 @@ import { gns311Chapter2Quiz } from './gns311-chapter2';
 import { gns311Chapter3Quiz } from './gns311-chapter3';
 import { gns311Chapter4Quiz } from './gns311-chapter4';
 import { gns311Chapter5Quiz } from './gns311-chapter5';
+import { gns311Chapter6Quiz } from './gns311-chapter6';
+import { gns311Chapter7Quiz } from './gns311-chapter7';
+import { gns311Chapter8Quiz } from './gns311-chapter8';
+import { gns311Chapter9Quiz } from './gns311-chapter9';
+import { gns311Chapter10Quiz } from './gns311-chapter10';
 
 // Helper function to get quiz by course code and chapter title
 export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -15,6 +20,11 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
     'Concept of Matter': gns311Chapter3Quiz,
     'Conservation of Conventional and Renewable Energy Sources and Their Conversion Techniques': gns311Chapter4Quiz,
     'Applications of Blood Group Systems and DNA Finger Printings': gns311Chapter5Quiz,
+    'Medicinal Plants: Myths, Facts, Conservation and Tissue Culture Techniques': gns311Chapter6Quiz,
+    'Atmospheric Environment, Air Pollution and Public Health': gns311Chapter7Quiz,
+    'Food Production and Preservation for Food Security: The Place of Cooperatives in Nigeria': gns311Chapter8Quiz,
+    'Global Threat of Counterfeit Medicines': gns311Chapter9Quiz,
+    'Fundamentals of Poultry Production': gns311Chapter10Quiz,
     // Add more quizzes here as they're created
   };
 
@@ -25,6 +35,11 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
     3: gns311Chapter3Quiz, // Third chapter of GNS 311
     4: gns311Chapter4Quiz, // Fourth chapter of GNS 311
     5: gns311Chapter5Quiz, // Fifth chapter of GNS 311
+    6: gns311Chapter6Quiz, // Sixth chapter of GNS 311
+    7: gns311Chapter7Quiz, // Seventh chapter of GNS 311
+    8: gns311Chapter8Quiz, // Eighth chapter of GNS 311
+    9: gns311Chapter9Quiz, // Ninth chapter of GNS 311
+    10: gns311Chapter10Quiz, // Tenth chapter of GNS 311
     // Add more orders here
   };
 
@@ -55,13 +70,18 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
 
 // Helper function to get quiz by course code and chapter order
 export const getQuizByOrder = (courseCode, chapterOrder) => {
-  if (courseCode === 'GNS 311') {
+    if (courseCode === 'GNS 311') {
     const orderMap = {
       1: gns311Chapter1Quiz,
       2: gns311Chapter2Quiz,
       3: gns311Chapter3Quiz,
       4: gns311Chapter4Quiz,
       5: gns311Chapter5Quiz,
+      6: gns311Chapter6Quiz,
+      7: gns311Chapter7Quiz,
+      8: gns311Chapter8Quiz,
+      9: gns311Chapter9Quiz,
+      10: gns311Chapter10Quiz,
     };
     return orderMap[chapterOrder] || null;
   }
@@ -69,5 +89,5 @@ export const getQuizByOrder = (courseCode, chapterOrder) => {
 };
 
 // Re-export for convenience
-export { gns311Chapter1Quiz, gns311Chapter2Quiz, gns311Chapter3Quiz, gns311Chapter4Quiz, gns311Chapter5Quiz };
+export { gns311Chapter1Quiz, gns311Chapter2Quiz, gns311Chapter3Quiz, gns311Chapter4Quiz, gns311Chapter5Quiz, gns311Chapter6Quiz, gns311Chapter7Quiz, gns311Chapter8Quiz, gns311Chapter9Quiz, gns311Chapter10Quiz };
 

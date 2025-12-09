@@ -125,7 +125,7 @@ export const chapter7Content = {
             altitude, and pressure. It protects life by filtering UV radiation and maintaining habitable temperatures.
           </p>
 
-          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg my-4">
+          <div class="bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-gray-900 mb-4 text-xl">🌡️ Atmospheric Layers:</h4>
             <div class="space-y-4">
               <div class="bg-white p-4 rounded-lg shadow-sm">
@@ -435,7 +435,7 @@ export const chapter7Content = {
             Let's review the key concepts that protect our planet and health.
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
+          <div class="bg-linear-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
               <div class="bg-white p-4 rounded-lg">
