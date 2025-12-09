@@ -50,6 +50,13 @@ const AdminUsers = () => {
         isAdmin: filters.isAdmin || undefined
       };
 
+      // Remove undefined values from params
+      Object.keys(params).forEach(key => {
+        if (params[key] === undefined || params[key] === '') {
+          delete params[key];
+        }
+      });
+
       const response = await adminAPI.getUsers(params);
       setUsers(response.data.users);
       setPagination(prev => ({

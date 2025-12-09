@@ -26,13 +26,13 @@ router.get('/users', async (req, res) => {
         { email: { $regex: req.query.search, $options: 'i' } }
       ];
     }
-    if (req.query.university) {
+    if (req.query.university && req.query.university !== 'undefined') {
       filter.university = req.query.university;
     }
-    if (req.query.isActive !== undefined) {
+    if (req.query.isActive !== undefined && req.query.isActive !== 'undefined') {
       filter.isActive = req.query.isActive === 'true';
     }
-    if (req.query.isAdmin !== undefined) {
+    if (req.query.isAdmin !== undefined && req.query.isAdmin !== 'undefined') {
       filter.isAdmin = req.query.isAdmin === 'true';
     }
 
