@@ -1,14 +1,20 @@
 // Import chapter content directly
-import { chapter1Content } from './chapter1-gns311';
-import { chapter2Content } from './chapter2-gns311';
-import { chapter3Content } from './chapter3-gns311';
-import { chapter4Content } from './chapter4-gns311';
-import { chapter5Content } from './chapter5-gns311';
-import { chapter6Content } from './chapter6-gns311';
-import { chapter7Content } from './chapter7-gns311';
-import { chapter8Content } from './chapter8-gns311';
-import { chapter9Content } from './chapter9-gns311';
-import { chapter10Content } from './chapter10-gns311';
+import { chapter1Content } from './chapter1-gns311.js';
+import { chapter2Content } from './chapter2-gns311.js';
+import { chapter3Content } from './chapter3-gns311.js';
+import { chapter4Content } from './chapter4-gns311.js';
+import { chapter5Content } from './chapter5-gns311.js';
+import { chapter6Content } from './chapter6-gns311.js';
+import { chapter7Content } from './chapter7-gns311.js';
+import { chapter8Content } from './chapter8-gns311.js';
+import { chapter9Content } from './chapter9-gns311.js';
+import { chapter10Content } from './chapter10-gns311.js';
+import { chapter11Content } from './chapter11-gns311.js';
+import { chapter12Content } from './chapter12-gns311.js';
+import { chapter13Content } from './chapter13-gns311.js';
+import { chapter14Content } from './chapter14-gns311.js';
+import { chapter15Content } from './chapter15-gns311.js';
+import { chapter16Content } from './chapter16-gns311.js';
 
 // Debug: Check if import worked
 console.log('chapter1Content imported:', typeof chapter1Content, !!chapter1Content);
@@ -21,6 +27,12 @@ console.log('chapter7Content imported:', typeof chapter7Content, !!chapter7Conte
 console.log('chapter8Content imported:', typeof chapter8Content, !!chapter8Content);
 console.log('chapter9Content imported:', typeof chapter9Content, !!chapter9Content);
 console.log('chapter10Content imported:', typeof chapter10Content, !!chapter10Content);
+console.log('chapter11Content imported:', typeof chapter11Content, !!chapter11Content);
+console.log('chapter12Content imported:', typeof chapter12Content, !!chapter12Content);
+console.log('chapter13Content imported:', typeof chapter13Content, !!chapter13Content);
+console.log('chapter14Content imported:', typeof chapter14Content, !!chapter14Content);
+console.log('chapter15Content imported:', typeof chapter15Content, !!chapter15Content);
+console.log('chapter16Content imported:', typeof chapter16Content, !!chapter16Content);
 
 // Helper function to get content by chapter title, order, or course code
 export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -40,6 +52,12 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     'Food Production and Preservation for Food Security: The Place of Cooperatives in Nigeria': chapter8Content,
     'Global Threat of Counterfeit Medicines': chapter9Content,
     'Fundamentals of Poultry Production': chapter10Content,
+    'Human Nutrition: A Life Course Approach': chapter11Content,
+    'Achieving Knowledge Management Functionalities in the Emerging Technology-Driven Society Using Information Technology': chapter12Content,
+    'Science and Technology in the Service of Man': chapter13Content,
+    'Concepts of Hypothesis Testing in Sciences, Social Sciences and Humanities': chapter14Content,
+    'Microbes and Diseases': chapter15Content,
+    'Geomorphology of Africa': chapter16Content,
     // Add more chapters here as they're created
   };
 
@@ -55,6 +73,12 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     8: chapter8Content, // Eighth chapter of GNS 311
     9: chapter9Content, // Ninth chapter of GNS 311
     10: chapter10Content, // Tenth chapter of GNS 311
+    11: chapter11Content, // Eleventh chapter of GNS 311
+    12: chapter12Content, // Twelfth chapter of GNS 311
+    13: chapter13Content, // Thirteenth chapter of GNS 311
+    14: chapter14Content, // Fourteenth chapter of GNS 311
+    15: chapter15Content, // Fifteenth chapter of GNS 311
+    16: chapter16Content, // Sixteenth chapter of GNS 311
     // Add more orders here
   };
 
@@ -90,5 +114,5 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
 };
 
 // Re-export for convenience
-export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter8Content, chapter9Content, chapter10Content };
+export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter8Content, chapter9Content, chapter10Content, chapter11Content, chapter12Content, chapter13Content, chapter14Content, chapter15Content, chapter16Content };
 
