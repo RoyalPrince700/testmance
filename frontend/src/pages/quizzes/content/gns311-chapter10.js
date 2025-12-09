@@ -157,7 +157,18 @@ export const gns311Chapter10Quiz = {
       explanation: 'Egg incubation requires 50-60% humidity along with proper temperature and ventilation.',
       points: 1
     },
-   
+    {
+      question: 'Which mineral is important for eggshell formation?',
+      options: [
+        'Iron',
+        'Calcium',
+        'Zinc',
+        'Copper'
+      ],
+      correctAnswer: 1,
+      explanation: 'Calcium from limestone and bone meal is crucial for eggshell formation in laying hens.',
+      points: 1
+    },
     {
       question: 'What is the brooding period for chicks?',
       options: [
