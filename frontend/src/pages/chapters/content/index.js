@@ -16,23 +16,6 @@ import { chapter14Content } from './chapter14-gns311.js';
 import { chapter15Content } from './chapter15-gns311.js';
 import { chapter16Content } from './chapter16-gns311.js';
 
-// Debug: Check if import worked
-console.log('chapter1Content imported:', typeof chapter1Content, !!chapter1Content);
-console.log('chapter2Content imported:', typeof chapter2Content, !!chapter2Content);
-console.log('chapter3Content imported:', typeof chapter3Content, !!chapter3Content);
-console.log('chapter4Content imported:', typeof chapter4Content, !!chapter4Content);
-console.log('chapter5Content imported:', typeof chapter5Content, !!chapter5Content);
-console.log('chapter6Content imported:', typeof chapter6Content, !!chapter6Content);
-console.log('chapter7Content imported:', typeof chapter7Content, !!chapter7Content);
-console.log('chapter8Content imported:', typeof chapter8Content, !!chapter8Content);
-console.log('chapter9Content imported:', typeof chapter9Content, !!chapter9Content);
-console.log('chapter10Content imported:', typeof chapter10Content, !!chapter10Content);
-console.log('chapter11Content imported:', typeof chapter11Content, !!chapter11Content);
-console.log('chapter12Content imported:', typeof chapter12Content, !!chapter12Content);
-console.log('chapter13Content imported:', typeof chapter13Content, !!chapter13Content);
-console.log('chapter14Content imported:', typeof chapter14Content, !!chapter14Content);
-console.log('chapter15Content imported:', typeof chapter15Content, !!chapter15Content);
-console.log('chapter16Content imported:', typeof chapter16Content, !!chapter16Content);
 
 // Helper function to get content by chapter title, order, or course code
 export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode = null) => {

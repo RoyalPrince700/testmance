@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   const MobileNav = () => (
-    <div className="md:hidden flex justify-between items-center h-16 px-4 bg-white border-b border-gray-200">
+    <div className="lg:hidden flex justify-between items-center h-16 px-4 bg-white border-b border-gray-200">
       {/* Left: Hamburger */}
       <button onClick={toggleSidebar} className="p-2 -ml-2 text-gray-700 hover:text-purple-600">
         <Menu className="h-6 w-6" />
@@ -55,7 +55,7 @@ const Navbar = () => {
     // Separate navigation for authenticated and non-authenticated users
     if (isAuthenticated) {
       return (
-        <div className="hidden md:flex items-center h-16 container mx-auto px-4">
+        <div className="hidden lg:flex items-center h-16 container mx-auto px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center justify-center space-x-2 text-gray-900 font-bold text-xl hover:text-purple-600 transition-colors">
             <img src={testmancerLogo} alt="TestMancer Logo" className="h-8 w-8 object-contain shrink-0" />
@@ -149,7 +149,7 @@ const Navbar = () => {
 
     // Non-authenticated desktop navigation
     return (
-      <div className="hidden md:flex items-center h-16 container mx-auto px-4">
+      <div className="hidden lg:flex items-center h-16 container mx-auto px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center space-x-2 text-gray-900 font-bold text-xl hover:text-purple-600 transition-colors">
           <img src={testmancerLogo} alt="TestMancer Logo" className="h-8 w-8 object-contain shrink-0" />
@@ -198,14 +198,14 @@ const Navbar = () => {
       {/* Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar Panel */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[85%] bg-white z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 left-0 bottom-0 w-[85%] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
