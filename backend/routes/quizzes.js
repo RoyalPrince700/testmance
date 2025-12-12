@@ -168,7 +168,6 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
           },
           { new: true, session }
         );
-        console.log(`Updated existing quiz ${quiz._id} for chapter ${req.params.chapterId} from ${quiz.questions.length} to ${quizData.questions.length} questions`);
       } else {
         // Create new quiz
         const quizId = new mongoose.Types.ObjectId();
@@ -193,7 +192,6 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
           { session }
         );
 
-        console.log(`Created new quiz ${quiz._id} for chapter ${req.params.chapterId}`);
       }
     }
 

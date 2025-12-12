@@ -17,12 +17,9 @@ const options = {
 };
 
 const req = http.request(options, (res) => {
-  console.log(`Status: ${res.statusCode}`);
-  
   let body = '';
   res.on('data', (chunk) => body += chunk);
   res.on('end', () => {
-    console.log('Response:', body);
   });
 });
 

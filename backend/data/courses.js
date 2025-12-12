@@ -28,6 +28,16 @@ const courses = [
     difficulty: 'Beginner',
     duration: 40,
     isPublished: true
+  },
+  {
+    title: 'Computer Science I',
+    code: 'COS 101',
+    description: 'Introduction to computing concepts, data representation, algorithms, and the history of computing.',
+    universityShortName: 'UNILORIN',
+    category: 'Computer Science',
+    difficulty: 'Beginner',
+    duration: 35,
+    isPublished: true
   }
 ];
 

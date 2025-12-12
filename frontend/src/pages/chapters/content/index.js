@@ -1,4 +1,3 @@
-// Import chapter content directly
 import { chapter1Content } from './chapter1-gns311.js';
 import { chapter2Content } from './chapter2-gns311.js';
 import { chapter3Content } from './chapter3-gns311.js';
@@ -16,13 +15,54 @@ import { chapter14Content } from './chapter14-gns311.js';
 import { chapter15Content } from './chapter15-gns311.js';
 import { chapter16Content } from './chapter16-gns311.js';
 
+// Import GST111 content function (lazy load to avoid import errors)
+const getGST111ChapterContent = async () => {
+  try {
+    const module = await import('../../gst111/chapters');
+    return module.getChapterContent;
+  } catch (error) {
+    console.error('Failed to load GST111 chapter content:', error);
+    return null;
+  }
+};
+
+// Import COS101 content function (lazy load to avoid import errors)
+const getCOS101ChapterContent = async () => {
+  try {
+    const module = await import('../../cos101/chapters');
+    return module.getChapterContent;
+  } catch (error) {
+    console.error('Failed to load COS101 chapter content:', error);
+    return null;
+  }
+};
+
 
 // Helper function to get content by chapter title, order, or course code
-export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
-  // Debug: Check if chapter1Content is available
-  console.log('getChapterContent called, chapter1Content available:', typeof chapter1Content, !!chapter1Content);
-  
-  // Map chapter titles to content files
+export const getChapterContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
+  // Check for GST111 content first
+  if (courseCode === 'GST 111') {
+    const gst111Function = await getGST111ChapterContent();
+    if (gst111Function) {
+      const gst111Content = gst111Function(chapterTitle, chapterOrder, courseCode);
+      if (gst111Content) {
+        return gst111Content;
+      }
+    }
+  }
+
+  // Check for COS101 content
+  if (courseCode === 'COS 101') {
+    const cos101Function = await getCOS101ChapterContent();
+    if (cos101Function) {
+      const cos101Content = cos101Function(chapterTitle, chapterOrder, courseCode);
+      if (cos101Content) {
+        return cos101Content;
+      }
+    }
+  }
+
+  // Map chapter titles to content files (GNS311)
   const contentMap = {
     'The Structure of Science, Scientific Methods and Revolution': chapter1Content,
     'Philosophical Problems and Scientific Explanations': chapter2Content,
@@ -68,9 +108,8 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
   // Try exact title match first
   if (chapterTitle) {
     const normalizedTitle = chapterTitle.trim();
-    
+
     if (contentMap[normalizedTitle]) {
-      console.log('Found content by exact title match');
       return contentMap[normalizedTitle];
     }
 
@@ -78,7 +117,6 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     const lowerTitle = normalizedTitle.toLowerCase();
     for (const [key, value] of Object.entries(contentMap)) {
       if (key.toLowerCase() === lowerTitle) {
-        console.log('Found content by case-insensitive match');
         return value;
       }
     }
@@ -86,16 +124,9 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
 
   // Try order match (for GNS 311, order 1 = chapter 1)
   if (chapterOrder && courseCode === 'GNS 311' && orderMap[chapterOrder]) {
-    console.log(`Found content by order ${chapterOrder} for ${courseCode}`);
     return orderMap[chapterOrder];
   }
 
-  console.log('No content found:', { chapterTitle, chapterOrder, courseCode });
-  console.log('Available titles:', Object.keys(contentMap));
-  
   return null;
-};
-
-// Re-export for convenience
-export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter8Content, chapter9Content, chapter10Content, chapter11Content, chapter12Content, chapter13Content, chapter14Content, chapter15Content, chapter16Content };
+}
 

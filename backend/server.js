@@ -36,8 +36,8 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/testmancer')
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log('MongoDB connection error:', err));
+.then(() => {})
+.catch(err => {});
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
@@ -65,5 +65,4 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });

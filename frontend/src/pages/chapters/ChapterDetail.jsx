@@ -25,6 +25,7 @@ const ChapterDetail = () => {
   const [gemsEarned, setGemsEarned] = useState(3);
   const [isCompleting, setIsCompleting] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
+  const [hasQuiz, setHasQuiz] = useState(false);
 
   useEffect(() => {
     const loadChapterData = async () => {
@@ -62,24 +63,15 @@ const ChapterDetail = () => {
         }
 
         // Load structured content if available (after course is loaded)
-        console.log('Chapter data:', {
-          title: chapterData.title,
-          order: chapterData.order,
-          courseCode: courseData?.code
-        });
-        
+
         // Load structured content
-        const structuredContent = getChapterContent(
+        const structuredContent = await getChapterContent(
           chapterData.title,
           chapterData.order,
           courseData?.code
         );
-        console.log('Structured content found:', !!structuredContent);
         if (structuredContent) {
-          console.log('Sections count:', structuredContent.sections?.length);
           setChapterContent(structuredContent);
-        } else {
-          console.log('No structured content found - will use fallback HTML content');
         }
 
         // Load progress if authenticated
@@ -91,7 +83,6 @@ const ChapterDetail = () => {
           setWasCompletedBefore(wasCompleted); // Track if it was already completed
         } catch (progressError) {
           // User might not be authenticated or chapter not completed
-          console.log('Progress not available:', progressError);
           setWasCompletedBefore(false);
         }
       } catch (error) {
@@ -103,6 +94,16 @@ const ChapterDetail = () => {
 
     loadChapterData();
   }, [id]);
+
+  useEffect(() => {
+    const checkQuiz = async () => {
+      if (chapter && course) {
+        const quiz = await getQuizContent(chapter.title, chapter.order, course.code);
+        setHasQuiz(quiz !== null);
+      }
+    };
+    checkQuiz();
+  }, [chapter, course]);
 
   const handleMarkComplete = async () => {
     // Prevent multiple clicks - disable immediately
@@ -211,8 +212,6 @@ const ChapterDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Check if quiz exists in frontend content
-  const hasQuiz = chapter && course ? getQuizContent(chapter.title, chapter.order, course.code) !== null : false;
   const chapterId = chapter?._id;
   const courseId = course?._id || chapter?.course?._id || chapter?.course;
 
@@ -241,12 +240,6 @@ const ChapterDetail = () => {
 
       {/* Use SectionViewer if structured content exists, otherwise use regular content */}
       {(() => {
-        console.log('Rendering check:', {
-          hasChapterContent: !!chapterContent,
-          hasSections: !!chapterContent?.sections,
-          sectionsLength: chapterContent?.sections?.length
-        });
-        
         if (chapterContent && chapterContent.sections && chapterContent.sections.length > 0) {
           return (
             <SectionViewer 

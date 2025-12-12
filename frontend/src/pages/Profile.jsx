@@ -11,15 +11,6 @@ const avatars = getAllAvatars().map((avatar, index) => ({
   name: `Avatar ${avatar.id}`
 }));
 
-const analogyOptions = [
-  { value: 'general', label: 'General' },
-  { value: 'football', label: 'Football' },
-  { value: 'gaming', label: 'Gaming' },
-  { value: 'movies', label: 'Movies' },
-  { value: 'fashion', label: 'Fashion' },
-  { value: 'cooking', label: 'Cooking' },
-  { value: 'music', label: 'Music' },
-];
 
 // University of Ilorin Faculties and Departments
 const facultiesAndDepartments = {
@@ -199,7 +190,6 @@ const Profile = () => {
     faculty: '',
     department: '',
     academicLevel: '',
-    preferredAnalogy: '',
     profileVisibility: false
   });
 
@@ -227,7 +217,6 @@ const Profile = () => {
           faculty: user?.faculty || '',
           department: user?.department || '',
           academicLevel: user?.academicLevel || '',
-          preferredAnalogy: user?.preferredAnalogy || '',
           profileVisibility: user?.profileVisibility || false
         });
       } catch (error) {
@@ -319,7 +308,6 @@ const Profile = () => {
       faculty: user?.faculty || '',
       department: user?.department || '',
       academicLevel: user?.academicLevel || '',
-      preferredAnalogy: user?.preferredAnalogy || '',
       profileVisibility: user?.profileVisibility || false
     });
     setEditing(false);
@@ -482,25 +470,6 @@ const Profile = () => {
               </select>
             </div>
             <div>
-              <label className="flex items-center space-x-2 text-gray-700 text-sm font-medium mb-2">
-                <Settings className="h-4 w-4" />
-                <span>Preferred Analogy Style</span>
-              </label>
-              <select
-                name="preferredAnalogy"
-                value={formData.preferredAnalogy}
-                onChange={handleInputChange}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-              >
-                <option value="">Select Analogy Style</option>
-                {analogyOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
               <label className="block text-gray-700 text-sm font-medium mb-2">Bio</label>
               <textarea
                 name="bio"
@@ -573,13 +542,6 @@ const Profile = () => {
                   <Star className="h-5 w-5 text-gray-500" />
                   <span className="text-gray-600">Level: </span>
                   <span className="text-gray-900 font-medium">{user.academicLevel} Level</span>
-                </div>
-              )}
-              {user?.preferredAnalogy && (
-                <div className="flex items-center space-x-2">
-                  <Settings className="h-5 w-5 text-gray-500" />
-                  <span className="text-gray-600">Analogy Style: </span>
-                  <span className="text-gray-900 font-medium capitalize">{user.preferredAnalogy}</span>
                 </div>
               )}
             </div>

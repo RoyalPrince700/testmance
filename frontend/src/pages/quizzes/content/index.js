@@ -17,9 +17,53 @@ import { gns311Chapter14Quiz } from './gns311-chapter14';
 import { gns311Chapter15Quiz } from './gns311-chapter15';
 import { gns311Chapter16Quiz } from './gns311-chapter16';
 
+// Import GST111 quiz content function (lazy load to avoid import errors)
+const getGST111QuizContent = async () => {
+  try {
+    const module = await import('../../gst111/quizzes');
+    return module.getQuizContent;
+  } catch (error) {
+    console.error('Failed to load GST111 quiz content:', error);
+    return null;
+  }
+};
+
+// Import COS101 quiz content function (lazy load to avoid import errors)
+const getCOS101QuizContent = async () => {
+  try {
+    const module = await import('../../cos101/quizzes');
+    return module.getQuizContent;
+  } catch (error) {
+    console.error('Failed to load COS101 quiz content:', error);
+    return null;
+  }
+};
+
 // Helper function to get quiz by course code and chapter title
-export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = null) => {
-  // Map chapter titles to quiz files
+export const getQuizContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
+  // Check for GST111 quiz content first
+  if (courseCode === 'GST 111') {
+    const gst111Function = await getGST111QuizContent();
+    if (gst111Function) {
+      const gst111Quiz = gst111Function(chapterTitle, chapterOrder, courseCode);
+      if (gst111Quiz) {
+        return gst111Quiz;
+      }
+    }
+  }
+
+  // Check for COS101 quiz content
+  if (courseCode === 'COS 101') {
+    const cos101Function = await getCOS101QuizContent();
+    if (cos101Function) {
+      const cos101Quiz = cos101Function(chapterTitle, chapterOrder, courseCode);
+      if (cos101Quiz) {
+        return cos101Quiz;
+      }
+    }
+  }
+
+  // Map chapter titles to quiz files (GNS311)
   const quizMap = {
     'The Structure of Science, Scientific Methods and Revolution': gns311Chapter1Quiz,
     'Philosophical Problems and Scientific Explanations': gns311Chapter2Quiz,
@@ -88,7 +132,29 @@ export const getQuizContent = (chapterTitle, chapterOrder = null, courseCode = n
 };
 
 // Helper function to get quiz by course code and chapter order
-export const getQuizByOrder = (courseCode, chapterOrder) => {
+export const getQuizByOrder = async (courseCode, chapterOrder) => {
+  if (courseCode === 'GST 111') {
+    // Use the GST111 quiz content function
+    const gst111Function = await getGST111QuizContent();
+    if (gst111Function) {
+      const gst111Quiz = gst111Function(null, parseInt(chapterOrder), courseCode);
+      if (gst111Quiz) {
+        return gst111Quiz;
+      }
+    }
+  }
+
+  if (courseCode === 'COS 101') {
+    // Use the COS101 quiz content function
+    const cos101Function = await getCOS101QuizContent();
+    if (cos101Function) {
+      const cos101Quiz = cos101Function(null, parseInt(chapterOrder), courseCode);
+      if (cos101Quiz) {
+        return cos101Quiz;
+      }
+    }
+  }
+
   if (courseCode === 'GNS 311') {
     const orderMap = {
       '1': gns311Chapter1Quiz,

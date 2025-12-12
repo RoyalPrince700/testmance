@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { chaptersAPI, coursesAPI, quizzesAPI } from '../../utils/api';
 import { useAuth } from '../../contexts/AuthContext';
-import { ArrowLeft, CheckCircle, XCircle, Trophy, Clock, Target, Sparkles } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Trophy, Target, Sparkles } from 'lucide-react';
 import { getQuizContent } from './content';
 import { QuizCongratulationsModal, QuizAnswersModal } from './components';
 
@@ -23,7 +23,6 @@ const Quiz = () => {
   const [correctness, setCorrectness] = useState([]); // Array indicating which answers are correct
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(null);
 
   // Get course color theme (default to teal)
   const getCourseTheme = () => {
@@ -31,7 +30,7 @@ const Quiz = () => {
     const courseCode = course.code || '';
     // You can customize colors per course code here
     if (courseCode.includes('GNS')) return 'teal';
-    if (courseCode.includes('GST')) return 'purple';
+    if (courseCode.includes('GST')) return 'teal';
     return 'teal'; // Default
   };
 
@@ -82,7 +81,7 @@ const Quiz = () => {
         }
 
         // Load local quiz content (required for all quizzes)
-        const quizContent = getQuizContent(
+        const quizContent = await getQuizContent(
           chapterData.title,
           chapterData.order,
           courseData?.code || 'GNS 311'
@@ -96,17 +95,9 @@ const Quiz = () => {
 
         setQuiz(quizContent);
         // Store quiz with answers (from local content) for review modal
-        // If we have local quiz content, use it (it has correct answers)
-        // Otherwise, we'll need to fetch answers after submission
-        if (localQuizContent) {
-          setQuizWithAnswers(localQuizContent);
-        } else {
-          // For backend quiz, we'll need to fetch with answers after submission
-          // For now, store the quiz content - we'll handle answers separately
-          setQuizWithAnswers(quizContent);
-        }
+        // All quizzes now come from local content with correct answers included
+        setQuizWithAnswers(quizContent);
         setAnswers(new Array(quizContent.questions.length).fill(null));
-        setTimeLeft((quizContent.timeLimit || 0) * 60); // Convert minutes to seconds
       } catch (error) {
         console.error('Failed to load quiz:', error);
       } finally {
@@ -116,29 +107,6 @@ const Quiz = () => {
 
     loadQuiz();
   }, [chapterId]);
-
-  // Timer effect
-  useEffect(() => {
-    if (timeLeft === null || showCongratulations || !quiz) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          handleSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [timeLeft, showCongratulations, quiz]);
-
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
 
   const handleAnswerSelect = (questionIndex, answerIndex) => {
     const newAnswers = [...answers];
@@ -197,7 +165,7 @@ const Quiz = () => {
         description: quiz.description,
         questions: quiz.questions,
         passingScore: quiz.passingScore,
-        timeLimit: quiz.timeLimit
+        timeLimit: 0
       });
 
       if (submitResponse.success && submitResponse.data) {
@@ -391,12 +359,6 @@ const Quiz = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              {timeLeft !== null && quiz.timeLimit > 0 && (
-                <div className={`flex items-center space-x-2 ${colors.bg} px-4 py-2 rounded-lg border ${colors.border}`}>
-                  <Clock className={`h-5 w-5 ${colors.icon}`} />
-                  <span className={`font-mono font-semibold ${colors.text}`}>{formatTime(timeLeft)}</span>
-                </div>
-              )}
               <div className={`flex items-center space-x-2 ${colors.bg} px-4 py-2 rounded-lg border ${colors.border}`}>
                 <Target className={`h-5 w-5 ${colors.icon}`} />
                 <span className={`font-semibold ${colors.text}`}>{currentQuestion + 1}/{quiz.questions.length}</span>

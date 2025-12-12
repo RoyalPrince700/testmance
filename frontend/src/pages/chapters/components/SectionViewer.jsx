@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle, Sparkles, X, Loader } from 'lucide-react';
 import { aiAPI } from '../../../utils/api';
 import { useAuth } from '../../../contexts/AuthContext';
-import AnalogyPreferenceModal from '../../../components/AnalogyPreferenceModal';
 
 const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed, isCompleting = false }) => {
   const { user, updateProfile } = useAuth();
@@ -15,8 +14,6 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
   const [showExplanation, setShowExplanation] = useState(false);
   const [error, setError] = useState(null);
   
-  // Modal State
-  const [showPreferenceModal, setShowPreferenceModal] = useState(false);
 
   useEffect(() => {
     // Calculate progress
@@ -57,44 +54,24 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
   };
 
   const handleExplainClick = () => {
-    if (!user.preferredAnalogy) {
-      setShowPreferenceModal(true);
-    } else {
-      generateExplanation(user.preferredAnalogy);
-    }
+    generateExplanation();
   };
 
-  const handlePreferenceSelect = async (analogy) => {
-    setShowPreferenceModal(false);
-    
-    // Update user profile with preference
-    await updateProfile({ preferredAnalogy: analogy });
-    
-    // Continue with explanation
-    generateExplanation(analogy);
-  };
 
-  const generateExplanation = async (analogy) => {
+  const generateExplanation = async () => {
     if (!currentSection) return;
-    
+
     setIsExplaining(true);
     setError(null);
     setShowExplanation(true);
 
     try {
-      // Combine title and subtitle for topic context
-      const topic = `${currentSection.title} - ${currentSection.subtitle || ''}`;
-      
-      // Helper to strip HTML tags for cleaner prompt
-      const cleanContent = currentSection.content.replace(/<[^>]*>/g, ' ');
+      // Simulate AI processing delay (3 seconds)
+      await new Promise(resolve => setTimeout(resolve, 3000));
 
-      const response = await aiAPI.explain(topic, cleanContent, analogy);
-      
-      // Clean up the explanation text (remove markdown code blocks)
-      let cleanedExplanation = response.explanation;
-      cleanedExplanation = cleanedExplanation.replace(/```html/gi, '').replace(/```/g, '').trim();
-      
-      setExplanation(cleanedExplanation);
+      // Use manual explanation from the current section
+      const manualExplanation = currentSection.manualExplanation || 'No explanation available for this section.';
+      setExplanation(manualExplanation);
     } catch (err) {
       console.error('AI Explain Error:', err);
       setError('Failed to generate explanation. Please try again.');
@@ -118,11 +95,6 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
 
   return (
     <div className="space-y-6">
-      <AnalogyPreferenceModal 
-        isOpen={showPreferenceModal} 
-        onClose={() => setShowPreferenceModal(false)}
-        onSelect={handlePreferenceSelect}
-      />
 
       {/* Progress Bar */}
       <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -171,8 +143,8 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
           dangerouslySetInnerHTML={{ __html: currentSection.content }}
         />
 
-        {/* AI Explanation Button - Commented out for now */}
-        {/* <div className="mt-8 flex justify-center">
+        {/* AI Explanation Button */}
+        <div className="mt-8 flex justify-center">
           <button
             onClick={handleExplainClick}
             disabled={isExplaining}
@@ -186,7 +158,7 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
             )}
             <span className="font-semibold">Explain this section with AI</span>
           </button>
-        </div> */}
+        </div>
 
         {/* AI Explanation Panel */}
         {showExplanation && (
@@ -198,9 +170,6 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
                   <span>AI Tutor Explanation</span>
-                  <span className="text-indigo-600 font-medium text-xs md:text-sm bg-indigo-100 px-3 py-1 rounded-full border border-indigo-200 self-start md:self-auto">
-                    {user.preferredAnalogy || 'General'} Mode
-                  </span>
                 </div>
               </div>
               <button 
@@ -218,14 +187,14 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
                     <Loader className="h-10 w-10 text-indigo-600 animate-spin relative z-10" />
                   </div>
                   <p className="text-indigo-900 font-medium animate-pulse text-lg">
-                    Cooking up a {user.preferredAnalogy || 'simple'} explanation... 🍳
+                    Cooking up your explanation... 🍳
                   </p>
                 </div>
               ) : error ? (
                 <div className="text-red-600 text-center py-8 bg-red-50 rounded-xl border border-red-100">
                   <p className="font-medium">{error}</p>
-                  <button 
-                    onClick={() => generateExplanation(user.preferredAnalogy)}
+                  <button
+                    onClick={generateExplanation}
                     className="mt-3 text-sm text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg transition-colors shadow-sm"
                   >
                     Try again

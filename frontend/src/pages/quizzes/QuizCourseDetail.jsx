@@ -13,6 +13,7 @@ const QuizCourseDetail = () => {
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
   const [quizAttempts, setQuizAttempts] = useState({});
+  const [chaptersWithQuizzes, setChaptersWithQuizzes] = useState([]);
 
   useEffect(() => {
     const loadCourseData = async () => {
@@ -25,7 +26,21 @@ const QuizCourseDetail = () => {
 
         const courseData = courseResponse.data;
         setCourse(courseData);
-        setChapters(chaptersResponse.data);
+        const chaptersData = chaptersResponse.data;
+        setChapters(chaptersData);
+
+        // Filter chapters that have quizzes in frontend content
+        const filteredChapters = [];
+        for (const chapter of chaptersData) {
+          const quizContent = await getQuizContent(chapter.title, chapter.order, courseData?.code);
+          if (quizContent !== null) {
+            filteredChapters.push(chapter);
+          }
+        }
+        setChaptersWithQuizzes(filteredChapters);
+
+        // Load quiz attempts for chapters that have quizzes
+        await loadQuizAttempts(filteredChapters, courseData);
 
         // Check if user is enrolled in this course
         const enrolledCourses = enrolledResponse.data || [];
@@ -51,7 +66,7 @@ const QuizCourseDetail = () => {
     const completions = {};
 
     for (const chapter of chaptersData) {
-      const quizContent = getQuizContent(chapter.title, chapter.order, courseData?.code);
+      const quizContent = await getQuizContent(chapter.title, chapter.order, courseData?.code);
       if (quizContent) {
         try {
           // Try to get quiz results by chapter ID
@@ -62,19 +77,12 @@ const QuizCourseDetail = () => {
           }
         } catch (error) {
           // Quiz not attempted or error - leave as false
-          console.log(`No quiz attempts for chapter ${chapter._id}`);
         }
       }
     }
 
     setQuizAttempts(completions);
   };
-
-  // Filter chapters that have quizzes in frontend content
-  const chaptersWithQuizzes = chapters.filter(chapter => {
-    const quizContent = getQuizContent(chapter.title, chapter.order, course?.code);
-    return quizContent !== null;
-  });
 
   if (loading) {
     return (
