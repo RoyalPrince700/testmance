@@ -39,6 +39,17 @@ const getCOS101QuizContent = async () => {
   }
 };
 
+// Import BIO101 quiz content function (lazy load to avoid import errors)
+const getBIO101QuizContent = async () => {
+  try {
+    const module = await import('../../bio101/quizzes');
+    return module.getQuizContent;
+  } catch (error) {
+    console.error('Failed to load BIO101 quiz content:', error);
+    return null;
+  }
+};
+
 // Helper function to get quiz by course code and chapter title
 export const getQuizContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
   // Check for GST111 quiz content first
@@ -59,6 +70,17 @@ export const getQuizContent = async (chapterTitle, chapterOrder = null, courseCo
       const cos101Quiz = cos101Function(chapterTitle, chapterOrder, courseCode);
       if (cos101Quiz) {
         return cos101Quiz;
+      }
+    }
+  }
+
+  // Check for BIO101 quiz content
+  if (courseCode === 'BIO 101') {
+    const bio101Function = await getBIO101QuizContent();
+    if (bio101Function) {
+      const bio101Quiz = bio101Function(chapterTitle, chapterOrder, courseCode);
+      if (bio101Quiz) {
+        return bio101Quiz;
       }
     }
   }
@@ -151,6 +173,17 @@ export const getQuizByOrder = async (courseCode, chapterOrder) => {
       const cos101Quiz = cos101Function(null, parseInt(chapterOrder), courseCode);
       if (cos101Quiz) {
         return cos101Quiz;
+      }
+    }
+  }
+
+  if (courseCode === 'BIO 101') {
+    // Use the BIO101 quiz content function
+    const bio101Function = await getBIO101QuizContent();
+    if (bio101Function) {
+      const bio101Quiz = bio101Function(null, parseInt(chapterOrder), courseCode);
+      if (bio101Quiz) {
+        return bio101Quiz;
       }
     }
   }

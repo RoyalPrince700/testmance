@@ -41,6 +41,15 @@ const cos101Modules = [
   'Job Specializations and Future of Computing'
 ];
 
+const bio101Modules = [
+  'Characteristics and Classification of Living Organisms',
+  'INTERRELATIONSHIP IN ORGANISMS',
+  'ECOLOGY',
+  'CELL',
+  'GENES',
+  'Heredity and evolution'
+];
+
 
 const chapters = [
   // GNS 311 Chapters
@@ -93,6 +102,20 @@ const chapters = [
       <p>Here you can add more detailed study materials, diagrams, and explanations.</p>
     `,
     estimatedTime: index === 0 ? 15 : 10
+  })),
+
+  // BIO 101 Chapters
+  ...bio101Modules.map((title, index) => ({
+    title: title,
+    courseCode: 'BIO 101',
+    description: `Module ${index + 1} of BIO 101`,
+    order: index + 1,
+    content: `
+      <h1>${title}</h1>
+      <p>This is the content for the module: ${title}.</p>
+      <p>Here you can add more detailed study materials, diagrams, and explanations.</p>
+    `,
+    estimatedTime: 15
   }))
 ];
 

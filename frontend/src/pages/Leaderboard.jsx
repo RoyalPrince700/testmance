@@ -6,18 +6,26 @@ import { Trophy, GraduationCap, User, X, School, Building2, Star, AlertCircle } 
 import { getAvatarSrc } from '../utils/avatarUtils';
 
 const Leaderboard = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const [leaderboard, setLeaderboard] = useState([]);
   const [userRank, setUserRank] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('university'); // Default to university view
+  const [activeTab, setActiveTab] = useState('global'); // Default to global view (filtered by level)
   const [selectedUser, setSelectedUser] = useState(null);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const [profileLoading, setProfileLoading] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const [validationModalOpen, setValidationModalOpen] = useState(false);
   const [validationMessage, setValidationMessage] = useState('');
+
+  // Check if user has level on mount
+  useEffect(() => {
+    if (!authLoading && user && !user.academicLevel) {
+      setValidationMessage('Please set your academic level in your profile to view the leaderboard.');
+      setValidationModalOpen(true);
+    }
+  }, [user, authLoading]);
 
   // Handle tab change with validation
   const handleTabChange = (tab) => {
@@ -30,12 +38,6 @@ const Leaderboard = () => {
     
     if (tab === 'department' && !user?.department) {
       setValidationMessage('Please set your department in your profile to view department leaderboard.');
-      setValidationModalOpen(true);
-      return;
-    }
-    
-    if (tab === 'level' && !user?.academicLevel) {
-      setValidationMessage('Please set your academic level in your profile to view level leaderboard.');
       setValidationModalOpen(true);
       return;
     }
@@ -53,17 +55,26 @@ const Leaderboard = () => {
         
         switch (activeTab) {
           case 'global':
-            response = await leaderboardAPI.getGlobal({ limit: 50 });
+            response = await leaderboardAPI.getGlobal({ 
+              limit: 50,
+              academicLevel: user?.academicLevel 
+            });
             setLeaderboard(response.data || []);
             break;
             
           case 'university':
             if (universityId) {
-              response = await leaderboardAPI.getUniversity(universityId, { limit: 50 });
+              response = await leaderboardAPI.getUniversity(universityId, { 
+                limit: 50,
+                academicLevel: user?.academicLevel 
+              });
               setLeaderboard(response.data || []);
             } else {
               // Fallback to global if no university
-              response = await leaderboardAPI.getGlobal({ limit: 50 });
+              response = await leaderboardAPI.getGlobal({ 
+                limit: 50,
+                academicLevel: user?.academicLevel 
+              });
               setLeaderboard(response.data || []);
             }
             break;
@@ -73,6 +84,7 @@ const Leaderboard = () => {
               response = await leaderboardAPI.getFaculty({
                 faculty: user.faculty,
                 university: universityId,
+                academicLevel: user.academicLevel,
                 limit: 50
               });
               setLeaderboard(response.data || []);
@@ -87,21 +99,7 @@ const Leaderboard = () => {
                 department: user.department,
                 faculty: user.faculty,
                 university: universityId,
-                limit: 50
-              });
-              setLeaderboard(response.data || []);
-            } else {
-              setLeaderboard([]);
-            }
-            break;
-            
-          case 'level':
-            if (user?.academicLevel && universityId) {
-              response = await leaderboardAPI.getLevel({
                 academicLevel: user.academicLevel,
-                department: user.department,
-                faculty: user.faculty,
-                university: universityId,
                 limit: 50
               });
               setLeaderboard(response.data || []);
@@ -111,7 +109,10 @@ const Leaderboard = () => {
             break;
             
           default:
-            response = await leaderboardAPI.getGlobal({ limit: 50 });
+            response = await leaderboardAPI.getGlobal({ 
+              limit: 50,
+              academicLevel: user?.academicLevel 
+            });
             setLeaderboard(response.data || []);
         }
         
@@ -207,6 +208,19 @@ const Leaderboard = () => {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
+      {/* Header with Level Info */}
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-white mb-2 flex items-center justify-center gap-3">
+          <Trophy className="h-8 w-8 text-yellow-400" />
+          Leaderboard
+        </h1>
+        {user?.academicLevel && (
+          <p className="text-white/80 bg-white/10 backdrop-blur-sm inline-block px-4 py-1 rounded-full text-sm font-medium border border-white/20">
+            Level {user.academicLevel}
+          </p>
+        )}
+      </div>
+
       {/* Tabs */}
       <div className="flex justify-center">
         <div className="bg-gray-100 rounded-lg p-1 flex flex-wrap gap-1">
@@ -259,24 +273,23 @@ const Leaderboard = () => {
               <span>Department</span>
             </div>
           </button>
-          <button
-            onClick={() => handleTabChange('level')}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
-              activeTab === 'level'
-                ? 'bg-white text-gray-800 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800'
-            }`}
-          >
-            <div className="flex items-center space-x-2">
-              <Star className="h-4 w-4" />
-              <span>Level</span>
-            </div>
-          </button>
         </div>
       </div>
 
       {/* Leaderboard List */}
-      {leaderboard.length === 0 ? (
+      {!user?.academicLevel && !authLoading ? (
+        <div className="text-center py-12 bg-white/10 backdrop-blur-md rounded-lg">
+          <AlertCircle className="h-16 w-16 text-yellow-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-white mb-2">Academic Level Required</h3>
+          <p className="text-white/70 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
+          <button
+            onClick={() => navigate('/profile')}
+            className="bg-white text-purple-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Update Profile Now
+          </button>
+        </div>
+      ) : leaderboard.length === 0 ? (
         <div className="text-center py-12 bg-white/10 backdrop-blur-md rounded-lg">
           <Trophy className="h-16 w-16 text-white/30 mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-white mb-2">No rankings yet</h3>

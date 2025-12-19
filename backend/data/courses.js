@@ -38,6 +38,16 @@ const courses = [
     difficulty: 'Beginner',
     duration: 35,
     isPublished: true
+  },
+  {
+    title: 'Biology I',
+    code: 'BIO 101',
+    description: 'Introduction to biological concepts, characteristics of life, cell biology, genetics, and ecology.',
+    universityShortName: 'UNILORIN',
+    category: 'Science',
+    difficulty: 'Beginner',
+    duration: 40,
+    isPublished: true
   }
 ];
 

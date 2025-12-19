@@ -37,6 +37,17 @@ const getCOS101ChapterContent = async () => {
   }
 };
 
+// Import BIO101 content function (lazy load to avoid import errors)
+const getBIO101ChapterContent = async () => {
+  try {
+    const module = await import('../../bio101/chapters');
+    return module.getChapterContent;
+  } catch (error) {
+    console.error('Failed to load BIO101 chapter content:', error);
+    return null;
+  }
+};
+
 
 // Helper function to get content by chapter title, order, or course code
 export const getChapterContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -58,6 +69,17 @@ export const getChapterContent = async (chapterTitle, chapterOrder = null, cours
       const cos101Content = cos101Function(chapterTitle, chapterOrder, courseCode);
       if (cos101Content) {
         return cos101Content;
+      }
+    }
+  }
+
+  // Check for BIO101 content
+  if (courseCode === 'BIO 101') {
+    const bio101Function = await getBIO101ChapterContent();
+    if (bio101Function) {
+      const bio101Content = bio101Function(chapterTitle, chapterOrder, courseCode);
+      if (bio101Content) {
+        return bio101Content;
       }
     }
   }

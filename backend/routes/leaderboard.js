@@ -9,11 +9,15 @@ const router = express.Router();
 // @access  Public
 router.get('/global', optionalAuth, async (req, res) => {
   try {
-    const { limit = 50, university } = req.query;
+    const { limit = 50, university, academicLevel } = req.query;
     let query = { isActive: true };
 
     if (university) {
       query.university = university;
+    }
+
+    if (academicLevel) {
+      query.academicLevel = academicLevel;
     }
 
     const leaderboard = await User.find(query)
@@ -48,12 +52,17 @@ router.get('/global', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/university/:universityId', optionalAuth, async (req, res) => {
   try {
-    const { limit = 25 } = req.query;
-
-    const leaderboard = await User.find({
+    const { limit = 25, academicLevel } = req.query;
+    let query = {
       university: req.params.universityId,
       isActive: true
-    })
+    };
+
+    if (academicLevel) {
+      query.academicLevel = academicLevel;
+    }
+
+    const leaderboard = await User.find(query)
     .populate('university', 'name shortName')
     .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
     .sort({ gems: -1, xp: -1 })
@@ -84,7 +93,7 @@ router.get('/university/:universityId', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/faculty', optionalAuth, async (req, res) => {
   try {
-    const { faculty, university, limit = 50 } = req.query;
+    const { faculty, university, limit = 50, academicLevel } = req.query;
 
     if (!faculty) {
       return res.status(400).json({
@@ -100,6 +109,10 @@ router.get('/faculty', optionalAuth, async (req, res) => {
 
     if (university) {
       query.university = university;
+    }
+
+    if (academicLevel) {
+      query.academicLevel = academicLevel;
     }
 
     const leaderboard = await User.find(query)
@@ -133,7 +146,7 @@ router.get('/faculty', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/department', optionalAuth, async (req, res) => {
   try {
-    const { department, faculty, university, limit = 50 } = req.query;
+    const { department, faculty, university, limit = 50, academicLevel } = req.query;
 
     if (!department) {
       return res.status(400).json({
@@ -153,6 +166,10 @@ router.get('/department', optionalAuth, async (req, res) => {
 
     if (university) {
       query.university = university;
+    }
+
+    if (academicLevel) {
+      query.academicLevel = academicLevel;
     }
 
     const leaderboard = await User.find(query)
@@ -243,22 +260,27 @@ router.get('/level', optionalAuth, async (req, res) => {
 // @access  Private
 router.get('/user/rank', protect, async (req, res) => {
   try {
-    // Global rank
-    const globalRank = await User.countDocuments({
+    const { academicLevel } = req.user;
+    
+    // Base query for ranking
+    const baseRankQuery = {
       isActive: true,
-      $or: [
-        { gems: { $gt: req.user.gems } }
-      ]
-    }) + 1;
+      gems: { $gt: req.user.gems || 0 }
+    };
 
-    // University rank
-    const universityRank = await User.countDocuments({
-      university: req.user.university,
-      isActive: true,
-      $or: [
-        { gems: { $gt: req.user.gems } }
-      ]
-    }) + 1;
+    if (academicLevel) {
+      baseRankQuery.academicLevel = academicLevel;
+    }
+
+    // Global rank (within level)
+    const globalRank = await User.countDocuments(baseRankQuery) + 1;
+
+    // University rank (within level)
+    const universityRankQuery = { ...baseRankQuery };
+    if (req.user.university) {
+      universityRankQuery.university = req.user.university;
+    }
+    const universityRank = await User.countDocuments(universityRankQuery) + 1;
 
     res.json({
       success: true,
