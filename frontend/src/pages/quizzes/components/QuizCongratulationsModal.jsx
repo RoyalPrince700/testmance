@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, Gem, ArrowRight, Eye } from 'lucide-react';
+import { X, Gem, ArrowRight, Eye, Trophy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const QuizCongratulationsModal = ({
@@ -190,6 +190,27 @@ const QuizCongratulationsModal = ({
               )}
             </>
           )}
+        </div>
+
+        {/* Leaderboard Encouragement */}
+        <div className="mt-4 mb-2 p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-teal-100 p-2 rounded-full shrink-0">
+              <Trophy className="h-5 w-5 text-teal-600" />
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-teal-900">Check Your Rank!</p>
+              <p className="text-xs text-teal-700">See where you stand on the leaderboard after this quiz.</p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              navigate('/leaderboard');
+            }}
+            className="text-sm font-bold text-teal-600 hover:text-teal-700 whitespace-nowrap pl-12 sm:pl-0"
+          >
+            View Leaderboard →
+          </button>
         </div>
 
         {/* Action Buttons */}

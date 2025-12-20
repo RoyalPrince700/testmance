@@ -6,6 +6,8 @@ import { chapter4Content } from './content/chapter4-gst111.js';
 import { chapter5Content } from './content/chapter5-gst111.js';
 import { chapter6Content } from './content/chapter6-gst111.js';
 import { chapter7Content } from './content/chapter7-gst111.js';
+import { chapter8Content } from './content/chapter8-gst111.js';
+import { chapter9Content } from './content/chapter9-gst111.js';
 import { chapter10Content } from './content/chapter10-gst111.js';
 import { chapter11Content } from './content/chapter11-gst111.js';
 import { chapter12Content } from './content/chapter12-gst111.js';
@@ -23,6 +25,8 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     'Parts of Speech': chapter5Content,
     'ICT in Modern Language Learning': chapter6Content,
     'Grammatical Words': chapter7Content,
+    'Reading Comprehension Strategies': chapter8Content,
+    'Sound Pattern in English Language (Phonetics and Phonology)': chapter9Content,
     'Writing Skills Introduction': chapter10Content,
     'Logical Reasoning and Thinking': chapter11Content,
     'Mood In Grammar': chapter12Content,
@@ -39,6 +43,8 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
     5: chapter5Content, // Fifth chapter of GST 111
     6: chapter6Content, // Sixth chapter of GST 111
     7: chapter7Content, // Seventh chapter of GST 111
+    8: chapter8Content, // Eighth chapter of GST 111
+    9: chapter9Content, // Ninth chapter of GST 111
     10: chapter10Content, // Tenth chapter of GST 111
     11: chapter11Content, // Eleventh chapter of GST 111
     12: chapter12Content, // Twelfth chapter of GST 111
@@ -72,6 +78,6 @@ export const getChapterContent = (chapterTitle, chapterOrder = null, courseCode 
 };
 
 // Re-export for convenience
-export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter10Content, chapter11Content, chapter12Content };
+export { chapter1Content, chapter2Content, chapter3Content, chapter4Content, chapter5Content, chapter6Content, chapter7Content, chapter8Content, chapter9Content, chapter10Content, chapter11Content, chapter12Content };
 // Add more exports here as chapters are created
 // export { ..., ... };

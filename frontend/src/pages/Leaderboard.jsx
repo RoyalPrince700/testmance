@@ -201,7 +201,7 @@ const Leaderboard = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
       </div>
     );
   }
@@ -210,12 +210,12 @@ const Leaderboard = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header with Level Info */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2 flex items-center justify-center gap-3">
-          <Trophy className="h-8 w-8 text-yellow-400" />
+        <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
+          <Trophy className="h-8 w-8 text-yellow-500" />
           Leaderboard
         </h1>
         {user?.academicLevel && (
-          <p className="text-white/80 bg-white/10 backdrop-blur-sm inline-block px-4 py-1 rounded-full text-sm font-medium border border-white/20">
+          <p className="text-purple-600 bg-purple-50 inline-block px-4 py-1 rounded-full text-sm font-medium border border-purple-100">
             Level {user.academicLevel}
           </p>
         )}
@@ -278,22 +278,22 @@ const Leaderboard = () => {
 
       {/* Leaderboard List */}
       {!user?.academicLevel && !authLoading ? (
-        <div className="text-center py-12 bg-white/10 backdrop-blur-md rounded-lg">
-          <AlertCircle className="h-16 w-16 text-yellow-400 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-white mb-2">Academic Level Required</h3>
-          <p className="text-white/70 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
+        <div className="text-center py-12 bg-gray-50 border border-gray-200 rounded-lg">
+          <AlertCircle className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">Academic Level Required</h3>
+          <p className="text-gray-600 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
           <button
             onClick={() => navigate('/profile')}
-            className="bg-white text-purple-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-700 transition-all transform hover:scale-105 shadow-lg"
           >
             Update Profile Now
           </button>
         </div>
       ) : leaderboard.length === 0 ? (
-        <div className="text-center py-12 bg-white/10 backdrop-blur-md rounded-lg">
-          <Trophy className="h-16 w-16 text-white/30 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-white mb-2">No rankings yet</h3>
-          <p className="text-white/70">Be the first to start learning and claim the top spot!</p>
+        <div className="text-center py-12 bg-gray-50 border border-gray-200 rounded-lg">
+          <Trophy className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 mb-2">No rankings yet</h3>
+          <p className="text-gray-600">Be the first to start learning and claim the top spot!</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -327,7 +327,7 @@ const Leaderboard = () => {
                       className="w-10 h-10 rounded-full border-2 border-gray-200 object-cover"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-full border-2 border-gray-200 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-sm">
+                    <div className="w-10 h-10 rounded-full border-2 border-gray-200 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-sm">
                       {leaderboardUser.username?.charAt(0).toUpperCase() || <User className="h-5 w-5" />}
                     </div>
                   )}
@@ -417,7 +417,7 @@ const Leaderboard = () => {
                             className="w-16 h-16 rounded-full border-2 border-gray-200 object-cover"
                           />
                         ) : (
-                          <div className="w-16 h-16 rounded-full border-2 border-gray-200 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-xl">
+                          <div className="w-16 h-16 rounded-full border-2 border-gray-200 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-xl">
                             {profileData.user.username?.charAt(0).toUpperCase() || <User className="h-8 w-8" />}
                           </div>
                         )}

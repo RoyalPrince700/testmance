@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, Gem, ArrowRight, BookOpen } from 'lucide-react';
+import { X, Gem, ArrowRight, BookOpen, Trophy, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const CongratulationsModal = ({ 
@@ -120,6 +120,28 @@ const CongratulationsModal = ({
             </>
           )}
         </div>
+        
+        {/* Leaderboard Encouragement */}
+        <div className="mt-2 mb-6 p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-teal-100 p-2 rounded-full shrink-0">
+              <Trophy className="h-5 w-5 text-teal-600" />
+            </div>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-teal-900">Track Your Progress</p>
+              <p className="text-xs text-teal-700">See how your new gems affect your rank!</p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              navigate('/leaderboard');
+              onClose();
+            }}
+            className="text-sm font-bold text-teal-600 hover:text-teal-700 whitespace-nowrap pl-12 sm:pl-0"
+          >
+            View Leaderboard →
+          </button>
+        </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 mt-8">
@@ -143,9 +165,9 @@ const CongratulationsModal = ({
                     : 'bg-teal-500 hover:bg-teal-600 text-white'
                 } font-medium py-3 px-6 rounded-lg transition-colors`}
               >
-                <BookOpen className="h-5 w-5" />
-                Back to Module Page
-                <ArrowRight className="h-5 w-5" />
+                <ArrowLeft className="h-5 w-5" />
+                Back
+               
               </button>
             </>
           ) : (
