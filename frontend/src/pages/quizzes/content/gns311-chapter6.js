@@ -19,7 +19,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'According to WHO, 80% of the world\'s population (over 4 billion people) relies on herbal medicines as their primary healthcare.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary difference between traditional medicine and herbal medicine?',
@@ -31,7 +32,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Traditional medicine refers to health practices using plant, animal, and mineral-based medicines, spiritual therapies, and manual techniques, while herbal medicine specifically uses herbs for health maintenance and disease treatment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which Nigerian medicinal plant is known for its effectiveness against malaria and fever, and is called "Dongoyaro"?',
@@ -43,7 +45,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Neem tree (Azadirachta indica), called Dongoyaro in Nigeria, is used for malaria, fever, antiseptic properties, and diabetes treatment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the mnemonic "Bitter but better for blood sugar" help you remember about Vernonia amygdalina?',
@@ -55,7 +58,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Vernonia amygdalina (Bitter leaf/Ewuro) is bitter-tasting but effective for diabetes, malaria, laxative effects, and hypertension - hence "bitter but better for blood sugar".',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which medicinal plant contains the botanical name Carica papaya and is known for aiding digestion and wound healing?',
@@ -67,7 +71,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Carica papaya (Pawpaw/Ibepe) is used for digestion, wound healing, and diabetes treatment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main reason given in the chapter for the increasing use of medicinal plants?',
@@ -79,7 +84,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter states that rising costs of imported medicines make herbal alternatives more attractive, alongside other factors like fewer side effects and cultural preferences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what percentage of pharmaceutical medicines have herbal origins?',
@@ -91,7 +97,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter states that 74% of pharmaceutical medicines have herbal origins, showing the scientific validity of many traditional remedies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT listed as an advantage of herbal medicine in the chapter?',
@@ -103,7 +110,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter lists reduced side effects, effectiveness for chronic conditions, cost effectiveness, and wide availability as advantages, but does not claim herbs are always more effective than conventional drugs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main disadvantage of herbal medicine mentioned regarding dosage?',
@@ -115,7 +123,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A major disadvantage of herbal medicine is dosage uncertainty - there are no standardized dosage instructions, unlike conventional pharmaceuticals.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which myth about medicinal plants claims that "natural means safe"?',
@@ -127,7 +136,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Myth 1 states that herbs are always safe because they are natural, but the fact is that herbs contain chemicals and can be toxic if misidentified, overdosed, or cause interactions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The chapter states that many herbs work synergistically. What does this mean?',
@@ -139,7 +149,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Synergistically means herbs work together - traditional medicine often combines herbs for comprehensive healing effects, which is largely supported by scientific evidence.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the scientific term for the process of growing plant cells, tissues, or organs in artificial environments under sterile conditions?',
@@ -151,7 +162,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture involves growing plant cells, tissues, or organs in artificial environments under sterile conditions, revolutionizing medicinal plant production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which conservation strategy involves protecting plants in their natural habitats?',
@@ -163,7 +175,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In-situ conservation protects plants in their natural habitats through natural reserves and wild nurseries, preserving biodiversity in original ecosystems.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the purpose of cryo-banks in plant conservation?',
@@ -175,7 +188,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cryo-banks provide long-term storage at ultra-low temperatures (-196°C) for genetic preservation of plant species.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which tissue culture technique involves the formation of embryos from somatic cells, creating artificial seeds?',
@@ -187,7 +201,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Somatic embryogenesis is the formation of embryos from somatic (non-reproductive) cells, creating artificial seeds for plant propagation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what percentage of Earth\'s land surface is covered by protected areas for biodiversity conservation?',
@@ -199,7 +214,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that over 12,700 protected areas cover 8.81% of Earth\'s land surface for biodiversity conservation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -212,7 +228,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter mentions that herbalists and traditional practitioners often build personal relationships with patients, allowing for more open communication and trust compared to conventional medical settings.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a medicinal plant is effective for chronic conditions but not for serious acute illnesses, what category of advantage does this represent?',
@@ -224,7 +241,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'One of the advantages listed is that herbal medicine is often successful with long-term health issues (chronic conditions) but may be ineffective for serious acute illnesses.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main reason why herbs can be toxic if misidentified?',
@@ -236,7 +254,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter warns that wild herbs can be toxic if misidentified, which is a significant risk since proper identification requires expertise.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter counter the myth that herbs lack scientific evidence?',
@@ -248,7 +267,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter counters this myth by noting that many modern drugs originate from plants and that scientific research validates herbs like neem for malaria, bitter leaf for diabetes, and ginger for nausea, with 74% of pharmaceutical medicines having herbal origins.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter recommend regarding the standardization of herbal products?',
@@ -260,7 +280,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that standardization ensures safety and efficacy, and that research shows standardization maintains benefits while ensuring consistent quality. WHO recommends standardized herbal products.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is tissue culture particularly valuable for conservation of medicinal plants?',
@@ -272,7 +293,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture is valuable for conservation because it allows rapid multiplication of rare and recalcitrant (difficult-to-propagate) species, producing disease-free plants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary difference between in-situ and ex-situ conservation?',
@@ -284,7 +306,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In-situ conservation protects plants in their natural habitats (natural reserves, wild nurseries), while ex-situ conservation protects plants outside their natural habitats (botanic gardens, tissue culture, cryo-banks, seed banks).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How do botanic gardens contribute to medicinal plant conservation?',
@@ -296,7 +319,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Botanic gardens contribute by maintaining diverse plant collections, developing propagation protocols, and supporting domestication programs for medicinal plants.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the optimal moisture content for seed storage in seed banks?',
@@ -308,7 +332,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Seed banks store seeds with controlled moisture (5-8%) and temperature (-18°C) for long-term viability and preservation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which tissue culture technique produces thousands of identical plants from small tissue samples?',
@@ -320,7 +345,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Micropropagation involves rapid multiplication of plants from small tissue samples, producing thousands of identical plants under controlled conditions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does tissue culture help with year-round production of medicinal plants?',
@@ -332,7 +358,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture enables year-round production because it occurs in controlled laboratory environments, independent of seasonal weather or climate constraints.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is the lack of regulation considered a disadvantage of herbal medicine?',
@@ -344,7 +371,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Lack of regulation means quality and safety of herbal products are not guaranteed, unlike regulated pharmaceutical products.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // DIFFICULT QUESTIONS (Analysis/Application)
     {
@@ -357,7 +385,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Developing standardized bitter leaf medicine would directly address Myth 4, which claims that standardization reduces herbal effectiveness. The company would need to show that standardization maintains benefits while ensuring consistent quality.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A conservation biologist is choosing between in-situ and ex-situ strategies for protecting an endangered medicinal plant. Which factor would most strongly favor ex-situ conservation?',
@@ -369,7 +398,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'If the plant\'s natural habitat is completely destroyed, ex-situ conservation (outside natural habitats) becomes necessary through methods like tissue culture, cryo-banks, or botanic gardens.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How might tissue culture technology impact the traditional herbal medicine market in developing countries?',
@@ -381,7 +411,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture could positively impact the market by providing disease-free, standardized herbs that maintain traditional healing properties, while potentially improving quality and year-round availability without eliminating traditional practices.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A patient has a chronic condition and experiences side effects from conventional drugs. Based on the chapter, what would be the most rational approach to considering herbal alternatives?',
@@ -393,7 +424,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The most rational approach would be to consult a qualified practitioner who understands both conventional and herbal medicine, as herbs can interact with conventional drugs and require proper identification and dosage.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why might micropropagation be preferred over traditional seed propagation for commercial production of neem trees?',
@@ -405,7 +437,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Micropropagation produces thousands of identical, disease-free plants from small tissue samples rapidly, making it ideal for commercial production where consistency and disease-free status are important.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If climate change threatens wild populations of ginger plants, which combination of conservation strategies would be most comprehensive?',
@@ -417,7 +450,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'A comprehensive approach would combine in-situ strategies (wild nurseries near natural habitats) with ex-situ strategies (tissue culture for rapid propagation and seed banks for long-term genetic preservation).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s discussion of medicinal plants challenge the conventional view that "modern medicine is superior to traditional medicine"?',
@@ -429,7 +463,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter challenges this view by showing that many modern drugs originate from plants, herbs have scientific backing (74% of pharmaceutical medicines have herbal origins), and herbs like neem, bitter leaf, and ginger are clinically validated.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A researcher wants to preserve the genetic diversity of pawpaw plants threatened by habitat loss. Which conservation method would best maintain genetic variability?',
@@ -441,7 +476,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Seed banks are best for maintaining genetic diversity because they preserve diverse genetic material from different individuals, unlike micropropagation which produces genetically identical clones.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would WHO\'s recommendation of standardized herbal products be significant for global health?',
@@ -453,7 +489,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'WHO\'s recommendation of standardization is significant because it would ensure consistent quality and safety for the 80% of the world\'s population (4 billion people) who rely on herbal medicines as primary healthcare.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a pharmaceutical company discovers a new drug compound from lemon grass, how does this validate the chapter\'s position on herbal medicine?',
@@ -465,7 +502,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This validates the chapter\'s position that herbs have scientific backing and many modern drugs originate from plants, as evidenced by the 74% statistic and specific examples like neem, bitter leaf, and ginger.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How might the integration of tissue culture with traditional herbal medicine practices benefit rural communities in Nigeria?',
@@ -477,7 +515,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Integration could provide sustainable, quality-controlled herbal materials through modern propagation while supporting local economies and preserving traditional knowledge, making herbs more reliable and available.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the most significant implication of the chapter\'s finding that herbs can work synergistically in mixtures?',
@@ -489,7 +528,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The synergistic effect validates traditional medicine\'s approach of combining herbs for comprehensive healing, suggesting that traditional formulations may have scientific rationale beyond individual herb effects.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A conservation program for bitter leaf must balance protection with sustainable use. Which approach would best achieve this balance?',
@@ -501,7 +541,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Wild nurseries (in-situ) combined with controlled cultivation programs would balance protection (preserving natural populations) with sustainable use (providing cultivated sources for harvesting).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter\'s discussion of herbal medicine side effects challenge the "natural is safe" assumption?',
@@ -513,7 +554,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter shows that herbs, despite being natural, can affect liver, kidney, and heart function, cause interactions with conventional drugs, and require proper identification - challenging the assumption that natural automatically means safe.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a tissue culture facility produces 10,000 neem plants annually, what conservation benefit does this provide beyond simple propagation?',
@@ -525,7 +567,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Beyond propagation, tissue culture can supply reintroduction programs for depleted wild populations, helping restore endangered medicinal plants to their natural habitats.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter\'s emphasis on personal relationships in herbal medicine be particularly relevant for mental health treatment?',
@@ -537,7 +580,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The personal relationships and trust-building in herbal medicine may be particularly valuable for mental health treatment, where emotional support and holistic approaches complement physical treatment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the global recognition of herbal medicine in developed countries, as mentioned in the chapter, impact the standardization debate?',
@@ -549,7 +593,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Global recognition in developed countries increases demand for regulated, quality-controlled herbal products, supporting the need for standardization to ensure safety and efficacy in international markets.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A researcher studying pawpaw finds that tissue culture produces higher concentrations of medicinal compounds than wild plants. What does this suggest about conservation strategies?',
@@ -561,7 +606,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This suggests tissue culture could serve dual purposes: conserving endangered species while producing pharmaceutical-grade plants with higher medicinal compound concentrations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most significant challenge in integrating herbal medicine with conventional healthcare systems in Nigeria?',
@@ -573,7 +619,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The most significant challenge is balancing the proven efficacy of herbs with the need for standardization and regulation to ensure safety, quality, and integration with conventional healthcare.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How might climate change impact the future availability of medicinal plants discussed in the chapter?',
@@ -585,7 +632,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Climate change could reduce wild populations of medicinal plants, increasing reliance on conservation techniques like tissue culture, seed banks, and other ex-situ methods to preserve these important resources.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a patient experiences drug interactions between conventional medicine and garlic supplements, what principle from the chapter does this illustrate?',
@@ -597,7 +645,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This illustrates the chapter\'s point that herbs can interfere with conventional medications, which is listed as a disadvantage of herbal medicine requiring professional guidance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter\'s information about neem tree conservation be particularly important for pharmaceutical companies?',
@@ -609,7 +658,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Neem is valuable to pharmaceutical companies as a source of compounds for developing new drugs and pesticides, making conservation crucial to ensure sustainable supply of this important medicinal plant.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the concept of "wild nurseries" as a conservation strategy balance economic and ecological interests?',
@@ -621,7 +671,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Wild nurseries balance interests by establishing cultivation areas near natural habitats for endangered species, providing sustainable economic harvesting while protecting natural populations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter suggest about the relationship between traditional herbal knowledge and modern scientific research?',
@@ -633,7 +684,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter shows that scientific research validates traditional herbal knowledge, with examples like neem for malaria, bitter leaf for diabetes, and the 74% statistic showing most pharmaceutical drugs have herbal origins.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a tissue culture laboratory produces bitter leaf plants with enhanced anti-diabetic compounds, what broader implication does this have for healthcare?',
@@ -645,7 +697,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This could lead to improved treatments that combine traditional knowledge of bitter leaf\'s anti-diabetic properties with modern biotechnology to create more effective medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the affordability of medicinal plants be particularly significant for healthcare access in developing countries?',
@@ -657,7 +710,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The affordability of medicinal plants is significant because rising costs of imported medicines make accessible local alternatives crucial for healthcare equity in developing countries where most people rely on herbal medicine.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s discussion of lemon grass illustrate the integration of cultural and scientific approaches to medicine?',
@@ -669,7 +723,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Lemon grass illustrates integration by showing how traditional uses for fever, digestion, malaria, and stress are validated by scientific research, bridging cultural wisdom with modern scientific understanding.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most comprehensive approach to addressing the conservation threats mentioned in the chapter?',
@@ -681,7 +736,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The most comprehensive approach combines habitat protection, community education, sustainable harvesting practices, and advanced technologies like tissue culture to address all threats: habitat destruction, over-exploitation, invasive species, and climate change.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If pharmaceutical research confirms that ginger\'s anti-nausea effects are due to specific compounds, how does this impact the standardization debate?',
@@ -693,7 +749,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Confirming specific compounds responsible for ginger\'s effects supports standardization to ensure consistent therapeutic effects, addressing concerns about dosage uncertainty and quality control.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How might the "personal relationships" advantage of herbal medicine complement conventional medical approaches?',
@@ -705,7 +762,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The personal relationships in herbal medicine could complement conventional approaches by providing holistic care that addresses both medical and emotional needs, potentially improving patient outcomes and satisfaction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the chapter\'s mention that "facts can change with new observations" in the context of herbal medicine?',
@@ -717,7 +775,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This emphasizes that scientific understanding of herbal medicine continues to evolve with new observations and research, similar to how scientific knowledge in general remains tentative and subject to revision.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // EASY QUESTIONS (Additional)
     {
@@ -730,7 +789,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Ginger (Zingiber officinale), called Ata-ile in Nigeria, is used for nausea, inflammation, immunity, and digestion.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main purpose of botanic gardens in plant conservation?',
@@ -742,7 +802,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Botanic gardens maintain diverse plant collections, develop propagation protocols, and support domestication programs for medicinal plants.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which tissue culture technique involves growing undifferentiated cell masses that can regenerate into whole plants?',
@@ -754,7 +815,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Callus culture involves growing undifferentiated cell masses that can regenerate into whole plants, an important technique in tissue culture.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // MEDIUM QUESTIONS (Additional)
     {
@@ -767,7 +829,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture provides year-round production of disease-free plants, independent of seasonal weather constraints, making it valuable for conserving rare species.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that climate change will impact medicinal plant availability?',
@@ -779,7 +842,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Climate change could reduce wild populations of medicinal plants, increasing reliance on conservation techniques like tissue culture and seed banks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role do wild nurseries play in the conservation of medicinal plants?',
@@ -791,7 +855,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Wild nurseries establish cultivation areas near natural habitats for endangered species, combining protection with sustainable use.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is standardization particularly important for the global acceptance of herbal medicine?',
@@ -803,7 +868,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Standardization ensures consistent quality and safety, which is crucial for international markets and acceptance of herbal medicines worldwide.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // DIFFICULT QUESTIONS (Additional)
     {
@@ -816,7 +882,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Enhanced medicinal compounds through tissue culture could lead to standardized, high-potency herbal medicines for conditions like diabetes, bridging traditional knowledge with modern biotechnology.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How might the integration of tissue culture with traditional medicine practices address the disadvantage of dosage uncertainty?',
@@ -828,7 +895,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tissue culture could provide standardized plant material with consistent chemical profiles, allowing for more reliable traditional preparations while preserving cultural practices.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What would be the most effective strategy for conserving medicinal plants threatened by both habitat loss and overharvesting?',
@@ -840,7 +908,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The most effective strategy combines in-situ conservation (protecting natural habitats) with ex-situ methods (tissue culture, seed banks) to address both habitat loss and overharvesting threats.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If WHO recommends standardized herbal products, what impact might this have on the relationship between traditional healers and modern healthcare systems?',
@@ -852,7 +921,8 @@ export const gns311Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Standardized herbal products could create pathways for traditional healers to work alongside conventional healthcare systems, providing quality assurance while preserving traditional knowledge and practices.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

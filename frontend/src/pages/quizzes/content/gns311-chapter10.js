@@ -19,7 +19,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Chicken is the most popular poultry species worldwide and the most important in poultry production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which poultry management system allows birds to roam freely during the day?',
@@ -31,7 +32,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The free range system allows birds to roam freely during the day to find their own food, with optional night shelter.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary difference between egg-type and meat-type chickens?',
@@ -43,7 +45,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Egg-type chickens (layers) are light-bodied birds bred for high egg production, while meat-type chickens (broilers) are heavy-bodied birds bred for rapid growth and meat production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which housing system keeps layers in wire cages for egg production?',
@@ -55,7 +58,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The battery cage system (also called cage system) keeps layers in wire cages for egg production, preventing floor eggs and making collection easy.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the optimal temperature for egg incubation?',
@@ -67,7 +71,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Egg incubation requires 37°C (98.6°F) temperature for optimal development of chicks.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which stage of poultry production involves caring for chicks from 0-8 weeks?',
@@ -79,7 +84,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Brooding is the management of chicks from 0-8 weeks of age and requires proper heat, feeding, and health care.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     
     {
@@ -92,7 +98,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Fat provides high energy (2.25x more than carbohydrates) and serves as a source of essential fatty acids.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the most common method for natural incubation?',
@@ -104,7 +111,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Natural incubation involves a mother hen (broody hen) sitting on eggs to provide the necessary heat and care.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which disease is characterized by blood in feces and watery droppings?',
@@ -116,7 +124,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Coccidiosis is a protozoan disease that causes blood in feces and watery droppings. It can be prevented with coccidiostats and clean litter.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the first vaccination given to chicks according to the schedule?',
@@ -128,7 +137,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: "Marek's vaccine is given on day 0 (the first day) to protect against Marek's disease.",
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which feed ingredient is the primary source of energy in poultry diets?',
@@ -140,7 +150,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Maize is a primary energy source in poultry feeds, providing carbohydrates along with wheat and barley.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // EASY QUESTIONS (Basic Recall) - Additional
    
@@ -155,7 +166,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Egg incubation requires 50-60% humidity along with proper temperature and ventilation.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which mineral is important for eggshell formation?',
@@ -167,7 +179,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Calcium from limestone and bone meal is crucial for eggshell formation in laying hens.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the brooding period for chicks?',
@@ -179,7 +192,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Brooding covers the first 0-8 weeks of a chick\'s life, requiring special heat and care management.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which vaccination is given at week 4?',
@@ -191,7 +205,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'NDV Lasota vaccine is administered at week 4 to protect against Newcastle disease.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -204,7 +219,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Wood shavings are commonly used in Nigeria\'s deep litter systems due to their availability and absorbent properties.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What indicates that brooding temperature is too high for chicks?',
@@ -216,7 +232,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'When temperature is too high, chicks spread away from the heat source. When too cold, they huddle under the heat source.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is lighting important during the rearing phase?',
@@ -228,7 +245,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Lighting is critical for sexual maturity and egg production initiation, especially in tropical climates with sufficient natural sunlight.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary reason for debeaking chicks?',
@@ -240,7 +258,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Debeaking prevents cannibalism and feather pecking among birds, which can be serious problems in confined systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are layers kept in battery cages?',
@@ -252,7 +271,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Battery cages prevent floor eggs and make egg collection easy, though this system is increasingly controversial for welfare reasons.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the Pearson square method?',
@@ -264,7 +284,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Pearson square method is used to calculate ingredient proportions for balanced poultry feed formulation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why should eggs be washed before incubation?',
@@ -276,7 +297,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Eggs should be washed in warm, sanitized water before incubation to remove dirt and bacteria, improving hatchability.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main advantage of artificial incubation over natural incubation?',
@@ -288,7 +310,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Artificial incubation allows for large-scale production with controlled environments, unlike natural incubation which is limited by broody hens.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is Newcastle disease vaccine given orally on day 1?',
@@ -300,7 +323,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Newcastle disease vaccine is given orally on day 1 along with anti-stress medication to provide early protection against this deadly viral disease.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between feed cost and production expenses?',
@@ -312,7 +336,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Feed costs account for 55-75% of total poultry production expenses, making nutrition management crucial for profitability.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is biosecurity important in poultry production?',
@@ -324,7 +349,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Biosecurity measures prevent disease introduction and spread through controlled access, cleaning, and waste disposal.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the purpose of anti-stress medication in vaccination programs?',
@@ -336,7 +362,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Anti-stress medication is given during vaccination to reduce stress from handling and improve vaccine effectiveness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is water essential for poultry at all times?',
@@ -348,7 +375,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Water is essential for all body functions including digestion, nutrient absorption, temperature regulation, and egg formation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // DIFFICULT QUESTIONS (Analysis/Evaluation)
     {
@@ -361,7 +389,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Free range systems minimize costs and provide better disease resistance through natural immunity development, though they have other limitations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A farmer notices chicks spreading away from the brooder. What action should they take?',
@@ -373,7 +402,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Chicks spreading away from heat indicate the temperature is too high. The farmer should decrease the brooding temperature.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which factor would be most critical when choosing between deep litter and cage systems for layer production?',
@@ -385,7 +415,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Management system choice depends on climate, flock size, facilities, and production goals. Deep litter suits rural Nigerian conditions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'During incubation, if eggs are stored longer than 7 days, what is the primary risk?',
@@ -397,7 +428,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Eggs should not be stored longer than 7 days as this reduces hatchability. They should be stored at 10-14°C with 75-85% humidity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might a commercial poultry farmer prefer artificial incubation over natural incubation?',
@@ -409,7 +441,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Artificial incubation allows for large-scale, controlled production with consistent results, unlike natural incubation which depends on broody hens.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a farmer wants to maximize egg production in tropical Nigeria, what lighting strategy should they employ?',
@@ -421,7 +454,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In tropical climates like Nigeria, natural sunlight is usually sufficient for sexual maturity and egg production initiation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A farmer observes nervous signs and high mortality in 3-week-old broilers. What disease is most likely?',
@@ -433,7 +467,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Gumboro disease affects 3-8 week old birds, causing depression, diarrhea, and high mortality. It requires vaccination on days 7 and 10.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is it important to maintain proper calcium levels in layer feed?',
@@ -445,7 +480,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Calcium from limestone and bone meal is essential for eggshell formation. Layer mash contains 3% calcium.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What would be the consequence of inadequate ventilation during incubation?',
@@ -457,7 +493,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Proper ventilation is essential during incubation to provide oxygen for embryo development. Poor ventilation leads to embryo death.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If feed costs represent 70% of production expenses, what management practice would most impact profitability?',
@@ -469,7 +506,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Since feed costs are 55-75% of expenses, optimizing nutrition through proper feed formulation has the greatest impact on profitability.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are external parasites like lice more common in free range systems?',
@@ -481,7 +519,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Free range birds have more contact with wild birds, soil, and vegetation, increasing exposure to external parasites like lice and mites.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A layer farmer wants to achieve 180-230 eggs per hen per year. What is the most important management factor?',
@@ -493,7 +532,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Achieving 180-230 eggs/year requires consistent nutrition, health management, and proper rearing. Breed selection is also important but management is key.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary reason for isolating sick birds in a poultry farm?',
@@ -505,7 +545,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Isolating sick birds is a biosecurity measure to prevent disease transmission to healthy birds and allow focused treatment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might coccidiosis be more prevalent in deep litter systems compared to cage systems?',
@@ -517,7 +558,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Deep litter systems can have higher parasite loads due to accumulated litter and higher bird densities compared to individual cages.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a farmer wants to reduce cannibalism in layers, what management practice should they implement?',
@@ -529,7 +571,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Debeaking prevents cannibalism and feather pecking. Proper stocking density and environmental enrichment also help reduce this behavior.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is it crucial to provide clean water at all times in poultry production?',
@@ -541,7 +584,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Clean water is essential for hydration, digestion, medication delivery, and temperature regulation. Birds can stop eating if water is unavailable.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most significant advantage of using battery cages for commercial layer production?',
@@ -553,7 +597,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Battery cages allow for higher stocking densities, easier egg collection, better disease control, and more efficient management.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would a poultry farmer in Nigeria choose wood shavings over other litter materials?',
@@ -565,7 +610,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Wood shavings are preferred in Nigeria due to their good absorbency, availability, and effectiveness as litter material in deep litter systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If hatchability drops below 80%, what is the most likely cause?',
@@ -577,7 +623,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Low hatchability can result from poor egg quality or incorrect incubation conditions (temperature, humidity, ventilation).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is it important to monitor chick behavior during brooding?',
@@ -589,7 +636,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Monitoring chick behavior (huddling/spreading) helps assess if brooding temperature is appropriate and detect early health issues.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between protein level and growth rate in broiler production?',
@@ -601,7 +649,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'While protein is essential for growth, optimal levels (18-23%) must be balanced with energy content for maximum efficiency and cost-effectiveness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might respiratory symptoms in poultry indicate a bacterial infection rather than viral?',
@@ -613,7 +662,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Chronic respiratory disease (CRD) is bacterial and responds to antibiotics, while Newcastle disease is viral with different symptoms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a farmer wants to reduce feed costs while maintaining production, what strategy should they use?',
@@ -625,7 +675,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Feed costs can be optimized by using locally available ingredients (maize, soybean, etc.) and proper formulation with the Pearson square method.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is Marek\'s vaccine given on day 0 rather than later?',
@@ -637,7 +688,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Marek\'s vaccine is given on day 0 to provide early immunity before birds are exposed to the virus, which is common in poultry environments.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What would be the consequence of overfeeding calcium to layers?',
@@ -649,7 +701,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Excessive calcium can cause kidney damage and reduce egg production. The correct level is 3% in layer mash.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are vaccines administered with anti-stress medication?',
@@ -661,7 +714,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Anti-stress medication reduces handling stress and improves vaccine effectiveness by supporting the immune system.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a farmer notices skin lesions on comb and wattles, what disease should they suspect?',
@@ -673,7 +727,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Fowl pox causes characteristic skin lesions on the comb, wattles, and other unfeathered areas of the bird.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is proper record keeping important in intensive poultry systems?',
@@ -685,7 +740,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Record keeping allows farmers to monitor production performance, feed efficiency, health status, and make informed management decisions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most effective way to prevent coccidiosis in poultry?',
@@ -697,7 +753,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Coccidiosis prevention involves coccidiostats in feed, regular litter cleaning, and proper sanitation practices.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might tropical Nigerian farmers prefer natural incubation for small-scale operations?',
@@ -709,7 +766,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Natural incubation using broody hens requires no electricity or special equipment, making it suitable for small-scale, low-cost operations.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If brooding temperature is consistently too low, what health problem might occur?',
@@ -721,7 +779,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Low brooding temperatures cause chicks to huddle, expend energy to stay warm, leading to poor growth and increased disease susceptibility.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is it important to provide oyster shells or limestone grit separately from layer feed?',
@@ -733,7 +792,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Layers need additional calcium during peak production beyond what\'s in the feed. Oyster shells provide this extra calcium for eggshell formation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary advantage of using the California style (stair-step) battery cages?',
@@ -745,7 +805,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'California style cages allow eggs to roll forward for easy collection and have built-in manure removal systems, improving efficiency.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a farmer wants to start poultry production with limited capital, which system should they choose?',
@@ -757,7 +818,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Free range systems require minimal capital investment - just land, basic shelter, and birds. No expensive housing or equipment needed.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why do broilers require higher protein levels than layers?',
@@ -769,7 +831,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Broilers need higher protein (18-23%) for rapid muscle growth and development to reach market weight quickly.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the most significant biosecurity risk in poultry production?',
@@ -781,7 +844,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Uncontrolled visitor and vehicle access is a major biosecurity risk, as people and vehicles can introduce diseases to the farm.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might a farmer choose to debeak older birds rather than just chicks?',
@@ -793,7 +857,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Debeaking older birds helps prevent vent pecking and cannibalism that can occur during high egg production periods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If egg production drops suddenly in a flock, what should be investigated first?',
@@ -805,7 +870,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Sudden drops in egg production are often due to disease outbreaks, nutritional deficiencies, or stress factors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is artificial incubation preferred for commercial broiler production?',
@@ -817,7 +883,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Artificial incubation ensures year-round chick supply, genetic uniformity, and higher numbers needed for commercial broiler production.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between stocking density and disease incidence?',
@@ -829,7 +896,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Higher stocking densities increase stress, ammonia levels, and disease transmission, especially in confined systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are amino acids like lysine and methionine important in poultry feed?',
@@ -841,7 +909,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Lysine and methionine are essential amino acids that poultry cannot synthesize and must obtain from feed for proper growth and production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a farmer notices watery droppings with blood, what immediate action should they take?',
@@ -853,7 +922,8 @@ export const gns311Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Blood in watery droppings indicates coccidiosis. Immediate treatment with coccidiostats and improved litter management is essential.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

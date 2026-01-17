@@ -19,7 +19,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Microbes (microorganisms) are organisms that cannot be seen with the naked eye. They exist as single cells or cell clusters and combine plant and animal features.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a main group of microorganisms mentioned in the chapter?',
@@ -31,7 +32,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The main groups of microorganisms mentioned are bacteria, fungi, viruses, and protozoans. Algae is not listed as one of the main groups.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary barrier that microbes must overcome to invade a host?',
@@ -43,7 +45,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The impenetrable skin serves as the most prominent barrier that microbes must overcome to establish contact and colonize their host.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which enzyme do microbes use to break down host barriers during invasion?',
@@ -55,7 +58,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter states that microbes produce chemical substances (enzymes) to break host barriers, but does not specify the exact type of enzyme.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is an example of a microbe that shows strong preference for a specific site in the host?',
@@ -67,7 +71,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Neisseria gonorrhoeae, the microbe causing gonorrhea, sticks strongly to the inner lining of the urogenital tract rather than other places.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is pathogenicity?',
@@ -79,7 +84,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Pathogenicity is defined as a microbe\'s ability to cause disease. It refers to the initiation of alterations in the host\'s system.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a mechanism of pathogenicity mentioned in the chapter?',
@@ -91,7 +97,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Mechanisms of pathogenicity include toxin production, nutrient deprivation, tissue confiscation, tissue destruction, tissue changes, and immune suppression. Enhanced immune response is not a mechanism of pathogenicity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are excretory wastes produced by microbes that are intolerable to the host called?',
@@ -103,7 +110,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Excretory wastes produced by microbes that are intolerable to the host are referred to as toxins.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the term for diseases that can be transmitted from animals to humans?',
@@ -115,7 +123,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Diseases that are contractible by humans from other animals are termed zoonotic diseases.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT listed as a major microbial reservoir?',
@@ -127,7 +136,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The major reservoirs are water, soil, atmosphere, humans, and domestic and wild animals. Plants are not listed as a major reservoir.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most common mode of microbial transmission according to the chapter?',
@@ -139,7 +149,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Contaminated food and water (oral-faecal route) is described as a popular mode of microbial transmission.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which transmission route involves pathogens being spread through coughing, sneezing, or talking?',
@@ -151,7 +162,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The respiratory route involves pathogens spread through droplets from coughing, sneezing, talking, or sputum.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is a contagion in the context of disease transmission?',
@@ -163,7 +175,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A contagion is a pathogen that utilizes contact (direct or indirect) to get across to a new host.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which insect is mentioned as a common vector for transmitting microbial diseases?',
@@ -175,7 +188,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Mosquitoes are mentioned as vectors, particularly female Anopheles mosquitoes for malaria transmission.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes viral diseases difficult to treat?',
@@ -187,7 +201,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Viral diseases are difficult to treat because viruses reside within the host\'s cell where drugs cannot be tolerated without damaging the host cell.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which viral disease is transmitted through droplet infection and causes paralysis?',
@@ -199,7 +214,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Polio is transmitted through droplet infection or faecal contamination and causes headache, fever, and paralysis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary method of preventing viral diseases according to the chapter?',
@@ -211,7 +227,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Prevention of viral diseases emphasizes vaccination and avoiding contact with infected individuals, as treatment is difficult.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which bacterial disease is transmitted through faecal-contaminated food and water?',
@@ -223,7 +240,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cholera is transmitted through faecal-contaminated food and water, often via the oral-faecal route.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary symptom of cholera?',
@@ -235,7 +253,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Cholera causes gut irritation, severe diarrhea, dehydration, and can be fatal.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which bacterial disease affects the lungs and is transmitted through droplet infection?',
@@ -247,7 +266,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tuberculosis affects the lungs and is transmitted through droplet infection.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the BCG vaccine used to prevent?',
@@ -259,7 +279,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'BCG vaccine is used to prevent tuberculosis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which sexually transmitted bacterial disease can cause sterility in both men and women?',
@@ -271,7 +292,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Gonorrhea is transmitted through sexual contact and can cause difficulty urinating in men and sterility in both sexes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the common name for Clostridium tetanus infection?',
@@ -283,7 +305,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Clostridium tetanus causes tetanus, also known as lockjaw, characterized by muscle spasms.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How is tetanus primarily transmitted?',
@@ -295,7 +318,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tetanus is transmitted through wound contamination, often from soil containing the bacteria.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which fungal disease affects the skin and is commonly known as "ringworm"?',
@@ -307,7 +331,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Ringworm (caused by Trichophyton sp) affects the scalp, thighs, and armpits, while athlete\'s foot affects the feet. Both are fungal diseases.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How are fungal diseases like ringworm primarily transmitted?',
@@ -319,7 +344,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Fungal diseases spread by personal or indirect contact, achieved through sharing clothing, personal effects, or direct skin contact.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the best preventive measure for fungal diseases according to the chapter?',
@@ -331,7 +357,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The best preventive measure for fungal diseases is ensuring personal cleanliness and discouraging the use of damp socks and shared items.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which protozoan parasite causes malaria?',
@@ -343,7 +370,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Plasmodium sp causes malaria and resides in the blood of humans.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How is malaria transmitted to humans?',
@@ -355,7 +383,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Malaria is transmitted through the feeding action of female Anopheles mosquitoes, which act as vectors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the common symptoms of malaria?',
@@ -367,7 +396,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Malaria symptoms include fever (high body temperature), headache, pains (especially in joints), little and deeply colored urine.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which disease is also known as "sleeping sickness"?',
@@ -379,7 +409,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Trypanosomiasis, caused by Trypanosoma sp, is also known as sleeping sickness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How is trypanosomiasis transmitted?',
@@ -391,7 +422,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Trypanosomiasis is transmitted from one human host to another by the Tsetse fly (Glossina sp).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the main symptoms of trypanosomiasis?',
@@ -403,7 +435,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Trypanosomiasis causes fever, emaciation (weight loss), sleeping almost always, and eventually death.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which type of disease is AIDS classified as?',
@@ -415,7 +448,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'AIDS is caused by HIV (Human Immunodeficiency Virus), making it a viral disease.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary mode of transmission for HIV/AIDS?',
@@ -427,7 +461,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'HIV/AIDS is transmitted through contagion in body fluids, requiring controlled sexual activity and avoidance of body fluid contact.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which bacterial disease is known as "leprosy"?',
@@ -439,7 +474,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Leprosy is caused by Bacillus sp, though it\'s worth noting that Mycobacterium leprae is the actual causative agent.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary symptom of leprosy?',
@@ -451,7 +487,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Leprosy causes loss of sensation, sores on the skin, loss of flesh and bone.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which disease is transmitted through milk sourced from infected cattle?',
@@ -463,7 +500,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tuberculosis can be transmitted through milk from infected cattle, in addition to droplet infection.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the common name for "catarrh"?',
@@ -475,7 +513,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The common cold is also known as catarrh or rhinovirus infection.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which viral disease causes high fever, skin blisters, and rashes?',
@@ -487,7 +526,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Smallpox causes high fever, skin blisters and rashes, and death.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the causative agent of syphilis?',
@@ -499,7 +539,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Syphilis is caused by Treponema pallidum (noted as Treponema poludium in the chapter, likely a typo).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which disease can cause mental impairment and brain damage?',
@@ -511,7 +552,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Syphilis can cause mental impairment, skin blisters, brain damage, and affect bones and joints.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary vector for yellow fever transmission?',
@@ -523,7 +565,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Yellow fever is transmitted by mosquito vectors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which bacterial disease is often transmitted through vectors like houseflies?',
@@ -535,7 +578,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Cholera can be transmitted through vectors like houseflies, in addition to contaminated food and water.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the term for microorganisms that are normally present in the body without causing harm?',
@@ -547,7 +591,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Normal human microflora are microorganisms that reside in or on the body without causing harm, in contrast to pathogenic forms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a location where normal human microflora can be found?',
@@ -559,7 +604,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Normal microflora occur on skin, orifices (mouth, nose, anus, vagina), body fluids (saliva, semen), and tissues. Blood is typically sterile.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the 17th century in the history of scientific methods?',
@@ -571,7 +617,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'While the chapter focuses on microbes, it references the 17th century scientific revolution. However, this seems to be from Chapter 1. For Chapter 15, the question about microbial history would be more relevant.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary reason why malaria causes anemia?',
@@ -583,7 +630,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Malaria parasites colonize red blood cells, feed within them, reproduce, and break them open, resulting in anemia.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which reference book is mentioned for further reading on microbiology?',
@@ -595,7 +643,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The chapter references "Biology of micro-organisms" by Brock, T. D., M. T. Martinko and J. Parker (1994) for further reading.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the department and university of the chapter author?',
@@ -607,7 +656,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter author, Ande, A.T., is from the Department of Zoology, University of Ilorin, Ilorin, Nigeria.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many units does the chapter on Microbes and Diseases contain?',
@@ -619,7 +669,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter contains two units: Unit 1 (Microorganisms) and Unit 2 (Microorganisms and Microbial Diseases).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which subunit is part of Unit 1: Microorganisms?',
@@ -631,7 +682,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Unit 1: Microorganisms contains Subunit 1 (Host Invasion), Subunit 2 (Pathogenicity), and Subunit 3 (Reservoirs).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main focus of Unit 2 in the chapter?',
@@ -643,7 +695,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Unit 2 focuses on transmission (Subunit 1) and microbial diseases (Subunit 2).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a key component of cholera prevention mentioned in the chapter?',
@@ -655,7 +708,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cholera prevention includes provision of good water supply, good personal hygiene, and use of Oral Rehydration Therapy (ORT) and antibiotics when appropriate.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary mode of transmission for leprosy?',
@@ -667,7 +721,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Leprosy is transmitted through droplet infection and prolonged close contact with infected individuals.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which protozoan parasite causes sleeping sickness?',
@@ -679,7 +734,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Trypanosoma brucei (noted as Trypanosoma sp in the chapter) causes sleeping sickness, also known as trypanosomiasis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the term for diseases that can be transmitted from animals to humans?',
@@ -691,7 +747,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Zoonotic diseases are those that can be transmitted from animals to humans. Examples include rabies, avian flu, and some forms of tuberculosis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which bacterial disease is commonly associated with wound infections and can be prevented by tetanus toxoid vaccination?',
@@ -703,7 +760,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Tetanus is caused by Clostridium tetani and is transmitted through wound contamination. It can be prevented by vaccination and proper wound care.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most common symptom of malaria that helps distinguish it from other febrile illnesses?',
@@ -715,7 +773,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Malaria is characterized by intermittent fever with chills (rigors), headache, joint pains, and dark urine due to the cyclical nature of parasite reproduction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a typical location for normal human microflora?',
@@ -727,7 +786,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Normal human microflora reside on skin, orifices (mouth, nose, anus, vagina), and body fluids, but the bloodstream is typically sterile.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary reason why viral diseases are difficult to treat with conventional antibiotics?',
@@ -739,7 +799,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Viral diseases are difficult to treat because viruses reside and replicate within host cells, where conventional drugs cannot reach without damaging the host cell.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which fungal infection is commonly known as "athlete\'s foot" and affects the skin between toes?',
@@ -751,7 +812,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tinea pedis (athlete\'s foot) is caused by Trichophyton sp and commonly affects the skin between toes, while ringworm affects other areas.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary treatment approach for most viral infections according to the chapter?',
@@ -763,7 +825,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Viral infections are primarily treated with supportive care (rest, fluids, pain relief) and prevention through vaccination and hygiene, since antibiotics are ineffective against viruses.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a characteristic symptom of syphilis in its tertiary stage?',
@@ -775,7 +838,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tertiary syphilis can cause mental impairment, skin blisters, brain damage, and affect bones and joints, in addition to cardiovascular complications.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most effective way to prevent mosquito-borne diseases like malaria and yellow fever?',
@@ -787,7 +851,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Prevention of mosquito-borne diseases involves vector control (eliminating breeding sites, using insecticides) and personal protection (nets, repellents, protective clothing).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which bacterial infection can lead to sterility in both men and women if untreated?',
@@ -799,7 +864,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Gonorrhea can cause sterility in both men and women if untreated, in addition to causing painful urination in men and pelvic inflammatory disease in women.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary mode of transmission for the Hepatitis B virus?',
@@ -811,7 +877,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Hepatitis B is primarily transmitted through contact with infected blood and body fluids, including through sexual contact, sharing needles, or from mother to child during birth.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a characteristic of viruses?',
@@ -823,7 +890,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Viruses cannot be killed by antibiotics because antibiotics target bacterial cell processes. Viruses require antiviral medications and rely on the host immune system for control.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the name of the protein coat that surrounds a virus?',
@@ -835,7 +903,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The capsid is the protein coat that surrounds and protects the viral genetic material (DNA or RNA). It helps the virus attach to and enter host cells.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which immune system component produces antibodies?',
@@ -847,7 +916,8 @@ export const gns311Chapter15Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'B-cells are responsible for producing antibodies, which are proteins that recognize and bind to specific antigens on pathogens, marking them for destruction by other immune cells.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

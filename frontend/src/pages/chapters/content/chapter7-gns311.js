@@ -17,9 +17,9 @@ export const chapter7Content = {
             from pollution. Understanding atmospheric environment and air pollution is crucial for protecting
             public health and ensuring a sustainable future.
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               The atmosphere acts as a protective blanket, filtering harmful UV radiation and maintaining
               Earth's temperature through the greenhouse effect. But human activities are disrupting this balance!
             </p>
@@ -93,21 +93,21 @@ export const chapter7Content = {
             Each plays a vital role in maintaining Earth's delicate balance and supporting life.
           </p>
           <div class="grid md:grid-cols-2 gap-4 my-6">
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-2">🏔️ Lithosphere</h4>
-              <p class="text-blue-800 text-sm">Earth's crust and upper mantle - provides soil and minerals</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">🏔️ Lithosphere</h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">Earth's crust and upper mantle - provides soil and minerals</p>
             </div>
             <div class="bg-cyan-50 p-4 rounded-lg border border-cyan-200">
               <h4 class="font-bold text-cyan-900 mb-2">🌊 Hydrosphere</h4>
               <p class="text-cyan-800 text-sm">All water bodies - essential for life and climate regulation</p>
             </div>
-            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-2">🌱 Biosphere</h4>
-              <p class="text-green-800 text-sm">All living organisms and their interactions</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-2">🌱 Biosphere</h4>
+              <p class="text-green-800 dark:text-green-200 text-sm">All living organisms and their interactions</p>
             </div>
-            <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <h4 class="font-bold text-purple-900 mb-2">☁️ Atmosphere</h4>
-              <p class="text-purple-800 text-sm">Gaseous envelope - air we breathe and climate control</p>
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-2">☁️ Atmosphere</h4>
+              <p class="text-purple-800 dark:text-purple-200 text-sm">Gaseous envelope - air we breathe and climate control</p>
             </div>
           </div>
         </div>
@@ -126,30 +126,30 @@ export const chapter7Content = {
           </p>
 
           <div class="bg-linear-to-r from-blue-50 to-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🌡️ Atmospheric Layers:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🌡️ Atmospheric Layers:</h4>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-blue-700 mb-2">🏠 Troposphere (0-10 km)</h5>
-                <p class="text-gray-700 text-sm">Contains 75% of atmospheric mass. Weather occurs here. Temperature decreases with altitude.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🏠 Troposphere (0-10 km)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Contains 75% of atmospheric mass. Weather occurs here. Temperature decreases with altitude.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-green-700 mb-2">🛡️ Stratosphere (10-50 km)</h5>
-                <p class="text-gray-700 text-sm">Contains ozone layer that absorbs UV radiation. Temperature increases with altitude.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🛡️ Stratosphere (10-50 km)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Contains ozone layer that absorbs UV radiation. Temperature increases with altitude.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
                 <h5 class="font-bold text-orange-700 mb-2">🌌 Mesosphere (50-80 km)</h5>
-                <p class="text-gray-700 text-sm">Coldest layer where meteors burn up. Temperature decreases with altitude.</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Coldest layer where meteors burn up. Temperature decreases with altitude.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-red-700 mb-2">☀️ Thermosphere (80+ km)</h5>
-                <p class="text-gray-700 text-sm">Very hot layer where auroras occur. Temperature increases dramatically.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">☀️ Thermosphere (80+ km)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Very hot layer where auroras occur. Temperature increases dramatically.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🌍 Atmospheric Composition</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🌍 Atmospheric Composition</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Major gases: Nitrogen (78.09%), Oxygen (20.95%), Argon (0.93%). Trace gases include CO₂, ozone,
               and other greenhouse gases that regulate Earth's temperature through the greenhouse effect.
             </p>
@@ -170,9 +170,9 @@ export const chapter7Content = {
             because polluted air affects everyone through breathing.
           </p>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">🏭 Primary vs Secondary Pollutants</p>
-            <div class="space-y-2 text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">🏭 Primary vs Secondary Pollutants</p>
+            <div class="space-y-2 text-red-800 dark:text-red-200">
               <p><strong>Primary pollutants:</strong> Enter atmosphere directly (CO, NOx, SOx, particulates)</p>
               <p><strong>Secondary pollutants:</strong> Form through chemical reactions (ozone, PAN, smog)</p>
             </div>
@@ -183,13 +183,13 @@ export const chapter7Content = {
               <h4 class="font-bold text-orange-900 mb-2">🧪 Chemical</h4>
               <p class="text-orange-800 text-sm">Organic vs inorganic pollutants</p>
             </div>
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h4 class="font-bold text-gray-900 mb-2">💧 Physical State</h4>
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200">
+              <h4 class="font-bold text-gray-900 dark:text-white mb-2">💧 Physical State</h4>
               <p class="text-gray-800 text-sm">Gaseous vs particulate pollutants</p>
             </div>
-            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
-              <h4 class="font-bold text-indigo-900 mb-2">🔄 Origin</h4>
-              <p class="text-indigo-800 text-sm">Natural vs anthropogenic sources</p>
+            <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg border border-indigo-200">
+              <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-2">🔄 Origin</h4>
+              <p class="text-indigo-800 dark:text-indigo-200 text-sm">Natural vs anthropogenic sources</p>
             </div>
           </div>
         </div>
@@ -208,27 +208,27 @@ export const chapter7Content = {
             like ozone and other oxidants that are harmful to health.
           </p>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-4">🔬 Photochemical Reaction Steps:</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4">🔬 Photochemical Reaction Steps:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-3 rounded">
-                <strong class="text-indigo-700">1. Absorption:</strong> NO₂ absorbs UV radiation
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <strong class="text-indigo-700 dark:text-indigo-300">1. Absorption:</strong> NO₂ absorbs UV radiation
               </div>
-              <div class="bg-white p-3 rounded">
-                <strong class="text-indigo-700">2. Primary Reactions:</strong> NO₂ → NO + O (atomic oxygen)
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <strong class="text-indigo-700 dark:text-indigo-300">2. Primary Reactions:</strong> NO₂ → NO + O (atomic oxygen)
               </div>
-              <div class="bg-white p-3 rounded">
-                <strong class="text-indigo-700">3. Secondary Reactions:</strong> O + O₂ → O₃ (ozone formation)
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <strong class="text-indigo-700 dark:text-indigo-300">3. Secondary Reactions:</strong> O + O₂ → O₃ (ozone formation)
               </div>
-              <div class="bg-white p-3 rounded">
-                <strong class="text-indigo-700">4. Chain Reactions:</strong> Ozone reacts with hydrocarbons → oxidants
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <strong class="text-indigo-700 dark:text-indigo-300">4. Chain Reactions:</strong> Ozone reacts with hydrocarbons → oxidants
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">📊 Daily Smog Pattern</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">📊 Daily Smog Pattern</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Smog levels peak during midday due to sunlight intensity. NO decreases while NO₂ and oxidants increase,
               creating the characteristic brown haze over polluted cities.
             </p>
@@ -249,19 +249,19 @@ export const chapter7Content = {
             contribute to respiratory diseases, cardiovascular problems, and premature death.
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500 my-4">
-            <h4 class="font-bold text-red-900 mb-4">⚕️ Major Health Impacts:</h4>
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">⚕️ Major Health Impacts:</h4>
             <div class="grid md:grid-cols-2 gap-3">
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Respiratory:</strong> Asthma, bronchitis, lung cancer
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Cardiovascular:</strong> Heart disease, stroke
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Neurological:</strong> Cognitive impairment, Alzheimer's
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Cancer:</strong> Lung cancer, leukemia
               </div>
             </div>
@@ -288,7 +288,7 @@ export const chapter7Content = {
               Burning of living and dead vegetation including forest fires, agricultural waste burning,
               and fuelwood combustion for cooking and heating.
             </p>
-            <div class="bg-white p-4 rounded">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded">
               <strong class="text-orange-700">Key Emissions:</strong>
               <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
                 <li>CO₂ and other greenhouse gases</li>
@@ -300,9 +300,9 @@ export const chapter7Content = {
             </div>
           </div>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">🏥 Health Consequences</p>
-            <p class="text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">🏥 Health Consequences</p>
+            <p class="text-red-800 dark:text-red-200">
               Biomass burning particulates can penetrate deep into lungs, causing respiratory problems,
               cardiovascular disease, and premature death. Children and the elderly are most vulnerable.
             </p>
@@ -322,27 +322,27 @@ export const chapter7Content = {
             Cooking with solid fuels (wood, dung, coal) is the largest source of indoor air pollution globally.
           </p>
 
-          <div class="bg-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-purple-900 mb-4">🏭 Major Indoor Pollutants:</h4>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-4">🏭 Major Indoor Pollutants:</h4>
             <div class="grid md:grid-cols-2 gap-3">
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Particulate Matter:</strong> From cooking, smoking
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Carbon Monoxide:</strong> Incomplete combustion
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Nitrogen Oxides:</strong> Gas cooking, tobacco
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Volatile Compounds:</strong> Paints, cleaners, furniture
               </div>
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">💡 Solutions for Better Indoor Air</p>
-            <ul class="list-disc list-inside space-y-1 text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">💡 Solutions for Better Indoor Air</p>
+            <ul class="list-disc list-inside space-y-1 text-green-800 dark:text-green-200">
               <li>Use clean cooking fuels (LPG, electricity)</li>
               <li>Ensure proper ventilation during cooking</li>
               <li>Avoid smoking indoors</li>
@@ -366,9 +366,9 @@ export const chapter7Content = {
             in indoor environments where concentrations can be 100-1000 times higher than outdoors.
           </p>
 
-          <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-4">
-            <p class="font-semibold text-indigo-900 mb-2">🔬 VOC Definition</p>
-            <p class="text-indigo-800">
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400 p-4 my-4">
+            <p class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">🔬 VOC Definition</p>
+            <p class="text-indigo-800 dark:text-indigo-200">
               Organic compounds with boiling points ≤ 250°C at standard atmospheric pressure.
               Includes solvents, paints, cleaning agents, and emissions from printers and copiers.
             </p>
@@ -388,11 +388,11 @@ export const chapter7Content = {
             carcinogenic, while others cause irritation, organ damage, or neurological problems.
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-red-900 mb-4">🚨 Common Health Effects:</h4>
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">🚨 Common Health Effects:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-red-700 mb-2">Short-term Effects</h5>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Short-term Effects</h5>
                 <ul class="list-disc list-inside text-sm space-y-1">
                   <li>Eye, nose, and throat irritation</li>
                   <li>Headaches and dizziness</li>
@@ -400,8 +400,8 @@ export const chapter7Content = {
                   <li>Allergic skin reactions</li>
                 </ul>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-red-700 mb-2">Long-term Effects</h5>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">Long-term Effects</h5>
                 <ul class="list-disc list-inside text-sm space-y-1">
                   <li>Cancer (benzene, formaldehyde)</li>
                   <li>Liver and kidney damage</li>
@@ -413,9 +413,9 @@ export const chapter7Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">📊 VOC Sources and Prevention</p>
-            <div class="space-y-2 text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">📊 VOC Sources and Prevention</p>
+            <div class="space-y-2 text-blue-800 dark:text-blue-200">
               <p><strong>Sources:</strong> Paints, solvents, cleaning products, tobacco smoke, vehicle exhaust</p>
               <p><strong>Prevention:</strong> Use water-based paints, ensure ventilation, avoid smoking, choose low-VOC products</p>
             </div>
@@ -436,34 +436,34 @@ export const chapter7Content = {
           </p>
 
           <div class="bg-linear-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">1. Atmospheric Structure</h5>
-                <p class="text-gray-700 text-sm">Four layers (troposphere, stratosphere, mesosphere, thermosphere) with distinct temperature profiles and functions</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">1. Atmospheric Structure</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Four layers (troposphere, stratosphere, mesosphere, thermosphere) with distinct temperature profiles and functions</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">2. Pollution Types</h5>
-                <p class="text-gray-700 text-sm">Primary and secondary pollutants, photochemical smog formation, and health impacts</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">2. Pollution Types</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Primary and secondary pollutants, photochemical smog formation, and health impacts</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">3. Biomass Burning</h5>
-                <p class="text-gray-700 text-sm">Major source of greenhouse gases and particulates, especially in developing regions</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">3. Biomass Burning</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Major source of greenhouse gases and particulates, especially in developing regions</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">4. Indoor Air Quality</h5>
-                <p class="text-gray-700 text-sm">Critical health concern with solutions like clean cooking fuels and ventilation</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">4. Indoor Air Quality</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Critical health concern with solutions like clean cooking fuels and ventilation</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">5. VOCs and Health</h5>
-                <p class="text-gray-700 text-sm">Volatile compounds causing irritation, cancer, and organ damage with prevention strategies</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Volatile compounds causing irritation, cancer, and organ damage with prevention strategies</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🌍 Environmental Action</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🌍 Environmental Action</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Understanding atmospheric pollution empowers you to make informed choices. Use clean energy,
               support sustainable practices, and advocate for better air quality regulations. Your actions
               can protect public health and preserve our atmosphere for future generations!

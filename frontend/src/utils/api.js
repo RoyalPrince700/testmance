@@ -172,6 +172,11 @@ export const usersAPI = {
     body: JSON.stringify({ avatar }),
   }),
 
+  deductGems: (amount, reason) => apiRequest('/users/deduct-gems', {
+    method: 'POST',
+    body: JSON.stringify({ amount, reason }),
+  }),
+
   getUserById: (userId) => apiRequest(`/users/${userId}`),
 };
 
@@ -223,9 +228,46 @@ export const aiAPI = {
   }),
 };
 
+// CA API
+export const caAPI = {
+  getByCourse: (courseId) => apiRequest(`/ca/${courseId}`),
+
+  submit: (courseId, answers, timeSpent) => apiRequest(`/ca/${courseId}/submit`, {
+    method: 'POST',
+    body: JSON.stringify({ answers, timeSpent }),
+  }),
+
+  getStatus: (courseId) => apiRequest(`/ca/${courseId}/status`),
+};
+
+// Exam API
+export const examAPI = {
+  getByCourse: (courseId) => apiRequest(`/exam/${courseId}`),
+
+  submit: (courseId, answers, timeSpent) => apiRequest(`/exam/${courseId}/submit`, {
+    method: 'POST',
+    body: JSON.stringify({ answers, timeSpent }),
+  }),
+
+  getStatus: (courseId) => apiRequest(`/exam/${courseId}/status`),
+};
+
+// Results API
+export const resultsAPI = {
+  getAll: () => apiRequest('/results'),
+
+  getByCourse: (courseId) => apiRequest(`/results/${courseId}`),
+
+  getGrade: (courseId) => apiRequest(`/results/${courseId}/grade`),
+
+  getSummary: () => apiRequest('/results/summary/stats'),
+};
+
 // Admin API
 export const adminAPI = {
   getStats: () => apiRequest('/admin/stats'),
+
+  getDetailedStats: () => apiRequest('/admin/detailed-stats'),
 
   getUsers: (params = {}) => {
     const query = new URLSearchParams(params).toString();

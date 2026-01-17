@@ -110,6 +110,30 @@ const userSchema = new mongoose.Schema({
       default: Date.now
     }
   }],
+  caAttempts: [{
+    course: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Course'
+    },
+    score: Number,
+    totalQuestions: Number,
+    attemptedAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+  examAttempts: [{
+    course: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Course'
+    },
+    score: Number,
+    totalQuestions: Number,
+    attemptedAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
   achievements: [{
     type: String, // Achievement IDs
     earnedAt: {
@@ -171,6 +195,16 @@ userSchema.methods.getStats = function() {
     ? this.quizAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalQuizzes
     : 0;
 
+  const totalCAs = this.caAttempts.length;
+  const averageCAScore = totalCAs > 0
+    ? this.caAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalCAs
+    : 0;
+
+  const totalExams = this.examAttempts.length;
+  const averageExamScore = totalExams > 0
+    ? this.examAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalExams
+    : 0;
+
   return {
     totalGems: this.gems,
     level: this.level,
@@ -178,6 +212,10 @@ userSchema.methods.getStats = function() {
     completedChapters: this.completedChapters.length,
     totalQuizzes,
     averageScore: Math.round(averageScore * 100) / 100,
+    totalCAs,
+    averageCAScore: Math.round(averageCAScore * 100) / 100,
+    totalExams,
+    averageExamScore: Math.round(averageExamScore * 100) / 100,
     achievements: this.achievements || []
   };
 };

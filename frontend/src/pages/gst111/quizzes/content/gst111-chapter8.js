@@ -19,7 +19,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Reading comprehension means "getting meaning out of what is read". Any reading that does not lead to understanding cannot be considered successful.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT one of the three core abilities in reading mentioned in the chapter?',
@@ -31,7 +32,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The three core abilities are translation, interpretation, and extrapolation. Memorization is not listed as one of the core reading abilities.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many essential reading comprehension skills are identified in the chapter?',
@@ -43,7 +45,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter identifies five essential reading comprehension skills: reading for exact/surface meaning, implied meaning, relationship of thoughts, getting the gist, and finding required information.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main difference between intensive reading and extensive reading?',
@@ -55,7 +58,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Intensive reading involves close examination of text for full meaning, while extensive reading aims to cover the greatest amount of text in the shortest time with lower comprehension requirements.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is an example of extensive reading?',
@@ -67,7 +71,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Extensive reading includes activities like reading newspapers, scanning tables of contents, and reading literature quickly, where speed is prioritized over detailed comprehension.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is subvocalization in reading?',
@@ -79,7 +84,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Subvocalization is the internal speech made when reading, providing the sound of words as they are read and helping access meanings for comprehension and memory.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is "eye regression" in reading?',
@@ -91,7 +97,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Eye regression is the behavior of going back to re-read text that has already been read, often due to lack of confidence, loss of concentration, or laziness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is the main cause of eye regression?',
@@ -103,7 +110,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that eye regression is a mechanism of laziness where the brain relaxes and does not concentrate properly because it knows it can go back and re-read at any time.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What technique is recommended in the chapter to avoid eye regression?',
@@ -115,7 +123,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter recommends using a sheet of paper folded in half to cover the text as you read, preventing the urge to go back and re-read previous lines.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is word recognition according to the chapter?',
@@ -127,7 +136,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Word recognition is "the ability of a reader to recognize written words correctly and virtually effortlessly" through immediate perception of familiar letter groupings.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a cause of reading comprehension problems mentioned in the chapter?',
@@ -139,7 +149,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter identifies five main causes: letter recognition problems, faulty lexical association, grammatical relations issues, inability to grasp author\'s attitude, and failure to apply logical principles.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter identify as the solution to most reading comprehension problems?',
@@ -151,7 +162,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter emphasizes that understanding reading skills is important, but regular practice is the essential factor in overcoming reading problems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which reading skill involves "drawing conclusions from implications behind words and sentences"?',
@@ -163,7 +175,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Reading for implied meaning (also called inferential reading) involves drawing conclusions from what is implied behind words and sentences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of extensive reading?',
@@ -175,7 +188,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Extensive reading is used mainly to facilitate familiarity with a large body of reading materials and to train speed reading skills.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what role does subvocalization play in memory encoding?',
@@ -187,7 +201,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that subvocalization plays a large role in memory encoding by facilitating the translation of visual linguistic information into acoustic information.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is "saccade" as mentioned in the chapter?',
@@ -199,7 +214,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Saccade refers to jerky eye movements when reading, where eyes move from one fixation point to another instead of smooth progression from left to right.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'A student consistently confuses "b" and "p" when reading. What type of reading problem does this indicate?',
@@ -211,7 +227,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'This is a physical perception issue where the student fails to recognize letters properly, seeing "b" as "p" and "ban" as "pan", which is called letter recognition breakdown.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When a learner associates "concerted effort" with a musical concert, what reading comprehension problem is evident?',
@@ -223,7 +240,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This demonstrates faulty association where the learner incorrectly associates "concerted effort" (meaning determined/joint effort) with a musical concert due to similar spelling.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the sentence "slow men at work," what makes the meaning ambiguous according to the chapter?',
@@ -235,7 +253,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The ambiguity arises because "slow" can be interpreted as an adjective describing men or as a verb giving instruction. Only context determines the correct grammatical interpretation.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A student reads "enough" as /ɪˈnʌf/ instead of /ɪˈnʌf/. What phonological awareness issue does this reveal?',
@@ -247,7 +266,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The student is pronouncing the silent "gh" in "enough," demonstrating mother-tongue interference where learners expect spelling to match pronunciation exactly.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When teaching intensive reading skills, what should be the primary focus according to the chapter?',
@@ -259,7 +279,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Intensive reading focuses on recognition rather than production of language features, emphasizing understanding of syntactical and lexical features as they appear in texts.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between extensive reading and speed reading according to the chapter?',
@@ -271,7 +292,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that extensive reading is used mainly to facilitate familiarity with reading materials, and through extensive reading, speed reading is trained.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A learner pronounces "this" as /dɪs/ instead of /ðɪs/. What systematic error pattern does this demonstrate?',
@@ -283,7 +305,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The learner is substituting the voiced dental fricative /ð/ with the voiced alveolar plosive /d/, which is a common systematic error in dental fricative production.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When a student goes back to re-read text because they doubt their comprehension, what is this behavior called?',
@@ -295,7 +318,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'This is eye regression caused by lack of confidence, where the reader does not trust their initial reading and goes back to confirm understanding.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter suggest is the most effective way to overcome reading comprehension problems?',
@@ -307,7 +331,8 @@ export const gst111Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter emphasizes that while understanding the nature of reading skills is important, regular practice is the essential factor in overcoming reading comprehension problems.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     }
   ]
 };

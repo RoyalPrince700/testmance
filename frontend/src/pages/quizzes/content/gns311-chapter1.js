@@ -19,7 +19,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science can be viewed in three ways: as a noun (body of knowledge), as a verb (way of investigating), and as an adjective (way of thinking).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What are the three main components of science according to the chapter?',
@@ -31,7 +32,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Science has three main components: Products (knowledge in the form of concepts, facts, laws, and theories), Processes (methods and skills), and Ethics (attitudes and motives).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a type of science product mentioned in the chapter?',
@@ -43,7 +45,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Science products include concepts, facts, laws, and theories. Experiments are part of science processes, not products.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the three types of concepts mentioned in the chapter?',
@@ -55,7 +58,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The three types of concepts are: Empirical (observable like water, tree), Theoretical (abstract like molecule, gene), and Relational (connect concepts like more, less, equal).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is the difference between empirical and theoretical laws?',
@@ -67,7 +71,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Empirical laws are based on observations and describe what happens without explaining why, while theoretical laws are based on theory and explain why phenomena occur.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT listed as a science process in the chapter?',
@@ -79,7 +84,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science processes include observing, classifying, inferring, predicting, measuring, communicating, interpreting data, experimenting, formulating questions, formulating hypotheses, and formulating models. Scientists do not "prove" theories - they are either adequate or inadequate.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which scientific attitude is described as "unwillingness to believe superstitions"?',
@@ -91,7 +97,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter lists "unwillingness to believe superstitions" as one of the essential scientific attitudes, which is part of scientific skepticism.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What century is called "The Century of Geniuses" according to the chapter?',
@@ -103,7 +110,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The 17th century is called "The Century of Geniuses" because of major scientific developments that revolutionized how we understand the world.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Who wrote "Novum Organum" (New Instrument) as a reaction to Aristotle\'s old method?',
@@ -115,7 +123,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Francis Bacon (1561-1626) wrote "Novum Organum" as a reaction to Aristotle\'s old method and was the first to formulate steps for scientific methods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What was Francis Bacon\'s first step in his scientific method?',
@@ -127,7 +136,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Bacon\'s steps were: 1) Collect reliable information, 2) Classify information by tables, 3) Arrive at generalizations and laws, 4) New laws must identify new discoveries.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which scientist preferred mathematical reasoning and deduction over experimentation?',
@@ -139,7 +149,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'René Descartes (1596-1650) preferred mathematical reasoning and deduction over experimentation, emphasizing mathematical reasoning about facts with little emphasis on observation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Who integrated both Bacon\'s experimentation and Descartes\' mathematical reasoning?',
@@ -151,7 +162,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Isaac Newton (1643-1727) integrated both Bacon\'s experimentation and Descartes\' mathematical reasoning, creating the foundation of modern science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What did Galileo Galilei invent according to the chapter?',
@@ -163,7 +175,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Galileo Galilei invented the first thermometer (air thermometer) and made powerful telescopes to view the moon and planets.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What did Johannes Kepler prove about planetary motion?',
@@ -175,7 +188,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Johannes Kepler proved that planets orbit in elliptical paths (not circles!) and formulated three laws of planetary motion that are still used today for planning satellite orbits.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What did William Harvey discover about the heart?',
@@ -187,7 +201,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Before Harvey, the heart was seen as the seat of emotion. Harvey showed that the heart pumps blood and discovered that blood circulates in a closed system. He is regarded as the founder of physiology.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What did Isaac Newton invent according to the chapter?',
@@ -199,7 +214,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Isaac Newton invented calculus, proposed the law of universal gravitation, formulated laws of motion, discovered light has color spectra, and invented the reflecting telescope.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which was the first scientific academy formed in Rome in 1603?',
@@ -211,7 +227,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Academia del Lincei (Italy, 1603) was the first scientific academy formed in Rome. Galileo Galilei was a member, and they were the first to use the microscope for scientific studies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which scientific society is the oldest association of scientists still active today?',
@@ -223,7 +240,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Royal Society of London (1660) is the oldest association of scientists still active today. It grew from "Invisible College" meetings and got royal approval in 1662.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is one of the limitations of science mentioned in the chapter?',
@@ -235,7 +253,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'One limitation of science is that it provides information, but humans make the decisions. Science doesn\'t make decisions - it provides information for decision-making.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what does science assume about nature?',
@@ -247,7 +266,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The modern view of science assumes orderliness in nature. Science is an enterprise where humans participate to study and give parsimonious explanations of nature\'s materials and forces.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // EASY QUESTIONS (Basic Recall)
     {
@@ -260,7 +280,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Chapter 1 is titled "The Structure of Science, Scientific Methods and Revolution" and covers the foundational concepts of science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which century is referred to as "The Century of Geniuses"?',
@@ -272,7 +293,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The 17th century is called "The Century of Geniuses" because of major scientific developments that revolutionized our understanding of the world.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the three main components of science?',
@@ -284,7 +306,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science has three main components: Products (knowledge), Processes (methods), and Ethics (attitudes and values).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is a type of science product?',
@@ -296,7 +319,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science products include concepts, facts, laws, and theories. Observing, experimenting, and measuring are science processes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the name of the book Francis Bacon wrote?',
@@ -308,7 +332,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Francis Bacon wrote "Novum Organum" (New Instrument) as a reaction to Aristotle\'s old method.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Who invented the first thermometer?',
@@ -320,7 +345,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Galileo Galilei invented the first thermometer (air thermometer) and made powerful telescopes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What did Johannes Kepler prove about planetary motion?',
@@ -332,7 +358,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Johannes Kepler proved that planets orbit in elliptical paths, not circles, and formulated three laws of planetary motion.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which scientist is known for discovering blood circulation?',
@@ -344,7 +371,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'William Harvey showed that the heart pumps blood and discovered that blood circulates in a closed system.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What did Isaac Newton invent?',
@@ -356,7 +384,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Isaac Newton invented calculus, proposed the law of universal gravitation, formulated laws of motion, and invented the reflecting telescope.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which was the first scientific academy formed?',
@@ -368,7 +397,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Academia del Lincei (Italy, 1603) was the first scientific academy formed in Rome.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which scientific society is the oldest still active today?',
@@ -380,7 +410,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The Royal Society of London (1660) is the oldest association of scientists still active today.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is one function of science mentioned in the chapter?',
@@ -392,7 +423,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Science satisfies curiosity and gives intellectual satisfaction by helping us understand the world.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many ways can science be viewed according to the chapter?',
@@ -404,7 +436,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science can be viewed in three ways: as a noun (body of knowledge), as a verb (way of investigating), and as an adjective (way of thinking).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -417,7 +450,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Selecting only one aspect (products, processes, or ethics) to define science would be inadequate and misleading. Science needs all three components working together.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the difference between empirical and theoretical laws?',
@@ -429,7 +463,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Empirical laws are based on observations and describe what happens without explaining why, while theoretical laws are based on theory and explain why phenomena occur.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why did Francis Bacon disregard mathematics in physical science?',
@@ -441,7 +476,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Bacon\'s method emphasized collecting reliable information, classifying it by tables, and arriving at generalizations. He disregarded mathematics in physical science as part of his inductive approach.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What was René Descartes\' preferred approach to scientific investigation?',
@@ -453,7 +489,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'René Descartes preferred mathematical reasoning and deduction over experimentation, emphasizing mathematical reasoning about facts with little emphasis on observation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How did Isaac Newton contribute to scientific methodology?',
@@ -465,7 +502,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Isaac Newton integrated both Bacon\'s experimentation and Descartes\' mathematical reasoning, creating the foundation of modern science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What was the significance of Galileo\'s telescopic observations?',
@@ -477,7 +515,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Galileo\'s telescopic observations proved the sun is the center of the solar system and showed that the Earth moves, challenging the geocentric model.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are Kepler\'s laws still used today?',
@@ -489,7 +528,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Kepler\'s three laws of planetary motion are still used today for planning satellite orbits and understanding celestial mechanics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What was William Harvey\'s most important discovery?',
@@ -501,7 +541,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Before Harvey, the heart was seen as the seat of emotion. Harvey showed that the heart pumps blood and discovered that blood circulates in a closed system.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role did scientific societies play in the 17th century?',
@@ -513,7 +554,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific societies filled the gap left by declining universities and provided forums for checking discoveries, publishing journals, and establishing rules for scientific work.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is scientific skepticism?',
@@ -525,7 +567,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific skepticism is described as "unwillingness to believe superstitions" and is one of the essential scientific attitudes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the modern view of science according to the chapter?',
@@ -537,7 +580,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The modern view sees science as a human enterprise where humans participate to study and give parsimonious explanations of nature\'s materials and forces, assuming orderliness in nature.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does science provide information but not make decisions?',
@@ -549,7 +593,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Science provides information but humans make the decisions. This is one of the limitations of science - it\'s one method of knowing but not the only one.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // DIFFICULT QUESTIONS (Analysis/Application)
     {
@@ -562,7 +607,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'If a scientist can describe what happens but not explain why, they would formulate an empirical law. Empirical laws are based on observations and describe relationships without explaining the underlying mechanisms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which scientific attitude would be most important when evaluating a claim that "vaccines cause autism"?',
@@ -574,7 +620,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Skepticism (unwillingness to believe superstitions or unproven claims) would be crucial when evaluating such claims, requiring examination of evidence rather than accepting unverified assertions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might a scientist choose Descartes\' deductive approach over Bacon\'s inductive method for studying gravity?',
@@ -586,7 +633,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Descartes\' deductive approach (mathematical reasoning) would be preferred when starting with existing mathematical theories or principles, while Bacon\'s inductive method would be better for initially collecting and classifying data.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the concept of "parsimonious explanations" in science relate to Occam\'s Razor?',
@@ -598,7 +646,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Both concepts emphasize simplicity - science seeks parsimonious (simple, elegant) explanations, and Occam\'s Razor suggests that the simplest explanation is usually the best one.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the formation of scientific societies be considered a revolutionary development in the 17th century?',
@@ -610,7 +659,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific societies revolutionized science by creating systematic peer review, forums for checking discoveries, publishing journals, and establishing rules for scientific work - institutionalizing the scientific method.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s description of science as "a human enterprise" challenge the idea of scientific objectivity?',
@@ -622,7 +672,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Describing science as a "human enterprise" acknowledges that while science assumes objectivity, it also involves human values, ethics, attitudes, and motivations alongside objective methods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a theory successfully explains observations but later becomes inadequate, what should scientists do according to the chapter?',
@@ -634,7 +685,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that theories are either adequate or inadequate to explain observations. If a theory becomes inadequate, scientists should modify or abandon it rather than "prove" it.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the scientific revolution of the 17th century demonstrate the relationship between science products and processes?',
@@ -646,7 +698,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The scientific revolution shows how improved processes (methods like systematic observation, experimentation, and mathematical reasoning) led to revolutionary new products (knowledge about planetary motion, blood circulation, etc.).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why might science take time to explain unexpected outcomes, as mentioned in the limitations?',
@@ -658,7 +711,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Science assumes orderliness in nature and requires systematic investigation, careful observation, experimentation, and verification. Unexpected outcomes need thorough investigation rather than instant explanations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the concept of "facts can change with new observations" challenge common understanding of scientific facts?',
@@ -670,7 +724,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The idea that facts can change with new observations shows that scientific knowledge is tentative and subject to revision based on better observations or more accurate measurements.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would understanding the structure of science help a teacher organize content better?',
@@ -682,7 +737,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Understanding science\'s structure (products, processes, ethics) gives teachers a framework to categorize content, sequence learning logically, and help students understand how scientific knowledge is organized.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does Galileo\'s work exemplify the integration of science products and processes?',
@@ -694,7 +750,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Galileo exemplifies integration by using new processes (telescopes for observation, systematic measurement) to create revolutionary products (knowledge that Earth moves and sun is the center).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What would happen if scientists lacked ethical attitudes like objectivity and skepticism?',
@@ -706,7 +763,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Without ethical attitudes like objectivity, skepticism, and willingness to accept criticism, scientific knowledge would be less reliable, more biased, and subject to superstition and personal prejudice.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is it significant that Kepler\'s laws are still used for satellite orbits despite being over 400 years old?',
@@ -718,7 +776,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Kepler\'s laws\' continued use shows the enduring power of systematic observation, careful data analysis, and mathematical modeling - principles that remain fundamental to science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s emphasis on "human participation" in science differ from viewing science as purely objective?',
@@ -730,7 +789,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Emphasizing human participation acknowledges that science requires human creativity, motivation, ethical values, and enterprise, working alongside objective methods rather than being purely mechanical.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would Bacon\'s inductive method be more appropriate for studying a completely new phenomenon?',
@@ -742,7 +802,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Bacon\'s inductive method (collect information → classify → generalize) is appropriate for new phenomena because it starts with systematic data collection and classification before forming laws or theories.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does William Harvey\'s discovery challenge pre-scientific understanding of the body?',
@@ -754,7 +815,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Harvey\'s work replaced the pre-scientific view of the heart as the "seat of emotion" with evidence-based understanding of blood circulation, demonstrating how science replaces superstition and tradition with systematic knowledge.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does the chapter suggest about the relationship between science and technology?',
@@ -766,7 +828,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter mentions that science "gives us the achievements of both present and future," suggesting that scientific knowledge provides the foundation for technological developments and innovations.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why might a scientist exhibit "dynamism" as a scientific attitude?',
@@ -778,7 +841,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Dynamism in science means remaining open to change, modifying theories when new evidence arises, and being willing to abandon inadequate explanations - essential for scientific progress.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the concept of "universality" in scientific ethics relate to modern international collaboration?',
@@ -790,7 +854,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Universality means scientific knowledge and methods transcend cultural and national boundaries, supporting international collaboration and the idea that scientific truths are accessible to all humans.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would "positive approach to failure" be important in scientific ethics?',
@@ -802,7 +867,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A positive approach to failure recognizes that failed experiments provide valuable data, eliminate wrong hypotheses, and offer learning opportunities that advance scientific understanding.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does Newton\'s integration of Bacon and Descartes demonstrate scientific progress?',
@@ -814,7 +880,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Newton\'s integration shows scientific progress through synthesis - combining Bacon\'s experimentation with Descartes\' mathematical reasoning created a more powerful scientific methodology than either approach alone.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter suggest about the role of curiosity in scientific ethics?',
@@ -826,7 +893,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter lists curiosity as an essential scientific attitude that motivates the scientific enterprise and drives scientists to ask questions and seek explanations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are scientific laws described as "not enforceable" in the limitations section?',
@@ -838,7 +906,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific laws are descriptive statements about nature\'s patterns and relationships, not prescriptive rules that can be enforced like legal laws. They describe what nature does, not what it should do.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the formation of scientific societies address the human aspect of science?',
@@ -850,7 +919,8 @@ export const gns311Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific societies institutionalized human cooperation, created systematic peer review, established ethical standards for scientific work, and provided forums for human interaction in the scientific enterprise.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

@@ -7,6 +7,15 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
   const { user, updateProfile } = useAuth();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+
+  const rawUsername = user?.username || 'Student';
+  const username = rawUsername.charAt(0).toUpperCase() + rawUsername.slice(1);
+
+  // Helper to replace "Royal Prince" with username in HTML content
+  const processContent = (content) => {
+    if (!content) return '';
+    return content.replace(/Royal Prince/g, username);
+  };
   
   // AI State
   const [isExplaining, setIsExplaining] = useState(false);
@@ -82,9 +91,9 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
 
   if (!sections || sections.length === 0) {
     return (
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-6 text-center">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <p className="text-gray-600">No content available for this chapter.</p>
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6 text-center">
+        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+        <p className="text-gray-600 dark:text-gray-400">No content available for this chapter.</p>
       </div>
     );
   }
@@ -97,16 +106,16 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
     <div className="space-y-6">
 
       {/* Progress Bar */}
-      <div className="bg-white rounded-lg p-4 shadow-sm">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700">
+          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Section {currentSectionIndex + 1} of {sections.length}
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-500 dark:text-gray-400">
             {Math.round(progress)}% Complete
           </span>
         </div>
-        <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <div
             className="h-full bg-teal-500 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
@@ -115,21 +124,21 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
       </div>
 
       {/* Current Section */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-6 relative">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6 relative">
         {/* Section Header */}
-        <div className="mb-6 pb-4 border-b border-gray-200">
+        <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
           <div className="flex justify-between items-start">
             <div className="flex-1">
               {currentSection.subtitle && (
-                <span className="text-sm font-semibold text-teal-600 uppercase tracking-wide">
+                <span className="text-sm font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wide">
                   {currentSection.subtitle}
                 </span>
               )}
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-2">
                 {currentSection.title}
               </h2>
               {currentSection.estimatedTime && (
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   ⏱️ Estimated reading time: {currentSection.estimatedTime} minutes
                 </p>
               )}
@@ -139,8 +148,8 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
 
         {/* Section Content */}
         <div
-          className="prose prose-lg max-w-none text-gray-800 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: currentSection.content }}
+          className="prose prose-lg max-w-none text-gray-800 dark:text-gray-200 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: processContent(currentSection.content) }}
         />
 
         {/* AI Explanation Button */}
@@ -162,19 +171,19 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
 
         {/* AI Explanation Panel */}
         {showExplanation && (
-          <div className="mt-8 bg-indigo-50 border-2 border-indigo-100 rounded-2xl overflow-hidden shadow-xl shadow-indigo-100/50 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-white px-6 py-4 flex items-center justify-between border-b border-indigo-100">
-              <div className="flex items-center space-x-3 text-indigo-900 font-bold text-lg">
-                <div className="p-1.5 bg-indigo-100 rounded-lg">
-                  <Sparkles className="h-5 w-5 text-indigo-600" />
+          <div className="mt-8 bg-indigo-50 dark:bg-indigo-950/50 border-2 border-indigo-100 dark:border-indigo-800 rounded-2xl overflow-hidden shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/50 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="bg-white dark:bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-indigo-100 dark:border-indigo-800">
+              <div className="flex items-center space-x-3 text-indigo-900 dark:text-indigo-100 font-bold text-lg">
+                <div className="p-1.5 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
+                  <Sparkles className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
                   <span>AI Tutor Explanation</span>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setShowExplanation(false)}
-                className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-2 rounded-full transition-all duration-200"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded-full transition-all duration-200"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -183,15 +192,15 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
               {isExplaining ? (
                 <div className="flex flex-col items-center justify-center py-12 space-y-4">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-indigo-200 rounded-full animate-ping opacity-25"></div>
-                    <Loader className="h-10 w-10 text-indigo-600 animate-spin relative z-10" />
+                    <div className="absolute inset-0 bg-indigo-200 dark:bg-indigo-800 rounded-full animate-ping opacity-25"></div>
+                    <Loader className="h-10 w-10 text-indigo-600 dark:text-indigo-400 animate-spin relative z-10" />
                   </div>
-                  <p className="text-indigo-900 font-medium animate-pulse text-lg">
+                  <p className="text-indigo-900 dark:text-indigo-100 font-medium animate-pulse text-lg">
                     Cooking up your explanation... 🍳
                   </p>
                 </div>
               ) : error ? (
-                <div className="text-red-600 text-center py-8 bg-red-50 rounded-xl border border-red-100">
+                <div className="text-red-600 dark:text-red-400 text-center py-8 bg-red-50 dark:bg-red-950/50 rounded-xl border border-red-100 dark:border-red-800">
                   <p className="font-medium">{error}</p>
                   <button
                     onClick={generateExplanation}
@@ -201,9 +210,9 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
                   </button>
                 </div>
               ) : (
-                <div className="prose prose-lg prose-indigo max-w-none prose-headings:text-indigo-900 prose-headings:font-extrabold prose-p:text-indigo-900 prose-p:leading-loose prose-p:text-lg prose-strong:text-indigo-700 prose-strong:font-bold">
-                  <div 
-                    dangerouslySetInnerHTML={{ __html: explanation }} 
+                <div className="prose prose-lg prose-indigo dark:prose-invert max-w-none prose-headings:text-indigo-900 dark:prose-headings:text-indigo-100 prose-headings:font-extrabold prose-p:text-indigo-900 dark:prose-p:text-indigo-100 prose-p:leading-loose prose-p:text-lg prose-strong:text-indigo-700 dark:prose-strong:text-indigo-300 prose-strong:font-bold">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: processContent(explanation) }}
                   />
                 </div>
               )}
@@ -213,7 +222,7 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
       </div>
 
       {/* Navigation */}
-      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 md:p-6">
         <div className="flex items-center justify-between gap-2 md:gap-0">
           {/* Previous Button */}
           <button
@@ -221,8 +230,8 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
             disabled={!hasPrevious}
             className={`flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors flex-shrink-0 ${
               hasPrevious
-                ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                : 'bg-gray-50 text-gray-400 cursor-not-allowed'
+                ? 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300'
+                : 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
             }`}
           >
             <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
@@ -242,8 +251,8 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
                   index === currentSectionIndex
                     ? 'bg-teal-500 w-8'
                     : index < currentSectionIndex
-                    ? 'bg-teal-300'
-                    : 'bg-gray-300'
+                    ? 'bg-teal-300 dark:bg-teal-600'
+                    : 'bg-gray-300 dark:bg-gray-600'
                 }`}
                 aria-label={`Go to section ${index + 1}`}
               />
@@ -280,7 +289,7 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
               className={`flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors flex-shrink-0 ${
                 hasNext
                   ? 'bg-teal-500 hover:bg-teal-600 text-white'
-                  : 'bg-gray-50 text-gray-400 cursor-not-allowed'
+                  : 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
               }`}
             >
               <span className="text-sm md:text-base">Next</span>

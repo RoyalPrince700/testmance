@@ -48,6 +48,17 @@ const getBIO101ChapterContent = async () => {
   }
 };
 
+// Import ENT211 content function (lazy load to avoid import errors)
+const getENT211ChapterContent = async () => {
+  try {
+    const module = await import('../../ent211/chapters');
+    return module.getChapterContent;
+  } catch (error) {
+    console.error('Failed to load ENT211 chapter content:', error);
+    return null;
+  }
+};
+
 
 // Helper function to get content by chapter title, order, or course code
 export const getChapterContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
@@ -80,6 +91,17 @@ export const getChapterContent = async (chapterTitle, chapterOrder = null, cours
       const bio101Content = bio101Function(chapterTitle, chapterOrder, courseCode);
       if (bio101Content) {
         return bio101Content;
+      }
+    }
+  }
+
+  // Check for ENT211 content
+  if (courseCode === 'ENT 211') {
+    const ent211Function = await getENT211ChapterContent();
+    if (ent211Function) {
+      const ent211Content = ent211Function(chapterTitle, chapterOrder, courseCode);
+      if (ent211Content) {
+        return ent211Content;
       }
     }
   }

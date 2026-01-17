@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Quiz = require('../models/Quiz');
 const User = require('../models/User');
+const DailyStats = require('../models/DailyStats');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -278,6 +279,9 @@ router.post('/chapter/:chapterId/submit', protect, async (req, res) => {
 
     const finalNewGems = updatedUser.gems;
 
+    // Increment quiz completion count in daily stats
+    await DailyStats.incrementMetric('quizCompletions');
+
     // Commit transaction
     await session.commitTransaction();
 
@@ -414,6 +418,9 @@ router.post('/:id/submit', protect, async (req, res) => {
     );
 
     const finalNewGems = updatedUser.gems;
+
+    // Increment quiz completion count in daily stats
+    await DailyStats.incrementMetric('quizCompletions');
 
     // Commit transaction
     await session.commitTransaction();

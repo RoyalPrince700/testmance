@@ -19,7 +19,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Matter is defined as anything that occupies space, possesses mass of its own, offers resistance to change of inertia, and may be felt by sensory organs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a property of living matter mentioned in the chapter?',
@@ -31,7 +32,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Living matter exhibits properties like respiration, growth, movement, metabolism (eating and excretion), and reproduction. Crystallization is a property of non-living matter.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a type of pure substance according to the chapter?',
@@ -43,7 +45,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Pure substances include elements (e.g., hydrogen) and compounds (e.g., H₂O). Mixtures are further classified as homogeneous or heterogeneous.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the kinetic theory of matter, particles in a solid state:',
@@ -55,7 +58,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In solids, particles only vibrate and rotate about a mean position. In liquids, they can also slide over each other, and in gases, they move randomly in all directions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT one of the fundamental assumptions of the kinetic theory?',
@@ -67,7 +71,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The kinetic theory assumes that separation between particles is large such that mutual Coulombic (charged particle) forces of attraction or repulsion are negligible, not that they have attraction forces.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Matter can exist in how many physical states according to the chapter?',
@@ -79,7 +84,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Matter exists in three physical states: solid, liquid, and gas or plasma. Each state is distinguished by temperature and appearance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the key difference between physical change and chemical change?',
@@ -91,7 +97,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Physical change involves transformation of state (e.g., solid to liquid) while chemical change results in a fundamentally different matter (e.g., rusting of iron).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which subatomic particle has a negative charge and the smallest mass?',
@@ -103,7 +110,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The electron has a negative charge (-1) and the smallest mass (9.1 × 10⁻³¹ kg). Protons are positive and heavier, neutrons are neutral and heavy.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Nuclear fission involves:',
@@ -115,7 +123,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Nuclear fission is the division/splitting of a nucleus into two or more smaller nuclei, while fusion involves combining nuclei. Both release about 1,000,000 times more energy than chemical changes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What principle explains the mass defect observed during nuclear reactions?',
@@ -127,7 +136,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Einstein showed that mass defect (Δm) converts to energy according to E = Δmc². This restates the conservation law: mass and energy are equivalent and can convert between forms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Easy Questions (10 total)
     {
@@ -140,7 +150,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Crystallization is a property of non-living matter. Living matter exhibits respiration, growth, movement, metabolism, and reproduction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Matter exists in how many physical states according to the chapter?',
@@ -152,7 +163,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Matter exists in three physical states: solid, liquid, and gas or plasma, each distinguished by temperature and appearance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which subatomic particle has no electric charge?',
@@ -164,7 +176,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The neutron has no electric charge. Protons are positive, electrons are negative.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Nuclear fission involves:',
@@ -176,7 +189,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear fission is the splitting of a nucleus into two or more smaller nuclei, releasing about 1,000,000 times more energy than chemical changes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the mass number represented by A in nuclear notation ᵇᵃX?',
@@ -188,7 +202,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In nuclear notation ᵇᵃX, A is the mass number (total protons + neutrons), Z is the proton number, and N is the neutron number.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a heterogeneous mixture?',
@@ -200,7 +215,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Chocolate is a heterogeneous mixture with non-uniform composition. Salt water and air are homogeneous mixtures.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to kinetic theory, particles in a liquid can:',
@@ -212,7 +228,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In liquids, particles vibrate about a mean position and can slide over each other easily.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which type of radiation consists of helium nuclei?',
@@ -224,7 +241,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Alpha particles are helium nuclei (⁴₂He) emitted during radioactive decay.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The kinetic theory assumes that particle collisions are:',
@@ -236,7 +254,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'One of the six fundamental assumptions of kinetic theory is that collisions between particles are perfectly elastic.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Medium Questions (15 total)
     {
@@ -249,7 +268,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The kinetic theory assumes that separation between particles is large such that mutual Coulombic forces are negligible, not that particles have attraction forces.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In the kinetic theory, which assumption explains why gases can be compressed?',
@@ -261,7 +281,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The large separation between particles (much larger than particle dimensions) allows gases to be compressed.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What distinguishes a physical change from a chemical change?',
@@ -273,7 +294,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Physical changes involve transformation of state (solid→liquid→gas) while chemical changes result in fundamentally different matter.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which subatomic particle determines the atomic number of an element?',
@@ -285,7 +307,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The atomic number (Z) equals the number of protons in the nucleus. Neutrons determine isotopes, electrons determine charge balance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is the key difference between homogeneous and heterogeneous mixtures?',
@@ -297,7 +320,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Homogeneous mixtures have uniform composition (e.g., salt water), while heterogeneous mixtures have non-uniform composition (e.g., chocolate, soil).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between mass defect (Δm) and energy release in nuclear reactions?',
@@ -309,7 +333,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Einstein\'s equation E = Δmc² shows that mass defect converts to energy. The mass defect represents the mass converted to energy.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following correctly describes the charge interactions between subatomic particles?',
@@ -321,7 +346,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Oppositely charged particles attract: positive protons attract negative electrons. Similarly charged particles repel.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is sublimation according to the chapter?',
@@ -333,7 +359,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Sublimation is when matter changes from solid to gas directly without passing through the liquid state, as seen in iodine and ammonium chloride.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is true about radioactive elements?',
@@ -345,7 +372,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Radioactive elements like uranium emit radiation (alpha, beta, gamma) that can be separated using magnetic or electric fields.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of the Nuclear Non-Proliferation Treaty?',
@@ -357,7 +385,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Nuclear Non-Proliferation Treaty aims to prevent the spread of nuclear weapons and promote peaceful uses of nuclear energy.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which assumption of kinetic theory explains why gases expand to fill containers?',
@@ -369,7 +398,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Random motion of particles allows gases to move in all directions and fill available space.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between temperature and particle motion according to kinetic theory?',
@@ -381,7 +411,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'According to kinetic theory, temperature is a measure of average kinetic energy of particles - higher temperature means faster particle motion.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is true about the planetary model of the atom?',
@@ -393,7 +424,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The planetary model (Rutherford-Bohr) shows electrons orbiting the positively charged nucleus in spherical orbits, like planets around the sun.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is a chain reaction in nuclear physics?',
@@ -405,7 +437,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A chain reaction occurs when the products of one reaction become the reactants for subsequent reactions, leading to an avalanche effect.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is true about the energy released in nuclear reactions?',
@@ -417,7 +450,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear reactions release about 1,000,000 times more energy than chemical reactions, making them extremely powerful.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // Difficult Questions (35 total)
     {
@@ -430,7 +464,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The complete definition states matter is anything that occupies space, possesses mass of its own, offers resistance to change of inertia (inertia), and may be felt by any of our sensory organs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a correct classification of matter based on composition?',
@@ -442,7 +477,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Pure substances include elements and compounds, but NOT mixtures. Mixtures are separate from pure substances and can be homogeneous or heterogeneous.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which assumption of the kinetic theory is most directly responsible for the ideal gas law PV = nRT?',
@@ -454,7 +490,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The assumption that mutual Coulombic forces are negligible allows the derivation of the ideal gas law, where particles are treated as independent point masses.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the Greek concept of "smallest indivisible unit" in the development of kinetic theory?',
@@ -466,7 +503,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Greek idea of the smallest indivisible unit (atom) evolved into the concept of molecules - discrete, repeatable entities that make up matter.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following best explains why solids maintain their shape while gases expand?',
@@ -478,7 +516,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Kinetic theory explains this through particle behavior: solids vibrate about fixed positions, liquids slide over each other, gases move randomly in all directions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between the six fundamental assumptions of kinetic theory and observable gas properties?',
@@ -490,7 +529,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The six assumptions collectively explain gas laws: Boyle\'s law (large separation), Charles\'s law (random motion), ideal gas law (negligible forces), etc.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     },
     {
       question: 'Why does the chapter emphasize that mutual Coulombic forces between particles are "negligible" in kinetic theory?',
@@ -502,7 +542,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'At large separations (much greater than particle dimensions), electrostatic forces become negligible, allowing particles to be treated as independent entities.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the key difference between Rutherford\'s and Bohr\'s atomic models mentioned in the chapter?',
@@ -514,7 +555,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Rutherford discovered the nuclear model with electrons orbiting the nucleus. Bohr refined it by introducing quantized energy levels for electron orbits.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is hydrogen considered the simplest atom in the planetary model?',
@@ -526,7 +568,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Hydrogen has the simplest structure: one proton in the nucleus and one electron orbiting in a spherical path, making it the basic example of the planetary model.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of equal numbers of protons and electrons in neutral atoms?',
@@ -538,7 +581,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Equal protons (positive) and electrons (negative) balance charges, making the atom electrically neutral and stable.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following correctly represents the mass defect formula and its interpretation?',
@@ -550,7 +594,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Mass defect Δm = Z×M_H + (A-Z)×M_n - M_atom, where the calculated mass of individual particles exceeds the actual atomic mass.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between mass defect and binding energy in nuclear physics?',
@@ -562,7 +607,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Binding energy = Δm × c², where Δm is the mass defect. This energy holds the nucleus together and is released during fission.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does nuclear fission release about 1,000,000 times more energy than chemical reactions?',
@@ -574,7 +620,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear reactions involve much larger mass defects (Δm) than chemical reactions, leading to vastly greater energy release via E = Δm×c².',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of the chain reaction in nuclear weapons?',
@@ -586,7 +633,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Chain reactions multiply the number of nuclear reactions exponentially, releasing enormous energy in a very short time, creating explosions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why were Hiroshima and Nagasaki chosen as targets during World War II?',
@@ -598,7 +646,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'They were major Japanese cities with both civilian populations and military/industrial significance, chosen to demonstrate the weapon\'s power and force surrender.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of the Nuclear Non-Proliferation Treaty being "voluntary"?',
@@ -610,7 +659,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The voluntary nature allows nations to choose participation, but signing establishes international norms against nuclear weapons proliferation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter explain the long-term effects of nuclear radiation on survivors?',
@@ -622,7 +672,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Nuclear radiation causes long-term effects including cancer, physical disabilities, deformities, and psychological disorders that persist for years.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between nuclear fission and electricity generation?',
@@ -634,7 +685,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear power plants use controlled fission to produce heat, which creates steam to turn turbines and generate electricity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter mention that nuclear energy release occurs "in a short time on a small piece of land"?',
@@ -646,7 +698,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The concentration of enormous energy in a small area over a short time creates the devastating impact radius of nuclear weapons.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the "veto power" of nuclear superpowers in the UN Security Council?',
@@ -658,7 +711,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The veto power allows the five permanent members (including nuclear superpowers) to block any Security Council resolution, including those related to nuclear issues.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter distinguish between the Atomic Energy Act of 1946 and the Nuclear Non-Proliferation Treaty?',
@@ -670,7 +724,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Atomic Energy Act was U.S. domestic legislation controlling nuclear technology, while the Nuclear Non-Proliferation Treaty is an international agreement.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between particle velocity and collision frequency in kinetic theory?',
@@ -682,7 +737,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The assumption states "particle velocity is large such that there are many collisions occurring in a short time interval."',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is the "sense of history" assumption important in kinetic theory?',
@@ -694,7 +750,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Particles having no sense of history means each collision is independent, allowing statistical mechanics and the ideal gas law to work.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of elliptical orbits for more complicated atoms in the planetary model?',
@@ -706,7 +763,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'More complex atoms (beyond hydrogen) have electrons in elliptical orbits to accommodate multiple electrons at different energy levels.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     },
     {
       question: 'How does the chapter explain the equivalence of mass and energy?',
@@ -718,7 +776,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'E = mc² shows mass and energy are equivalent and can convert between forms, explaining mass defect in nuclear reactions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the 200 MeV energy release mentioned in nuclear reactions?',
@@ -730,7 +789,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: '200 MeV is approximately the average binding energy per nucleon in nuclei, released when nuclei break apart or form.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter mention that nuclear threats are "feasible" rather than just "possible"?',
@@ -742,7 +802,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear weapons have been developed, tested, and used (Hiroshima/Nagasaki), making nuclear war not just possible but technologically feasible.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between nuclear fission and the "Day After" film mentioned in the chapter?',
@@ -754,7 +815,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The film "The Day After" depicts the devastating aftermath of nuclear war, illustrating the long-term human and environmental consequences.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter calculate the enormous energy release from 1g of uranium?',
@@ -766,7 +828,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The calculation considers: (1g uranium × Avogadro\'s number ÷ atomic mass) × 133 MeV × efficiency factor, showing the immense energy potential.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of the League of Nations transforming into the United Nations?',
@@ -778,7 +841,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The transformation from League of Nations to United Nations provided a more robust international framework for treaties like the Nuclear Non-Proliferation Treaty.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the chapter emphasize that nuclear energy can be "trapped as heat energy"?',
@@ -790,7 +854,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear fission produces heat that can be harnessed to produce steam, turn turbines, and generate electricity - the positive use of nuclear energy.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between the "small piece of land" and "tremendous impact over long range" mentioned in nuclear threats?',
@@ -802,7 +867,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear explosions release energy that creates blast waves, thermal radiation, ionizing radiation, and fallout that affect areas far from the detonation point.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter distinguish between "nuclear war" and "nuclear threat"?',
@@ -814,7 +880,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear threat refers to the possibility/feasibility of nuclear war, while nuclear war refers to the actual occurrence and its implications.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of keeping "space free and other planets from nuclear pollution"?',
@@ -826,7 +893,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nuclear pollution (radiation, fallout) has lasting environmental effects that could contaminate space and other planets, requiring international treaties to prevent this.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter mention that the intention of the Nuclear Non-Proliferation Treaty was "not to ever have to use this weapon of mass destruction"?',
@@ -838,7 +906,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The treaty aimed to prevent not just proliferation but the actual use of nuclear weapons, reflecting the recognition of their catastrophic nature.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'According to the chapter, what is the fundamental difference between the way matter is conceptualized today versus the ancient Greek view?',
@@ -850,7 +919,8 @@ export const gns311Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The Greeks conceptualized matter as infinitely divisible, while modern kinetic theory views matter as composed of discrete, indivisible particles (atoms and molecules) that cannot be continuously subdivided at will.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

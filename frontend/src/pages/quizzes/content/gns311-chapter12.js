@@ -19,7 +19,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Knowledge Management (KM) involves strategies and applications geared towards creating, documenting and sharing knowledge, both tacit and explicit, for productivity and sustainability in organizations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a component of a Knowledge Management System (KMS)?',
@@ -31,7 +32,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'A KMS includes input devices, repositories, intelligent retrieval tools, and display/output devices, all interconnected through electronic networks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the two essential elements required for implementing a Knowledge Management System?',
@@ -43,7 +45,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'To fully implement a KMS, there is need to provide technological infrastructure (computers, networks, databases) and software applications installed in distributed environments.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a category of groupware?',
@@ -55,7 +58,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Groupware includes communication tools (email, wikis), conferencing tools (video/audio), and collaborative management tools (project management systems).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary difference between an intranet and an extranet?',
@@ -67,7 +71,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The intranet is a small-scale version of the Internet operating solely within the organization, while the extranet extends the intranet to external partners, suppliers, and other stakeholders.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a function of the intranet?',
@@ -79,7 +84,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Intranet functions include publishing (newsletters, documents), searching (integrated search engines), transacting (user interactions), interacting (collaborative applications), and recording (storage of procedures).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What security measure is specifically mentioned for extranets?',
@@ -91,7 +97,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Extranets use security protocols including firewalls, encryption, and authentication (simple usernames/passwords or strong digital certificates) to limit access.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does KM 2.0 refer to?',
@@ -103,7 +110,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'KM 2.0 is the mapping of Web 2.0 principles (blogs, wikis, social tools) to knowledge management, also called Enterprise 2.0 when applied within organizations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a key feature of Web 3.0?',
@@ -115,7 +123,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Web 3.0 features include ubiquitous connectivity, network computing, open technologies, open identity, and the intelligent web with semantic technologies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of data warehousing?',
@@ -127,7 +136,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Data warehousing is based on the premise that the quality of a manager\'s decisions is based on the quality of his information, providing building blocks for sound decision-making.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM functionality involves looking for needed information in a huge store/repository?',
@@ -139,7 +149,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Searching entails looking for needed information in a huge store/repository of information and is enabled by web search engines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What technology is used for the categorizing functionality in KM?',
@@ -151,7 +162,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Categorizing uses computer languages like XML to create information architecture and sort information according to file format and semantic content.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which KM functionality involves creating new documents?',
@@ -163,7 +175,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Composing entails creating new documents and is achieved through office suite applications like Microsoft Office.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What technology enables the summarizing functionality in KM?',
@@ -175,7 +188,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Summarizing uses artificial intelligence algorithms that can reduce documents to their core content (20% or less) while maintaining essential information.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT a KM functionality?',
@@ -187,7 +201,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The seven KM functionalities are: searching, categorizing, composing, summarizing, storing, distributing, and workflow.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main purpose of workflow in KM?',
@@ -199,7 +214,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Workflow is the established flow of information among knowledge workers and has direct implications on organizational performance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which category of search engines allows users to ask questions in simple English?',
@@ -211,7 +227,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Special search engines like Ask Jeeves allow users to ask questions in simple English and combine natural language engines with knowledgebases.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does XML stand for and what is its role in KM?',
@@ -223,7 +240,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'XML (eXtensible Markup Language) is a system for defining, validating, and sharing document formats, used in KM to create metadata for information classification and overcome information loss in categorization.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which storage technology is mentioned as having moved beyond backup to include robotic automated drive assemblies?',
@@ -235,7 +253,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Magnetic tape has evolved beyond backup to include robotic automated drive assemblies that can directly access large numbers of cartridges.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main advantage of broadband networks in KM?',
@@ -247,7 +266,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Broadband networks support KM by enabling high-bandwidth transmission of data, text, voice, and multimedia concurrently.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a benefit of groupware?',
@@ -259,7 +279,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Groupware benefits include facilitating communication, enabling telecommuting, reducing travel costs, supporting group problem-solving, and improving collective leadership.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary challenge that AI summarization addresses in KM?',
@@ -271,7 +292,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'AI summarization addresses the document overload problem by reducing documents to their core content (20% or less) while maintaining essential information.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which web technology emphasizes that "knowledge sharing power is in the hands of users themselves"?',
@@ -283,7 +305,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Web 2.0 tools differ from traditional publishing by putting "the knowledge sharing power in the hands of the users themselves" through social tools like blogs and wikis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between data mining and data warehousing?',
@@ -295,7 +318,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Data warehousing contains information in a centralized system, and data mining tools are used to search stored data for patterns, making the warehouse the driver of data mining.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM tool is described as a "small-scale version of the Internet operating solely within the organization"?',
@@ -307,7 +331,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The intranet is essentially a small-scale version of the Internet operating with similar functionality but existing solely within the organization.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main purpose of metadata in content management systems?',
@@ -319,7 +344,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Metadata (data about data) is used in content management systems to classify content with keywords and other information so it can be searched for and retrieved later.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which functionality replaces the manual exchange of documents in traditional workflow?',
@@ -331,7 +357,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Workflow replaces the manual exchange of documents that was tiring and time-consuming with automated electronic processes that illustrate tasks, steps, data, and people involved.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary benefit of XML in overcoming information categorization challenges?',
@@ -343,7 +370,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'XML overcomes information loss in traditional categorization by introducing metadata creation and enabling semantic content sorting by keywords, word-count frequency, and graphics meanings.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which type of search engine combines a natural language engine with a proprietary knowledgebase?',
@@ -355,7 +383,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Special search engines like Ask Jeeves combine a natural language engine with a proprietary knowledgebase that gets smarter over time.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the estimated core content percentage that AI summarization typically identifies in documents?',
@@ -367,7 +396,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'AI summarization is based on the realization that documents have only 20% or even less as the core content message, with the rest being explanation and examples.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which storage medium is specifically mentioned for direct access to large numbers of cartridges in automated assemblies?',
@@ -379,7 +409,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Magnetic tape technology includes robotic automated drive assemblies that can directly access large numbers of cartridges for data warehouse and online business needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of firewalls in extranet security?',
@@ -391,7 +422,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Firewalls are security barriers that protect internal organizational resources and knowledge from unauthorized external access in extranet environments.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM functionality is characterized as "the established flow of information among knowledge workers"?',
@@ -403,7 +435,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Workflow is defined as the established flow of information among knowledge workers and has direct implications on organizational performance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main advantage of office suite applications in KM composing functionality?',
@@ -415,7 +448,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Office suite applications like Microsoft Office have a common look and feel with uniform labeling and button locations across word processors, spreadsheets, and other tools.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which web evolution stage involves "connective intelligence" and semantic web technologies?',
@@ -427,7 +461,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Web 3.0 involves connective intelligence, semantic web technologies, semantic application platforms, and autonomous agents for connecting data, concepts, and people.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary benefit of universal viewers in KM storage strategies?',
@@ -439,7 +474,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Universal viewers are essential in KM to make content available in spite of the obsolescence of storage media formats like CDs, DVDs, and floppy disks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which groupware benefit specifically addresses geographical limitations?',
@@ -451,7 +487,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Groupware enables communication where it wouldn\'t otherwise be possible, particularly across geographical distances and different time zones.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between OLAP and data mining in decision support systems?',
@@ -463,7 +500,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Decision support systems work with data warehouses, use online analytical processing (OLAP), and employ data mining techniques to enhance decision-making.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which intranet function involves collaborative applications and expert finders?',
@@ -475,7 +513,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The interacting function of intranets includes collaborative applications, expert finders, directories, and other tools that enable user interaction and knowledge exchange.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of content management systems in KM?',
@@ -487,7 +526,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Content management systems (CMS) are responsible for the creation, management, and distribution of content on intranets, extranets, or websites.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which search engine category is designed for data mining and includes portals like ICASIT?',
@@ -499,7 +539,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Meta search engines are designed for data mining and include portals like Gotcha MetaKM from the Intentional Center for Applied Studies in Information Technology (ICASIT).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of "paperless office" in workflow management?',
@@ -511,7 +552,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The concept of "paperless office" originates from workflow management, which replaces the manual exchange of documents with automated electronic processes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which factor is NOT mentioned as contributing to organizational knowledge management needs?',
@@ -523,7 +565,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The reasons for proper knowledge management include information overload, technology advancement, increased professional specialization, competition, workforce mobility and turnover, and capitalization of organizational knowledge.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary advantage of extranets over intranets?',
@@ -535,7 +578,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Extranets enhance collaboration and information transfer with partners in the external network, providing shared access to organizational information and knowledge resources.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which Web 2.0 tool is specifically mentioned as enabling "two-way communications on the Internet"?',
@@ -547,7 +591,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Web 2.0 describes increasingly popular tools that promote two-way communications on the Internet, including blogs, wikis, social bookmarking, commenting, and social networks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the estimated time savings benefit of groupware in coordinating group work?',
@@ -559,7 +604,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Groupware saves time and cost in coordinating group work, one of its key benefits alongside facilitating communication and enabling telecommuting.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM functionality directly addresses the challenge of voluminous organizational data?',
@@ -571,7 +617,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Searching addresses the highly voluminous organizational data in the emerging e-society by providing efficient access to information through web search engines.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of version control in document management systems?',
@@ -583,7 +630,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Version control in document management systems tracks changes to documents and allows authorized users to access previous versions when necessary.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which technology evolution is described as the "third generation of the web" with semantic technologies?',
@@ -595,7 +643,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Web 3.0 is described as the third generation of the Web enabled by semantic web technologies, semantic application platforms, and autonomous agents.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main purpose of optical character recognition in document management?',
@@ -607,7 +656,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Optical character recognition (OCR) is used in document management to identify text on scanned images, enabling the system to extract metadata and index documents for retrieval.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM tool category includes technologies designed to help people collaborate?',
@@ -619,7 +669,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Groupware refers to technologies and applications designed to help people collaborate, including communication, cooperation, coordination, and problem-solving tools.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary function of data mining in knowledge management?',
@@ -631,7 +682,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Data mining tools and techniques are used to search stored data for patterns that might lead to new insights and drive data-driven decision support systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which intranet function supports knowledge sharing and collaboration?',
@@ -643,7 +695,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The main functions supporting knowledge sharing and collaboration on intranets are publishing, searching, transacting, interacting, and recording.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of TCP/IP in intranet technology?',
@@ -655,7 +708,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Like the Internet, the intranet uses Transmission Control Protocol/Internet Protocol (TCP/IP) to create internal networks with common Internet applications.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which KM functionality is essential for knowledge creation from existing information?',
@@ -667,7 +721,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Composing is characterized with creation of new knowledge from existing information and is achieved through Microsoft Office Suite applications.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of authentication in extranet security?',
@@ -679,7 +734,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Authentication in extranets uses security protocols to verify user identity and limit access to organizational information, using simple methods like usernames/passwords or strong digital certificates.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which factor drives the need for efficient KM in modern organizations?',
@@ -691,7 +747,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Decision makers are overwhelmed with an avalanche of information on conditions, developments, and events that affect present and future society in the 21st century.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary competitive advantage provided by effective KM implementation?',
@@ -703,7 +760,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'KM initiatives are used to systematically leverage information and expertise to improve organizational responsiveness, innovation, competency, and efficiency, providing competitive advantage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which intranet function is responsible for maintaining organizational culture and providing internal marketing?',
@@ -715,7 +773,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The publishing function of intranets includes homepages, newsletters, documents, and employee directories, and also influences organizational culture and provides internal marketing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What type of authentication uses digital certificates for stronger security in extranets?',
@@ -727,7 +786,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Strong authentication makes use of digital certificates, while simple authentication involves just usernames and passwords.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which Web 3.0 feature enables "distributed computing" and "web services interoperability"?',
@@ -739,7 +799,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Network computing in Web 3.0 involves software service business models, web services interoperability, and distributed computing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of OLAP in data warehousing?',
@@ -751,7 +812,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'OLAP (Online Analytical Processing) is used to access and manipulate data, working with data warehouses and employing data mining techniques to enhance decision-making.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which Microsoft Office application is specifically mentioned as providing powerful database management?',
@@ -763,7 +825,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Microsoft Access provides users with powerful database management system capabilities, allowing them to manage their data effectively.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main benefit of workflow automation in reducing organizational fatigue?',
@@ -775,7 +838,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Workflow automation addresses the tiring and time-consuming nature of manual document exchange by providing established flows of information among knowledge workers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which specialized search engine category includes tools like Deja, Topica, and Argus Clearinghouse?',
@@ -787,7 +851,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Specialized search engines include tools like Deja (for searching newsgroup postings), Topica (for mailing lists), and Argus Clearinghouse (for subject-specific guides).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which storage technology is specifically mentioned as being used for program distribution by companies?',
@@ -799,7 +864,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Optical disks like CDs and DVDs are very important technologies since most companies use CD-ROM to distribute their programs and corporate information.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What security measure is specifically mentioned for extranets?',
@@ -811,7 +877,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Extranets use security protocols including firewalls, encryption, and authentication (simple usernames/passwords or strong digital certificates) to limit access.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does KM 2.0 refer to?',
@@ -823,7 +890,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'KM 2.0 is the mapping of Web 2.0 principles (blogs, wikis, social tools) to knowledge management, also called Enterprise 2.0 when applied within organizations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a key feature of Web 3.0?',
@@ -835,7 +903,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Web 3.0 features include ubiquitous connectivity, network computing, open technologies, open identity, and the intelligent web with semantic technologies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of data warehousing?',
@@ -847,7 +916,8 @@ export const gns311Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Data warehousing is based on the premise that the quality of a manager\'s decisions is based on the quality of his information, providing building blocks for sound decision-making.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

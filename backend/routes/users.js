@@ -173,6 +173,55 @@ router.put('/avatar', protect, async (req, res) => {
   }
 });
 
+// @route   POST /api/users/deduct-gems
+// @desc    Deduct gems from user
+// @access  Private
+router.post('/deduct-gems', protect, async (req, res) => {
+  try {
+    const { amount, reason } = req.body;
+
+    if (!amount || amount <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid amount'
+      });
+    }
+
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+
+    if (user.gems < amount) {
+      return res.status(400).json({
+        success: false,
+        message: 'Insufficient gems'
+      });
+    }
+
+    user.gems -= amount;
+    await user.save();
+
+    res.json({
+      success: true,
+      message: `${amount} gems deducted for ${reason || 'activity'}`,
+      data: {
+        gems: user.gems
+      }
+    });
+  } catch (error) {
+    console.error('Deduct gems error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
+  }
+});
+
 // @route   GET /api/users/:userId
 // @desc    Get user profile by ID (respects visibility settings)
 // @access  Public (but respects profileVisibility)

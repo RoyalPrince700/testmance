@@ -16,9 +16,9 @@ export const chapter6Content = {
             Welcome! 🌱 <strong>Traditional medicine</strong> has been humanity's first line of defense against illnesses
             for thousands of years. Today, we're exploring the fascinating world of <strong>medicinal plants</strong>—nature's pharmacy!
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               According to WHO, <strong>80% of the world's population</strong> relies on herbal medicines as their primary healthcare!
               That's over 4 billion people trusting nature's healing power.
             </p>
@@ -29,19 +29,19 @@ export const chapter6Content = {
             understand their traditional and scientific significance.
           </p>
 
-          <div class="bg-blue-50 p-5 rounded-lg border border-blue-200 my-6">
-            <h4 class="font-bold text-blue-900 mb-3 text-lg">📚 Module Structure</h4>
-            <p class="text-blue-800 mb-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800 my-6">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">📚 Module Structure</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-4">
               This module explores medicinal plants from myths to modern conservation. Divided into two units:
             </p>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg border border-blue-200">
-                <h5 class="font-bold text-blue-900 mb-2">🧙‍♂️ Unit 1</h5>
-                <p class="text-blue-800 text-sm">Medicinal Plants: Myths and Facts</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h5 class="font-bold text-blue-900 dark:text-blue-100 mb-2">🧙‍♂️ Unit 1</h5>
+                <p class="text-blue-800 dark:text-blue-200 text-sm">Medicinal Plants: Myths and Facts</p>
               </div>
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🌱 Unit 2</h5>
-                <p class="text-green-800 text-sm">Conservation and Tissue Culture</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🌱 Unit 2</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm">Conservation and Tissue Culture</p>
               </div>
             </div>
           </div>
@@ -101,9 +101,9 @@ export const chapter6Content = {
             spiritual therapies, and manual techniques. <strong>Herbal medicine</strong> specifically uses herbs for health maintenance and disease treatment.
           </p>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🌍 Global Impact</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🌍 Global Impact</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Herbal medicine is popular worldwide, especially in developing countries. WHO estimates that 4 billion people
               (80% of the global population) use herbal medicines as primary healthcare.
             </p>
@@ -129,61 +129,61 @@ export const chapter6Content = {
           </p>
 
           <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🌱 Common Nigerian Medicinal Plants</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🌱 Common Nigerian Medicinal Plants</h4>
             <p class="text-gray-800 mb-4">Here are some important medicinal plants with easy-to-remember names:</p>
 
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🍃 Neem Tree (Dongoyaro)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Azadirachta indica</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Malaria, fever, antiseptic, diabetes</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Neem defeats fever dreams"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🍃 Neem Tree (Dongoyaro)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Azadirachta indica</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Malaria, fever, antiseptic, diabetes</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Neem defeats fever dreams"</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🥬 Bitter Leaf (Ewuro)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Vernonia amygdalina</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Diabetes, malaria, laxative, hypertension</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Bitter but better for blood sugar"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🥬 Bitter Leaf (Ewuro)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Vernonia amygdalina</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Diabetes, malaria, laxative, hypertension</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Bitter but better for blood sugar"</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🌰 Garlic (Ayuu)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Allium sativum</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Heart health, immunity, antibacterial</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Garlic guards against germs"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🌰 Garlic (Ayuu)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Allium sativum</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Heart health, immunity, antibacterial</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Garlic guards against germs"</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🍈 Pawpaw (Ibepe)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Carica papaya</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Digestion, wound healing, diabetes</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Pawpaw prevents poor digestion"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🍈 Pawpaw (Ibepe)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Carica papaya</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Digestion, wound healing, diabetes</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Pawpaw prevents poor digestion"</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🌰 Ginger (Ata-ile)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Zingiber officinale</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Nausea, inflammation, immunity</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Ginger gives great relief"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🌰 Ginger (Ata-ile)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Zingiber officinale</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Nausea, inflammation, immunity</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Ginger gives great relief"</p>
                 </div>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🍵 Lemon Grass (Koko-Oja)</h5>
-                <p class="text-green-800 text-sm mb-2"><strong>Botanical:</strong> Cymbopogon citratus</p>
-                <p class="text-green-800 text-sm"><strong>Uses:</strong> Fever, digestion, malaria, stress</p>
-                <div class="bg-green-50 p-2 rounded mt-2">
-                  <p class="text-xs text-green-700"><strong>Remember:</strong> "Lemon grass lessens malaria"</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🍵 Lemon Grass (Koko-Oja)</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm mb-2"><strong>Botanical:</strong> Cymbopogon citratus</p>
+                <p class="text-green-800 dark:text-green-200 text-sm"><strong>Uses:</strong> Fever, digestion, malaria, stress</p>
+                <div class="bg-green-50 dark:bg-green-900/20 p-2 rounded mt-2">
+                  <p class="text-xs text-green-700 dark:text-green-300"><strong>Remember:</strong> "Lemon grass lessens malaria"</p>
                 </div>
               </div>
             </div>
@@ -203,41 +203,41 @@ export const chapter6Content = {
           </p>
 
           <div class="space-y-4 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">💰 Affordability</h4>
-              <p class="text-blue-800">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">💰 Affordability</h4>
+              <p class="text-blue-800 dark:text-blue-200">
                 Rising costs of imported medicines make herbal alternatives more attractive. Traditional remedies
                 are often cheaper and locally available.
               </p>
             </div>
 
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3">⚠️ Side Effects of Modern Drugs</h4>
-              <p class="text-red-800">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">⚠️ Side Effects of Modern Drugs</h4>
+              <p class="text-red-800 dark:text-red-200">
                 Conventional medicines can cause serious side effects like hypertension, cardiac failure, and
                 other health complications. Herbs often have fewer adverse effects.
               </p>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🤝 Personal Relationships</h4>
-              <p class="text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🤝 Personal Relationships</h4>
+              <p class="text-green-800 dark:text-green-200">
                 Herbalists and traditional practitioners often build personal relationships with patients,
                 allowing for more open communication and trust.
               </p>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">🏛️ Cultural Heritage</h4>
-              <p class="text-purple-800">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🏛️ Cultural Heritage</h4>
+              <p class="text-purple-800 dark:text-purple-200">
                 Many communities have deep faith in traditional medicine as wisdom from ancestors.
                 This cultural preference drives continued use.
               </p>
             </div>
 
-            <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3">🌍 Global Recognition</h4>
-              <p class="text-yellow-800">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">🌍 Global Recognition</h4>
+              <p class="text-yellow-800 dark:text-yellow-200">
                 Even in developed countries, people seek "natural" alternatives. Herbs are increasingly
                 viewed as superior to synthetic drugs for certain conditions.
               </p>
@@ -259,50 +259,50 @@ export const chapter6Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 my-6">
-            <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-4 text-xl">✅ Advantages</h4>
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-4 text-xl">✅ Advantages</h4>
               <div class="space-y-3">
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Reduced Side Effects</h5>
-                  <p class="text-sm text-green-700">Generally safer with fewer adverse reactions</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Reduced Side Effects</h5>
+                  <p class="text-sm text-green-700 dark:text-green-300">Generally safer with fewer adverse reactions</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Effective for Chronic Conditions</h5>
-                  <p class="text-sm text-green-700">Often successful with long-term health issues</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Effective for Chronic Conditions</h5>
+                  <p class="text-sm text-green-700 dark:text-green-300">Often successful with long-term health issues</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Cost Effective</h5>
-                  <p class="text-sm text-green-700">More affordable than many pharmaceutical drugs</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Cost Effective</h5>
+                  <p class="text-sm text-green-700 dark:text-green-300">More affordable than many pharmaceutical drugs</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Widely Available</h5>
-                  <p class="text-sm text-green-700">Often found in local markets and gardens</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Widely Available</h5>
+                  <p class="text-sm text-green-700 dark:text-green-300">Often found in local markets and gardens</p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-red-50 p-6 rounded-lg border border-red-200">
-              <h4 class="font-bold text-red-900 mb-4 text-xl">❌ Disadvantages</h4>
+            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border border-red-200">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-4 text-xl">❌ Disadvantages</h4>
               <div class="space-y-3">
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-red-800">Not for All Conditions</h5>
-                  <p class="text-sm text-red-700">Ineffective for serious acute illnesses</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-red-800 dark:text-red-200">Not for All Conditions</h5>
+                  <p class="text-sm text-red-700 dark:text-red-300">Ineffective for serious acute illnesses</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-red-800">Dosage Uncertainty</h5>
-                  <p class="text-sm text-red-700">No standardized dosage instructions</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-red-800 dark:text-red-200">Dosage Uncertainty</h5>
+                  <p class="text-sm text-red-700 dark:text-red-300">No standardized dosage instructions</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-red-800">Poison Risk</h5>
-                  <p class="text-sm text-red-700">Wild herbs can be toxic if misidentified</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-red-800 dark:text-red-200">Poison Risk</h5>
+                  <p class="text-sm text-red-700 dark:text-red-300">Wild herbs can be toxic if misidentified</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-red-800">Drug Interactions</h5>
-                  <p class="text-sm text-red-700">Can interfere with conventional medications</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-red-800 dark:text-red-200">Drug Interactions</h5>
+                  <p class="text-sm text-red-700 dark:text-red-300">Can interfere with conventional medications</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-red-800">Lack of Regulation</h5>
-                  <p class="text-sm text-red-700">Quality and safety not guaranteed</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-red-800 dark:text-red-200">Lack of Regulation</h5>
+                  <p class="text-sm text-red-700 dark:text-red-300">Quality and safety not guaranteed</p>
                 </div>
               </div>
             </div>
@@ -323,56 +323,56 @@ export const chapter6Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-4">💪 Myth 1: Herbs Are Always Safe</h4>
-              <div class="bg-white p-4 rounded-lg mb-3">
-                <p class="font-semibold text-red-700 mb-2">❌ The Myth:</p>
-                <p class="text-gray-700">"Natural means safe" - Herbs are assumed to be harmless</p>
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4">💪 Myth 1: Herbs Are Always Safe</h4>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg mb-3">
+                <p class="font-semibold text-red-700 dark:text-red-300 mb-2">❌ The Myth:</p>
+                <p class="text-gray-700 dark:text-gray-300">"Natural means safe" - Herbs are assumed to be harmless</p>
               </div>
-              <div class="bg-green-50 p-4 rounded-lg">
-                <p class="font-semibold text-green-700 mb-2">✅ The Fact:</p>
-                <p class="text-green-800">Herbs contain chemicals and can be toxic. Misidentification, overdose,
+              <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <p class="font-semibold text-green-700 dark:text-green-300 mb-2">✅ The Fact:</p>
+                <p class="text-green-800 dark:text-green-200">Herbs contain chemicals and can be toxic. Misidentification, overdose,
                 or interactions can cause serious harm. Many herbs affect liver, kidney, and heart function.</p>
               </div>
             </div>
 
-            <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-4">🔬 Myth 2: Herbs Lack Scientific Evidence</h4>
-              <div class="bg-white p-4 rounded-lg mb-3">
-                <p class="font-semibold text-red-700 mb-2">❌ The Myth:</p>
-                <p class="text-gray-700">Traditional medicine is just folklore without scientific backing</p>
+            <div class="bg-gradient-to-r from-green-50 to-teal-50 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🔬 Myth 2: Herbs Lack Scientific Evidence</h4>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg mb-3">
+                <p class="font-semibold text-red-700 dark:text-red-300 mb-2">❌ The Myth:</p>
+                <p class="text-gray-700 dark:text-gray-300">Traditional medicine is just folklore without scientific backing</p>
               </div>
-              <div class="bg-green-50 p-4 rounded-lg">
-                <p class="font-semibold text-green-700 mb-2">✅ The Fact:</p>
-                <p class="text-green-800">Many modern drugs originate from plants. Scientific research validates
+              <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <p class="font-semibold text-green-700 dark:text-green-300 mb-2">✅ The Fact:</p>
+                <p class="text-green-800 dark:text-green-200">Many modern drugs originate from plants. Scientific research validates
                 herbs like neem for malaria, bitter leaf for diabetes, and ginger for nausea. 74% of pharmaceutical
                 medicines have herbal origins.</p>
               </div>
             </div>
 
-            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-4">🌿 Myth 3: Multi-Herb Mixtures Are Better</h4>
-              <div class="bg-white p-4 rounded-lg mb-3">
-                <p class="font-semibold text-red-700 mb-2">❌ The Myth:</p>
-                <p class="text-gray-700">More herbs = better results (some reduce symptoms, others aid digestion)</p>
+            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-4">🌿 Myth 3: Multi-Herb Mixtures Are Better</h4>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg mb-3">
+                <p class="font-semibold text-red-700 dark:text-red-300 mb-2">❌ The Myth:</p>
+                <p class="text-gray-700 dark:text-gray-300">More herbs = better results (some reduce symptoms, others aid digestion)</p>
               </div>
-              <div class="bg-green-50 p-4 rounded-lg">
-                <p class="font-semibold text-green-700 mb-2">✅ The Fact:</p>
-                <p class="text-green-800">This is largely true! Many herbs work synergistically. Traditional
+              <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <p class="font-semibold text-green-700 dark:text-green-300 mb-2">✅ The Fact:</p>
+                <p class="text-green-800 dark:text-green-200">This is largely true! Many herbs work synergistically. Traditional
                 medicine often combines herbs for comprehensive healing. However, standardization is needed
                 to ensure consistent therapeutic effects.</p>
               </div>
             </div>
 
-            <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-4">⚠️ Myth 4: Herbs Can't Be Standardized</h4>
-              <div class="bg-white p-4 rounded-lg mb-3">
-                <p class="font-semibold text-red-700 mb-2">❌ The Myth:</p>
-                <p class="text-gray-700">Standardization reduces herbal effectiveness and benefits</p>
+            <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">⚠️ Myth 4: Herbs Can't Be Standardized</h4>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg mb-3">
+                <p class="font-semibold text-red-700 dark:text-red-300 mb-2">❌ The Myth:</p>
+                <p class="text-gray-700 dark:text-gray-300">Standardization reduces herbal effectiveness and benefits</p>
               </div>
-              <div class="bg-green-50 p-4 rounded-lg">
-                <p class="font-semibold text-green-700 mb-2">✅ The Fact:</p>
-                <p class="text-green-800">Standardization ensures safety and efficacy. Research shows standardization
+              <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                <p class="font-semibold text-green-700 dark:text-green-300 mb-2">✅ The Fact:</p>
+                <p class="text-green-800 dark:text-green-200">Standardization ensures safety and efficacy. Research shows standardization
                 maintains benefits while ensuring consistent quality. WHO recommends standardized herbal products.</p>
               </div>
             </div>
@@ -392,9 +392,9 @@ export const chapter6Content = {
             <strong>Conservation</strong> is crucial to protect these valuable resources for future generations.
           </p>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">🚨 Threats to Medicinal Plants</p>
-            <ul class="space-y-1 text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">🚨 Threats to Medicinal Plants</p>
+            <ul class="space-y-1 text-red-800 dark:text-red-200">
               <li>• Habitat degradation and deforestation</li>
               <li>• Over-exploitation for commercial use</li>
               <li>• Invasive species competition</li>
@@ -423,47 +423,47 @@ export const chapter6Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-4">🏞️ In-Situ Conservation</h4>
-              <p class="text-green-800 mb-4">Protecting plants in their natural habitats:</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🏞️ In-Situ Conservation</h4>
+              <p class="text-green-800 dark:text-green-200 mb-4">Protecting plants in their natural habitats:</p>
 
               <div class="space-y-3">
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-green-800">🌍 Natural Reserves</h5>
-                  <p class="text-sm text-gray-700">Protected areas preserving biodiversity. Over 12,700 protected
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">🌍 Natural Reserves</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Protected areas preserving biodiversity. Over 12,700 protected
                   areas cover 8.81% of Earth's land surface.</p>
                 </div>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-green-800">🌱 Wild Nurseries</h5>
-                  <p class="text-sm text-gray-700">Establishing cultivation areas near natural habitats for
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">🌱 Wild Nurseries</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Establishing cultivation areas near natural habitats for
                   endangered species, combining protection with sustainable use.</p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-4">🏢 Ex-Situ Conservation</h4>
-              <p class="text-blue-800 mb-4">Protecting plants outside their natural habitats:</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4">🏢 Ex-Situ Conservation</h4>
+              <p class="text-blue-800 dark:text-blue-200 mb-4">Protecting plants outside their natural habitats:</p>
 
               <div class="space-y-3">
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-blue-800">🌳 Botanic Gardens</h5>
-                  <p class="text-sm text-gray-700">Maintain diverse plant collections, develop propagation protocols,
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-blue-800 dark:text-blue-200">🌳 Botanic Gardens</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Maintain diverse plant collections, develop propagation protocols,
                   and support domestication programs.</p>
                 </div>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-blue-800">🧬 Tissue Culture</h5>
-                  <p class="text-sm text-gray-700">In vitro regeneration for mass propagation of rare and
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-blue-800 dark:text-blue-200">🧬 Tissue Culture</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">In vitro regeneration for mass propagation of rare and
                   recalcitrant species.</p>
                 </div>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-blue-800">❄️ Cryo-Banks</h5>
-                  <p class="text-sm text-gray-700">Long-term storage at ultra-low temperatures (-196°C)
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-blue-800 dark:text-blue-200">❄️ Cryo-Banks</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Long-term storage at ultra-low temperatures (-196°C)
                   for genetic preservation.</p>
                 </div>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-blue-800">🌰 Seed Banks</h5>
-                  <p class="text-sm text-gray-700">Storage of seeds with controlled moisture (5-8%) and
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-blue-800 dark:text-blue-200">🌰 Seed Banks</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Storage of seeds with controlled moisture (5-8%) and
                   temperature (-18°C) for long-term viability.</p>
                 </div>
               </div>
@@ -484,32 +484,32 @@ export const chapter6Content = {
             environments under sterile conditions. This technology revolutionizes medicinal plant production.
           </p>
 
-          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🧪 Key Techniques</h4>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🧪 Key Techniques</h4>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🌱 Micropropagation</h5>
-                <p class="text-gray-700 text-sm">Rapid multiplication of plants from small tissue samples,
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🌱 Micropropagation</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Rapid multiplication of plants from small tissue samples,
                 producing thousands of identical plants.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🥚 Somatic Embryogenesis</h5>
-                <p class="text-gray-700 text-sm">Formation of embryos from somatic cells, creating artificial seeds.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🥚 Somatic Embryogenesis</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Formation of embryos from somatic cells, creating artificial seeds.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🧫 Callus Culture</h5>
-                <p class="text-gray-700 text-sm">Growing undifferentiated cell masses that can regenerate into whole plants.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🧫 Callus Culture</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Growing undifferentiated cell masses that can regenerate into whole plants.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🥬 Organ Culture</h5>
-                <p class="text-gray-700 text-sm">Culturing specific organs like roots, shoots, or leaves.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🥬 Organ Culture</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Culturing specific organs like roots, shoots, or leaves.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Benefits of Tissue Culture</p>
-            <ul class="space-y-1 text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Benefits of Tissue Culture</p>
+            <ul class="space-y-1 text-yellow-800 dark:text-yellow-200">
               <li>• ✅ Disease-free plants</li>
               <li>• ✅ Year-round production</li>
               <li>• ✅ Rapid multiplication of rare species</li>
@@ -532,35 +532,35 @@ export const chapter6Content = {
             Congratulations! 🎉 You've explored the fascinating world of medicinal plants. Let's recap what we've learned:
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">🌿 Medicinal Plants Definition</h5>
-                <p class="text-gray-700 text-sm">Plants containing therapeutic compounds, used for healing and drug synthesis</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">🌿 Medicinal Plants Definition</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Plants containing therapeutic compounds, used for healing and drug synthesis</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🧙‍♂️ Myths vs Facts</h5>
-                <p class="text-gray-700 text-sm">Herbs are not always safe, have scientific backing, work synergistically, and can be standardized</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🧙‍♂️ Myths vs Facts</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Herbs are not always safe, have scientific backing, work synergistically, and can be standardized</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">⚖️ Advantages & Disadvantages</h5>
-                <p class="text-gray-700 text-sm">Fewer side effects but lack regulation; effective for chronic conditions but dosage uncertainty</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">⚖️ Advantages & Disadvantages</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Fewer side effects but lack regulation; effective for chronic conditions but dosage uncertainty</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🛡️ Conservation Strategies</h5>
-                <p class="text-gray-700 text-sm">In-situ (natural reserves, wild nurseries) and ex-situ (botanic gardens, tissue culture, cryo-banks)</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🛡️ Conservation Strategies</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">In-situ (natural reserves, wild nurseries) and ex-situ (botanic gardens, tissue culture, cryo-banks)</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🧬 Tissue Culture</h5>
-                <p class="text-gray-700 text-sm">Modern technique for rapid, disease-free plant propagation and conservation</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Modern technique for rapid, disease-free plant propagation and conservation</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Final Thoughts</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Final Thoughts</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Medicinal plants bridge traditional wisdom with modern science. While herbs offer valuable healing,
               they must be used responsibly with proper knowledge and standardization. Conservation ensures these
               natural treasures remain available for future generations. 🌱✨

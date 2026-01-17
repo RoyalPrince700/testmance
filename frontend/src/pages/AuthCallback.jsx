@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { CheckCircle, XCircle } from 'lucide-react';
 import testmancerLogo from '../assets/testmancer-logo.png';
 
@@ -10,6 +11,7 @@ const AuthCallback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { loadUser, user } = useAuth();
+  const { isDarkMode } = useTheme();
   const [status, setStatus] = useState('processing'); // 'processing', 'success', 'error'
   const [message, setMessage] = useState('Processing your authentication...');
 
@@ -80,7 +82,7 @@ const AuthCallback = () => {
   }, [user, status, navigate]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center">
@@ -90,39 +92,39 @@ const AuthCallback = () => {
               className="h-12 w-12 object-contain"
             />
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white">
             TestMancer
           </h2>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm card-hover">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-sm card-hover">
           <div className="text-center">
             {status === 'processing' && (
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400 mx-auto mb-4"></div>
             )}
 
             {status === 'success' && (
-              <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <CheckCircle className="h-12 w-12 text-green-600 dark:text-green-400 mx-auto mb-4" />
             )}
 
             {status === 'error' && (
-              <XCircle className="h-12 w-12 text-red-600 mx-auto mb-4" />
+              <XCircle className="h-12 w-12 text-red-600 dark:text-red-400 mx-auto mb-4" />
             )}
 
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               {status === 'processing' && 'Processing...'}
               {status === 'success' && 'Success!'}
               {status === 'error' && 'Authentication Failed'}
             </h3>
 
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               {message}
             </p>
 
             {status === 'error' && (
               <button
                 onClick={() => navigate('/login')}
-                className="mt-4 bg-black text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
+                className="mt-4 bg-black dark:bg-gray-700 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
               >
                 Back to Login
               </button>

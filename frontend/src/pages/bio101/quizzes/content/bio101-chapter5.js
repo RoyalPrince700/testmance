@@ -19,7 +19,8 @@ export const bio101Chapter5Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Genes carry genetic information that determines traits and is passed from parents to offspring.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What molecule carries genetic information?',
@@ -31,7 +32,8 @@ export const bio101Chapter5Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'DNA (deoxyribonucleic acid) is the molecule that carries genetic information in cells.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the building blocks of DNA called?',
@@ -43,7 +45,8 @@ export const bio101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'DNA is composed of nucleotides, each containing a sugar, phosphate group, and nitrogenous base.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

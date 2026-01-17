@@ -19,7 +19,8 @@ export const bio101Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Ecology is the scientific study of the relationships between organisms and their environment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a level of ecological organization?',
@@ -31,7 +32,8 @@ export const bio101Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Chromosome is a genetic structure, not an ecological level. The main levels are individual, population, community, ecosystem, and biosphere.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary source of energy for most ecosystems?',
@@ -43,7 +45,8 @@ export const bio101Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Sunlight is the primary source of energy for most ecosystems, captured by photosynthetic organisms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

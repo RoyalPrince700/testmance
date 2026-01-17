@@ -19,7 +19,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Diverse and Growing Computers refers to both the wide range of computing devices/systems and the increasing representation of underrepresented groups (women, people of color, individuals with disabilities) in computer science and technology.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT mentioned as a cause for the growing importance of computers?',
@@ -31,7 +32,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter mentions versatility, efficiency, ability to process vast amounts of information, and being a crucial technology, but does not mention decreased electricity consumption as a key factor.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'According to the chapter, what is data diversity?',
@@ -43,7 +45,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Data diversity refers to the range of different types of elements in a dataset, which is a key concept in understanding diverse computing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the two main issues that cause lack of diversity in computing according to the chapter?',
@@ -55,7 +58,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter identifies two main issues: Pipeline (lack of early access to resources) and Culture (exclusivity and discrimination in the workplace).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     
     {
@@ -68,7 +72,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Duolingo is listed as an educational app, along with learning management systems, online course platforms, and digital textbooks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is telemedicine in the context of healthcare digital applications?',
@@ -80,7 +85,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Telemedicine refers to remote healthcare delivery using digital technology, allowing patients to consult with healthcare providers without physical visits.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT mentioned as a digital payment platform?',
@@ -92,7 +98,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Stripe is not mentioned in the chapter. The chapter lists PayPal, Venmo, and cryptocurrency exchanges like Coinbase as digital payment platforms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does FinTech stand for?',
@@ -104,7 +111,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'FinTech stands for Financial Technology, which refers to technology used in the financial services industry.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which creative software is mentioned for photo editing?',
@@ -116,7 +124,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Lightroom is mentioned as a photo editing app, along with Photoshop, Adobe Creative Cloud, and other creative tools.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is information processing?',
@@ -128,7 +137,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Information processing refers to the complete cycle of collection, storage, retrieval, manipulation, and dissemination of information using computers, software, and networks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT listed as a positive impact of information processing?',
@@ -140,7 +150,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Complete elimination of all jobs is not a positive impact. The chapter lists increased efficiency, improved accessibility, enhanced collaboration, economic growth, and better decision-making as positive impacts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a negative impact of information processing?',
@@ -152,7 +163,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Social isolation and decreased human interaction is listed as a negative impact, along with information overload, privacy concerns, technology dependence, and job displacement.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does IPS stand for in information processing?',
@@ -164,7 +176,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'IPS stands for Information Processing System, which consists of various components that work together to process and manage information.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a hardware component of an IPS?',
@@ -176,7 +189,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Operating System is a software component, not hardware. Hardware components include input devices, CPU, memory (RAM), storage devices, and output devices.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the function of RAM in an information processing system?',
@@ -188,7 +202,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'RAM (Random Access Memory) provides temporary storage for data and programs that the CPU is currently using.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a software component of an IPS?',
@@ -200,7 +215,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Operating System is a software component that manages hardware and software resources. Monitor, keyboard, and printer are hardware components.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the role of firmware in an information processing system?',
@@ -212,7 +228,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Firmware is permanent software stored in non-volatile memory that provides low-level control for the device\'s hardware.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a process component of an IPS?',
@@ -224,7 +241,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Database Management is a separate component (Database Management System). Process components include Input Process, Processing, Output Process, and Storage Process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the function of a Database Management System (DBMS) in an IPS?',
@@ -236,7 +254,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'A DBMS manages and stores data in a structured way, allowing for efficient retrieval, manipulation, and storage of information.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which emerging technology involves microscopic machines and materials?',
@@ -248,7 +267,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nanotechnology involves working with materials and machines at the microscopic level, creating new possibilities for computing and other applications.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is 3D printing also known as?',
@@ -260,7 +280,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: '3D printing is also known as additive manufacturing, where material is added layer by layer to create objects.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT mentioned as a new innovation in computing?',
@@ -272,7 +293,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Cathode ray tubes are old technology used in older monitors. The chapter mentions autonomous drones, self-driving cars, brain-computer interfaces, and smart homes/buildings.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does XR stand for in technological trends?',
@@ -284,7 +306,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'XR stands for Extended Reality, which encompasses virtual reality, augmented reality, and mixed reality technologies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary role of information processing in decision-making?',
@@ -296,7 +319,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Information processing enables informed decisions in business, healthcare, and governance by providing accurate and timely information.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which industry is NOT mentioned as a key user of information processing?',
@@ -308,7 +332,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Agriculture is not listed in the chapter. The key industries mentioned include Technology, Finance, Healthcare, Education, Government, Media, E-Commerce, Manufacturing, Energy, and Non-Profit organizations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is quantum computing expected to provide?',
@@ -320,7 +345,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Quantum computing is expected to provide revolutionary computational power that goes beyond the limits of classical computing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a social impact of diverse and growing computers?',
@@ -332,7 +358,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Digital divide and inclusion is listed as a social impact, along with AI ethics and bias, cybersecurity awareness, online safety, and technology addiction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does HCI stand for in technological trends?',
@@ -344,7 +371,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'HCI stands for Human-Computer Interaction, which focuses on improving the interaction between humans and computers.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which information processing professional focuses on analyzing data patterns?',
@@ -356,7 +384,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Data Analysts focus on analyzing data patterns and providing insights, while Network Administrators manage networks, IT Managers oversee IT operations, and Database Managers handle database systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of diversity in computing according to the chapter?',
@@ -368,7 +397,8 @@ export const cos101Chapter4Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Diversity in computing leads to better innovation, productivity, and the creation of products that meet the needs of diverse customer bases, ultimately improving market value.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

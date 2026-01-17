@@ -48,6 +48,16 @@ const courses = [
     difficulty: 'Beginner',
     duration: 40,
     isPublished: true
+  },
+  {
+    title: 'Contemporary Entrepreneurship Development',
+    code: 'ENT 211',
+    description: 'Comprehensive study of entrepreneurship concepts, business development, and entrepreneurial skills for modern business environments.',
+    universityShortName: 'UNILORIN',
+    category: 'Business Administration',
+    difficulty: 'Intermediate',
+    duration: 45,
+    isPublished: true
   }
 ];
 

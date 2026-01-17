@@ -1,17 +1,30 @@
 @import "tailwindcss";
 
-/* Custom styles for TestMancer */
-:root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@theme {
+  --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: #ffffff;
-  color: #000000; /* Default text color should be black, not white */
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    @apply bg-white text-gray-900 transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-gray-900 text-white;
+  }
 }
 
 /* Main background utility - gradient for auth pages */
@@ -19,38 +32,6 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-attachment: fixed;
 }
-
-/* Ensure Tailwind text color utilities work properly and override defaults */
-/* This ensures text-white works when explicitly used */
-.text-white {
-  color: #ffffff !important;
-}
-
-/* Ensure gray text colors work properly - these are commonly used throughout the app */
-.text-gray-400 {
-  color: #9ca3af !important;
-}
-
-.text-gray-500 {
-  color: #6b7280 !important;
-}
-
-.text-gray-600 {
-  color: #4b5563 !important;
-}
-
-.text-gray-700 {
-  color: #374151 !important;
-}
-
-.text-gray-800 {
-  color: #1f2937 !important;
-}
-
-.text-gray-900 {
-  color: #111827 !important;
-}
-
 
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

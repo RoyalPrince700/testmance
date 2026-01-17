@@ -17,9 +17,9 @@ export const chapter4Content = {
             the fuel that drives our vehicles, energy touches every aspect of our lives. But what happens when
             traditional energy sources become scarce or environmentally harmful?
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Every minute, enough energy arrives at Earth from the sun to meet our global energy demands for an entire year!
               The challenge is harnessing this power sustainably and efficiently.
             </p>
@@ -81,9 +81,9 @@ export const chapter4Content = {
             and using them wisely. This unit explores the fundamental concepts of energy, its forms, and how we
             can preserve our energy future.
           </p>
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">🔍 Key Focus</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">🔍 Key Focus</p>
+            <p class="text-blue-800 dark:text-blue-200">
               We'll examine both renewable sources (solar, wind, hydro) and non-renewable sources (fossil fuels, nuclear)
               to understand their roles in our energy landscape.
             </p>
@@ -104,21 +104,21 @@ export const chapter4Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 my-6">
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">🔋 Mechanical Energy</h4>
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🔋 Mechanical Energy</h4>
               <div class="space-y-2">
-                <div class="bg-white p-3 rounded">
-                  <strong class="text-green-800">Kinetic Energy:</strong> Energy of motion (½mv²)
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <strong class="text-green-800 dark:text-green-200">Kinetic Energy:</strong> Energy of motion (½mv²)
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <strong class="text-green-800">Potential Energy:</strong> Stored energy due to position
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <strong class="text-green-800 dark:text-green-200">Potential Energy:</strong> Stored energy due to position
                 </div>
               </div>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border border-purple-200">
-              <h4 class="font-bold text-purple-900 mb-3">⚡ Other Energy Forms</h4>
-              <ul class="space-y-2 text-purple-800">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border border-purple-200 dark:border-purple-800">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">⚡ Other Energy Forms</h4>
+              <ul class="space-y-2 text-purple-800 dark:text-purple-200">
                 <li>• <strong>Electrical:</strong> Flow of electric charge</li>
                 <li>• <strong>Chemical:</strong> Stored in molecular bonds</li>
                 <li>• <strong>Heat:</strong> Thermal energy transfer</li>
@@ -127,9 +127,9 @@ export const chapter4Content = {
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">💡 Energy Conversion Examples</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Energy Conversion Examples</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               From chemical energy in gasoline → mechanical energy in car engines<br>
               From potential energy in water → kinetic energy in hydroelectric dams<br>
               From solar energy → electrical energy in photovoltaic cells
@@ -151,39 +151,39 @@ export const chapter4Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3 flex items-center">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3 flex items-center">
                 <span class="text-2xl mr-2">☀️</span>
                 Solar Energy
               </h4>
-              <p class="text-yellow-800 mb-3">
+              <p class="text-yellow-800 dark:text-yellow-200 mb-3">
                 The sun provides more energy in one hour than humanity uses in a year! Solar energy can be
                 converted through photovoltaic cells or solar thermal systems.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Advantages:</strong> Free, clean, reliable in sunny climates
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Disadvantages:</strong> Intermittent, high initial costs
                 </div>
               </div>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3 flex items-center">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3 flex items-center">
                 <span class="text-2xl mr-2">🌪️</span>
                 Wind Energy
               </h4>
-              <p class="text-blue-800 mb-3">
+              <p class="text-blue-800 dark:text-blue-200 mb-3">
                 Wind turbines convert kinetic energy from moving air into electrical energy. Modern wind farms
                 can power entire communities and are becoming increasingly efficient.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Advantages:</strong> No fuel costs, land can be used for farming
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Disadvantages:</strong> Variable, visual impact, noise
                 </div>
               </div>
@@ -199,29 +199,29 @@ export const chapter4Content = {
                 Hydro power provides reliable baseload power and can respond quickly to demand changes.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Advantages:</strong> Reliable, long lifespan, no fuel costs
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Disadvantages:</strong> Environmental impact, limited sites
                 </div>
               </div>
             </div>
 
-            <div class="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
-              <h4 class="font-bold text-indigo-900 mb-3 flex items-center">
+            <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400">
+              <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3 flex items-center">
                 <span class="text-2xl mr-2">🌊</span>
                 Tidal Energy
               </h4>
-              <p class="text-indigo-800 mb-3">
+              <p class="text-indigo-800 dark:text-indigo-200 mb-3">
                 Ocean tides create predictable energy that can be harnessed through tidal barrages or underwater
                 turbines. While limited in application, tidal energy is highly reliable and predictable.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Advantages:</strong> Predictable, no emissions, low maintenance
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Disadvantages:</strong> Limited sites, high costs, environmental concerns
                 </div>
               </div>
@@ -244,8 +244,8 @@ export const chapter4Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
-              <h4 class="font-bold text-gray-900 mb-3 flex items-center">
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
                 <span class="text-2xl mr-2">⛽</span>
                 Fossil Fuels (Coal, Oil, Natural Gas)
               </h4>
@@ -255,8 +255,8 @@ export const chapter4Content = {
               </p>
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-green-100 p-3 rounded">
-                  <strong class="text-green-800">Advantages:</strong>
-                  <ul class="text-sm text-green-700 mt-1">
+                  <strong class="text-green-800 dark:text-green-200">Advantages:</strong>
+                  <ul class="text-sm text-green-700 dark:text-green-300 mt-1">
                     <li>• High energy density</li>
                     <li>• Reliable supply chains</li>
                     <li>• Established infrastructure</li>
@@ -264,8 +264,8 @@ export const chapter4Content = {
                   </ul>
                 </div>
                 <div class="bg-red-100 p-3 rounded">
-                  <strong class="text-red-800">Disadvantages:</strong>
-                  <ul class="text-sm text-red-700 mt-1">
+                  <strong class="text-red-800 dark:text-red-200">Disadvantages:</strong>
+                  <ul class="text-sm text-red-700 dark:text-red-300 mt-1">
                     <li>• CO₂ emissions & climate change</li>
                     <li>• Finite resources</li>
                     <li>• Environmental pollution</li>
@@ -275,19 +275,19 @@ export const chapter4Content = {
               </div>
             </div>
 
-            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3 flex items-center">
+            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3 flex items-center">
                 <span class="text-2xl mr-2">☢️</span>
                 Nuclear Energy
               </h4>
-              <p class="text-red-800 mb-3">
+              <p class="text-red-800 dark:text-red-200 mb-3">
                 Nuclear power generates electricity through controlled nuclear reactions. It provides low-carbon
                 baseload power but comes with unique challenges including radioactive waste management.
               </p>
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-green-100 p-3 rounded">
-                  <strong class="text-green-800">Advantages:</strong>
-                  <ul class="text-sm text-green-700 mt-1">
+                  <strong class="text-green-800 dark:text-green-200">Advantages:</strong>
+                  <ul class="text-sm text-green-700 dark:text-green-300 mt-1">
                     <li>• Low CO₂ emissions</li>
                     <li>• High energy density</li>
                     <li>• Reliable baseload power</li>
@@ -295,8 +295,8 @@ export const chapter4Content = {
                   </ul>
                 </div>
                 <div class="bg-red-100 p-3 rounded">
-                  <strong class="text-red-800">Disadvantages:</strong>
-                  <ul class="text-sm text-red-700 mt-1">
+                  <strong class="text-red-800 dark:text-red-200">Disadvantages:</strong>
+                  <ul class="text-sm text-red-700 dark:text-red-300 mt-1">
                     <li>• Radioactive waste disposal</li>
                     <li>• High capital costs</li>
                     <li>• Nuclear proliferation risks</li>
@@ -317,8 +317,8 @@ export const chapter4Content = {
               </p>
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-green-100 p-3 rounded">
-                  <strong class="text-green-800">Advantages:</strong>
-                  <ul class="text-sm text-green-700 mt-1">
+                  <strong class="text-green-800 dark:text-green-200">Advantages:</strong>
+                  <ul class="text-sm text-green-700 dark:text-green-300 mt-1">
                     <li>• Renewable & reliable</li>
                     <li>• Low environmental impact</li>
                     <li>• Small land footprint</li>
@@ -326,8 +326,8 @@ export const chapter4Content = {
                   </ul>
                 </div>
                 <div class="bg-red-100 p-3 rounded">
-                  <strong class="text-red-800">Disadvantages:</strong>
-                  <ul class="text-sm text-red-700 mt-1">
+                  <strong class="text-red-800 dark:text-red-200">Disadvantages:</strong>
+                  <ul class="text-sm text-red-700 dark:text-red-300 mt-1">
                     <li>• Location-specific</li>
                     <li>• High exploration costs</li>
                     <li>• Potential seismic activity</li>
@@ -353,23 +353,23 @@ export const chapter4Content = {
             and sustainably.
           </p>
 
-          <div class="bg-teal-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-teal-900 mb-3">⚖️ Law of Conservation of Energy</h4>
-            <p class="text-teal-800 mb-3">
+          <div class="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-teal-900 dark:text-teal-100 mb-3">⚖️ Law of Conservation of Energy</h4>
+            <p class="text-teal-800 dark:text-teal-200 mb-3">
               The total energy in an isolated system remains constant. Energy can change forms but never disappears.
             </p>
-            <div class="bg-white p-4 rounded-lg">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
               <p class="font-semibold mb-2">Example: Power Plant Energy Flow</p>
-              <div class="text-sm text-gray-700">
+              <div class="text-sm text-gray-700 dark:text-gray-300">
                 Chemical Energy (Coal) → Heat Energy → Mechanical Energy (Turbine) → Electrical Energy<br>
                 <em>Efficiency: Only ~35-40% of input energy becomes useful electricity</em>
               </div>
             </div>
           </div>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">🌍 Why Conservation Matters</p>
-            <div class="space-y-2 text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">🌍 Why Conservation Matters</p>
+            <div class="space-y-2 text-red-800 dark:text-red-200">
               <p><strong>Environmental Impact:</strong> Reduced fossil fuel use means less greenhouse gases</p>
               <p><strong>Economic Benefits:</strong> Lower energy costs and reduced dependence on imports</p>
               <p><strong>Resource Preservation:</strong> Extends the life of finite energy resources</p>
@@ -377,12 +377,12 @@ export const chapter4Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 p-5 rounded-lg">
-            <h4 class="font-bold text-blue-900 mb-3">🔧 Conservation Strategies</h4>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🔧 Conservation Strategies</h4>
             <div class="grid md:grid-cols-2 gap-4">
               <div>
-                <h5 class="font-semibold text-blue-800 mb-2">Technical Solutions:</h5>
-                <ul class="text-sm text-blue-700 space-y-1">
+                <h5 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Technical Solutions:</h5>
+                <ul class="text-sm text-blue-700 dark:text-blue-300 space-y-1">
                   <li>• Energy-efficient appliances</li>
                   <li>• Smart building design</li>
                   <li>• Improved industrial processes</li>
@@ -390,8 +390,8 @@ export const chapter4Content = {
                 </ul>
               </div>
               <div>
-                <h5 class="font-semibold text-blue-800 mb-2">Behavioral Changes:</h5>
-                <ul class="text-sm text-blue-700 space-y-1">
+                <h5 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Behavioral Changes:</h5>
+                <ul class="text-sm text-blue-700 dark:text-blue-300 space-y-1">
                   <li>• Reducing unnecessary consumption</li>
                   <li>• Using public transportation</li>
                   <li>• Proper equipment maintenance</li>
@@ -416,19 +416,19 @@ export const chapter4Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3">☀️ Solar Energy Conversion</h4>
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">☀️ Solar Energy Conversion</h4>
               <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-yellow-800 mb-2">Photovoltaic (PV) Systems</h5>
-                  <p class="text-sm text-gray-700">
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Photovoltaic (PV) Systems</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">
                     Solar cells directly convert sunlight into electricity using semiconductor materials.
                     Efficiency ranges from 15-22% for commercial panels.
                   </p>
                 </div>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-yellow-800 mb-2">Solar Thermal Systems</h5>
-                  <p class="text-sm text-gray-700">
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Solar Thermal Systems</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">
                     Concentrated solar power (CSP) uses mirrors to focus sunlight, heating fluids to produce
                     steam for electricity generation.
                   </p>
@@ -436,16 +436,16 @@ export const chapter4Content = {
               </div>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🌪️ Wind Energy Systems</h4>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🌪️ Wind Energy Systems</h4>
               <div class="space-y-3">
-                <p class="text-blue-800">
+                <p class="text-blue-800 dark:text-blue-200">
                   Wind turbines convert kinetic energy from moving air into mechanical energy, then electricity.
                   Modern turbines can reach heights of 100+ meters with rotor diameters over 150 meters.
                 </p>
-                <div class="bg-white p-4 rounded">
-                  <h5 class="font-semibold text-blue-800 mb-2">Key Components:</h5>
-                  <ul class="text-sm text-gray-700 grid md:grid-cols-2 gap-2">
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                  <h5 class="font-semibold text-blue-800 dark:text-blue-200 mb-2">Key Components:</h5>
+                  <ul class="text-sm text-gray-700 dark:text-gray-300 grid md:grid-cols-2 gap-2">
                     <li>• Rotor blades (aerodynamic design)</li>
                     <li>• Nacelle (housing generator)</li>
                     <li>• Tower (elevates turbine)</li>
@@ -462,9 +462,9 @@ export const chapter4Content = {
                   Hydroelectric systems convert potential energy in water into kinetic energy, then electricity
                   through turbines. They can be large-scale dams or small run-of-river installations.
                 </p>
-                <div class="bg-white p-4 rounded">
+                <div class="bg-white dark:bg-gray-700 p-4 rounded">
                   <h5 class="font-semibold text-cyan-800 mb-2">Types of Turbines:</h5>
-                  <div class="grid md:grid-cols-3 gap-2 text-sm text-gray-700">
+                  <div class="grid md:grid-cols-3 gap-2 text-sm text-gray-700 dark:text-gray-300">
                     <div class="bg-cyan-100 p-2 rounded text-center">Pelton<br/>(High head)</div>
                     <div class="bg-cyan-100 p-2 rounded text-center">Francis<br/>(Medium head)</div>
                     <div class="bg-cyan-100 p-2 rounded text-center">Kaplan<br/>(Low head)</div>
@@ -488,9 +488,9 @@ export const chapter4Content = {
             resource derived from organic matter, biomass offers unique advantages in the transition to sustainable
             energy systems.
           </p>
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">🌿 What is Biomass?</p>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">🌿 What is Biomass?</p>
+            <p class="text-green-800 dark:text-green-200">
               Biomass refers to all organic matter that can be used as fuel. It includes plant materials,
               agricultural waste, forestry residues, and even some municipal wastes. Biomass is essentially
               stored solar energy in chemical form.
@@ -512,9 +512,9 @@ export const chapter4Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 my-6">
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">🌱 Plant-Based Biomass</h4>
-              <ul class="space-y-2 text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🌱 Plant-Based Biomass</h4>
+              <ul class="space-y-2 text-green-800 dark:text-green-200">
                 <li><strong>Energy Crops:</strong> Fast-growing trees (poplars, willows)</li>
                 <li><strong>Agricultural Residues:</strong> Corn stalks, rice husks, sugarcane bagasse</li>
                 <li><strong>Forestry Waste:</strong> Sawdust, timber slash, mill scraps</li>
@@ -533,20 +533,20 @@ export const chapter4Content = {
             </div>
           </div>
 
-          <div class="bg-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-purple-900 mb-3">🔄 Biomass Energy Applications</h4>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🔄 Biomass Energy Applications</h4>
             <div class="grid md:grid-cols-3 gap-4">
-              <div class="bg-white p-3 rounded text-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <div class="text-2xl mb-1">🔥</div>
                 <strong>Direct Combustion</strong><br/>
                 <span class="text-sm text-gray-600">Heat generation</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <div class="text-2xl mb-1">⚡</div>
                 <strong>Electricity Generation</strong><br/>
                 <span class="text-sm text-gray-600">Power plants</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <div class="text-2xl mb-1">🚗</div>
                 <strong>Biofuels</strong><br/>
                 <span class="text-sm text-gray-600">Transportation fuel</span>
@@ -575,27 +575,27 @@ export const chapter4Content = {
                 The most straightforward method where biomass is burned to produce heat energy. This heat can
                 be used directly or converted to electricity through steam turbines.
               </p>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong class="text-orange-800">Process:</strong> Biomass + Air → Heat + Ash + Fuel Gases<br/>
                 <strong class="text-orange-800">Products:</strong> Heat energy, steam, electricity
               </div>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🌡️ Pyrolysis</h4>
-              <p class="text-blue-800 mb-3">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🌡️ Pyrolysis</h4>
+              <p class="text-blue-800 dark:text-blue-200 mb-3">
                 Heating biomass at high temperatures (540-1100°C) in the absence of oxygen to break down
                 organic materials into complex mixtures of liquids, gases, and solids.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Temperature Zones:</strong><br/>
                   0-170°C: Moisture evaporation<br/>
                   170-270°C: Gas evolution<br/>
                   270-400°C: Methanol production<br/>
                   400-500°C: Charcoal formation
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Products:</strong><br/>
                   • Bio-oil (liquid fuel)<br/>
                   • Syngas (combustible gas)<br/>
@@ -604,15 +604,15 @@ export const chapter4Content = {
               </div>
             </div>
 
-            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
-              <h4 class="font-bold text-gray-900 mb-3">⚗️ Gasification</h4>
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 dark:text-white mb-3">⚗️ Gasification</h4>
               <p class="text-gray-800 mb-3">
                 Converting biomass into combustible gases at high temperatures (1000°C) with controlled oxygen.
                 The resulting producer gas can be used for heating, electricity generation, or chemical synthesis.
               </p>
-              <div class="bg-white p-4 rounded">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <strong class="text-gray-800 mb-2">Producer Gas Composition:</strong>
-                <div class="grid grid-cols-2 gap-2 text-sm text-gray-700">
+                <div class="grid grid-cols-2 gap-2 text-sm text-gray-700 dark:text-gray-300">
                   <div>Carbon Monoxide: 20-22%</div>
                   <div>Hydrogen: 15-18%</div>
                   <div>Methane: 2-4%</div>
@@ -622,32 +622,32 @@ export const chapter4Content = {
               </div>
             </div>
 
-            <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🧪 Anaerobic Digestion</h4>
-              <p class="text-green-800 mb-3">
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🧪 Anaerobic Digestion</h4>
+              <p class="text-green-800 dark:text-green-200 mb-3">
                 Biological process where microorganisms break down organic matter in the absence of oxygen,
                 producing biogas (methane and carbon dioxide) and nutrient-rich digestate.
               </p>
-              <div class="bg-white p-3 rounded">
-                <strong class="text-green-800">Biogas Composition:</strong> ~60% Methane, ~40% CO₂<br/>
-                <strong class="text-green-800">Applications:</strong> Cooking, lighting, electricity generation, vehicle fuel
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <strong class="text-green-800 dark:text-green-200">Biogas Composition:</strong> ~60% Methane, ~40% CO₂<br/>
+                <strong class="text-green-800 dark:text-green-200">Applications:</strong> Cooking, lighting, electricity generation, vehicle fuel
               </div>
             </div>
 
-            <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3">🍷 Fermentation & Distillation</h4>
-              <p class="text-yellow-800 mb-3">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">🍷 Fermentation & Distillation</h4>
+              <p class="text-yellow-800 dark:text-yellow-200 mb-3">
                 Converting sugars in biomass into ethanol through yeast fermentation, followed by distillation
                 to produce biofuel. This process creates transportation fuel alternatives.
               </p>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Feedstocks:</strong><br/>
                   • Sugary: Sugarcane, sugar beets<br/>
                   • Starchy: Corn, wheat, potatoes<br/>
                   • Cellulosic: Agricultural waste
                 </div>
-                <div class="bg-white p-3 rounded text-sm">
+                <div class="bg-white dark:bg-gray-700 p-3 rounded text-sm">
                   <strong>Process Steps:</strong><br/>
                   1. Pretreatment<br/>
                   2. Fermentation<br/>
@@ -657,15 +657,15 @@ export const chapter4Content = {
               </div>
             </div>
 
-            <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">🛢️ Transesterification</h4>
-              <p class="text-purple-800 mb-3">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🛢️ Transesterification</h4>
+              <p class="text-purple-800 dark:text-purple-200 mb-3">
                 Chemical process that converts vegetable oils, animal fats, or waste oils into biodiesel through
                 reaction with alcohol in the presence of a catalyst.
               </p>
-              <div class="bg-white p-4 rounded">
-                <strong class="text-purple-800 mb-2">Biodiesel Production Process:</strong>
-                <ol class="text-sm text-gray-700 space-y-1">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
+                <strong class="text-purple-800 dark:text-purple-200 mb-2">Biodiesel Production Process:</strong>
+                <ol class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
                   <li>1. Feedstock pretreatment (remove contaminants)</li>
                   <li>2. Transesterification reaction (oil + alcohol → biodiesel + glycerin)</li>
                   <li>3. Product separation and purification</li>
@@ -690,12 +690,12 @@ export const chapter4Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 my-6">
-            <div class="bg-green-50 p-6 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-4 flex items-center">
+            <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-4 flex items-center">
                 <span class="text-2xl mr-2">🌍</span>
                 Environmental Benefits
               </h4>
-              <ul class="space-y-3 text-green-800">
+              <ul class="space-y-3 text-green-800 dark:text-green-200">
                 <li class="flex items-start">
                   <span class="text-green-500 mr-2">✓</span>
                   <span><strong>Carbon Neutral:</strong> Plants absorb CO₂ during growth, balancing emissions</span>
@@ -715,12 +715,12 @@ export const chapter4Content = {
               </ul>
             </div>
 
-            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-4 flex items-center">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4 flex items-center">
                 <span class="text-2xl mr-2">💰</span>
                 Economic Benefits
               </h4>
-              <ul class="space-y-3 text-blue-800">
+              <ul class="space-y-3 text-blue-800 dark:text-blue-200">
                 <li class="flex items-start">
                   <span class="text-blue-500 mr-2">✓</span>
                   <span><strong>Job Creation:</strong> Labor-intensive cultivation and processing</span>
@@ -741,18 +741,18 @@ export const chapter4Content = {
             </div>
           </div>
 
-          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-            <p class="font-semibold text-purple-900 mb-2">🔄 Additional Advantages</p>
-            <div class="grid md:grid-cols-3 gap-4 text-purple-800">
-              <div class="bg-white p-3 rounded text-center">
+          <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 p-4 my-4">
+            <p class="font-semibold text-purple-900 dark:text-purple-100 mb-2">🔄 Additional Advantages</p>
+            <div class="grid md:grid-cols-3 gap-4 text-purple-800 dark:text-purple-200">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <strong>Versatility</strong><br/>
                 <span class="text-sm">Multiple conversion pathways and end uses</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <strong>Reliability</strong><br/>
                 <span class="text-sm">Can provide baseload power when managed properly</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
                 <strong>Scalability</strong><br/>
                 <span class="text-sm">From small household systems to large power plants</span>
               </div>
@@ -774,9 +774,9 @@ export const chapter4Content = {
             sustainable biofuel development.
           </p>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">⚠️ Food vs. Fuel Debate</p>
-            <p class="text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">⚠️ Food vs. Fuel Debate</p>
+            <p class="text-red-800 dark:text-red-200">
               The primary concern with biofuels is the potential competition between food crops and energy crops
               for land, water, and other resources. This can drive up food prices and create food shortages.
             </p>
@@ -795,9 +795,9 @@ export const chapter4Content = {
               </ul>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">🌱 Mitigation Strategies</h4>
-              <ul class="space-y-2 text-green-800 text-sm">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🌱 Mitigation Strategies</h4>
+              <ul class="space-y-2 text-green-800 dark:text-green-200 text-sm">
                 <li>• Use of marginal lands for energy crop cultivation</li>
                 <li>• Development of second-generation biofuels from waste</li>
                 <li>• Improved agricultural productivity and efficiency</li>
@@ -808,23 +808,23 @@ export const chapter4Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-3">🔬 Second-Generation Biofuels</h4>
-            <p class="text-blue-800 mb-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🔬 Second-Generation Biofuels</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-3">
               Advanced biofuels produced from non-food biomass sources offer a solution to food security concerns
               while providing sustainable energy alternatives.
             </p>
             <div class="grid md:grid-cols-3 gap-3">
-              <div class="bg-white p-3 rounded text-center">
-                <strong class="text-blue-800">Cellulosic Ethanol</strong><br/>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <strong class="text-blue-800 dark:text-blue-200">Cellulosic Ethanol</strong><br/>
                 <span class="text-sm text-gray-600">From agricultural waste</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
-                <strong class="text-blue-800">Algae Biodiesel</strong><br/>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <strong class="text-blue-800 dark:text-blue-200">Algae Biodiesel</strong><br/>
                 <span class="text-sm text-gray-600">From aquatic biomass</span>
               </div>
-              <div class="bg-white p-3 rounded text-center">
-                <strong class="text-blue-800">Waste-to-Fuel</strong><br/>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <strong class="text-blue-800 dark:text-blue-200">Waste-to-Fuel</strong><br/>
                 <span class="text-sm text-gray-600">From municipal waste</span>
               </div>
             </div>
@@ -844,31 +844,31 @@ export const chapter4Content = {
             Sources and Their Conversion Techniques. Let's review the key concepts we've explored.
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🔑 Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🔑 Key Takeaways:</h4>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">1. Energy Conservation Fundamentals</h5>
-                <p class="text-gray-700 text-sm">Energy cannot be created or destroyed—only converted between forms. Understanding this law helps us use energy more efficiently.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">1. Energy Conservation Fundamentals</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Energy cannot be created or destroyed—only converted between forms. Understanding this law helps us use energy more efficiently.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">2. Renewable Energy Sources</h5>
-                <p class="text-gray-700 text-sm">Solar, wind, hydro, tidal, and biomass offer sustainable alternatives to fossil fuels, each with unique advantages and conversion technologies.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">2. Renewable Energy Sources</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Solar, wind, hydro, tidal, and biomass offer sustainable alternatives to fossil fuels, each with unique advantages and conversion technologies.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">3. Biomass as a Versatile Resource</h5>
-                <p class="text-gray-700 text-sm">Biomass can be converted through combustion, pyrolysis, gasification, fermentation, and other processes to produce heat, electricity, and biofuels.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">3. Biomass as a Versatile Resource</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Biomass can be converted through combustion, pyrolysis, gasification, fermentation, and other processes to produce heat, electricity, and biofuels.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">4. Balancing Energy and Food Security</h5>
-                <p class="text-gray-700 text-sm">While biofuels offer environmental benefits, we must carefully manage their production to avoid compromising food security and agricultural sustainability.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">4. Balancing Energy and Food Security</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">While biofuels offer environmental benefits, we must carefully manage their production to avoid compromising food security and agricultural sustainability.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🚀 Looking Forward</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🚀 Looking Forward</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Energy conservation and renewable technologies are rapidly evolving. As we transition to a
               sustainable energy future, understanding these concepts will help you make informed decisions
               about energy use and environmental stewardship. The choices we make today will shape our
@@ -885,18 +885,18 @@ export const chapter4Content = {
       subtitle: "Test Your Understanding",
       content: `
         <div class="space-y-6">
-          <div class="bg-blue-50 p-6 rounded-lg">
-            <h4 class="font-bold text-blue-900 mb-4">📝 Self-Study Questions</h4>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4">📝 Self-Study Questions</h4>
 
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg border-l-4 border-blue-500">
-                <p class="font-semibold text-gray-900 mb-2">1. What is the difference between renewable and non-renewable energy sources?</p>
-                <p class="text-sm text-gray-700">Renewable sources can be replenished naturally and are virtually inexhaustible, while non-renewable sources are finite and will eventually be depleted.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+                <p class="font-semibold text-gray-900 dark:text-white mb-2">1. What is the difference between renewable and non-renewable energy sources?</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Renewable sources can be replenished naturally and are virtually inexhaustible, while non-renewable sources are finite and will eventually be depleted.</p>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border-l-4 border-green-500">
-                <p class="font-semibold text-gray-900 mb-2">2. List four advantages of biomass as an energy source.</p>
-                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+                <p class="font-semibold text-gray-900 dark:text-white mb-2">2. List four advantages of biomass as an energy source.</p>
+                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1 ml-4">
                   <li>• Carbon neutral when sustainably managed</li>
                   <li>• Reduces waste through utilization of byproducts</li>
                   <li>• Provides rural economic development opportunities</li>
@@ -904,9 +904,9 @@ export const chapter4Content = {
                 </ul>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border-l-4 border-purple-500">
-                <p class="font-semibold text-gray-900 mb-2">3. State five methods for transforming biomass to renewable energy.</p>
-                <ol class="text-sm text-gray-700 space-y-1 ml-4">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+                <p class="font-semibold text-gray-900 dark:text-white mb-2">3. State five methods for transforming biomass to renewable energy.</p>
+                <ol class="text-sm text-gray-700 dark:text-gray-300 space-y-1 ml-4">
                   <li>Combustion - direct burning for heat</li>
                   <li>Pyrolysis - thermal decomposition without oxygen</li>
                   <li>Gasification - conversion to combustible gases</li>
@@ -916,9 +916,9 @@ export const chapter4Content = {
                 </ol>
               </div>
 
-              <div class="bg-white p-4 rounded-lg border-l-4 border-red-500">
-                <p class="font-semibold text-gray-900 mb-2">4. Identify two challenges of biofuel production in developing countries.</p>
-                <ul class="text-sm text-gray-700 space-y-1 ml-4">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+                <p class="font-semibold text-gray-900 dark:text-white mb-2">4. Identify two challenges of biofuel production in developing countries.</p>
+                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1 ml-4">
                   <li>• Competition with food production for land and resources</li>
                   <li>• High initial capital investment requirements</li>
                   <li>• Limited technological infrastructure and expertise</li>
@@ -937,12 +937,12 @@ export const chapter4Content = {
       subtitle: "Practical Exercises",
       content: `
         <div class="space-y-6">
-          <div class="bg-green-50 p-6 rounded-lg">
-            <h4 class="font-bold text-green-900 mb-4">🎯 Tutor Marked Assignments</h4>
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🎯 Tutor Marked Assignments</h4>
 
             <div class="space-y-6">
-              <div class="bg-white p-5 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-3">Question 1</h5>
+              <div class="bg-white dark:bg-gray-700 p-5 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-3">Question 1</h5>
                 <p class="text-gray-800 mb-3">Describe the energy conversions that take place in the following:</p>
                 <div class="space-y-3 ml-4">
                   <div>
@@ -968,8 +968,8 @@ export const chapter4Content = {
                 </div>
               </div>
 
-              <div class="bg-white p-5 rounded-lg border border-blue-200">
-                <h5 class="font-bold text-blue-900 mb-3">Question 2</h5>
+              <div class="bg-white dark:bg-gray-700 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h5 class="font-bold text-blue-900 dark:text-blue-100 mb-3">Question 2</h5>
                 <p class="text-gray-800 mb-3">Describe briefly how energy is obtained from:</p>
                 <div class="space-y-3 ml-4">
                   <div>
@@ -999,8 +999,8 @@ export const chapter4Content = {
                 </div>
               </div>
 
-              <div class="bg-white p-5 rounded-lg border border-purple-200">
-                <h5 class="font-bold text-purple-900 mb-3">Question 3</h5>
+              <div class="bg-white dark:bg-gray-700 p-5 rounded-lg border border-purple-200 dark:border-purple-800">
+                <h5 class="font-bold text-purple-900 dark:text-purple-100 mb-3">Question 3</h5>
                 <p class="text-gray-800 mb-3">Enumerate distinct features of the following:</p>
                 <div class="space-y-4 ml-4">
                   <div>

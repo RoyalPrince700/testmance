@@ -19,7 +19,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nutrition is defined as the science that interprets the relationship of foods to the functioning of living organisms, including food intake, waste elimination, and nutrient-health interactions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a macronutrient?',
@@ -31,7 +32,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Vitamins are micronutrients required in smaller amounts, while carbohydrates, proteins, and lipids are macronutrients required in larger amounts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the energy content of carbohydrates per gram?',
@@ -43,7 +45,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Carbohydrates provide 4 kcal/g of energy, the same as proteins, while fats provide 9 kcal/g.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which nutrient provides the highest energy density?',
@@ -55,7 +58,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Fat provides the highest energy density at 9 kcal/g, more than double the energy content of carbohydrates and proteins.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does RDA stand for in nutritional standards?',
@@ -67,7 +71,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'RDA stands for Recommended Dietary Allowance, the average daily intake required to meet the needs of 97-98% of healthy people.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which form of malnutrition is characterized by edema and moon-faced appearance?',
@@ -79,7 +84,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Kwashiorkor (wet PEM) is characterized by edema (mainly in feet and lower legs), moon-faced appearance, and discolored hair.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the recommended duration for exclusive breastfeeding according to the chapter?',
@@ -91,7 +97,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The best way to prevent childhood malnutrition is breastfeeding for the first six months, followed by balanced weaning foods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a benefit of breastfeeding?',
@@ -103,7 +110,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Breastfeeding actually protects against allergic diseases and provides numerous benefits including complete nutrition, contraceptive properties, and anti-infective factors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'During adolescence, what is the primary dietary need?',
@@ -115,7 +123,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Adolescence is a time of rapid growth where the primary dietary need is for energy, often reflected in a voracious appetite.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many portions of fruits and vegetables are recommended daily for adolescents?',
@@ -127,7 +136,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Adolescents should eat at least five portions of fruits and vegetables every day for essential vitamins and minerals.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the BMI range for normal weight?',
@@ -139,7 +149,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Normal weight is defined as BMI between 18.5 and 24.9, while underweight is below 18.5, overweight is 25-29.9, and obese is 30 or greater.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which age group is considered "young elderly"?',
@@ -151,7 +162,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The elderly population is divided into: young elderly (65-74), elderly (75-84), and old old (85+).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main cause of obesity according to the chapter?',
@@ -163,7 +175,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Obesity results from an imbalance between energy intake and energy expenditure, where intake exceeds expenditure.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which factor is NOT listed as a cause of obesity?',
@@ -175,7 +188,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The major causes of obesity include over eating, sex differences, age, environment/culture, emotional factors, and lack of physical activity.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How much weight can a woman typically gain during pregnancy?',
@@ -187,7 +201,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'A woman may gain as much as 12.5 kg during pregnancy, most of which is adipose store for lactation. Many women retain some weight and become obese.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the Tolerable Upper Intake Level (UL)?',
@@ -199,7 +214,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'UL is the highest average daily intake level likely to pose no risk of adverse health effects to most people. Consumption above UL increases health risks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which nutrient deficiency disease is mentioned in the chapter?',
@@ -211,7 +227,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter mentions scurvy, goiter, rickets, and anemia as examples of nutrient deficiency diseases.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the optimal temperature for egg incubation?',
@@ -223,7 +240,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'While this question was in the original chapter 10, it\'s not relevant to chapter 11 nutrition content.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which elderly population group has the highest nutritional vulnerability?',
@@ -235,7 +253,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The old old (85+) are generally the most vulnerable to malnutrition due to multiple factors including decreased nutrient absorption and higher disease burden.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is sarcopenia?',
@@ -247,7 +266,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Sarcopenia is the loss of muscle mass that can occur in malnutrition among the elderly, leading to decreased quality of life and increased fall risk.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which food group should be emphasized for bowel health in the elderly?',
@@ -259,7 +279,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Foods that help promote regular bowel function in the elderly include fruits, vegetables, dried fruits, whole grain cereals, beans, and yogurt.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the Adequate Intake (AI) used for?',
@@ -271,7 +292,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'AI (Adequate Intake) is recommended when the RDA is not yet established, such as for calcium, vitamin D, vitamin K, and fluoride.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which factor contributes to malnutrition in older adults?',
@@ -283,7 +305,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Malnutrition in older adults can be attributed to low income, lack of knowledge, loneliness, functional impairment, digestive problems, and gastrointestinal changes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the consequence of prolonged undernutrition in utero?',
@@ -295,7 +318,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Prolonged undernutrition in utero leads to growth retardation and can cause persistent changes in blood pressure, cholesterol metabolism, insulin response, and obesity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A 16-year-old female adolescent with BMI of 22.5 kg/m² who consumes mostly processed foods and sugary drinks is most likely deficient in which nutrient category?',
@@ -307,7 +331,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Processed foods and sugary drinks provide empty calories but lack micronutrients like vitamins and minerals essential for adolescent growth and development.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Calculate the estimated energy needs for a 25-year-old sedentary woman weighing 65kg with moderate activity. Using Harris-Benedict equation approximation, her BMR is approximately 1400 kcal. What would be her estimated daily energy requirement?',
@@ -319,7 +344,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'For moderate activity, multiply BMR by 1.4. This accounts for daily activities and exercise beyond basal metabolic needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A pregnant woman in her third trimester presents with severe anemia (Hb 7.5 g/dL), pica (eating clay), and fatigue. Which micronutrient deficiency is most likely, and what is the most appropriate intervention?',
@@ -331,7 +357,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Severe anemia with pica in pregnancy strongly suggests iron deficiency. Immediate intervention requires addressing the deficiency while investigating underlying causes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In a community nutrition program targeting elderly malnutrition, which intervention would have the highest impact on reducing sarcopenia and improving functional independence?',
@@ -343,7 +370,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Sarcopenia requires both adequate protein intake (1.6g/kg) and resistance training to stimulate muscle protein synthesis and prevent muscle loss.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A 35-year-old man with BMI 32 kg/m² wants to lose weight. He currently consumes 2800 kcal/day with 40% from carbohydrates. To achieve 0.5 kg weekly weight loss, he should reduce his intake to approximately:',
@@ -355,7 +383,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: '500 kcal daily deficit = 3500 kcal weekly deficit = 0.5 kg weight loss. Current intake 2800 kcal - 500 kcal = 2300 kcal target.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A child presents with severe wasting (weight-for-age <60%), loose skin, and appears emaciated but has no edema. This clinical presentation is most consistent with:',
@@ -367,7 +396,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Marasmus presents with severe wasting, loose skin, and emaciated appearance without edema. It results from chronic inadequate energy intake.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In nutritional epidemiology, which biomarker would be most reliable for assessing long-term vitamin A status in a population?',
@@ -379,7 +409,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Liver vitamin A reserves provide the most reliable indicator of long-term vitamin A status, as serum levels fluctuate with recent intake.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A lactating mother producing 850mL of breast milk daily with average 3% fat content would need additional energy intake of approximately:',
@@ -391,7 +422,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Energy cost of lactation is approximately 0.65 kcal per mL of breast milk produced, accounting for milk synthesis and maintenance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which dietary pattern is most associated with reduced risk of chronic diseases like cardiovascular disease and type 2 diabetes?',
@@ -403,7 +435,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Mediterranean dietary pattern is consistently associated with reduced cardiovascular disease and diabetes risk due to balanced nutrient profile and healthy fats.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A 2-year-old child with recent measles infection develops bilateral pitting edema, moon facies, and sparse discolored hair. The most likely diagnosis and immediate treatment priority is:',
@@ -415,7 +448,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Classic kwashiorkor presentation. Immediate treatment requires careful refeeding to avoid refeeding syndrome, with special attention to micronutrients.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In geriatric nutrition assessment, which anthropometric measurement is most predictive of mortality risk in elderly populations?',
@@ -427,7 +461,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'MUAC is a strong predictor of mortality in elderly populations, better than BMI which can be misleading due to changes in body composition with age.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A pregnant woman with gestational diabetes should prioritize which type of carbohydrates to minimize postprandial glucose spikes?',
@@ -439,7 +474,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Low glycemic index carbohydrates cause slower glucose absorption, reducing postprandial spikes important for gestational diabetes management.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which physiological change in aging most significantly impacts calcium absorption and bone health?',
@@ -451,7 +487,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Decreased vitamin D synthesis from sunlight exposure and reduced skin efficiency significantly impairs calcium absorption, contributing to osteoporosis risk.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A community health worker assessing malnutrition in preschool children would use which indicator as the most sensitive for detecting acute malnutrition?',
@@ -463,7 +500,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Weight-for-height (wasting) is the most sensitive indicator for acute malnutrition as it reflects recent nutritional status changes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the protein requirement for a 70kg elderly man with chronic kidney disease (stage 3). Using RDA of 0.8g/kg for healthy elderly, but adjusted for CKD:',
@@ -475,7 +513,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'In chronic kidney disease stage 3, protein intake should be reduced to 0.5-0.6g/kg to decrease kidney burden while maintaining essential functions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which micronutrient supplementation during pregnancy has the strongest evidence for preventing neural tube defects?',
@@ -487,7 +526,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Folic acid supplementation (400μg/day) has strong evidence for preventing neural tube defects when taken preconception and during early pregnancy.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A nutritionist designing meals for adolescent athletes should prioritize which macronutrient distribution to support growth, recovery, and performance?',
@@ -499,7 +539,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Adolescent athletes need higher protein (30%) for growth and muscle repair, with adequate carbohydrates for glycogen stores and moderate fats for essential nutrients.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which hormonal change during pregnancy primarily drives increased energy and nutrient requirements?',
@@ -511,7 +552,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Human placental lactogen increases insulin resistance and mobilizes maternal nutrients for fetal growth, driving increased energy and nutrient needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In treating obesity-related hypertension, which dietary intervention would have the most significant blood pressure lowering effect?',
@@ -523,7 +565,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'DASH diet has the strongest evidence for blood pressure reduction, combining multiple nutrients (potassium, magnesium, calcium) with reduced saturated fat.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A child recovering from severe acute malnutrition should receive therapeutic feeding with energy density of approximately:',
@@ -535,7 +578,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'F-75 therapeutic milk provides 0.8 kcal/mL and is used initially for stabilization in severe acute malnutrition treatment before transitioning to F-100.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which assessment tool is most appropriate for evaluating nutritional status in bedridden elderly patients?',
@@ -547,7 +591,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'SGA combines medical history, physical examination, and subjective assessment of nutritional status, making it practical for bedridden patients.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the additional calcium requirement for a postmenopausal woman with osteoporosis. Her current intake is 600mg/day, RDA is 1200mg/day. Daily supplement needed:',
@@ -559,7 +604,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'RDA is 1200mg/day, current intake 600mg/day, so additional 600mg needed daily through supplements or fortified foods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A nutrition policy aimed at reducing childhood obesity in schools should prioritize which intervention?',
@@ -571,7 +617,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'School nutrition policies have strongest impact by controlling the food environment - eliminating competitive foods and sugary drinks reduces calorie intake.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which laboratory parameter is most indicative of protein-energy malnutrition in hospitalized patients?',
@@ -583,7 +630,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Serum albumin is a negative acute-phase reactant that decreases in protein-energy malnutrition and has a half-life of 20 days, reflecting chronic nutritional status.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A community intervention to prevent micronutrient deficiencies in pregnant women should prioritize which strategy?',
@@ -595,7 +643,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food fortification reaches entire populations cost-effectively and sustainably, addressing multiple micronutrient deficiencies simultaneously.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which physiological adaptation allows breast milk to provide adequate nutrition despite maternal undernutrition?',
@@ -607,7 +656,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Maternal physiological adaptations prioritize nutrient allocation to breast milk over maternal tissues, maintaining milk quality even during maternal undernutrition.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In geriatric nutrition, which intervention is most effective for preventing dehydration?',
@@ -619,7 +669,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Elderly have reduced thirst sensation, so scheduled reminders and easy access to fluids are most effective for preventing dehydration.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A 15-year-old male adolescent with delayed puberty and poor growth velocity most likely needs assessment for deficiency of:',
@@ -631,7 +682,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Zinc deficiency affects growth hormone secretion and puberty, while vitamin A is essential for normal growth and development in adolescents.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the fluid requirement for an elderly patient with diarrhea. Using 30mL/kg/day for maintenance plus additional losses:',
@@ -643,7 +695,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'For diarrheal losses, add 10mL/kg body weight for each loose stool to replace fluid losses and prevent dehydration.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which dietary component is most critical for preventing neural tube defects during the periconceptional period?',
@@ -655,7 +708,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Folic acid supplementation (400μg/day) starting preconception and continuing through first trimester prevents 50-70% of neural tube defects.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A nutrition researcher studying iodine deficiency in pregnant women would use which biochemical marker as the most reliable indicator of recent iodine status?',
@@ -667,7 +721,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Urinary iodine concentration reflects recent iodine intake (past 24-48 hours) and is the gold standard for assessing iodine status in populations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In severe acute malnutrition treatment, the transition from F-75 to F-100 therapeutic milk occurs when the child shows clinical improvement and can tolerate higher energy density. The F-100 provides:',
@@ -679,7 +734,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'F-100 provides 1.0 kcal/mL with 5% protein to support rapid catch-up growth once the child is stabilized and appetite has returned.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the vitamin D requirement for an elderly person with limited sun exposure. RDA is 15μg/day (600 IU), but for deficient individuals with minimal UV exposure, supplementation should be:',
@@ -691,7 +747,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Elderly with limited sun exposure and deficiency require 50μg/day (2000 IU) initially, then maintenance dose of 20-25μg/day once replete.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A community nutrition program evaluating anemia reduction would use which hemoglobin cutoff to define anemia in pregnant women?',
@@ -703,7 +760,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'WHO defines anemia in pregnant women as Hb < 11.0 g/dL, recognizing the physiological hemodilution of pregnancy.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which micronutrient has the strongest evidence for improving cognitive development in iron-deficient infants when supplemented?',
@@ -715,7 +773,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Iron supplementation in iron-deficient infants improves cognitive development, attention, and motor skills, with strongest evidence among micronutrients.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In nutritional genomics, which genetic variant significantly affects folate metabolism and increases neural tube defect risk?',
@@ -727,7 +786,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'MTHFR C677T polymorphism reduces methylenetetrahydrofolate reductase activity, impairing folate metabolism and increasing homocysteine levels and NTD risk.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A diabetic elderly patient with BMI 28 kg/m² and recent weight loss should prioritize which nutritional intervention?',
@@ -739,7 +799,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Unintentional weight loss in elderly with diabetes suggests malnutrition risk; diet should be liberalized to prevent sarcopenia and maintain muscle mass.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the additional protein needed for wound healing in a postoperative patient. Basal requirement is 0.8g/kg, wound healing adds:',
@@ -751,7 +812,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Major surgery increases protein requirements by 0.5g/kg due to increased metabolic stress and tissue repair needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which assessment method is most accurate for measuring body composition changes during weight loss interventions?',
@@ -763,7 +825,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'DEXA provides the most accurate measurement of fat mass, lean mass, and bone mineral content changes during weight loss interventions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A nutrition epidemiologist studying vitamin A deficiency would use which survey method to estimate population prevalence?',
@@ -775,7 +838,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Clinical examination for Bitot spots and night blindness provides direct evidence of vitamin A deficiency, more reliable than biochemical markers for population surveys.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which probiotic strain has the strongest evidence for preventing antibiotic-associated diarrhea in children?',
@@ -787,7 +851,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Saccharomyces boulardii has strongest evidence for preventing antibiotic-associated diarrhea, particularly in children, due to its resistance to antibiotics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Calculate the fluid requirement adjustment for an elderly patient with congestive heart failure. Standard is 30mL/kg/day, but for CHF patients:',
@@ -799,7 +864,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'CHF patients require fluid restriction (20mL/kg/day) to reduce cardiac preload and prevent fluid overload.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A mother with phenylketonuria (PKU) should avoid breastfeeding because breast milk contains which amino acid that she cannot metabolize?',
@@ -811,7 +877,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'PKU patients lack phenylalanine hydroxylase enzyme, so phenylalanine from breast milk accumulates to toxic levels, requiring strict dietary restriction.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which dietary pattern shows the strongest inverse association with colorectal cancer risk?',
@@ -823,7 +890,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'High-fiber plant-based diets show strongest inverse association with colorectal cancer due to fiber, antioxidants, and phytochemicals that protect against colorectal carcinogenesis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In severe malnutrition with refeeding syndrome risk, which electrolyte abnormality is most life-threatening and requires immediate correction?',
@@ -835,7 +903,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Hypophosphatemia is most life-threatening in refeeding syndrome, causing cardiac arrhythmias, respiratory failure, and death if not corrected promptly.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A nutrition epidemiologist designing a randomized controlled trial to evaluate the effectiveness of vitamin D supplementation in preventing osteoporosis would use which statistical method to determine the required sample size?',
@@ -847,7 +916,8 @@ export const gns311Chapter11Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Power analysis with effect size estimation determines adequate sample size to detect clinically meaningful differences between intervention and control groups with sufficient statistical power.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     }
   ]
 };

@@ -86,21 +86,21 @@ const QuizCourseDetail = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500"></div>
+      <div className="flex items-center justify-center min-h-96 bg-gray-50 dark:bg-gray-900">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 dark:border-teal-400"></div>
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course not found</h3>
-        <p className="text-gray-600">The course you're looking for doesn't exist.</p>
+      <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
+        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course not found</h3>
+        <p className="text-gray-600 dark:text-gray-400">The course you're looking for doesn't exist.</p>
         <Link
           to="/quiz-hub"
-          className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 rounded-lg text-white transition-colors"
+          className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 rounded-lg text-white transition-colors"
         >
           Back to Quiz Hub
         </Link>
@@ -110,20 +110,20 @@ const QuizCourseDetail = () => {
 
   if (!isEnrolled && !loading) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course Not Enrolled</h3>
-        <p className="text-gray-600 mb-4">You need to enroll in this course to access its quizzes.</p>
+      <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
+        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course Not Enrolled</h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in this course to access its quizzes.</p>
         <div className="flex gap-4 justify-center">
           <Link
             to="/quiz-hub"
-            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg text-white transition-colors"
+            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 rounded-lg text-white transition-colors"
           >
             Back to Quiz Hub
           </Link>
           <Link
             to="/courses"
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
+            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-lg text-white transition-colors"
           >
             Browse Courses
           </Link>
@@ -135,7 +135,7 @@ const QuizCourseDetail = () => {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Main Course Card */}
-      <div className="bg-gray-50 rounded-2xl shadow-lg p-8 mb-6">
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
         {/* Course Header */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-start gap-4 flex-1">
@@ -146,20 +146,20 @@ const QuizCourseDetail = () => {
             
             {/* Course Info */}
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{course.title}</h1>
-              <p className="text-gray-600 text-lg mb-4">{course.description || 'Test your knowledge with chapter quizzes'}</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{course.title}</h1>
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">{course.description || 'Test your knowledge with chapter quizzes'}</p>
               
               {/* Progress Indicators */}
               <div className="flex items-center space-x-6 mb-3">
                 <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm text-gray-700 font-medium">
+                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                     {chaptersWithQuizzes.length} quiz{chaptersWithQuizzes.length !== 1 ? 'es' : ''} available
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm text-gray-700 font-medium">
+                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                     {chapters.length} total chapters
                   </span>
                 </div>
@@ -180,19 +180,19 @@ const QuizCourseDetail = () => {
         {isExpanded && (
           <div className="mt-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Available Quizzes ({chaptersWithQuizzes.length})
               </h2>
             </div>
 
             {chaptersLoading ? (
               <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 dark:border-teal-400"></div>
               </div>
             ) : chaptersWithQuizzes.length === 0 ? (
               <div className="text-center py-12">
-                <Target className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-600">No quizzes available for this course yet.</p>
+                <Target className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                <p className="text-gray-600 dark:text-gray-400">No quizzes available for this course yet.</p>
               </div>
             ) : (
               <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
@@ -202,7 +202,7 @@ const QuizCourseDetail = () => {
                     <Link
                       key={chapter._id}
                       to={`/quizzes/${chapter._id}`}
-                      className="flex items-center justify-between bg-white hover:bg-gray-50 rounded-lg p-4 transition-colors border border-gray-200 hover:border-teal-300 group"
+                      className="flex items-center justify-between bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-lg p-4 transition-colors border border-gray-200 dark:border-gray-600 hover:border-teal-300 dark:hover:border-teal-500 group"
                     >
                       <div className="flex items-center space-x-4 flex-1 min-w-0">
                         {/* Quiz Icon or Attempt Checkmark */}
@@ -218,11 +218,11 @@ const QuizCourseDetail = () => {
 
                         {/* Chapter Title */}
                         <span className={`font-medium flex-1 truncate ${
-                          hasBeenAttempted ? 'text-gray-600' : 'text-gray-900'
+                          hasBeenAttempted ? 'text-gray-600 dark:text-gray-400' : 'text-gray-900 dark:text-white'
                         }`}>
                           {chapter.title}
                           {hasBeenAttempted && (
-                            <span className="ml-2 text-green-600 text-sm font-normal">
+                            <span className="ml-2 text-green-600 dark:text-green-400 text-sm font-normal">
                               (Attempted)
                             </span>
                           )}
@@ -230,7 +230,7 @@ const QuizCourseDetail = () => {
                       </div>
 
                       {/* Quiz Link */}
-                      <div className="flex items-center space-x-1 text-teal-600 group-hover:text-teal-700 font-medium ml-4 shrink-0">
+                      <div className="flex items-center space-x-1 text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 font-medium ml-4 shrink-0">
                         <span>{hasBeenAttempted ? 'Retake Quiz' : 'Take Quiz'}</span>
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>

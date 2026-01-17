@@ -20,7 +20,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The FAO defines food security as "a situation that exists when all people, at all times, have physical, social and economic access to sufficient, safe and nutritious food that meets their dietary needs and food preferences for an active and healthy life."',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main root cause of food insecurity according to the chapter?',
@@ -32,7 +33,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter identifies poverty as the main issue, as it fails to generate sufficient income and distribute it broadly enough to meet households\' basic needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is NOT a key aspect of food security?',
@@ -44,7 +46,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The four key aspects of food security are: Availability (sufficient foodstuff production), Quality (nutritional value), Stability (consistent supplies), and Access (ability to obtain produced food).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is food spoilage?',
@@ -56,7 +59,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food spoilage is defined as "the adverse changes in the quality of food due to biological reactions, autolysis, or physical reactions that occur within the food system."',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which preservation method uses high temperatures to destroy pathogens?',
@@ -68,7 +72,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Pasteurization is a heat treatment at 63-138°C for 15 seconds to 5 minutes to destroy pathogens while preserving food quality.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -81,7 +86,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Sub-Saharan Africa and South Asia face the most severe food insecurity problems, with sub-Saharan Africa having 34% malnutrition rate.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does the term "autolysis" refer to in food spoilage?',
@@ -93,7 +99,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Autolysis (enzymatic activity) refers to natural enzymes within the food that break down food components, causing spoilage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which food preservation method involves converting water to ice crystals?',
@@ -105,7 +112,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Freezing reduces temperature to -17°C, converting water to ice crystals that rupture microbial cells and remove available water needed for microbial growth.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of blanching in food preservation?',
@@ -117,7 +125,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Blanching is a light heat treatment using hot water, steam, or microwaves to inactivate enzymes before canning/freezing, which improves color, texture, and removes dirt.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which solution to food insecurity involves opening national markets to international trade?',
@@ -129,7 +138,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Trade liberalization is one of the ten key solutions, involving opening national markets to international trade to reduce costs through innovation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the difference between pasteurization and sterilization?',
@@ -141,7 +151,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Pasteurization destroys pathogens at lower temperatures (63-138°C), while sterilization destroys all microorganisms at higher temperatures (121°C for 5-15 minutes).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which traditional preservation method creates osmotic pressure to prevent microbial growth?',
@@ -153,7 +164,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Sugaring and salting create high concentrations that cause osmotic pressure, removing water needed for microbial growth. Examples include bacon, salted fish, and jam.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does UHT stand for in food processing?',
@@ -165,7 +177,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'UHT stands for Ultra High Temperature pasteurization, which operates at 121-138°C for 2-5 seconds.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which food category has the highest risk of spoilage?',
@@ -177,7 +190,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Perishable foods have high moisture content and spoil quickly (fruits, vegetables, meat), while semi-perishable foods have moderate risk (cereals, nuts) and stable foods have long shelf life.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main advantage of freeze-drying over regular drying?',
@@ -189,7 +203,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Freeze-drying (lyophilization) sublimates frozen food under vacuum, retaining shape, size, and volatile components, though it\'s expensive and used for juices, meat, and milk.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which solution involves training farmers in food safety and preservation?',
@@ -201,7 +216,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Education and training involves training farmers and handlers in food safety and preservation techniques.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does irradiation use to preserve food?',
@@ -213,7 +229,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Irradiation uses ionizing radiation to destroy enzymes and microorganisms without making food radioactive. Regimes include radurization, radicidation, and radappertization.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which preservation method involves microorganisms creating acid or alcohol?',
@@ -225,7 +242,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Fermentation involves specific microorganisms creating acid or alcohol that inhibits spoilage organisms. Examples include cheeses, wines, beers, and sauerkraut.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the purpose of controlled atmosphere storage?',
@@ -237,7 +255,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Controlled atmosphere storage (CAS) manipulates gas composition by reducing oxygen and increasing carbon dioxide to retard respiration and microbial growth.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // DIFFICULT QUESTIONS (Analysis/Application)
     {
@@ -250,7 +269,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Smoking provides bactericidal compounds (formaldehyde, creosote) plus dehydration, while salting creates osmotic pressure. This combination is highly effective for fish preservation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would a food processor choose HTST pasteurization over UHT for milk production?',
@@ -262,7 +282,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'HTST (71-75°C for 15-16 seconds) is preferred because it\'s more economical and preserves more nutrients, vitamins, and flavor compared to UHT\'s higher temperatures.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which food insecurity solution would have the most immediate impact on rural households?',
@@ -274,7 +295,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Direct food aid and supplements for vulnerable groups provide immediate relief to households facing acute food insecurity, while other solutions take longer to implement.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If contamination causes 20% losses in dairy products, what preservation method would most effectively address this?',
@@ -286,7 +308,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Pasteurization destroys pathogens in dairy products, while refrigeration slows microbial activity. Together they provide comprehensive protection against contamination.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is food security considered essential for economic sustainability of nations?',
@@ -298,7 +321,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food security impacts workforce productivity (malnourished workers are less productive), rural-urban migration, political instability, and creates conditions for conflict when combined with poverty.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes irradiation different from other preservation methods?',
@@ -310,7 +334,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Irradiation uses ionizing radiation to destroy enzymes and microorganisms, but the food itself does not become radioactive. This distinguishes it from thermal methods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a community has limited electricity, which preservation method would be most practical for vegetables?',
@@ -322,7 +347,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Solar drying removes 80-90% moisture using air/sun, reducing water activity to prevent microbial growth. It doesn\'t require electricity, making it practical for off-grid communities.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why do high-moisture foods spoil faster than low-moisture foods?',
@@ -334,7 +360,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Water is essential for microbial growth and enzymatic activity. High-moisture foods provide the aqueous environment needed for spoilage-causing reactions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which preservation method would be most appropriate for preserving meat in a tropical climate?',
@@ -346,7 +373,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Smoking provides bactericidal compounds and dehydration, while chemical preservatives add antimicrobial protection. In tropical climates, heat accelerates spoilage, making this combination essential.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s emphasis on integrated solutions address the complexity of food insecurity?',
@@ -358,7 +386,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter advocates integrated actions addressing causes simultaneously because food insecurity results from poverty manifesting in multiple ways, requiring comprehensive approaches.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would controlled atmosphere storage be preferred over regular cold storage for some fruits?',
@@ -370,7 +399,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Controlled atmosphere storage manipulates oxygen and carbon dioxide levels to retard respiration and microbial growth, extending shelf life beyond what cold storage alone can achieve.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a farmer discovers enzymatic browning in stored apples, what preservation method should be applied first?',
@@ -382,7 +412,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Blanching inactivates enzymes that cause browning and other deteriorative reactions. It\'s typically done before canning or freezing to prevent enzymatic spoilage.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the chapter emphasize local action as a solution to food insecurity?',
@@ -394,7 +425,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Local action ensures solutions are conceived and implemented locally, making them more appropriate, sustainable, and effective for specific community contexts and needs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes fermentation unique among preservation methods?',
@@ -406,7 +438,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Fermentation uses specific beneficial microorganisms to create acid/alcohol that inhibits spoilage organisms, rather than destroying all microbes or using physical/chemical barriers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a community wants to reduce post-harvest losses by 40%, which combination of methods would be most effective?',
@@ -418,7 +451,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Reducing post-harvest losses requires an integrated approach: proper harvesting techniques, immediate cooling to slow metabolism, and controlled atmosphere storage to minimize respiration and spoilage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is gender equity listed as a solution to food insecurity?',
@@ -430,7 +464,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Gender equity addresses women\'s limited access to productive resources and decision-making. Since women play major roles in food production and household nutrition, their empowerment improves food security outcomes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What distinguishes radappertization from other irradiation regimes?',
@@ -442,7 +477,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Radappertization uses high radiation doses to achieve commercial sterility, making products shelf-stable without refrigeration, similar to heat sterilization but using radiation instead.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If enzymatic activity is causing rapid spoilage in a fruit product, which method would be most effective?',
@@ -454,7 +490,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Heat treatments like blanching or pasteurization inactivate enzymes that cause deteriorative reactions. While preservatives inhibit microbes, they don\'t address enzymatic spoilage directly.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the chapter connect food security to political stability?',
@@ -466,7 +503,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food insecurity contributes to rural-urban migration and creates fertile ground for conflict when combined with poverty. Political instability often arises from food crises and economic desperation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes tyndallization different from regular sterilization?',
@@ -478,7 +516,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tyndallization uses intermittent heating periods with cooling phases between, allowing spores to germinate and then be destroyed in subsequent heating cycles, targeting heat-resistant spores.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a food processor wants to maintain maximum nutritional quality in fruit juices, which method should be chosen?',
@@ -490,7 +529,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'HTST pasteurization (71-75°C for 15-16 seconds) preserves more nutrients, vitamins, and flavor compared to higher temperature sterilization or chemical methods that may degrade nutritional quality.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would smoking be preferred over salting for preserving fish in humid climates?',
@@ -502,7 +542,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Smoking provides bactericidal compounds and better dehydration, offering superior protection against mold and microbial growth in humid environments where salt may absorb moisture and become less effective.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role do food additives play in modern preservation systems?',
@@ -514,7 +555,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food additives enhance keeping quality, maintain nutritional value, and prevent spoilage. They include nutrients, chelating agents, colorants, and preservatives that work alongside other preservation methods.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a country wants to achieve SDG 2 (Zero Hunger by 2030), which solution should be prioritized?',
@@ -526,7 +568,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Government commitment involves allocating budgets and providing institutional support, which is essential for implementing comprehensive food security programs and achieving SDG 2 targets.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter emphasize the need for both availability and access in food security?',
@@ -538,7 +581,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food availability means sufficient production, but access requires economic ability to obtain food. Poverty can create situations where food is available in markets but inaccessible to poor households.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes modified atmosphere packaging effective for extending shelf life?',
@@ -550,7 +594,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Modified atmosphere packaging controls the gas composition (oxygen, carbon dioxide, nitrogen) around food to retard respiration, oxidation, and microbial growth, extending shelf life significantly.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If microbial contamination is the primary spoilage issue in canned goods, what went wrong in the process?',
@@ -562,7 +607,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Canning involves cooking and sealing in sterile containers, then heating to kill remaining bacteria. Microbial contamination indicates either inadequate sterilization temperatures/duration or poor sealing allowing recontamination.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would freeze-drying be chosen over regular freezing for pharmaceutical or astronaut food?',
@@ -574,7 +620,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Freeze-drying retains shape, size, and volatile components, making it ideal for applications where maintaining original quality, aroma, and appearance is critical, despite being more expensive.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s "positive approach to failure" in scientific ethics apply to food preservation?',
@@ -586,7 +633,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A positive approach to failure recognizes that failed preservation experiments provide valuable data and learning opportunities that lead to better food preservation techniques and reduced losses.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between water activity and food spoilage?',
@@ -598,7 +646,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Water activity (aw) measures available water for microbial/enzymatic reactions. Lower water activity reduces microbial growth potential, which is why drying and dehydration are effective preservation methods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a food manufacturer wants to achieve "commercial sterility," which method should be used?',
@@ -610,7 +659,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Commercial sterility means no pathogenic organisms remain viable. This is achieved through sterilization (heat at 121°C for 5-15 minutes) or radappertization (high-dose irradiation), making products shelf-stable.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter emphasize cooperatives for resource-poor farmers?',
@@ -622,7 +672,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cooperatives mobilize resource-poor farmers through collective action, resource sharing, and market access. This addresses individual limitations through group strength and sustainable agricultural production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What distinguishes LTLT from HTST pasteurization?',
@@ -634,7 +685,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'LTLT (Low Temperature Long Time) uses 63-65°C for 30 minutes, while HTST (High Temperature Short Time) uses 71-75°C for 15-16 seconds. LTLT preserves more nutrients but takes longer.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If enzymatic browning is occurring in cut fruits during storage, what preservation step was likely missed?',
@@ -646,7 +698,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Enzymatic browning is caused by polyphenol oxidase enzymes. It can be prevented by blanching (heat inactivates enzymes), acid treatment (lowers pH to inhibit enzymes), or antioxidant dips.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is food stability considered a key aspect of food security?',
@@ -658,7 +711,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Stability ensures consistent food supplies over time (seasonal variations) and space (regional availability). Without stability, even available food becomes insecure due to unreliable access.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes fermentation a "living" preservation method compared to others?',
@@ -670,7 +724,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Fermentation uses beneficial living microorganisms to create preservative conditions (acid/alcohol), unlike methods that destroy life (sterilization) or create physical barriers (packaging).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a community experiences seasonal food insecurity, which solution would provide the most sustainable relief?',
@@ -682,7 +737,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Agricultural improvement (better techniques) and education/training empower communities to increase production and improve preservation, providing sustainable solutions rather than temporary relief.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the chapter mention that scientific laws about food spoilage are "not enforceable"?',
@@ -694,7 +750,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific laws describe how nature behaves (patterns of spoilage) rather than prescriptive rules that can be enforced like legal laws. They explain what happens, not what should happen.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     },
     {
       question: 'What makes food quality essential for food security beyond just quantity?',
@@ -706,7 +763,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food quality ensures nutritional value and dietary adequacy. Malnutrition from poor quality food affects health, growth, cognitive development, and workforce productivity, undermining long-term food security.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a food processing facility wants to eliminate thermophilic spores, which method should be used?',
@@ -718,7 +776,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tyndallization uses intermittent heating with cooling periods, allowing heat-resistant spores to germinate into vegetative cells that are then destroyed in subsequent heating cycles.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would modified atmosphere storage be combined with refrigeration for optimal preservation?',
@@ -730,7 +789,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Refrigeration slows enzymatic and microbial activity, while modified atmosphere (controlled gases) reduces respiration and oxidation. Together they provide synergistic preservation effects.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role does packaging play in the HACCP approach to food safety?',
@@ -742,7 +802,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Packaging controls moisture, oxygen, light, and physical damage while providing environmental control. In HACCP systems, proper packaging is a critical control point for preventing contamination.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a farmer wants to preserve grains for long-term storage, which method would be most effective?',
@@ -754,7 +815,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Drying removes 80-90% moisture, reducing water activity to prevent microbial growth and insect infestation. Grains are semi-perishable and store well when properly dried and stored.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are cooperatives particularly important for resource-poor farmers in Nigeria?',
@@ -766,7 +828,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cooperatives mobilize resource-poor farmers by enabling collective action for purchasing inputs (seeds, fertilizers), accessing credit, sharing equipment, and marketing produce collectively to achieve better prices.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a food processor wants to maintain the natural color and texture of vegetables while preserving them, which method should be prioritized?',
@@ -778,7 +841,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Freeze-drying retains shape, size, color, and texture while removing moisture. It\'s ideal for quality-critical applications where maintaining the natural appearance and nutrients is important.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary advantage of fermentation over other preservation methods for traditional Nigerian foods?',
@@ -790,7 +854,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Fermentation not only preserves food but also enhances nutritional value (increases vitamins, makes proteins more digestible) and creates unique flavors and textures that are culturally important.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'If a community faces seasonal food shortages due to poor post-harvest handling, which intervention would provide the most sustainable solution?',
@@ -802,7 +867,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Training in proper harvesting, immediate cooling, and preservation techniques empowers communities to reduce post-harvest losses and maintain food availability throughout the year.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the chapter emphasize the integration of food security solutions rather than single approaches?',
@@ -814,7 +880,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Food insecurity results from poverty manifesting in multiple ways (production, access, utilization, stability), requiring integrated approaches that address root causes, improve production, enhance access, and ensure proper utilization simultaneously.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'If a farmer wants to preserve tomatoes for off-season use in Nigeria, which combination would be most practical and effective?',
@@ -826,7 +893,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Drying removes moisture to prevent spoilage, followed by proper storage in moisture-proof containers. Tomatoes are high-moisture and spoil quickly, making drying essential for long-term preservation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role do women play in achieving food security according to the chapter\'s gender equity solution?',
@@ -838,7 +906,8 @@ export const gns311Chapter8Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Women play crucial roles as primary food producers (especially in subsistence farming), household nutrition managers, and processors. Improving their access to resources and decision-making directly impacts food security outcomes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

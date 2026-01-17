@@ -19,7 +19,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Effective time management involves creating a structured schedule with regular breaks to maintain focus and prevent burnout, following techniques like the Pomodoro method.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT a recommended study skill?',
@@ -31,7 +32,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Cramming is ineffective for long-term retention. Better study skills include active reading, regular review, goal setting, and spaced repetition.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary benefit of setting SMART goals for studying?',
@@ -43,7 +45,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) provide clear direction, make progress measurable, and increase the likelihood of success.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary purpose of Chapter 10 according to the text?',
@@ -55,7 +58,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter provides a working knowledge of the main conventions for effective written communication and scholarly presentation.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What are the three major stages of the writing process mentioned in the chapter?',
@@ -67,7 +71,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter identifies three major stages: Pre-writing (preliminary stage), Writing (main composition), and Post-writing (editing and proofreading).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main activity during the pre-writing stage?',
@@ -79,7 +84,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Pre-writing is the preliminary stage where the writer brainstorms, generates ideas, and assembles relevant materials for the essay.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what technological advancement can writers take advantage of during pre-writing?',
@@ -91,7 +97,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In this era of information technology, writers can use the internet and emerging artificial intelligence platforms to research and develop ideas.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the golden advice given about reading an essay question for the first time?',
@@ -103,7 +110,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'When first reading an essay question, ideas about the topic may immediately crowd into your head, or you may need to do quite a lot of reading and thinking before starting.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What should writers avoid during the pre-writing stage?',
@@ -115,7 +123,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The warning in pre-writing is to avoid spending a disproportionate amount of time on reading and searching for materials, which can bog down the writer and make starting the essay difficult.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the six recommendations for preparing an essay at the pre-writing stage?',
@@ -127,7 +136,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The pre-writing recommendations are: 1) Assemble materials, 2) Develop outline, 3) Read topic carefully, 4) Jot main points, 5) Refer back to topic, 6) Write opening paragraph.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main focus of the writing stage?',
@@ -139,7 +149,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The writing stage involves arranging ideas in logical paragraphs and developing a coherent draft following the beginning, body, and conclusion structure.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the purpose of the introductory paragraph in an essay?',
@@ -151,7 +162,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The beginning/introductory paragraph sets the tone of the essay and is written to be highly captivating for the reader to develop interest.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What should writers avoid when writing the body of an essay?',
@@ -163,7 +175,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Writers must avoid haphazardly combined strings of sentences with disjointed paragraphs and ungrammatical expressions that make communication difficult.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What question should writers constantly ask themselves when writing?',
@@ -175,7 +188,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The chapter emphasizes asking: "What am I trying to communicate to my audience?" as a key question for reader-centered writing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the six signposts for making writing reader-centered?',
@@ -187,7 +201,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The reader-centered writing signposts are: What am I trying to communicate? What is better mutual intelligibility? What image/word choices for desired effect? Is expression good enough? Avoid unnecessary digression? Remove superfluous preambles?',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'According to Collinson (1986), what characteristics should good paragraphs have?',
@@ -199,7 +214,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Good writers have paragraphs varied in length, development and organization, letting readers know where they\'re going and covering subjects thoroughly yet briefly.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main purpose of the post-writing stage?',
@@ -211,7 +227,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Post-writing involves carefully editing, reviewing, and proofreading the draft to correct mistakes, omissions, and infelicities from the faster writing process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the two levels of editing in the post-writing stage?',
@@ -223,7 +240,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Post-writing editing has two levels: structural editing (overhauling structure and organization) and stylistic editing (grammatical expressiveness and mechanical accuracy).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What should writers check first when editing structurally?',
@@ -235,7 +253,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Structural editing begins by checking back to the topic to ensure appropriateness of ideas and removing content that doesn\'t relate directly to the argument.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What are the six basic rules for post-writing editing?',
@@ -247,7 +266,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The post-writing rules are: 1) Check topic appropriateness, 2) Remove unrelated content, 3) Edit/review/proofread, 4) Improve sentence structure, 5) Spot mistakes and correct, 6) Reduce grammar/spelling/organization errors.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'Why is writing considered the most difficult communication skill?',
@@ -259,7 +279,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Writing is the most difficult communication skill because it demands meticulous effort and painstaking commitment to accomplish.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter say about universal essay writing rules?',
@@ -271,7 +292,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states there is no single, universal, and exclusive set in which an essay should be written, but writing requires a form or shape for it to be meaningful.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What modern tools can writers use during the pre-writing stage?',
@@ -283,7 +305,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In the current era of information technology, writers can take advantage of the internet and emerging artificial intelligence platforms to research ideas.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the danger of spending too much time in pre-writing?',
@@ -295,7 +318,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The danger is that writers may spend disproportionate time on reading and searching for materials, becoming confused and unable to start writing the essay.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter emphasize about essay structure?',
@@ -307,7 +331,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Essays must be developed coherently with a free flow of thought from one level to another, avoiding haphazard organization.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between writer and audience in writing?',
@@ -319,7 +344,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Writing is described as a dual interaction and interface between the writer and audience, requiring the writer to consider the audience\'s perspective.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What should writers focus on to achieve mutual intelligibility?',
@@ -331,7 +357,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Writers should ask: "What is the better way to achieve mutual intelligibility?" focusing on clear communication that the audience can understand.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter recommend about unnecessary digression?',
@@ -343,7 +370,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Writers should avoid unnecessary digression and remove superfluous preambles to keep writing focused and concise.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What source is cited in the chapter for writing principles?',
@@ -355,7 +383,8 @@ export const gst111Chapter10Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter cites Collinson, D.J. (1986) Writing English: A Working Guide to the skills of written English, England: Wildwood House.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

@@ -19,7 +19,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'English grammar recognizes five main verb moods: indicative, imperative, interrogative, conditional, and subjunctive.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which verb mood is used to express statements of fact?',
@@ -31,7 +32,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The indicative mood is used to express statements of fact, such as "Whales are mammals" or "We will visit Peru next year."',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is an example of the imperative mood?',
@@ -43,7 +45,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"Take the first turn on the left" is an imperative mood sentence used to give commands or instructions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The interrogative mood is primarily used for:',
@@ -55,7 +58,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The interrogative mood is used to ask questions, formed by placing auxiliary verbs before the subject.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which verb mood uses "would" or "should" + infinitive to express conditions and requests?',
@@ -67,7 +71,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The conditional mood is formed with "would" (or "should" with I/we) + infinitive, used for requests and uncertain situations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How is the subjunctive mood formed for most verbs (except "to be")?',
@@ -79,7 +84,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The subjunctive form for most verbs is made from the 3rd person present singular without the -s or -es ending.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which sentence correctly uses the subjunctive mood?',
@@ -91,7 +97,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The subjunctive mood requires the base form "wait" (without -s) after verbs like suggest, demand, insist, etc.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a characteristic of the imperative mood?',
@@ -103,7 +110,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The imperative mood does not use auxiliary verbs before the subject - it uses the base form of the verb directly.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In which structure would you use the subjunctive mood?',
@@ -115,7 +123,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The subjunctive "explain" (without -s) is required after verbs like demand, suggest, insist in formal constructions with "that".',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which sentence demonstrates the conditional mood?',
@@ -127,7 +136,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: '"Would you like some coffee?" uses the conditional mood to make a polite request.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'The indicative mood is the most common mood in English because it is used for:',
@@ -139,7 +149,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The indicative mood is the most common as it expresses facts, statements, and reality - the basic function of most communication.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which mood would be used in this sentence: "If I were rich, I would travel the world"?',
@@ -151,7 +162,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The phrase "If I were rich" uses the subjunctive mood ("were" instead of "was") to express a hypothetical condition.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A Nigerian student writes: "The teacher demand that we submit our assignment tomorrow." What mood error is present?',
@@ -163,7 +175,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'After "demand," the subjunctive "submit" should be used instead of "submit." The indicative "submits" would be grammatically incorrect.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'When teaching verb moods to Nigerian learners, which challenge is most common?',
@@ -175,7 +188,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nigerian learners often struggle with the subjunctive after verbs like suggest, demand, insist, where the base form is required instead of the expected -s ending.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In formal academic writing, which construction requires the subjunctive mood?',
@@ -187,7 +201,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In formal writing, after verbs like recommend, insist, suggest, the subjunctive "change" (base form) is required, not "changes" (indicative).',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A student says: "I wish I was more confident." What correction demonstrates proper subjunctive usage?',
@@ -199,7 +214,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'After "wish," the subjunctive "were" is required for hypothetical situations, even in informal speech, though "was" is sometimes accepted.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the sentence "Were I to make a decision, I would choose wisely," what grammatical principle is demonstrated?',
@@ -211,7 +227,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'This shows the subjunctive mood with inverted word order ("Were I" instead of "If I were"), a formal construction expressing hypothetical conditions.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When a Nigerian learner uses "I would like to go" instead of "Go now!" what mood shift has occurred?',
@@ -223,7 +240,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 0,
       explanation: '"Go now!" is imperative (direct command), while "I would like to go" is conditional (polite request expressing desire).',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In reported speech, how does mood change from direct to indirect form?',
@@ -235,7 +253,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Reported speech often involves mood shifts: imperatives become subjunctive with "that," interrogatives become indicative with "if/whether," and tenses change.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'A formal letter contains: "We insist that the manager resigns immediately." What grammatical correction is needed?',
@@ -247,7 +266,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'After "insist," the subjunctive "resign" (base form without -s) is required in formal English, not the indicative "resigns."',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When translating from Yoruba/Hausa/Igbo commands to English, what mood translation challenge occurs?',
@@ -259,7 +279,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nigerian languages often use direct imperatives, but English equivalents may require conditional forms for politeness: "Wá!" (Yoruba) might become "Would you come?" in English.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the conditional sentence "If he were here, he would help," what dual mood usage is demonstrated?',
@@ -271,7 +292,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The "if" clause uses subjunctive "were" (not "was"), while the main clause uses conditional "would help," showing how moods combine in complex sentences.',
-      points: 2
+      points: 2,
+      difficulty: 'difficult'
     },
     {
       question: 'A student writes: "The doctor suggested that she takes the medicine." What specific mood correction addresses Nigerian English interference?',
@@ -283,7 +305,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nigerian learners often use indicative "takes" after verbs like suggest, but formal English requires subjunctive "take" (base form without -s).',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In parliamentary language, why is subjunctive mood preferred over indicative?',
@@ -295,7 +318,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Parliamentary language uses subjunctive to express proposals and recommendations as hypothetical possibilities rather than direct facts or commands.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'When teaching "I wish" constructions, what mood sequence should be emphasized?',
@@ -307,7 +331,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'After "wish," the subjunctive "were" is used for hypothetical situations, not the indicative "was" or conditional "would be."',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A lecturer says: "It is essential that every student attends the lecture." What mood principle is demonstrated?',
@@ -319,7 +344,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'After adjectives like essential, necessary, important, vital, the subjunctive "attends" (base form) is used instead of indicative "attend."',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In Nigerian English, the phrase "God forbid" is often followed by subjunctive because it expresses:',
@@ -331,7 +357,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"God forbid" expresses a hypothetical negative wish, so it takes subjunctive: "God forbid that it rain tomorrow" (not "rains").',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following sentences correctly combines two verb moods?',
@@ -343,7 +370,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This sentence combines conditional ("If I were rich") and interrogative ("would you marry me?") moods, expressing a hypothetical condition followed by a question.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A Nigerian learner consistently says "I am understand" instead of "I understand." This error involves which mood?',
@@ -355,7 +383,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This is a progressive form error, not a mood error. "I understand" is indicative mood (present simple), while "I am understand" incorrectly applies progressive aspect to a stative verb.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In formal speeches, politicians often use subjunctive when saying "I suggest that the government..." to express:',
@@ -367,7 +396,8 @@ export const gst111Chapter12Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In formal contexts, subjunctive after verbs like "suggest" expresses proposals and recommendations rather than direct commands, maintaining politeness and formality.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     }
   ]
 };

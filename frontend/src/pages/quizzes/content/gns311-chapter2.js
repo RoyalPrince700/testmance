@@ -19,7 +19,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The word "science" is derived from the Latin word "scientia" meaning knowledge.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what are the three cardinal aims of science?',
@@ -31,7 +32,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The three cardinal aims of science are prediction, control, and explanation. Of these, explanation is considered the greatest.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT one of the three methods for studying philosophical science mentioned in the chapter?',
@@ -43,7 +45,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The three methods are: (a) The Pedestrian Method (discussing topics), (b) The Critical Method (examining assumptions), and (c) The Original Philosophical Method (injecting philosophical notions).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Who proposed the Deductive-Nomological (D-N) model of scientific explanation?',
@@ -55,7 +58,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Deductive-Nomological (D-N) model was put forward by Carl G. Hempel and Paul Oppenheim in 1948. It says that a scientific explanation succeeds by subsuming a phenomenon under a general law.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the key difference between the D-N model and the IS (Inductive-Statistical) model?',
@@ -67,7 +71,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A D-N explanation is a deductive argument entailing the explanandum, while an IS explanation is an inductive argument conferring high probability on the explanandum.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is one of the shortcomings of the D-N account?',
@@ -79,7 +84,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'One of the objections to the D-N theory is its inability to account for judgments of explanatory relevance. Other objections include insufficient attention to causal relations and the requirement that every explanation cite a law.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the basis for validity of scientific explanations according to the chapter?',
@@ -91,7 +97,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Science relies on empirical verification (evidence and repeatable observations) and inductive reasoning (generalizing from observations) to validate its theories and models.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'According to the chapter, how does science achieve objectivity in observations?',
@@ -103,7 +110,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Science achieves objectivity by using measuring devices (spectrometers, voltmeters, computers, etc.) and reducing human involvement in the measuring process. The less human involvement, the more accurate and reliable the data.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does the Statistical Relevance model emphasize?',
@@ -115,7 +123,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The Statistical Relevance model emphasizes statistical relevance as an objective relation and a comparative concept, focusing on how relevant certain factors are to the occurrence of an event.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is philosophy of science concerned with?',
@@ -127,7 +136,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Philosophy of science is concerned with the assumptions, foundations, methods, and implications of science. It can be simply defined as critical discussion of the various developments in science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Easy Questions (Questions 11-20)
     {
@@ -140,7 +150,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter defines science as knowledge, systematic study, ordered body of knowledge, and research/discovery. Technological invention is not listed as one of the four definitions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the term "scientia" mean in Latin?',
@@ -152,7 +163,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The word "science" is derived from the Latin word "scientia" meaning knowledge.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, which of the three cardinal aims of science is considered the greatest?',
@@ -164,7 +176,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The three cardinal aims of science are prediction, control, and explanation, but explanation is considered the greatest.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the simple definition of philosophy of science given in the chapter?',
@@ -176,7 +189,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of science can simply be defined as critical discussion of the various developments in science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which branch of philosophy of science focuses on epistemological, metaphysical, and ethical issues in biological and biomedical sciences?',
@@ -188,7 +202,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of Biology deals with epistemology (study of knowledge), metaphysics (study of reality), and ethics (study of moral norms) as they relate to biological and biomedical sciences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the Critical Method for studying philosophical science involve?',
@@ -200,7 +215,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Critical Method involves taking up science and examining its fundamental assumptions, presuppositions, competing theories, methods of inquiry, and relations to other fields.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which measuring device mentioned in the chapter helps achieve objectivity in scientific observations?',
@@ -212,7 +228,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter mentions spectrometers as one of the measuring devices used to achieve objectivity by reducing human involvement in measurements.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary goal of using measuring devices in science?',
@@ -224,7 +241,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Measuring devices are used to abstract from unreliable human senses and make measurements more objective by reducing human involvement in the measuring process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what principle do scientific realists use to prove that science can create true knowledge?',
@@ -236,7 +254,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific realists use the "inference of best explanation" (IBE) principle to solve problems and prove that science can create true knowledge.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Medium Questions (Questions 21-30)
     {
@@ -249,7 +268,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of Mathematics focuses on questions about the sources of mathematical subject matter, what it means to refer to mathematical objects, the character of mathematical propositions, and fundamental questions like "What is a number?" and "Why does 1+1=2 make sense?"',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the key difference between deductive and inductive reasoning in scientific explanations?',
@@ -261,7 +281,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Deductive reasoning provides certain conclusions from general premises, while inductive reasoning provides probable conclusions from specific observations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which model of scientific explanation emphasizes statistical relevance as a comparative concept?',
@@ -273,7 +294,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The Statistical Relevance Model emphasizes statistical relevance as an objective relation and a comparative concept, focusing on how relevant certain factors are to the occurrence of an event.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter identify as one of the main challenges to objectivity in scientific observations?',
@@ -285,7 +307,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter mentions the "experimenter\'s regress" as one of the challenges to objectivity in scientific observations, along with problems from sociology of scientific knowledge and cognitive biases.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In the context of philosophy of chemistry, what is homo-chirality?',
@@ -297,7 +320,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Homo-chirality refers to the symmetry in chemistry where biological molecules show a preference for left or right-handed forms, which is mentioned as one of the topics in philosophy of chemistry.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the Pedestrian Method for studying philosophical science primarily involve?',
@@ -309,7 +333,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Pedestrian Method involves discussing topics in science such as magnetism, electromagnetism, sub-atomic particles, enzymes, free radicals, and other scientific topics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what makes a scientific explanation valid?',
@@ -321,7 +346,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Scientific explanations are valid based on empirical verification (evidence and repeatable observations) and inductive reasoning (generalizing from observations).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which branch of philosophy of science deals with the philosophical questions about the nature of mind, brain, and cognition?',
@@ -333,7 +359,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Philosophy of Psychology deals with epistemological perspectives of psychological investigation methodology and philosophical questions about the nature of mind, brain, and cognition.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main purpose of the Original Philosophical Method?',
@@ -345,7 +372,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The Original Philosophical Method involves a trained philosopher injecting his apriori metaphysical, epistemological, or ethical notions into science with the aim of uplifting its empirical content to the standard of universal truth.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter say about the relationship between philosophy of science and practicing scientists?',
@@ -357,7 +385,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter quotes Richard Feynman saying philosophy of science is "as useful to scientists as ornithology is to birds," indicating that while scientists may contribute to the field, its practical effect on their work is often limited.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Difficult Questions (Questions 31-50)
     {
@@ -370,7 +399,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The D-N model\'s requirement that explanations cite laws strong enough to entail the explanandum creates difficulties for historical events, as we need laws that would perfectly predict such unique occurrences, which is challenging for singular historical events.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Given that the IS model requires explanations to confer high probability on their explananda, what philosophical problem arises when explaining extremely rare events?',
@@ -382,7 +412,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'For rare events, achieving the "maximal specificity" requirement of the IS model becomes challenging because the explanatory factors need to be specified in such detail that they might not confer sufficiently high probability on the rare event.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Considering the shortcomings of the D-N model, which of the following best explains why causal relations are insufficiently addressed?',
@@ -394,7 +425,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The D-N model focuses on the logical structure of explanations (deducing the phenomenon from laws and conditions) but pays insufficient attention to the causal relations and mechanisms that actually produce the explained phenomena.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of physics, what fundamental question about space and time is addressed?',
@@ -406,7 +438,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of physics addresses fundamental aspects including the nature of space and time, atoms and atomism, interpretations of quantum mechanics, predictions of cosmology, foundations of statistical mechanics, and causality/determinism.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the key epistemological challenge in philosophy of mathematics regarding mathematical proof?',
@@ -418,7 +451,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of mathematics examines sources of mathematical subject matter, what it means to refer to mathematical objects, the character of mathematical propositions, and crucially, how we can ascertain that a mathematical proof is correct.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically evaluate: If statistical relevance is presented as an objective relation independent of background knowledge, how does this address the problem of explanatory relevance in the D-N model?',
@@ -430,7 +464,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Statistical Relevance Model addresses the D-N model\'s inability to account for judgments of explanatory relevance by providing an objective, comparative framework for assessing how relevant certain factors are to the occurrence of an event.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In the context of experimenters regress, what creates a circular problem in validating scientific observations?',
@@ -442,7 +477,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Experimenters regress refers to the circular problem where the calibration and reliability of measuring instruments depends on the same theories and assumptions that the instruments are being used to test.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What philosophical tension exists between the goals of empirical verification and inductive reasoning in scientific validity?',
@@ -454,7 +490,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'There\'s tension between empirical verification (which seeks certainty through repeatable observations) and inductive reasoning (which provides only probabilistic conclusions from limited observations), creating the philosophical problem of induction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter\'s discussion of philosophy of chemistry challenge the notion that chemistry merely "applies" physics?',
@@ -466,7 +503,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Philosophy of chemistry examines whether chemistry studies atoms or reaction processes, the reality of concepts like nucleophiles and electrophiles, and questions whether quantum mechanics can explain all chemical phenomena, challenging reductionist views that chemistry merely applies physics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the most significant limitation of using induction to validate Newton\'s Third Law?',
@@ -478,7 +516,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The most significant limitation is that inductive reasoning cannot logically prove that a law holds universally - even after testing millions of cases, there\'s no guarantee it will hold in the next case, creating Hume\'s problem of induction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analyzing the three methods for studying philosophical science, which method is most likely to create tension between philosophers and practicing scientists?',
@@ -490,7 +529,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The Original Philosophical Method, which involves injecting apriori metaphysical notions into science to achieve "universal truth," is most likely to create tension as it may seem to practicing scientists as imposing external philosophical frameworks that don\'t align with empirical scientific practice.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What fundamental assumption about scientific progress does the inference of best explanation (IBE) principle rely on?',
@@ -502,7 +542,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The IBE principle assumes that among competing explanations, the one that best explains the available evidence is likely to be true, forming a key assumption for scientific realism about the truth-conduciveness of scientific methods.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of biology, what is the significance of examining homo-chirality?',
@@ -514,7 +555,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Examining homo-chirality in philosophy of chemistry questions whether the symmetry breaking in biological molecules (preference for L-amino acids, D-sugars) is a fundamental aspect of chemistry or a contingent result of biological evolution.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the key difference between how philosophy of psychology and cognitive science approach the study of mind?',
@@ -526,7 +568,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Philosophy of psychology examines the conceptual and foundational questions about mind, cognition, and methodology, while cognitive science (which includes philosophy of mind) studies the actual mechanisms and processes of cognition, often in interdisciplinary ways.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically assess: If science achieves objectivity by reducing human involvement, what paradox arises regarding scientific knowledge?',
@@ -538,7 +581,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The paradox is that while instruments reduce human involvement in measurement, humans must still design the instruments, choose what to measure, interpret the results, and decide what constitutes reliable data, creating a residual human element in supposedly objective science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter imply about the relationship between philosophy of particular sciences and general philosophy of science?',
@@ -550,7 +594,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter shows that philosophy of particular sciences (biology, chemistry, physics, etc.) investigates philosophical or foundational problems specific to those sciences, applying general philosophical methods to domain-specific questions while addressing unique challenges in each field.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analyzing the D-N model\'s shortcomings, which objection is most damaging to its claim of providing genuine understanding?',
@@ -562,7 +607,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The objection that D-N pays insufficient attention to causal relations is most damaging to its claim of providing understanding, since many philosophers and scientists believe that true scientific understanding requires identifying the causal mechanisms that produce phenomena, not just logical subsumption under laws.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What fundamental question in philosophy of mathematics challenges formalist accounts of mathematical truth?',
@@ -574,7 +620,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Philosophy of mathematics fundamentally questions what it means to refer to mathematical objects, challenging formalist accounts by asking whether numbers, sets, and other mathematical entities have real existence or are merely useful fictions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In the context of scientific objectivity, what is the significance of the "experimenter\'s regress" for theory testing?',
@@ -586,7 +633,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The experimenter\'s regress shows that theories cannot be definitively tested because the reliability of the instruments used to test theories depends on the same theories being tested, creating an infinite regress of validation that prevents absolute certainty in scientific testing.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the most challenging aspect of applying the Statistical Relevance Model to complex real-world phenomena?',
@@ -598,7 +646,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In complex systems, determining what counts as a distinct "factor" and how to isolate and compare the relevance of different factors becomes extremely challenging, as phenomena are interconnected in ways that make clean statistical comparisons difficult.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically evaluate the claim that philosophy of science is "as useful to scientists as ornithology is to birds" in light of the chapter\'s content.',
@@ -610,7 +659,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'While Feynman\'s quote suggests philosophy has limited practical utility for working scientists, the chapter shows that philosophy clarifies fundamental assumptions, examines methodologies, and addresses foundational questions that scientists themselves contribute to, making it more useful than the quote suggests.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // Advanced Challenging Questions (Questions 51-70)
     {
@@ -623,7 +673,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The D-N model\'s requirement for universal laws that entail specific phenomena creates difficulties for mental phenomena because psychological laws are typically probabilistic and context-dependent rather than universal and exceptionless, making deductive explanations of consciousness particularly challenging.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically assess whether the Statistical Relevance Model can adequately address the problem of causal asymmetry in scientific explanations - why explanations are not symmetrical with their predictions.',
@@ -635,7 +686,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'While statistical relevance provides a comparative framework, it cannot fully address causal asymmetry because explanations require understanding temporal and causal directionality that goes beyond mere statistical correlations between factors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of chemistry, evaluate the claim that molecular structure explanations are reducible to quantum mechanics. What fundamental philosophical issue does this raise?',
@@ -647,7 +699,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The philosophical issue is whether emergent chemical concepts like chemical bonds, molecular orbitals, and reaction mechanisms can be fully reduced to quantum mechanical descriptions, or whether they represent genuinely novel explanatory levels that require distinct chemical laws and concepts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analyze the paradox that arises when philosophy of physics attempts to interpret quantum mechanics: if observation affects reality, how can scientific objectivity be maintained?',
@@ -659,7 +712,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The observer effect in quantum mechanics creates a deep philosophical paradox for scientific objectivity, suggesting that different interpretations (Copenhagen, Many-Worlds, etc.) are fundamentally metaphysical choices rather than empirically testable claims, challenging the objective nature of physical reality itself.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically evaluate how the experimenters regress undermines the empirical basis of science. Can this regress be broken, and if so, how?',
@@ -671,7 +725,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The experimenters regress threatens empirical foundations by creating infinite validation loops, but it is practically broken through scientific consensus, peer review, and the pragmatic success of instruments calibrated against well-established theories, rather than absolute philosophical certainty.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of mathematics, assess whether Gödel\'s incompleteness theorems undermine the certainty that mathematical proofs provide. What implications does this have for scientific explanation?',
@@ -683,7 +738,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Gödel\'s theorems demonstrate that in any sufficiently powerful formal system, there are true statements that cannot be proven within that system, implying that mathematical certainty is inherently limited and that complete formalization of scientific theories may be impossible.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Evaluate the claim that philosophy of biology must address teleological explanations (purpose-driven) in evolutionary theory. How does this challenge mechanistic explanations?',
@@ -695,7 +751,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The apparent design and purpose in biological systems challenges purely mechanistic explanations because natural selection appears to produce teleological outcomes (functionally adapted organisms) through non-teleological processes, requiring philosophy of biology to explain how mechanistic processes can produce seemingly purposeful results.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically analyze how the IS model\'s requirement for "maximal specificity" creates problems for explanations in complex systems like ecosystems or economies.',
@@ -707,7 +764,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'In complex systems with numerous interdependent variables, achieving maximal specificity becomes practically impossible because identifying all relevant factors and their precise relationships requires specifying an unmanageable number of conditions, making IS explanations infeasible for such systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Assess the philosophical implications of the "inference to the best explanation" (IBE) principle for scientific realism. Does success in prediction guarantee truth?',
@@ -719,7 +777,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'While IBE suggests that the best explanation is likely true, it only provides pragmatic justification for realism rather than logical proof, as the success of false theories in prediction (like Ptolemaic astronomy) demonstrates that predictive success, while evidence for truth, does not guarantee it.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of physics, evaluate whether determinism is compatible with quantum indeterminacy. What does this imply for causal explanations in science?',
@@ -731,7 +790,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Quantum indeterminacy and classical determinism can coexist at different levels of description - quantum systems may be indeterministic while macroscopic systems appear deterministic through statistical averaging, suggesting that causal explanations operate at multiple ontological levels with different degrees of determinism.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically examine how the Original Philosophical Method might conflict with scientific autonomy. Can philosophy legitimately impose metaphysical frameworks on science?',
@@ -743,7 +803,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'While the Original Philosophical Method injects metaphysical notions into science, philosophy can legitimately critique scientific assumptions and foundations but cannot dictatorially impose metaphysical frameworks without empirical justification, as this would violate scientific autonomy and empirical constraints.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analyze the philosophical problem of induction as it applies to validating scientific laws. Why can induction never provide certainty, even with infinite observations?',
@@ -755,7 +816,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'David Hume\'s problem of induction demonstrates that even with infinite confirming observations, induction cannot logically guarantee that the next instance will conform to the observed pattern, as there is no necessary connection between past regularities and future occurrences - the universe could change at any moment.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Evaluate whether philosophy of psychology can resolve the mind-body problem. What are the implications for scientific explanations of consciousness?',
@@ -767,7 +829,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Philosophy of psychology cannot definitively resolve the mind-body problem, but it establishes different explanatory frameworks (physicalism, dualism, functionalism) that shape how consciousness is scientifically investigated, with each approach suggesting different research strategies and explanatory goals.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically assess how the Statistical Relevance Model addresses the "relevance" problem in the D-N model. Is statistical relevance truly objective?',
@@ -779,7 +842,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'While presented as objective, statistical relevance actually depends on the explainer\'s background knowledge and theoretical framework for determining what factors to compare and how to assess their relevance, making it less objective than claimed and still requiring substantive theoretical judgments.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In philosophy of chemistry, examine the debate over whether chemical kinds (elements, compounds) exist objectively or are human constructs. What implications does this have for chemical explanations?',
@@ -791,7 +855,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The debate questions whether chemical kinds have natural essences or are human-imposed categories, with implications for whether chemical explanations discover natural divisions or impose artificial classifications, affecting how chemists understand the objectivity of their discipline\'s fundamental concepts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analyze how the three methods for studying philosophical science (Pedestrian, Critical, Original) reflect different conceptions of philosophy\'s relationship to science.',
@@ -803,7 +868,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The three methods represent a progression from descriptive analysis (Pedestrian), to critical examination (Critical), to prescriptive intervention (Original), reflecting different philosophical conceptions of philosophy\'s role - from observer of science to active shaper of scientific understanding and practice.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically evaluate whether the objectivity achieved through measuring devices ultimately depends on human interpretation. Does this undermine scientific objectivity?',
@@ -815,7 +881,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'While measuring devices reduce human involvement, scientific objectivity exists in degrees and still requires human calibration, interpretation of results, and decisions about what constitutes reliable data, suggesting objectivity is a methodological ideal rather than an absolute achievement.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Assess the claim that philosophy of mathematics shows mathematical knowledge is synthetic a priori. How does this affect the relationship between mathematics and empirical science?',
@@ -827,7 +894,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'If mathematical knowledge is synthetic a priori (neither purely logical nor empirical), it suggests mathematics provides substantive knowledge about reality that is independent of experience, creating a special epistemological status for mathematics that both supports and constrains empirical science.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Evaluate the philosophical challenge posed by underdetermination of theories by evidence. How does this affect the rationality of theory choice in science?',
@@ -839,7 +907,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Underdetermination shows that evidence often cannot uniquely determine theory choice, requiring scientists to use non-empirical criteria like parsimony, explanatory power, and fruitfulness to rationally choose among empirically equivalent theories, making theory choice partly philosophical.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critically assess the philosophical implications of the correspondence principle in quantum mechanics for the relationship between classical and quantum physics explanations.',
@@ -851,7 +920,8 @@ export const gns311Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The correspondence principle states that quantum mechanics reproduces classical physics in the limit of large quantum numbers, philosophically implying that different explanatory frameworks can be compatible at different scales, challenging reductionist views that quantum explanations must completely replace classical ones.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

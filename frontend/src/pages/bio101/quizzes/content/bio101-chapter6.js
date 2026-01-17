@@ -19,7 +19,8 @@ export const bio101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Heredity is the passing of genetic traits from parents to their offspring through genes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Who is considered the father of genetics?',
@@ -31,7 +32,8 @@ export const bio101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Gregor Mendel is known as the father of genetics for his work on inheritance patterns in pea plants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is natural selection?',
@@ -43,7 +45,8 @@ export const bio101Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Natural selection is the process where organisms better adapted to their environment are more likely to survive and pass on their genes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

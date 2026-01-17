@@ -168,9 +168,9 @@ const ChapterDetail = () => {
   if (!chapter) {
     return (
       <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Chapter not found</h3>
-        <p className="text-gray-600">The chapter you're looking for doesn't exist.</p>
+        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Chapter not found</h3>
+        <p className="text-gray-600 dark:text-gray-400">The chapter you're looking for doesn't exist.</p>
         <Link
           to={course ? `/courses/${course._id}` : "/dashboard"}
           className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 rounded-lg text-white transition-colors"
@@ -184,9 +184,9 @@ const ChapterDetail = () => {
   if (!isEnrolled && !loading && course) {
     return (
       <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course Not Enrolled</h3>
-        <p className="text-gray-600 mb-4">You need to enroll in this course to access its chapters.</p>
+        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course Not Enrolled</h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in this course to access its chapters.</p>
         <div className="flex gap-4 justify-center">
           <Link
             to={`/courses/${course._id}`}
@@ -215,13 +215,16 @@ const ChapterDetail = () => {
   const chapterId = chapter?._id;
   const courseId = course?._id || chapter?.course?._id || chapter?.course;
 
+  const rawUsername = user?.username || 'Student';
+  const username = rawUsername.charAt(0).toUpperCase() + rawUsername.slice(1);
+
   return (
     <div className="max-w-5xl mx-auto">
       {/* Congratulations Modal */}
       <CongratulationsModal
         isOpen={showCongratulations}
         onClose={() => setShowCongratulations(false)}
-        username={user?.username || 'Student'}
+        username={username}
         chapterTitle={chapter?.title}
         chapterOrder={chapter?.order}
         isFirstCompletion={!wasCompletedBefore}
@@ -253,7 +256,7 @@ const ChapterDetail = () => {
         }
         
         return (
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
             <div className="prose prose-lg max-w-none">
               <div className="mb-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 text-sm">
                 <strong>Debug Info:</strong>
@@ -264,8 +267,8 @@ const ChapterDetail = () => {
                 </ul>
               </div>
               <div
-                className="text-gray-800 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: chapter.content }}
+                className="text-gray-800 dark:text-gray-200 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: chapter.content.replace(/Royal Prince/g, username) }}
               />
             </div>
           </div>

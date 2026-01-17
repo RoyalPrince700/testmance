@@ -210,12 +210,12 @@ const Leaderboard = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header with Level Info */}
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center justify-center gap-3">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-3">
           <Trophy className="h-8 w-8 text-yellow-500" />
           Leaderboard
         </h1>
         {user?.academicLevel && (
-          <p className="text-purple-600 bg-purple-50 inline-block px-4 py-1 rounded-full text-sm font-medium border border-purple-100">
+          <p className="text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 inline-block px-4 py-1 rounded-full text-sm font-medium border border-purple-100 dark:border-purple-900/30">
             Level {user.academicLevel}
           </p>
         )}
@@ -223,13 +223,13 @@ const Leaderboard = () => {
 
       {/* Tabs */}
       <div className="flex justify-center">
-        <div className="bg-gray-100 rounded-lg p-1 flex flex-wrap gap-1">
+        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-1 flex flex-wrap gap-1">
           <button
             onClick={() => handleTabChange('global')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
               activeTab === 'global'
-                ? 'bg-white text-gray-800 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             Global
@@ -238,8 +238,8 @@ const Leaderboard = () => {
             onClick={() => handleTabChange('university')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
               activeTab === 'university'
-                ? 'bg-white text-gray-800 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             <div className="flex items-center space-x-2">
@@ -251,8 +251,8 @@ const Leaderboard = () => {
             onClick={() => handleTabChange('faculty')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
               activeTab === 'faculty'
-                ? 'bg-white text-gray-800 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             <div className="flex items-center space-x-2">
@@ -264,8 +264,8 @@ const Leaderboard = () => {
             onClick={() => handleTabChange('department')}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
               activeTab === 'department'
-                ? 'bg-white text-gray-800 shadow-sm'
-                : 'text-gray-600 hover:text-gray-800'
+                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
+                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
             }`}
           >
             <div className="flex items-center space-x-2">
@@ -278,10 +278,10 @@ const Leaderboard = () => {
 
       {/* Leaderboard List */}
       {!user?.academicLevel && !authLoading ? (
-        <div className="text-center py-12 bg-gray-50 border border-gray-200 rounded-lg">
+        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
           <AlertCircle className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">Academic Level Required</h3>
-          <p className="text-gray-600 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Academic Level Required</h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
           <button
             onClick={() => navigate('/profile')}
             className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-700 transition-all transform hover:scale-105 shadow-lg"
@@ -290,10 +290,10 @@ const Leaderboard = () => {
           </button>
         </div>
       ) : leaderboard.length === 0 ? (
-        <div className="text-center py-12 bg-gray-50 border border-gray-200 rounded-lg">
-          <Trophy className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No rankings yet</h3>
-          <p className="text-gray-600">Be the first to start learning and claim the top spot!</p>
+        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+          <Trophy className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No rankings yet</h3>
+          <p className="text-gray-600 dark:text-gray-400">Be the first to start learning and claim the top spot!</p>
         </div>
       ) : (
         <div className="space-y-3">
@@ -309,12 +309,12 @@ const Leaderboard = () => {
               <div
                 key={leaderboardUser._id}
                 onClick={() => handleUserClick(leaderboardUser._id)}
-                className={`bg-white rounded-lg shadow-md p-4 flex items-center gap-4 cursor-pointer hover:shadow-lg transition-shadow ${
-                  isCurrentUser ? 'ring-2 ring-blue-400' : ''
+                className={`bg-white dark:bg-gray-800 border border-transparent dark:border-gray-700 rounded-lg shadow-md p-4 flex items-center gap-4 cursor-pointer hover:shadow-lg dark:hover:bg-gray-750 transition-all ${
+                  isCurrentUser ? 'ring-2 ring-blue-400 dark:ring-blue-500 border-blue-400 dark:border-blue-500' : ''
                 }`}
               >
                 {/* Rank Circle */}
-                <div className={`${rankColor} w-10 h-10 rounded-full flex items-center justify-center shrink-0`}>
+                <div className={`${rankColor} w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm`}>
                   <span className="text-white text-base font-bold">{rank}</span>
                 </div>
 
@@ -324,10 +324,10 @@ const Leaderboard = () => {
                     <img
                       src={getAvatarSrc(leaderboardUser.avatar)}
                       alt={leaderboardUser.username}
-                      className="w-10 h-10 rounded-full border-2 border-gray-200 object-cover"
+                      className="w-10 h-10 rounded-full border-2 border-gray-200 dark:border-gray-700 object-cover"
                     />
                   ) : (
-                    <div className="w-10 h-10 rounded-full border-2 border-gray-200 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-sm">
+                    <div className="w-10 h-10 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-sm">
                       {leaderboardUser.username?.charAt(0).toUpperCase() || <User className="h-5 w-5" />}
                     </div>
                   )}
@@ -336,23 +336,23 @@ const Leaderboard = () => {
                 {/* User Info and Progress */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-gray-800 text-lg">
+                    <h3 className="font-semibold text-gray-800 dark:text-white text-lg">
                       {leaderboardUser.username}
                     </h3>
                     {rank === 1 && (
                       <Trophy className="h-5 w-5 text-yellow-500" />
                     )}
                     {isCurrentUser && (
-                      <span className="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded">You</span>
+                      <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded">You</span>
                     )}
                   </div>
                   
-                  <div className="text-sm font-bold text-gray-500 mb-2">
+                  <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-2">
                     {gems.toLocaleString()} gems
                   </div>
                   
                   {/* Progress Bar */}
-                  <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
                     <div
                       className={`${progressColor} h-full transition-all duration-500`}
                       style={{ width: `${progressPercentage}%` }}
@@ -368,14 +368,14 @@ const Leaderboard = () => {
       {/* Profile Modal */}
       {profileModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={closeProfileModal}>
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="p-6">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">User Profile</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">User Profile</h2>
                 <button
                   onClick={closeProfileModal}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
                 >
                   <X className="h-6 w-6" />
                 </button>
@@ -394,14 +394,14 @@ const Leaderboard = () => {
                   {profileData.visible === false ? (
                     // Visibility Off Message
                     <div className="text-center py-12">
-                      <div className="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                        <User className="h-10 w-10 text-gray-400" />
+                      <div className="bg-gray-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <User className="h-10 w-10 text-gray-400 dark:text-gray-500" />
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">Profile Visibility Off</h3>
-                      <p className="text-gray-600">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Profile Visibility Off</h3>
+                      <p className="text-gray-600 dark:text-gray-400">
                         This user has chosen to keep their profile private.
                       </p>
-                      <p className="text-gray-500 text-sm mt-2">
+                      <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">
                         University, faculty, department, and level information is not available.
                       </p>
                     </div>
@@ -414,29 +414,29 @@ const Leaderboard = () => {
                           <img
                             src={getAvatarSrc(profileData.user.avatar)}
                             alt={profileData.user.username}
-                            className="w-16 h-16 rounded-full border-2 border-gray-200 object-cover"
+                            className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-gray-700 object-cover"
                           />
                         ) : (
-                          <div className="w-16 h-16 rounded-full border-2 border-gray-200 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-xl">
+                          <div className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-xl">
                             {profileData.user.username?.charAt(0).toUpperCase() || <User className="h-8 w-8" />}
                           </div>
                         )}
                         <div>
-                          <h3 className="text-xl font-bold text-gray-900">{profileData.user.username}</h3>
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">{profileData.user.username}</h3>
                           {profileData.user.level && (
-                            <p className="text-gray-600">Level {profileData.user.level}</p>
+                            <p className="text-gray-600 dark:text-gray-400">Level {profileData.user.level}</p>
                           )}
                         </div>
                       </div>
 
                       {/* Profile Details */}
-                      <div className="space-y-4 pt-4 border-t border-gray-200">
+                      <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                         {profileData.user.university && (
                           <div className="flex items-start space-x-3">
-                            <School className="h-5 w-5 text-gray-500 mt-0.5 shrink-0" />
+                            <School className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-sm text-gray-500">University</p>
-                              <p className="text-gray-900 font-medium">
+                              <p className="text-sm text-gray-500 dark:text-gray-400">University</p>
+                              <p className="text-gray-900 dark:text-white font-medium">
                                 {typeof profileData.user.university === 'object' 
                                   ? profileData.user.university.name 
                                   : profileData.user.university}
@@ -447,40 +447,40 @@ const Leaderboard = () => {
 
                         {profileData.user.faculty && (
                           <div className="flex items-start space-x-3">
-                            <Building2 className="h-5 w-5 text-gray-500 mt-0.5 shrink-0" />
+                            <Building2 className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-sm text-gray-500">Faculty</p>
-                              <p className="text-gray-900 font-medium">{profileData.user.faculty}</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">Faculty</p>
+                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.faculty}</p>
                             </div>
                           </div>
                         )}
 
                         {profileData.user.department && (
                           <div className="flex items-start space-x-3">
-                            <GraduationCap className="h-5 w-5 text-gray-500 mt-0.5 shrink-0" />
+                            <GraduationCap className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-sm text-gray-500">Department</p>
-                              <p className="text-gray-900 font-medium">{profileData.user.department}</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">Department</p>
+                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.department}</p>
                             </div>
                           </div>
                         )}
 
                         {profileData.user.academicLevel && (
                           <div className="flex items-start space-x-3">
-                            <Star className="h-5 w-5 text-gray-500 mt-0.5 shrink-0" />
+                            <Star className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-sm text-gray-500">Level</p>
-                              <p className="text-gray-900 font-medium">{profileData.user.academicLevel} Level</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">Level</p>
+                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.academicLevel} Level</p>
                             </div>
                           </div>
                         )}
 
                         {profileData.user.gems !== undefined && (
-                          <div className="flex items-start space-x-3 pt-2 border-t border-gray-200">
+                          <div className="flex items-start space-x-3 pt-2 border-t border-gray-200 dark:border-gray-700">
                             <Trophy className="h-5 w-5 text-yellow-500 mt-0.5 shrink-0" />
                             <div>
-                              <p className="text-sm text-gray-500">Total Gems</p>
-                              <p className="text-gray-900 font-medium">{profileData.user.gems.toLocaleString()} gems</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">Total Gems</p>
+                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.gems.toLocaleString()} gems</p>
                             </div>
                           </div>
                         )}
@@ -493,7 +493,7 @@ const Leaderboard = () => {
               {/* Error State */}
               {!profileLoading && profileData?.error && (
                 <div className="text-center py-12">
-                  <p className="text-red-600">Failed to load profile. Please try again.</p>
+                  <p className="text-red-600 dark:text-red-400">Failed to load profile. Please try again.</p>
                 </div>
               )}
             </div>
@@ -504,24 +504,24 @@ const Leaderboard = () => {
       {/* Validation Modal */}
       {validationModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setValidationModalOpen(false)}>
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full" onClick={(e) => e.stopPropagation()}>
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-yellow-100 rounded-full p-2">
-                    <AlertCircle className="h-6 w-6 text-yellow-600" />
+                  <div className="bg-yellow-100 dark:bg-yellow-900/30 rounded-full p-2">
+                    <AlertCircle className="h-6 w-6 text-yellow-600 dark:text-yellow-500" />
                   </div>
-                  <h2 className="text-xl font-bold text-gray-900">Profile Setup Required</h2>
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Profile Setup Required</h2>
                 </div>
                 <button
                   onClick={() => setValidationModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
                 >
                   <X className="h-6 w-6" />
                 </button>
               </div>
               
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
                 {validationMessage}
               </p>
               
@@ -531,13 +531,13 @@ const Leaderboard = () => {
                     setValidationModalOpen(false);
                     navigate('/profile');
                   }}
-                  className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+                  className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors shadow-sm"
                 >
                   Go to Profile
                 </button>
                 <button
                   onClick={() => setValidationModalOpen(false)}
-                  className="px-4 py-2 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                   Cancel
                 </button>

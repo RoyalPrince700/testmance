@@ -19,7 +19,8 @@ export const bio101Chapter2Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Mutualism is a symbiotic relationship where both organisms benefit from the interaction.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In a food chain, energy flows from:',
@@ -31,7 +32,8 @@ export const bio101Chapter2Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Energy flows unidirectionally from producers (plants) to primary consumers, then to secondary consumers, and finally to decomposers.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following represents a commensal relationship?',
@@ -43,7 +45,8 @@ export const bio101Chapter2Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In commensalism, one organism benefits while the other is neither helped nor harmed. The remora gets transportation and food scraps while the shark is unaffected.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

@@ -32,7 +32,7 @@ const courseSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['Computer Science', 'Engineering', 'Business', 'Arts', 'Science', 'Medicine', 'Law', 'General Studies', 'Other'],
+    enum: ['Computer Science', 'Engineering', 'Business', 'Business Administration', 'Arts', 'Science', 'Medicine', 'Law', 'General Studies', 'Other'],
     default: 'Other'
   },
   difficulty: {

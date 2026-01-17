@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { authAPI } from '../utils/api';
 import { User, Save, X, Image as ImageIcon, Star } from 'lucide-react';
 import testmancerLogo from '../assets/testmancer-logo.png';
@@ -15,6 +16,7 @@ const avatars = getAllAvatars().map((avatar, index) => ({
 
 const ProfileSetup = () => {
   const { user, loadUser } = useAuth();
+  const { isDarkMode } = useTheme();
   const navigate = useNavigate();
   const [saving, setSaving] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(user?.avatar || '');
@@ -84,7 +86,7 @@ const ProfileSetup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center">
@@ -94,19 +96,19 @@ const ProfileSetup = () => {
               className="h-12 w-12 object-contain"
             />
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white">
             Complete Your Profile
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
             Your username has been set from your Gmail. You can change it later in your profile settings.
           </p>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Username Display */}
             <div>
-              <label className="flex items-center space-x-2 text-gray-700 text-sm font-medium mb-2">
+              <label className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
                 <User className="h-4 w-4" />
                 <span>Username (Optional)</span>
               </label>
@@ -114,22 +116,22 @@ const ProfileSetup = () => {
                 type="text"
                 value={username}
                 onChange={handleUsernameChange}
-                className={`w-full px-4 py-2 bg-gray-50 border rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent ${
-                  usernameError ? 'border-red-300' : 'border-gray-300'
+                className={`w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-transparent ${
+                  usernameError ? 'border-red-300 dark:border-red-600' : 'border-gray-300 dark:border-gray-600'
                 }`}
                 placeholder="Enter a custom username (optional)"
               />
               {usernameError && (
-                <p className="mt-1 text-sm text-red-600">{usernameError}</p>
+                <p className="mt-1 text-sm text-red-600 dark:text-red-400">{usernameError}</p>
               )}
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
                 Leave empty to keep your Gmail username. 3-30 characters, letters, numbers, and underscores only.
               </p>
             </div>
 
             {/* Avatar Selection */}
             <div>
-              <label className="flex items-center space-x-2 text-gray-700 text-sm font-medium mb-4">
+              <label className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 text-sm font-medium mb-4">
                 <ImageIcon className="h-4 w-4" />
                 <span>Choose Avatar</span>
               </label>
@@ -140,8 +142,8 @@ const ProfileSetup = () => {
                     onClick={() => setSelectedAvatar(avatar.src)}
                     className={`relative cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
                       selectedAvatar === avatar.src
-                        ? 'border-teal-600 ring-2 ring-teal-500/50'
-                        : 'border-gray-300 hover:border-teal-400'
+                        ? 'border-teal-600 dark:border-teal-400 ring-2 ring-teal-500/50 dark:ring-teal-400/50'
+                        : 'border-gray-300 dark:border-gray-600 hover:border-teal-400 dark:hover:border-teal-500'
                     }`}
                   >
                     <img
@@ -150,8 +152,8 @@ const ProfileSetup = () => {
                       className="w-full h-full object-cover aspect-square"
                     />
                     {selectedAvatar === avatar.src && (
-                      <div className="absolute inset-0 bg-teal-600/20 flex items-center justify-center">
-                        <div className="bg-teal-600 rounded-full p-1">
+                      <div className="absolute inset-0 bg-teal-600/20 dark:bg-teal-400/20 flex items-center justify-center">
+                        <div className="bg-teal-600 dark:bg-teal-400 rounded-full p-1">
                           <Star className="h-3 w-3 text-white fill-white" />
                         </div>
                       </div>
@@ -165,7 +167,7 @@ const ProfileSetup = () => {
             <button
               type="submit"
               disabled={saving || !!usernameError}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Save className="h-5 w-5" />
               <span>{saving ? 'Setting up...' : 'Complete Setup'}</span>

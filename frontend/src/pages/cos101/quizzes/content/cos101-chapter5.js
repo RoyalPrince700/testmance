@@ -19,7 +19,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'ARPANET was established in the 1960s by the United States Department of Defense to facilitate communication between government and academic researchers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What significant development occurred in the 1970s regarding internet technology?',
@@ -31,7 +32,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Internet Protocol (IP) was developed in the 1970s, enabling different networks to communicate and paving the way for the internet\'s expansion.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Who invented the World Wide Web and in what year?',
@@ -43,7 +45,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Tim Berners-Lee invented the World Wide Web in 1989, revolutionizing the internet by making content accessible to a broader audience.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
    
     {
@@ -56,7 +59,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'E-government provides citizens with easy access to services, licenses, and permits through online portals.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does HCI stand for in the context of computing disciplines?',
@@ -68,7 +72,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'HCI stands for Human-Computer Interaction, which focuses on designing user-friendly interfaces.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT one of the three main types of data mentioned?',
@@ -80,7 +85,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The chapter mentions three types of data: Numeric, Alphabetic, and Alphanumeric. Multimedia is not mentioned as one of the main data types.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary function of Computer Networks?',
@@ -92,7 +98,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Computer Networks involve connecting devices to share resources and communicate, including LANs, WANs, and IoT.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does Software Engineering primarily focus on?',
@@ -104,7 +111,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Software Engineering focuses on developing reliable, efficient software, including design patterns, testing, and version control.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the two main components of Web Development mentioned?',
@@ -116,7 +124,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Web Development includes Front-end Development (creating user interfaces) and Back-end Development (building server-side logic).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which field of computing focuses on creating intelligent machines?',
@@ -128,7 +137,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Artificial Intelligence focuses on creating intelligent machines that can think, learn, and act like humans.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main goal of Cybersecurity?',
@@ -140,7 +150,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cybersecurity protects computer systems and data from unauthorized access using encryption, firewalls, and threat detection.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does Data Science primarily involve?',
@@ -152,7 +163,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Data Science involves extracting insights from large datasets through data mining, data visualization, and statistical analysis.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main function of Operating Systems?',
@@ -164,7 +176,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Operating Systems manage computer hardware resources including process management, memory management, and file systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which computing discipline integrates technology into organizations?',
@@ -176,7 +189,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Information Systems integrate technology into organizations, including business intelligence, ERP, and supply chain management.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does ERP stand for in Information Systems?',
@@ -188,7 +202,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'ERP stands for Enterprise Resource Planning, which manages business operations in Information Systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of cloud computing in the modern workplace?',
@@ -200,7 +215,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cloud computing enables remote data storage, processing, and collaboration, supporting modern work environments.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary benefit of e-commerce mentioned in the chapter?',
@@ -212,7 +228,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'E-commerce enables online shopping, digital payments, and entrepreneurship, thriving in the digital economy.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What challenge does the internet pose regarding social isolation?',
@@ -224,7 +241,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The internet poses challenges including social isolation by potentially reducing face-to-face interactions and relationships.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the environmental concern related to internet usage?',
@@ -236,7 +254,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The internet poses environmental concerns including cybersecurity threats, social isolation, misinformation, and environmental impact from digital infrastructure.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does the chapter say about the internet\'s potential for positive impact?',
@@ -248,7 +267,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter states that the internet\'s potential for positive impact remains immense, and its advancement continues to shape the world.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between computing disciplines according to the chapter?',
@@ -260,7 +280,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The computing discipline areas are identified as interconnected and constantly evolving, driving innovation and technological advancements.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of Domain Name System (DNS) introduced in the 1980s?',
@@ -272,7 +293,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Domain Name System (DNS) was introduced in the 1980s to simplify website addresses.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does IRC stand for and when was it introduced?',
@@ -284,7 +306,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'IRC stands for Internet Relay Chat and was introduced in the 1980s, enabling real-time online communication.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What was the impact of dial-up internet in the 1990s?',
@@ -296,7 +319,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Dial-up internet in the 1990s brought connectivity to homes, making internet access available to individuals.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What type of applications does the Internet of Things (IoT) enable?',
@@ -308,7 +332,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The Internet of Things (IoT) involves connecting everyday devices to the internet for smart applications.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main advantage of virtual classrooms mentioned in the chapter?',
@@ -320,7 +345,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Virtual classrooms enable remote learning, providing access to education from anywhere in the world.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does digital democracy enable according to the chapter?',
@@ -332,7 +358,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Digital democracy initiatives enable online voting systems, public forums, and participatory governance.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of electronic health records?',
@@ -344,7 +371,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Electronic health records ensure confidential and efficient healthcare management through secure data storage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main benefit of online banking mentioned?',
@@ -356,7 +384,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Online banking enables mobile banking, digital payments, and various financial transactions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does supply chain management involve in the digital context?',
@@ -368,7 +397,8 @@ export const cos101Chapter5Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Supply chain management in the digital context involves digital tracking, logistics, and inventory management.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

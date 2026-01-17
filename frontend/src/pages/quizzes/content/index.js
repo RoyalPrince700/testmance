@@ -50,6 +50,17 @@ const getBIO101QuizContent = async () => {
   }
 };
 
+// Import ENT211 quiz content function (lazy load to avoid import errors)
+const getENT211QuizContent = async () => {
+  try {
+    const module = await import('../../ent211/quizzes');
+    return module.getQuizContent;
+  } catch (error) {
+    console.error('Failed to load ENT211 quiz content:', error);
+    return null;
+  }
+};
+
 // Helper function to get quiz by course code and chapter title
 export const getQuizContent = async (chapterTitle, chapterOrder = null, courseCode = null) => {
   // Check for GST111 quiz content first
@@ -81,6 +92,17 @@ export const getQuizContent = async (chapterTitle, chapterOrder = null, courseCo
       const bio101Quiz = bio101Function(chapterTitle, chapterOrder, courseCode);
       if (bio101Quiz) {
         return bio101Quiz;
+      }
+    }
+  }
+
+  // Check for ENT211 quiz content
+  if (courseCode === 'ENT 211') {
+    const ent211Function = await getENT211QuizContent();
+    if (ent211Function) {
+      const ent211Quiz = ent211Function(chapterTitle, chapterOrder, courseCode);
+      if (ent211Quiz) {
+        return ent211Quiz;
       }
     }
   }
@@ -188,6 +210,17 @@ export const getQuizByOrder = async (courseCode, chapterOrder) => {
     }
   }
 
+  if (courseCode === 'ENT 211') {
+    // Use the ENT211 quiz content function
+    const ent211Function = await getENT211QuizContent();
+    if (ent211Function) {
+      const ent211Quiz = ent211Function(null, parseInt(chapterOrder), courseCode);
+      if (ent211Quiz) {
+        return ent211Quiz;
+      }
+    }
+  }
+
   if (courseCode === 'GNS 311') {
     const orderMap = {
       '1': gns311Chapter1Quiz,
@@ -205,6 +238,7 @@ export const getQuizByOrder = async (courseCode, chapterOrder) => {
       '13': gns311Chapter13Quiz,
       '14': gns311Chapter14Quiz,
       '15': gns311Chapter15Quiz,
+      '16': gns311Chapter16Quiz,
     };
     return orderMap[chapterOrder] || null;
   }

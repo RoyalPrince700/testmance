@@ -50,6 +50,18 @@ const bio101Modules = [
   'Heredity and evolution'
 ];
 
+const ent211Modules = [
+  'Concept of Entrepreneurship',
+  'Nigerian Business Environment and Entrepreneurial Opportunities in Nigeria through SMEs',
+  'Feasibility Study And Feasibility Report Writing',
+  'Understanding The Nexus Between Innovation And Employability For Nigerian Graduates',
+  'Entrepreneurship Approach to Marketing and Validation of Products and Services Idea',
+  'Business Planning',
+  'Sources of Finance and Basic Accounting Records for Entrepreneurs',
+  'Human Resources Management Practices For Entrepreneurship',
+  'Introduction to Electronic Commerce'
+];
+
 
 const chapters = [
   // GNS 311 Chapters
@@ -116,6 +128,20 @@ const chapters = [
       <p>Here you can add more detailed study materials, diagrams, and explanations.</p>
     `,
     estimatedTime: 15
+  })),
+
+  // ENT 211 Chapters
+  ...ent211Modules.map((title, index) => ({
+    title: title,
+    courseCode: 'ENT 211',
+    description: `Module ${index + 1} of ENT 211`,
+    order: index + 1,
+    content: `
+      <h1>${title}</h1>
+      <p>This is the content for the module: ${title}.</p>
+      <p>Here you can add more detailed study materials, diagrams, and explanations.</p>
+    `,
+    estimatedTime: 20
   }))
 ];
 

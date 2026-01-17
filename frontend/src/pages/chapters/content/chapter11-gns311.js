@@ -17,9 +17,9 @@ export const chapter11Content = {
             Understanding nutrition throughout the life course is essential for promoting optimal health,
             preventing diseases, and ensuring quality of life at every stage of life.
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Nutrition is so important that it's become a national goal to promote optimal health and disease prevention.
               Unfortunately, there's a general dearth of knowledge in human nutrition, especially regarding vulnerable groups like children, pregnant women, and the elderly.
             </p>
@@ -30,19 +30,19 @@ export const chapter11Content = {
             You'll also learn about obesity and its management.
           </p>
 
-          <div class="bg-blue-50 p-5 rounded-lg border border-blue-200 my-6">
-            <h4 class="font-bold text-blue-900 mb-3 text-lg">📚 Module Structure</h4>
-            <p class="text-blue-800 mb-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800 my-6">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">📚 Module Structure</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-4">
               This module covers human nutrition across the life course, divided into two main units:
             </p>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg border border-blue-200">
-                <h5 class="font-bold text-blue-900 mb-2">🥦 Unit 1</h5>
-                <p class="text-blue-800 text-sm">Food Nutrients and Malnutrition</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h5 class="font-bold text-blue-900 dark:text-blue-100 mb-2">🥦 Unit 1</h5>
+                <p class="text-blue-800 dark:text-blue-200 text-sm">Food Nutrients and Malnutrition</p>
               </div>
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">👥 Unit 2</h5>
-                <p class="text-green-800 text-sm">Nutrition in Vulnerable Groups</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">👥 Unit 2</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm">Nutrition in Vulnerable Groups</p>
               </div>
             </div>
           </div>
@@ -101,9 +101,9 @@ export const chapter11Content = {
             In essence, nutrition is the interaction of food, nutrients, and other substances with health and disease.
             It's so important that it has become a national goal to promote optimal health and disease prevention.
           </p>
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">⚠️ Important Challenge</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">⚠️ Important Challenge</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               There's a general dearth of knowledge in human nutrition, especially regarding nutrition of vulnerable groups
               (children, pregnant women, and the elderly). Also, the association between diet and disease onset needs better understanding.
             </p>
@@ -127,15 +127,15 @@ export const chapter11Content = {
             We'll also examine malnutrition and its various forms, particularly in children.
           </p>
           <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🍎 Nutrient Categories:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🍎 Nutrient Categories:</h4>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-blue-700 mb-2">⚖️ Macronutrients</h5>
-                <p class="text-gray-700 text-sm">Required in large amounts: Carbohydrates, Lipids, Proteins</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">⚖️ Macronutrients</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Required in large amounts: Carbohydrates, Lipids, Proteins</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-green-700 mb-2">🔬 Micronutrients</h5>
-                <p class="text-gray-700 text-sm">Required in smaller amounts: Vitamins, Minerals, Water</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🔬 Micronutrients</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Required in smaller amounts: Vitamins, Minerals, Water</p>
               </div>
             </div>
           </div>
@@ -154,30 +154,30 @@ export const chapter11Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🍞 Carbohydrates (4 kcal/g)</h4>
-              <p class="text-blue-800 mb-3">The body's primary energy source</p>
-              <div class="bg-white p-3 rounded">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🍞 Carbohydrates (4 kcal/g)</h4>
+              <p class="text-blue-800 dark:text-blue-200 mb-3">The body's primary energy source</p>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <p class="font-semibold mb-2">Sources:</p>
-                <p class="text-sm text-gray-700">Bread, rice, yam, biscuits, sugar, potatoes</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Bread, rice, yam, biscuits, sugar, potatoes</p>
               </div>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🥑 Lipids/Fats (9 kcal/g)</h4>
-              <p class="text-green-800 mb-3">Highest energy density, essential fatty acids</p>
-              <div class="bg-white p-3 rounded">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🥑 Lipids/Fats (9 kcal/g)</h4>
+              <p class="text-green-800 dark:text-green-200 mb-3">Highest energy density, essential fatty acids</p>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <p class="font-semibold mb-2">Sources:</p>
-                <p class="text-sm text-gray-700">Oils, butter, cheese, nuts, avocados</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Oils, butter, cheese, nuts, avocados</p>
               </div>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">🥩 Proteins (4 kcal/g)</h4>
-              <p class="text-purple-800 mb-3">Essential for growth, repair, and maintenance</p>
-              <div class="bg-white p-3 rounded">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🥩 Proteins (4 kcal/g)</h4>
+              <p class="text-purple-800 dark:text-purple-200 mb-3">Essential for growth, repair, and maintenance</p>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <p class="font-semibold mb-2">Sources:</p>
-                <p class="text-sm text-gray-700">Meat, fish, eggs, milk, beans, legumes</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Meat, fish, eggs, milk, beans, legumes</p>
               </div>
             </div>
           </div>
@@ -197,33 +197,33 @@ export const chapter11Content = {
           </p>
 
           <div class="grid md:grid-cols-3 gap-4 my-6">
-            <div class="bg-teal-50 p-4 rounded-lg border border-teal-200">
-              <h4 class="font-bold text-teal-900 mb-2">🥕 Minerals</h4>
-              <p class="text-teal-800 text-sm">Control body processes, found in vegetables and fruits</p>
+            <div class="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg border border-teal-200 dark:border-teal-800">
+              <h4 class="font-bold text-teal-900 dark:text-teal-100 mb-2">🥕 Minerals</h4>
+              <p class="text-teal-800 dark:text-teal-200 text-sm">Control body processes, found in vegetables and fruits</p>
             </div>
-            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-              <h4 class="font-bold text-yellow-900 mb-2">🍊 Vitamins</h4>
-              <p class="text-yellow-800 text-sm">Control body processes, found in vegetables and fruits</p>
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-2">🍊 Vitamins</h4>
+              <p class="text-yellow-800 dark:text-yellow-200 text-sm">Control body processes, found in vegetables and fruits</p>
             </div>
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-2">💧 Water</h4>
-              <p class="text-blue-800 text-sm">Essential for all body functions</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">💧 Water</h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">Essential for all body functions</p>
             </div>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-3">📊 Nutrient Classification:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-3">📊 Nutrient Classification:</h4>
             <div class="space-y-3">
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">•</span>
                 <div>
-                  <strong class="text-gray-900">Organic nutrients:</strong> Contain carbon (carbohydrates, lipids, proteins, vitamins)
+                  <strong class="text-gray-900 dark:text-white">Organic nutrients:</strong> Contain carbon (carbohydrates, lipids, proteins, vitamins)
                 </div>
               </div>
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">•</span>
                 <div>
-                  <strong class="text-gray-900">Inorganic nutrients:</strong> Don't contain carbon (minerals, water)
+                  <strong class="text-gray-900 dark:text-white">Inorganic nutrients:</strong> Don't contain carbon (minerals, water)
                 </div>
               </div>
             </div>
@@ -243,31 +243,31 @@ export const chapter11Content = {
             Special requirements exist for pregnancy and lactation.
           </p>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-4">📊 Dietary Reference Intakes (DRI):</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4">📊 Dietary Reference Intakes (DRI):</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">📈 EAR (Estimated Average Requirement)</h5>
-                <p class="text-gray-700 text-sm">Average daily intake that meets needs of half the healthy people in a category</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">📈 EAR (Estimated Average Requirement)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Average daily intake that meets needs of half the healthy people in a category</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">🎯 RDA (Recommended Dietary Allowance)</h5>
-                <p class="text-gray-700 text-sm">Average daily intake required to meet needs of 97-98% of healthy people</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">🎯 RDA (Recommended Dietary Allowance)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Average daily intake required to meet needs of 97-98% of healthy people</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">✅ AI (Adequate Intake)</h5>
-                <p class="text-gray-700 text-sm">Recommended intake based on observations when RDA isn't established</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">✅ AI (Adequate Intake)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Recommended intake based on observations when RDA isn't established</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">⚠️ UL (Tolerable Upper Intake Level)</h5>
-                <p class="text-gray-700 text-sm">Highest intake likely to pose no risk of adverse effects</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">⚠️ UL (Tolerable Upper Intake Level)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Highest intake likely to pose no risk of adverse effects</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">🌟 Balanced Diet</p>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">🌟 Balanced Diet</p>
+            <p class="text-green-800 dark:text-green-200">
               A balanced diet contains all nutrients in proportions necessary for proper body functioning.
               Combination of foods is often necessary to achieve balance.
             </p>
@@ -291,9 +291,9 @@ export const chapter11Content = {
             with over a third attributed to underlying malnutrition.
           </p>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">🚨 Critical Statistics</p>
-            <p class="text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">🚨 Critical Statistics</p>
+            <p class="text-red-800 dark:text-red-200">
               Protein-Energy Malnutrition (PEM) affects about 100 children per moderate to severe degree worldwide.
             </p>
           </div>
@@ -314,14 +314,14 @@ export const chapter11Content = {
           <div class="bg-orange-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-orange-900 mb-4">📋 Major Causes:</h4>
             <div class="grid md:grid-cols-2 gap-3">
-              <div class="bg-white p-3 rounded">🏠 Poverty/insufficient food production</div>
-              <div class="bg-white p-3 rounded">🏘️ Poor living conditions</div>
-              <div class="bg-white p-3 rounded">📚 Lack of education/ignorance</div>
-              <div class="bg-white p-3 rounded">👶 Improper feeding during pregnancy</div>
-              <div class="bg-white p-3 rounded">👩‍💼 Return of mother to work</div>
-              <div class="bg-white p-3 rounded">👨‍👩‍👧‍👦 Poor family planning/multiple births</div>
-              <div class="bg-white p-3 rounded">⚔️ War and famine</div>
-              <div class="bg-white p-3 rounded">🦠 Contaminated food/infection</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">🏠 Poverty/insufficient food production</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">🏘️ Poor living conditions</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">📚 Lack of education/ignorance</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">👶 Improper feeding during pregnancy</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">👩‍💼 Return of mother to work</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">👨‍👩‍👧‍👦 Poor family planning/multiple births</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">⚔️ War and famine</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">🦠 Contaminated food/infection</div>
             </div>
           </div>
         </div>
@@ -340,12 +340,12 @@ export const chapter11Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3">🦴 Marasmus (Wet PEM)</h4>
-              <p class="text-red-800 mb-3">Usually affects children less than 1 year old</p>
-              <div class="bg-white p-4 rounded">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">🦴 Marasmus (Wet PEM)</h4>
+              <p class="text-red-800 dark:text-red-200 mb-3">Usually affects children less than 1 year old</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <p class="font-semibold mb-2">Features:</p>
-                <ul class="space-y-1 text-sm text-gray-700">
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                   <li>• Low weight for age (usually below 60%)</li>
                   <li>• Little or no subcutaneous fat (loose skin)</li>
                   <li>• Looks like an old man</li>
@@ -355,12 +355,12 @@ export const chapter11Content = {
               </div>
             </div>
 
-            <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3">🌞 Kwashiorkor (Dry PEM)</h4>
-              <p class="text-yellow-800 mb-3">Usually affects children 1-3 years old</p>
-              <div class="bg-white p-4 rounded">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">🌞 Kwashiorkor (Dry PEM)</h4>
+              <p class="text-yellow-800 dark:text-yellow-200 mb-3">Usually affects children 1-3 years old</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <p class="font-semibold mb-2">Features:</p>
-                <ul class="space-y-1 text-sm text-gray-700">
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                   <li>• Growth retardation</li>
                   <li>• More subcutaneous fat than marasmic child</li>
                   <li>• Edema (mainly feet and lower legs)</li>
@@ -373,9 +373,9 @@ export const chapter11Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">💡 Prevention</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">💡 Prevention</p>
+            <p class="text-blue-800 dark:text-blue-200">
               The best prevention is <strong>breastfeeding for the first 6 months</strong> followed by balanced weaning foods.
             </p>
           </div>
@@ -394,55 +394,55 @@ export const chapter11Content = {
             Breast milk is a complete food that provides optimal nutrition for infants.
           </p>
 
-          <div class="bg-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-green-900 mb-4">🌟 Benefits of Breastfeeding:</h4>
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🌟 Benefits of Breastfeeding:</h4>
             <div class="grid md:grid-cols-2 gap-3">
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Complete food for babies</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Cheaper than formula</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Has contraceptive properties</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Helps mother return to shape</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Always available at correct temperature</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Anti-infective properties</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Protects from allergic diseases</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Promotes mother-child bonding</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Environmentally friendly</span>
               </div>
-              <div class="bg-white p-3 rounded flex items-center">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded flex items-center">
                 <span class="text-green-500 mr-2">✓</span>
                 <span>Less chance of germ contamination</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-indigo-50 p-5 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-3">🛡️ Anti-Infective Properties:</h4>
-            <ul class="space-y-2 text-indigo-800">
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-5 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3">🛡️ Anti-Infective Properties:</h4>
+            <ul class="space-y-2 text-indigo-800 dark:text-indigo-200">
               <li><strong>Immunoglobulin A:</strong> Protects against bacteria like E. coli and viruses</li>
               <li><strong>Lactoferrin:</strong> Binds iron, making it unavailable for harmful microorganisms</li>
               <li><strong>Lysozymes:</strong> Break down harmful bacteria</li>
@@ -469,24 +469,24 @@ export const chapter11Content = {
             and prevent nutrition-related diseases.
           </p>
 
-          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🎯 Vulnerable Groups:</h4>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🎯 Vulnerable Groups:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-purple-700 mb-2">👨‍🎓 Adolescents</h5>
-                <p class="text-gray-700 text-sm">Rapid growth, high energy needs, developing healthy habits</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">👨‍🎓 Adolescents</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Rapid growth, high energy needs, developing healthy habits</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
                 <h5 class="font-bold text-pink-700 mb-2">🤰 Pregnant Women</h5>
-                <p class="text-gray-700 text-sm">Fetal development, maternal health, lactation preparation</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Fetal development, maternal health, lactation preparation</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-blue-700 mb-2">👴 The Elderly</h5>
-                <p class="text-gray-700 text-sm">Ageing changes, chronic diseases, maintaining independence</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">👴 The Elderly</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Ageing changes, chronic diseases, maintaining independence</p>
               </div>
-              <div class="bg-white p-4 rounded-lg shadow-sm">
-                <h5 class="font-bold text-red-700 mb-2">⚖️ Obesity</h5>
-                <p class="text-gray-700 text-sm">Energy imbalance, health risks, management strategies</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow-sm">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">⚖️ Obesity</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Energy imbalance, health risks, management strategies</p>
               </div>
             </div>
           </div>
@@ -506,31 +506,31 @@ export const chapter11Content = {
             come from sugary or fatty snacks.
           </p>
 
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-4">🥗 Recommended Adolescent Diet:</h4>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4">🥗 Recommended Adolescent Diet:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🌾 Starchy Carbohydrates (Main energy source)</h5>
-                <p class="text-gray-700 text-sm">Bread, corn meal, rice, pasta, breakfast cereals, couscous, potatoes</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🌾 Starchy Carbohydrates (Main energy source)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Bread, corn meal, rice, pasta, breakfast cereals, couscous, potatoes</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🥕 Fruits and Vegetables (At least 5 portions daily)</h5>
-                <p class="text-gray-700 text-sm">Fresh fruits and vegetables for vitamins and minerals</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🥕 Fruits and Vegetables (At least 5 portions daily)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Fresh fruits and vegetables for vitamins and minerals</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🥛 Dairy Products (2-3 portions)</h5>
-                <p class="text-gray-700 text-sm">Milk, yoghurt, cheese for calcium and protein</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🥛 Dairy Products (2-3 portions)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Milk, yoghurt, cheese for calcium and protein</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🥩 Protein Sources (2 servings)</h5>
-                <p class="text-gray-700 text-sm">Meat, fish, eggs, beans for growth and repair</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🥩 Protein Sources (2 servings)</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Meat, fish, eggs, beans for growth and repair</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">💧 Important Habits</p>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">💧 Important Habits</p>
+            <p class="text-green-800 dark:text-green-200">
               Drink at least 8 glasses of water daily, eat regular meals including breakfast,
               and engage in regular physical exercise for overall fitness and bone development.
             </p>
@@ -551,20 +551,20 @@ export const chapter11Content = {
             weight management, and prevention of chronic diseases.
           </p>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-4">🎯 Adult Nutritional Considerations:</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4">🎯 Adult Nutritional Considerations:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">⚖️ Energy Balance</h5>
-                <p class="text-gray-700 text-sm">Balance intake with activity level to prevent weight gain</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">⚖️ Energy Balance</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Balance intake with activity level to prevent weight gain</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">🦴 Calcium Intake</h5>
-                <p class="text-gray-700 text-sm">Many adults don't get enough calcium, leading to osteoporosis risk</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">🦴 Calcium Intake</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Many adults don't get enough calcium, leading to osteoporosis risk</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-indigo-700 mb-2">🥗 Nutrient Density</h5>
-                <p class="text-gray-700 text-sm">Choose nutrient-rich foods for optimal health benefits</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-indigo-700 dark:text-indigo-300 mb-2">🥗 Nutrient Density</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Choose nutrient-rich foods for optimal health benefits</p>
               </div>
             </div>
           </div>
@@ -592,28 +592,28 @@ export const chapter11Content = {
           <div class="bg-pink-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-pink-900 mb-4">🌟 Importance of Balanced Nutrition:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-pink-700 mb-2">🛡️ Optimizes Maternal Health</h5>
-                <p class="text-gray-700 text-sm">Supports mother's well-being during pregnancy</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Supports mother's well-being during pregnancy</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-pink-700 mb-2">🚫 Reduces Birth Defects</h5>
-                <p class="text-gray-700 text-sm">Prevents developmental abnormalities</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Prevents developmental abnormalities</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-pink-700 mb-2">👶 Reduces Suboptimal Development</h5>
-                <p class="text-gray-700 text-sm">Ensures proper fetal growth</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Ensures proper fetal growth</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-pink-700 mb-2">🔮 Reduces Future Health Problems</h5>
-                <p class="text-gray-700 text-sm">Prevents chronic diseases in offspring</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Prevents chronic diseases in offspring</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">📈 Nutrient Delivery</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">📈 Nutrient Delivery</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Maternal intake, stores, and placental exchange determine nutrient delivery to the fetus.
               Nutrient deficiencies can cause growth retardation and organ development issues.
             </p>
@@ -633,32 +633,32 @@ export const chapter11Content = {
             elderly (75-84), and old old (85+). Ageing brings unique nutritional challenges.
           </p>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4">🎭 Ageing and Nutrition:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4">🎭 Ageing and Nutrition:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-gray-700 mb-2">📉 Decreased Energy Needs</h5>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-gray-700 dark:text-gray-300 mb-2">📉 Decreased Energy Needs</h5>
                 <p class="text-gray-600 text-sm">Lean body mass and metabolic rate decline with age</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-gray-700 mb-2">🦠 Increased Vulnerability</h5>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-gray-700 dark:text-gray-300 mb-2">🦠 Increased Vulnerability</h5>
                 <p class="text-gray-600 text-sm">Higher susceptibility to malnutrition and infections</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-gray-700 mb-2">🔄 Changed Nutrient Requirements</h5>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-gray-700 dark:text-gray-300 mb-2">🔄 Changed Nutrient Requirements</h5>
                 <p class="text-gray-600 text-sm">Some nutrients needed more, others less</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">⚠️ Malnutrition Factors in Elderly:</p>
-            <p class="text-red-800 mb-2">Low income, poor knowledge, loneliness, functional impairment, digestive problems</p>
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">⚠️ Malnutrition Factors in Elderly:</p>
+            <p class="text-red-800 dark:text-red-200 mb-2">Low income, poor knowledge, loneliness, functional impairment, digestive problems</p>
           </div>
 
-          <div class="bg-green-50 p-5 rounded-lg my-4">
-            <h4 class="font-bold text-green-900 mb-3">🥗 Foods for Bowel Health:</h4>
-            <ul class="space-y-2 text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🥗 Foods for Bowel Health:</h4>
+            <ul class="space-y-2 text-green-800 dark:text-green-200">
               <li>Fruits and vegetables</li>
               <li>Dried fruits</li>
               <li>Whole grain cereals</li>
@@ -683,23 +683,23 @@ export const chapter11Content = {
             diabetes, heart disease, and certain cancers.
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-red-900 mb-4">📏 BMI Categories:</h4>
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">📏 BMI Categories:</h4>
             <div class="grid md:grid-cols-4 gap-3">
-              <div class="bg-white p-3 rounded text-center">
-                <div class="font-bold text-red-700">Underweight</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <div class="font-bold text-red-700 dark:text-red-300">Underweight</div>
                 <div class="text-sm text-gray-600">&lt; 18.5</div>
               </div>
-              <div class="bg-white p-3 rounded text-center">
-                <div class="font-bold text-green-700">Normal</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <div class="font-bold text-green-700 dark:text-green-300">Normal</div>
                 <div class="text-sm text-gray-600">18.5-24.9</div>
               </div>
-              <div class="bg-white p-3 rounded text-center">
-                <div class="font-bold text-yellow-700">Overweight</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <div class="font-bold text-yellow-700 dark:text-yellow-300">Overweight</div>
                 <div class="text-sm text-gray-600">25-29.9</div>
               </div>
-              <div class="bg-white p-3 rounded text-center">
-                <div class="font-bold text-red-700">Obese</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded text-center">
+                <div class="font-bold text-red-700 dark:text-red-300">Obese</div>
                 <div class="text-sm text-gray-600">≥ 30</div>
               </div>
             </div>
@@ -722,29 +722,29 @@ export const chapter11Content = {
           <div class="bg-orange-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-orange-900 mb-4">📋 Major Causes:</h4>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🍽️ Over Eating</h5>
-                <p class="text-gray-700 text-sm">Excessive caloric intake exceeding energy needs</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Excessive caloric intake exceeding energy needs</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">♀️ Sex Differences</h5>
-                <p class="text-gray-700 text-sm">Common in women, especially after pregnancy; men have higher metabolic rate</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Common in women, especially after pregnancy; men have higher metabolic rate</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">📅 Age Factors</h5>
-                <p class="text-gray-700 text-sm">Metabolic rate slows with age, requiring fewer calories</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Metabolic rate slows with age, requiring fewer calories</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🏙️ Environment/Culture</h5>
-                <p class="text-gray-700 text-sm">High fat/sugar diets with low physical activity</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">High fat/sugar diets with low physical activity</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">😟 Emotional Factors</h5>
-                <p class="text-gray-700 text-sm">Stress, boredom, anger leading to overeating</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Stress, boredom, anger leading to overeating</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🏃‍♀️ Lack of Physical Activity</h5>
-                <p class="text-gray-700 text-sm">Sedentary lifestyle, insufficient exercise</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Sedentary lifestyle, insufficient exercise</p>
               </div>
             </div>
           </div>
@@ -763,31 +763,31 @@ export const chapter11Content = {
             Prevention is always better than treatment.
           </p>
 
-          <div class="bg-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-green-900 mb-4">🏥 Treatment Approaches:</h4>
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🏥 Treatment Approaches:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🥗 Natural Foods Focus</h5>
-                <p class="text-gray-700 text-sm">Incorporate more natural, whole foods into diet</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🥗 Natural Foods Focus</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Incorporate more natural, whole foods into diet</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">💧 Increased Water Intake</h5>
-                <p class="text-gray-700 text-sm">Replace sugary drinks with water</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">💧 Increased Water Intake</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Replace sugary drinks with water</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🚫 Junk Food Elimination</h5>
-                <p class="text-gray-700 text-sm">Cut out processed foods and sugary snacks</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🚫 Junk Food Elimination</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Cut out processed foods and sugary snacks</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🏃‍♀️ Regular Exercise</h5>
-                <p class="text-gray-700 text-sm">Incorporate physical activity several times weekly</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🏃‍♀️ Regular Exercise</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Incorporate physical activity several times weekly</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">📊 Calorie Management</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">📊 Calorie Management</p>
+            <p class="text-blue-800 dark:text-blue-200">
               To lose 0.5 kg weekly, reduce net caloric intake by 500 calories daily (3500 calories weekly).
               Exercise affects calorie burning and net intake.
             </p>
@@ -807,31 +807,31 @@ export const chapter11Content = {
             Let's recap the essential concepts we've covered.
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">🍎 Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">🍎 Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">🥗 Nutrition Fundamentals</h5>
-                <p class="text-gray-700 text-sm">Science of food-nutrient interactions, macro/micronutrients, dietary requirements</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">🥗 Nutrition Fundamentals</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Science of food-nutrient interactions, macro/micronutrients, dietary requirements</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">👶 Child Malnutrition</h5>
-                <p class="text-gray-700 text-sm">PEM, marasmus, kwashiorkor, prevention through breastfeeding</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">👶 Child Malnutrition</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">PEM, marasmus, kwashiorkor, prevention through breastfeeding</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">👥 Life Stage Nutrition</h5>
-                <p class="text-gray-700 text-sm">Adolescents, adults, pregnancy, elderly - each with unique needs</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">👥 Life Stage Nutrition</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Adolescents, adults, pregnancy, elderly - each with unique needs</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-red-700 mb-2">⚖️ Obesity Management</h5>
-                <p class="text-gray-700 text-sm">Causes, measurement (BMI), prevention, and treatment strategies</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">⚖️ Obesity Management</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Causes, measurement (BMI), prevention, and treatment strategies</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Final Thoughts</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Final Thoughts</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Nutrition is truly a <strong>life course approach</strong>! From infancy through old age,
               proper nutrition supports health, prevents disease, and enhances quality of life.
               The choices we make today affect our health tomorrow. 🌟

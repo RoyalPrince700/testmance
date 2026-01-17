@@ -19,7 +19,8 @@ export const bio101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The cell is the basic structural and functional unit of all living organisms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which type of cell lacks a nucleus and membrane-bound organelles?',
@@ -31,7 +32,8 @@ export const bio101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Prokaryotic cells lack a nucleus and membrane-bound organelles, while eukaryotic cells have both.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the function of the cell membrane?',
@@ -43,7 +45,8 @@ export const bio101Chapter4Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The cell membrane regulates the movement of substances into and out of the cell.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

@@ -19,7 +19,8 @@ export const bio101Chapter1Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Crystallization is a chemical process observed in non-living matter, not a characteristic of living organisms.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of biological classification?',
@@ -31,7 +32,8 @@ export const bio101Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Biological classification helps scientists organize, identify, and study the vast diversity of living organisms in a systematic way.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which level of classification is the most specific?',
@@ -43,7 +45,8 @@ export const bio101Chapter1Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Species is the most specific taxonomic rank, representing organisms that can interbreed and produce fertile offspring.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What distinguishes living organisms from non-living things?',
@@ -55,7 +58,8 @@ export const bio101Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Living organisms exhibit all characteristics of life (organization, metabolism, growth, adaptation, response, reproduction) simultaneously.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The scientific name of an organism consists of:',
@@ -67,7 +71,8 @@ export const bio101Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The scientific name (binomial nomenclature) consists of the genus name (capitalized) followed by the species name (lowercase).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

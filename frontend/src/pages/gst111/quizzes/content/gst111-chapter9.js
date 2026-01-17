@@ -19,7 +19,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Writing skills are primarily developed to communicate ideas clearly and effectively, enabling writers to express thoughts, arguments, and information in a structured manner.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a key component of effective writing?',
@@ -31,7 +32,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Effective writing requires clear organization, proper grammar, and appropriate tone, but personal opinions should be supported with evidence rather than presented without justification.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the most important consideration when choosing a topic for academic writing?',
@@ -43,7 +45,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The most important consideration is matching the assignment requirements and understanding the intended audience, which determines the appropriate approach and content.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following best describes the relationship between phonetics and phonology?',
@@ -55,7 +58,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Phonetics is the starting point, studying sound production, while phonology takes off from there to study sound organization, patterning, and distribution.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is a phoneme?',
@@ -67,7 +71,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Phonemes are distinguished sounds that constitute the basic unit of study in phonetics and can create differences in meaning.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many vowel sounds does English have in total?',
@@ -79,7 +84,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'English has 20 vowel sounds: 12 monothongs (pure vowels) and 8 diphthongs (gliding vowels).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the basic unit of study in phonology?',
@@ -91,7 +97,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The syllable is the basic unit of study in phonology, as it studies the organization, grouping, and patterning of sounds.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which type of phonology deals with tone, intonation, rhythm, and accentuation?',
@@ -103,7 +110,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Suprasegmental phonology deals with non-segmental phenomena like tone, intonation, rhythm, and accentuation.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'In the word "people", why is the first /p/ aspirated while the second is not?',
@@ -115,7 +123,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Aspiration occurs when /p/ is in word-initial position and before a vowel. The second /p/ in "people" does not meet these conditions.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What are the four stages in the production of a plosive consonant?',
@@ -127,7 +136,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The four stages are: (1) articulators come together, (2) air from lungs held in check, (3) sudden release (plosion), (4) voicing or voicelessness.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'Which consonants are classified as fortis (strong) in English?',
@@ -139,7 +149,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The voiceless plosives /p, t, k/ are produced with greater exertion of energy and are called fortis or strong consonants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How are English consonants primarily classified?',
@@ -151,7 +162,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English consonants are classified according to parameters of place of articulation, manner of articulation, and voicing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the place of articulation for the sounds /p, b, m, w/?',
@@ -163,7 +175,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'These sounds /p, b, m, w/ are all produced between the two lips (bilabial place of articulation).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a characteristic of diphthongs?',
@@ -175,7 +188,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Diphthongs are characterized by a glide from one vowel position to another, not steady state articulation. Monothongs have steady state articulation.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What term describes vowels that are produced by tongue movement in one direction only?',
@@ -187,7 +201,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Monothongs (pure vowels) are produced by movement of the tongue in one direction only, with steady state articulation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many triphthongs does English have?',
@@ -199,7 +214,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English has 5 triphthongs, made up of the 5 closing diphthongs with schwa [ə] added to them.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to tongue height, which vowels are classified as close/high?',
@@ -211,7 +227,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The close/high vowels are /i:, u:/, representing the highest tongue positions in vowel production.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which vowels are classified as front vowels based on tongue position?',
@@ -223,7 +240,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Front vowels are /i:, ɪ, e, æ/, produced with the front part of the tongue raised.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the key difference between oral and nasal consonants?',
@@ -235,7 +253,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Nasal consonants are produced through the nose with the soft palate lowered, while oral consonants use only the mouth cavity.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In phonological analysis, what makes /p/ in "pin" different from /p/ in "spin"?',
@@ -247,7 +266,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: '/p/ in "pin" is aspirated [ph] because it occurs word-initially before a vowel, while /p/ in "spin" is not aspirated due to its position after /s/.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'Why are consonants described as less sonorous than vowels?',
@@ -259,7 +279,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Consonants show greater constriction of the vocal tract compared to vowels, making them less sonorous and prominent.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What phonological process explains why English speakers might nasalize vowels before nasal consonants?',
@@ -271,7 +292,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Coarticulation refers to how the articulation of one sound influences neighboring sounds, such as nasalization of vowels before nasal consonants.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'In the word "import", stress placement on the first syllable versus the second creates what type of difference?',
@@ -283,7 +305,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Stress placement creates a phonological difference - first syllable stress makes it a noun ("IMPORT"), second syllable stress makes it a verb (im"PORT").',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'Which statement about English consonant clusters is true?',
@@ -295,7 +318,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English has complex consonant clusters (like "str" in "street") that many Nigerian languages lack, which can cause articulation difficulties for learners.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary function of the International Phonetic Alphabet (IPA)?',
@@ -307,7 +331,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The IPA provides symbols to represent speech sounds, allowing for precise phonetic transcription and description.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which branch of phonetics would be most concerned with measuring sound waves?',
@@ -319,7 +344,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Acoustic Phonetics deals with the transmission of speech sounds through air and uses instruments to measure sound wave characteristics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In phonology, distinctive features refer to:',
@@ -331,7 +357,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Distinctive features are the bundle of phonetic properties that differentiate one phoneme from another, used in phonological analysis.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'Why is the syllable considered the basic unit of phonological study?',
@@ -343,7 +370,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The syllable is the basic unit because phonology studies how sounds are organized, grouped, and patterned into syllables.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'A student pronounces "this" as [dis]. What phonological process is interfering?',
@@ -355,7 +383,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The student is replacing the dental fricative /ð/ with the alveolar plosive /d/, showing difficulty with the dental place of articulation.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In acoustic phonetics, what property of sound waves is measured?',
@@ -367,7 +396,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Acoustic phonetics measures the physical properties of sound waves including frequency (pitch), amplitude (loudness), and duration (length).',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following demonstrates a minimal pair differing only in aspiration?',
@@ -379,7 +409,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'pin [phɪn] and bin [bɪn] differ only in aspiration - one is aspirated (voiceless), one is unaspirated (voiced).',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'What makes triphthongs different from diphthongs?',
@@ -391,7 +422,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Triphthongs involve three vowel qualities articulated together (like [aʊə] in "tower"), while diphthongs have two.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'In the phonological analysis of English, why is aspiration considered an allomorph rather than a separate phoneme?',
@@ -403,7 +435,8 @@ export const gst111Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Aspiration is an allomorph because its occurrence (like [ph] vs [p]) does not create a difference in meaning by itself - it is predictable from position.',
-      points: 2
+      points: 2,
+      difficulty: 'difficult'
     }
   ]
 };

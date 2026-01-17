@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Chapter = require('../models/Chapter');
 const User = require('../models/User');
+const DailyStats = require('../models/DailyStats');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -149,6 +150,9 @@ router.post('/:id/complete', protect, async (req, res) => {
 
     // Update course student count
     await chapter.course.updateStudentCount();
+
+    // Increment chapter completion count in daily stats
+    await DailyStats.incrementMetric('chapterCompletions');
 
     await session.commitTransaction();
     session.endSession();

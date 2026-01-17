@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import { coursesAPI } from '../../utils/api';
 import { BookOpen, Target, TrendingUp, Trophy } from 'lucide-react';
 
@@ -30,8 +31,8 @@ const QuizHub = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+      <div className="flex items-center justify-center min-h-96 bg-gray-50 dark:bg-gray-900">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400"></div>
       </div>
     );
   }
@@ -40,10 +41,10 @@ const QuizHub = () => {
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
           Quiz Hub 🎯
         </h1>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 dark:text-gray-400 text-lg">
           Test your knowledge and earn gems!
         </p>
       </div>
@@ -82,7 +83,7 @@ const QuizHub = () => {
             <Link
               key={course._id}
               to={`/quiz-hub/courses/${course._id}`}
-              className="bg-white rounded-2xl p-6 shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 transform hover:-translate-y-1 transition-all duration-300"
             >
               {/* Course Icon */}
               <div className="flex justify-center mb-6">
@@ -100,9 +101,9 @@ const QuizHub = () => {
 
               {/* Course Info */}
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-black text-gray-900 mb-1">{course.code}</h3>
-                <p className="text-lg font-semibold text-gray-700 mb-2">{course.title}</p>
-                <p className="text-gray-500 text-sm">{course.description?.substring(0, 50)}...</p>
+                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-1">{course.code}</h3>
+                <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">{course.title}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm">{course.description?.substring(0, 50)}...</p>
                 
                 <div className="flex items-center justify-center mt-4 space-x-1">
                   <Target className={`h-4 w-4 ${theme.progressColor}`} />
@@ -125,13 +126,13 @@ const QuizHub = () => {
       </div>
 
       {availableCourses.length === 0 && (
-        <div className="text-center py-12">
-          <Target className="h-16 w-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 mb-2">No enrolled courses</h3>
-          <p className="text-gray-600 mb-4">You need to enroll in courses to access their quizzes.</p>
+        <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
+          <Target className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No enrolled courses</h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in courses to access their quizzes.</p>
           <Link
             to="/courses"
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white rounded-lg transition-colors"
           >
             Browse Courses
           </Link>

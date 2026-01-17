@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -10,12 +11,28 @@ import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
 import { ChapterDetail } from './pages/chapters';
 import { Quiz, QuizHub, QuizCourseDetail } from './pages/quizzes';
+import { CAPage } from './pages/ca';
+import { ExamPage } from './pages/exam';
+import { ResultsPage } from './pages/results';
 import Leaderboard from './pages/Leaderboard';
 import Profile from './pages/Profile';
 import ProfileSetup from './pages/ProfileSetup';
 import AboutUs from './pages/AboutUs';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminUsers from './pages/admin/AdminUsers';
+import AdminAnalytics from './pages/admin/AdminAnalytics';
+
+// Layout Component
+const Layout = () => {
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <Navbar />
+      <main className="container mx-auto px-4 py-8">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -23,8 +40,8 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">TestMancer</h1>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
       </div>
     );
   }
@@ -38,8 +55,8 @@ const AdminRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">TestMancer</h1>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
       </div>
     );
   }
@@ -57,8 +74,8 @@ const PublicRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">TestMancer</h1>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
       </div>
     );
   }
@@ -72,8 +89,8 @@ const ProfileSetupRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">TestMancer</h1>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
       </div>
     );
   }
@@ -96,8 +113,8 @@ const DefaultRoute = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <h1 className="text-3xl font-bold text-gray-900">TestMancer</h1>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
       </div>
     );
   }
@@ -105,46 +122,118 @@ const DefaultRoute = () => {
   return isAuthenticated ? <Navigate to="/dashboard" /> : <Navigate to="/" />;
 };
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <PublicRoute><Home /></PublicRoute>,
+      },
+      {
+        path: "about",
+        element: <AboutUs />,
+      },
+      {
+        path: "login",
+        element: <PublicRoute><Login /></PublicRoute>,
+      },
+      {
+        path: "register",
+        element: <Navigate to="/login" />,
+      },
+      {
+        path: "auth/callback",
+        element: <AuthCallback />,
+      },
+      {
+        path: "profile-setup",
+        element: <ProfileSetupRoute><ProfileSetup /></ProfileSetupRoute>,
+      },
+      {
+        path: "dashboard",
+        element: <ProtectedRoute><Dashboard /></ProtectedRoute>,
+      },
+      {
+        path: "courses",
+        element: <Courses />,
+      },
+      {
+        path: "courses/:id",
+        element: <ProtectedRoute><CourseDetail /></ProtectedRoute>,
+      },
+      {
+        path: "chapters/:id",
+        element: <ProtectedRoute><ChapterDetail /></ProtectedRoute>,
+      },
+      {
+        path: "quizzes/:chapterId",
+        element: <ProtectedRoute><Quiz /></ProtectedRoute>,
+      },
+      {
+        path: "quiz-hub",
+        element: <ProtectedRoute><QuizHub /></ProtectedRoute>,
+      },
+      {
+        path: "quiz-hub/courses/:id",
+        element: <ProtectedRoute><QuizCourseDetail /></ProtectedRoute>,
+      },
+      {
+        path: "ca",
+        element: <ProtectedRoute><CAPage /></ProtectedRoute>,
+      },
+      {
+        path: "ca/:courseId",
+        element: <ProtectedRoute><CAPage /></ProtectedRoute>,
+      },
+      {
+        path: "exam",
+        element: <ProtectedRoute><ExamPage /></ProtectedRoute>,
+      },
+      {
+        path: "exam/:courseId",
+        element: <ProtectedRoute><ExamPage /></ProtectedRoute>,
+      },
+      {
+        path: "results",
+        element: <ProtectedRoute><ResultsPage /></ProtectedRoute>,
+      },
+      {
+        path: "leaderboard",
+        element: <ProtectedRoute><Leaderboard /></ProtectedRoute>,
+      },
+      {
+        path: "profile",
+        element: <ProtectedRoute><Profile /></ProtectedRoute>,
+      },
+      {
+        path: "admin/dashboard",
+        element: <AdminRoute><AdminDashboard /></AdminRoute>,
+      },
+      {
+        path: "admin/users",
+        element: <AdminRoute><AdminUsers /></AdminRoute>,
+      },
+      {
+        path: "admin/analytics",
+        element: <AdminRoute><AdminAnalytics /></AdminRoute>,
+      },
+      {
+        path: "*",
+        element: <DefaultRoute />,
+      },
+    ],
+  },
+]);
+
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-white">
-          <Navbar />
-          <main className="container mx-auto px-4 py-8">
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<PublicRoute><Home /></PublicRoute>} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-              <Route path="/register" element={<Navigate to="/login" />} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/profile-setup" element={<ProfileSetupRoute><ProfileSetup /></ProfileSetupRoute>} />
-
-              {/* Protected Routes */}
-              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-              <Route path="/courses/:id" element={<ProtectedRoute><CourseDetail /></ProtectedRoute>} />
-              
-              {/* Public Routes - Courses page accessible to all */}
-              <Route path="/courses" element={<Courses />} />
-              <Route path="/chapters/:id" element={<ProtectedRoute><ChapterDetail /></ProtectedRoute>} />
-              <Route path="/quizzes/:chapterId" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
-              <Route path="/quiz-hub" element={<ProtectedRoute><QuizHub /></ProtectedRoute>} />
-              <Route path="/quiz-hub/courses/:id" element={<ProtectedRoute><QuizCourseDetail /></ProtectedRoute>} />
-              <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
-              <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-
-              {/* Admin Routes */}
-              <Route path="/admin/dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
-              <Route path="/admin/users" element={<AdminRoute><AdminUsers /></AdminRoute>} />
-
-              {/* Catch all route */}
-              <Route path="*" element={<DefaultRoute />} />
-            </Routes>
-          </main>
-        </div>
-      </Router>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

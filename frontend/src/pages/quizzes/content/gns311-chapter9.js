@@ -20,7 +20,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Chapter 9 is titled "Global Threat of Counterfeit Medicines" and covers the dangers, definitions, and solutions related to counterfeit pharmaceuticals.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is a drug?',
@@ -32,7 +33,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A drug is defined as the single chemical substance that forms the active ingredient of medicine, the Active Pharmaceutical Ingredient (API) that produces pharmacological activity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does WHO stand for in relation to counterfeit medicine definitions?',
@@ -44,7 +46,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'WHO stands for World Health Organization, which provides one of the key definitions of counterfeit medicines as medicines deliberately and fraudulently mislabeled with respect to identity and/or source.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, counterfeit medicines are the fastest growing grey economy after what?',
@@ -56,7 +59,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines are described as one of the fastest growing grey economies after prostitution, narcotics, terrorism, and arms trade.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What percentage of the global pharmaceutical trade consists of counterfeit medicines?',
@@ -68,7 +72,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Up to 10% of the pharmaceutical trade globally consists of counterfeit medicines, representing a significant portion of the worldwide pharmaceutical market.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is mPedigree?',
@@ -80,7 +85,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'mPedigree is a track-and-trace system using mobile phones for authentication. Users scratch a distinctive panel to reveal a PIN, text it to a number, and receive an SMS response indicating if the medicine is genuine or counterfeit.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which Nigerian agency uses TruScan Raman Spectrometer to detect counterfeit medicines?',
@@ -92,7 +98,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'NAFDAC (National Agency for Food and Drug Administration and Control) uses the TruScan Raman Spectrometer to detect counterfeit medicines in Nigeria.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does API stand for in the context of drug definition?',
@@ -104,7 +111,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'API stands for Active Pharmaceutical Ingredient, which is the single chemical substance that forms the active ingredient of medicine and produces pharmacological activity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the Nigerian definition, what is NOT a characteristic of counterfeit medicine?',
@@ -116,7 +124,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'According to Nigeria\'s Counterfeit and Fake Drugs Decree, counterfeit medicines are those that do not have adequate directions for use and such adequate warning against unsafe dosage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary purpose of tamper-evident packaging?',
@@ -128,7 +137,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tamper-evident/tamper-resistant packaging provides visible evidence when tampered with, helping to identify potentially counterfeit or compromised medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which analytical method is used by NAFDAC for detecting counterfeit medicines?',
@@ -140,7 +150,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'NAFDAC uses TruScan Raman Spectrometer, which employs Raman spectroscopy to identify the slightest difference in medicine formulation and provides a clear "pass" or "fail" reading.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is one of the three main components of hologram security features?',
@@ -152,7 +163,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Holograms combine overt features (visible), covert features (require special tools), and forensic features (destructible) for comprehensive security.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -165,7 +177,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The chapter explains that "medicines" is used instead of "drugs" to describe pharmaceutical preparations used in clinical health care practice, because "drugs" is frequently associated with narcotic or illicit substances.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the mathematical classification approach used in the chapter for counterfeit medicines?',
@@ -177,7 +190,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter uses a mathematical approach classifying counterfeit medicines based on combinations of fake packaging with correct/incorrect quantities of ingredients or no active ingredients.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why are counterfeit medicines considered a national security threat?',
@@ -189,7 +203,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines are a national security threat because profits from this illicit trade fund organized criminal and terrorist operations globally.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between poverty and counterfeit medicine proliferation?',
@@ -201,7 +216,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Poverty creates a demand for cheaper medicines, driving people to unregulated outlets where counterfeit medicines are commonly sold.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter mention that counterfeit medicines cause "obsolescence" of effective drugs?',
@@ -213,7 +229,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines cause "obsolescence" by leading to microbial resistance, making previously effective drugs useless against resistant pathogens.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of "universality" in scientific ethics as related to counterfeit medicines?',
@@ -225,7 +242,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The chapter emphasizes that scientific knowledge and methods transcend cultural and national boundaries, supporting international cooperation against counterfeit medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are weak drug regulatory authorities considered a factor encouraging counterfeiting?',
@@ -237,7 +255,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Weak drug regulatory authorities lack competent personnel and adequate financial resources, making it difficult to enforce laws prohibiting counterfeit medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter describe the role of international cooperation in combating counterfeit medicines?',
@@ -249,7 +268,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'International cooperation involves entering bilateral and multilateral agreements and working with organizations like WHO, Interpol, and WCO to combat counterfeit medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of the Heparin contamination case (2008) mentioned in the chapter?',
@@ -261,7 +281,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The Heparin case illustrates how counterfeit medicines can cause complex health crises through treatment failure, adverse reactions, and loss of confidence in healthcare systems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the chapter emphasize that counterfeit medicines violate intellectual property rights?',
@@ -273,7 +294,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines violate intellectual property rights by infringing on patents, trademarks, and industrial designs, affecting legitimate manufacturers and owners.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the role of education and information campaigns in combating counterfeit medicines?',
@@ -285,7 +307,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Education and information campaigns are crucial for consumer empowerment, public awareness programs, and training enforcement officers to combat counterfeit medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are analytical methods like HPLC and GC important for detecting counterfeit medicines?',
@@ -297,7 +320,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Analytical methods like High Performance Liquid Chromatography (HPLC) and Gas Chromatography (GC) can detect the slightest differences in medicine formulation, making them essential for counterfeit detection.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // DIFFICULT QUESTIONS (Analysis/Application)
     {
@@ -310,7 +334,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The mathematical classification shows counterfeit medicines can occur in multiple combinations (fake packaging + correct ingredients, fake packaging + wrong ingredients, etc.), revealing the complexity and widespread nature of the counterfeit medicine problem.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     },
     {
       question: 'Why might a medicine with correct ingredients but insufficient quantity be considered counterfeit according to some definitions?',
@@ -322,7 +347,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The Philippines definition considers medicines counterfeit if they have correct ingredients but not in amounts that maintain safety, efficacy, quality, strength, or purity - insufficient quantity compromises therapeutic effectiveness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to broader societal issues like poverty and corruption?',
@@ -334,7 +360,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter links counterfeit medicines to poverty (demand for cheap medicines) and corruption (adversely affects enforcement of laws), showing how socio-economic factors enable the counterfeit medicine trade.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would the absence of adequate testing facilities embolden counterfeiters according to the chapter?',
@@ -346,7 +373,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Lack of testing facilities makes detection of counterfeit medicines difficult, emboldening counterfeiters by reducing the likelihood of their products being identified and seized.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter argue that counterfeit medicines create a "fertile ground for conflict" in developing countries?',
@@ -358,7 +386,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines, when combined with poverty, create fertile ground for conflict by contributing to rural-urban migration, political instability, and social unrest in developing countries.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the relationship between free trade zones and counterfeit medicine proliferation according to the chapter?',
@@ -370,7 +399,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Free trade zones contribute to counterfeit medicine proliferation due to lack of control by exporting countries and lax drug regulation, providing safe havens for counterfeit operations.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why might pharmaceutical companies invest in expensive technologies like freeze-drying for legitimate products?',
@@ -382,7 +412,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Technologies like freeze-drying create unique chemical fingerprints and formulations that are difficult for counterfeiters to replicate, protecting legitimate products from counterfeiting.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that counterfeit medicines undermine the entire healthcare system?',
@@ -394,7 +425,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines undermine healthcare systems by causing loss of confidence in healthcare professionals, treatments, and institutions, leading to reduced compliance and poorer health outcomes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "positive approach to failure" important in scientific ethics related to counterfeit detection?',
@@ -406,7 +438,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A positive approach to failure recognizes that failed detection attempts provide valuable data and learning opportunities that advance counterfeit detection capabilities and scientific understanding.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to antimicrobial resistance?',
@@ -418,7 +451,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit antimicrobial medicines contribute to resistance by being ineffective, allowing pathogens to survive and develop resistance to both counterfeit and genuine antibiotics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might governments need to demonstrate "political will and commitment" to combat counterfeit medicines?',
@@ -430,7 +464,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Governments need political will and commitment to allocate budgets for drug control, provide institutional support, and ensure speedy disposal of counterfeit cases - essential for effective anti-counterfeit measures.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter argue that counterfeit medicines affect economic productivity?',
@@ -442,7 +477,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines cause huge financial wastage, loss of productivity from illness, increased hospital stays, and tax revenue losses, negatively impacting economic productivity.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would advanced technology be both a factor encouraging counterfeiting and a tool for combating it?',
@@ -454,7 +490,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Advanced technology enables counterfeiters to reproduce sophisticated packaging, but the same technology also provides manufacturers with better detection tools and security features.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to the broader concept of "grey economies"?',
@@ -466,7 +503,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines are described as part of "grey economies" - illegal economic activities that operate alongside prostitution, narcotics, terrorism, and arms trade, representing significant illicit global trade.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicine effects are "not fully known due to lack of global studies"?',
@@ -478,7 +516,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The chapter notes that the true extent of counterfeit medicine effects is not fully known due to lack of global studies, highlighting the need for better research, data collection, and international cooperation to understand the full scope.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that counterfeit medicines violate "universality" in pharmaceutical ethics?',
@@ -490,7 +529,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines violate universality in pharmaceutical ethics by undermining universal access to quality medicines, as they provide substandard or dangerous products that threaten health worldwide.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would the chapter consider stakeholder engagement crucial for combating counterfeit medicines?',
@@ -502,7 +542,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Stakeholder engagement is crucial because combating counterfeit medicines requires education campaigns, training for enforcement officers, NGO and CBO involvement, and consumer empowerment - no single entity can solve this problem alone.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to sustainable development goals?',
@@ -514,7 +555,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines threaten Sustainable Development Goals by compromising health outcomes (SDG 3) and contributing to broader development challenges that affect food security and well-being.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines require "integrated actions"?',
@@ -526,7 +568,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines require integrated actions because they simultaneously address multiple interconnected causes and effects, necessitating coordinated approaches across health, economic, and regulatory domains.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the chapter argue that counterfeit medicines affect "human capital development"?',
@@ -538,7 +581,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines affect human capital development by causing malnutrition, illness, and death that reduce the productive workforce, educational attainment, and overall human development potential.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would the chapter consider traceability systems essential for combating counterfeit medicines?',
@@ -550,7 +594,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Traceability systems are essential because they enable tracking of medicines from manufacture through the supply chain to the patient, preventing diversion, counterfeiting, and ensuring authenticity.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to environmental health?',
@@ -562,7 +607,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines connect to environmental health through improper disposal and waste management, which can contaminate water sources, soil, and ecosystems, creating additional public health risks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines "fund organized crime"?',
@@ -574,7 +620,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines fund organized crime because the trade generates significant profits that provide financial resources for criminal syndicates and terrorist organizations worldwide.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that counterfeit medicines affect "healthcare equity"?',
@@ -586,7 +633,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines affect healthcare equity by disproportionately affecting vulnerable populations who cannot afford genuine medicines, widening health disparities and denying quality healthcare to those who need it most.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "continuous investment in detection technologies" crucial?',
@@ -598,7 +646,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Continuous investment in detection technologies is crucial because counterfeiters constantly evolve their methods and technologies, requiring ongoing advancement to maintain effective detection capabilities.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to "global health security"?',
@@ -610,7 +659,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines threaten global health security as a transnational problem requiring international cooperation, coordinated responses, and shared responsibility across nations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines create "complex health crises"?',
@@ -622,7 +672,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines create complex health crises by simultaneously causing treatment failure, adverse reactions, drug resistance, and loss of confidence in healthcare systems and professionals.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter argue that counterfeit medicines undermine "scientific progress"?',
@@ -634,7 +685,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines undermine scientific progress by discrediting legitimate scientific research and pharmaceutical development, creating public skepticism toward genuine scientific achievements and medical advancements.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "regulatory harmonization" important for combating counterfeit medicines?',
@@ -646,7 +698,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Regulatory harmonization is important because varying national standards create loopholes that counterfeiters exploit by manufacturing in lenient jurisdictions and distributing across borders.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to "pharmaceutical innovation"?',
@@ -658,7 +711,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines discourage pharmaceutical innovation by undermining legitimate markets, reducing profits from genuine products, and making investment in research and development less attractive to manufacturers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines affect "future generations"?',
@@ -670,7 +724,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines affect future generations by creating drug resistance and health crises that will limit treatment options and compromise health outcomes for years to come.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that counterfeit medicines challenge "professional ethics" in healthcare?',
@@ -682,7 +737,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines challenge professional ethics by creating dilemmas for healthcare professionals when patients receive ineffective treatments, questioning the value and reliability of professional medical expertise.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "consumer empowerment" essential in the fight against counterfeit medicines?',
@@ -694,7 +750,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Consumer empowerment is essential because educated consumers can identify and avoid counterfeit medicines, creating market pressure that reduces demand for illicit products and supports legitimate pharmaceutical markets.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to "global inequality"?',
@@ -706,7 +763,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Counterfeit medicines connect to global inequality by disproportionately affecting developing countries with weaker regulatory systems, higher poverty rates, and greater vulnerability to this public health threat.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines "require shared responsibility"?',
@@ -718,7 +776,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines require shared responsibility because the problem involves multiple stakeholders - manufacturers, regulators, healthcare providers, consumers, and governments - all working together for effective solutions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter argue that counterfeit medicines affect "knowledge transfer" in healthcare?',
@@ -730,7 +789,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines affect knowledge transfer by undermining trust in medical knowledge and scientific evidence, creating barriers to effective communication between healthcare professionals and patients.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "speedy disposal of counterfeit cases" important for governments?',
@@ -742,7 +802,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Speedy disposal of counterfeit cases is important because it demonstrates government commitment to enforcement and deters potential counterfeiters by ensuring swift and certain legal consequences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter connect counterfeit medicines to "technological innovation"?',
@@ -754,7 +815,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines connect to technological innovation by driving both illicit innovation in counterfeiting methods and legitimate innovation in detection technologies and security features.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why might the chapter emphasize that counterfeit medicines create "cascading effects" on society?',
@@ -766,7 +828,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines create cascading effects where one counterfeit incident can lead to treatment failure, drug resistance, hospital admission, lost productivity, and broader economic and social impacts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter suggest that counterfeit medicines challenge "evidence-based medicine"?',
@@ -778,7 +841,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines challenge evidence-based medicine by providing treatments that fail despite scientific evidence of efficacy, creating doubt about the reliability of evidence-based medical practices.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why would the chapter consider "bilateral and multilateral agreements" important for combating counterfeit medicines?',
@@ -790,7 +854,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Bilateral and multilateral agreements are important because they enable information sharing, coordinated enforcement actions, and mutual legal assistance across borders against transnational counterfeit networks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary goal of tamper-evident packaging according to the chapter?',
@@ -802,7 +867,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tamper-evident packaging is designed to provide visible evidence when the packaging has been tampered with, helping consumers identify potentially compromised or counterfeit medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the chapter describe the relationship between counterfeit medicines and drug resistance?',
@@ -814,7 +880,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Counterfeit medicines contribute to antimicrobial resistance because ineffective counterfeit treatments allow pathogens to survive, leading to the development of resistance that affects both counterfeit and genuine medicines.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the chapter, what is the significance of the "mathematical classification" approach to counterfeit medicines?',
@@ -826,7 +893,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The mathematical classification approach reveals the complexity of counterfeit medicines by showing they can occur in multiple combinations (fake packaging + correct ingredients, fake packaging + wrong ingredients, etc.), highlighting the widespread nature of the problem.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     },
     {
       question: 'What role does poverty play in the counterfeit medicine problem according to the chapter?',
@@ -838,7 +906,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Poverty creates a demand for cheaper medicines, driving consumers to unregulated outlets where counterfeit medicines are commonly sold, thus perpetuating the cycle of counterfeit medicine proliferation.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why would the chapter consider "speedy disposal of counterfeit cases" important for governments?',
@@ -850,7 +919,8 @@ export const gns311Chapter9Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Speedy disposal of counterfeit cases is important because it demonstrates government commitment to enforcement and deters potential counterfeiters by ensuring swift and certain legal consequences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
   ]
 };

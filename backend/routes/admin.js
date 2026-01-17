@@ -1,13 +1,162 @@
 const express = require('express');
 const User = require('../models/User');
 const University = require('../models/University');
+const DailyStats = require('../models/DailyStats');
 const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router();
+// ... (previous routes)
+// @route   GET /api/admin/detailed-stats
+// @desc    Get detailed analytics for admin
+// @access  Admin
+router.get('/detailed-stats', async (req, res) => {
+  try {
+    // 1. Get Daily Stats for the last 30 days
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    
+    const dailyStats = await DailyStats.find({
+      date: { $gte: thirtyDaysAgo }
+    }).sort({ date: 1 });
 
-// All admin routes require authentication and admin role
-router.use(protect);
-router.use(authorize('admin'));
+    // 2. Get User Activity Breakdown
+    const totalUsers = await User.countDocuments();
+    
+    // Last activity per type using aggregation for accuracy
+    const lastQuizResult = await User.aggregate([
+      { $match: { 'quizAttempts.0': { $exists: true } } },
+      { $unwind: '$quizAttempts' },
+      { $sort: { 'quizAttempts.attemptedAt': -1 } },
+      { $limit: 1 },
+      { $project: { username: 1, attempt: '$quizAttempts' } }
+    ]);
+    const lastQuiz = lastQuizResult[0];
+
+    const lastExamResult = await User.aggregate([
+      { $match: { 'examAttempts.0': { $exists: true } } },
+      { $unwind: '$examAttempts' },
+      { $sort: { 'examAttempts.attemptedAt': -1 } },
+      { $limit: 1 },
+      { $project: { username: 1, attempt: '$examAttempts' } }
+    ]);
+    const lastExam = lastExamResult[0];
+
+    const lastCAResult = await User.aggregate([
+      { $match: { 'caAttempts.0': { $exists: true } } },
+      { $unwind: '$caAttempts' },
+      { $sort: { 'caAttempts.attemptedAt': -1 } },
+      { $limit: 1 },
+      { $project: { username: 1, attempt: '$caAttempts' } }
+    ]);
+    const lastCA = lastCAResult[0];
+
+    const lastChapterResult = await User.aggregate([
+      { $match: { 'completedChapters.0': { $exists: true } } },
+      { $unwind: '$completedChapters' },
+      { $sort: { 'completedChapters.completedAt': -1 } },
+      { $limit: 1 },
+      { $project: { username: 1, attempt: '$completedChapters' } }
+    ]);
+    const lastChapter = lastChapterResult[0];
+
+    // 3. Sponsorship Metrics
+    // Engagement: Average completions per user
+    const totalCompletionsResult = await User.aggregate([
+      {
+        $project: {
+          total: {
+            $add: [
+              { $size: { $ifNull: ['$quizAttempts', []] } },
+              { $size: { $ifNull: ['$examAttempts', []] } },
+              { $size: { $ifNull: ['$caAttempts', []] } },
+              { $size: { $ifNull: ['$completedChapters', []] } }
+            ]
+          }
+        }
+      },
+      {
+        $group: {
+          _id: null,
+          avgCompletions: { $avg: '$total' },
+          totalCompletions: { $sum: '$total' }
+        }
+      }
+    ]);
+
+    const engagement = totalCompletionsResult[0] || { avgCompletions: 0, totalCompletions: 0 };
+
+    // Growth: Users joined in last 7 days vs previous 7 days
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const fourteenDaysAgo = new Date();
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
+
+    const newUsersLast7 = await User.countDocuments({ createdAt: { $gte: sevenDaysAgo } });
+    const newUsersPrev7 = await User.countDocuments({ 
+      createdAt: { $gte: fourteenDaysAgo, $lt: sevenDaysAgo } 
+    });
+
+    const growthRate = newUsersPrev7 === 0 ? 100 : ((newUsersLast7 - newUsersPrev7) / newUsersPrev7) * 100;
+
+    // 4. Usage Frequency (Active users per day of week)
+    const activeUsersByDay = await User.aggregate([
+      {
+        $match: { lastLogin: { $gte: thirtyDaysAgo } }
+      },
+      {
+        $group: {
+          _id: { $dayOfWeek: '$lastLogin' },
+          count: { $sum: 1 }
+        }
+      },
+      { $sort: { _id: 1 } }
+    ]);
+
+    res.json({
+      success: true,
+      data: {
+        traffic: dailyStats.map(s => ({
+          date: s.date,
+          visitors: s.visitors,
+          uniqueVisitors: s.uniqueVisitors.length,
+          completions: s.quizCompletions + s.examCompletions + s.caCompletions + s.chapterCompletions
+        })),
+        lastActivities: {
+          quiz: lastQuiz ? {
+            username: lastQuiz.username,
+            at: lastQuiz.attempt.attemptedAt
+          } : null,
+          exam: lastExam ? {
+            username: lastExam.username,
+            at: lastExam.attempt.attemptedAt
+          } : null,
+          ca: lastCA ? {
+            username: lastCA.username,
+            at: lastCA.attempt.attemptedAt
+          } : null,
+          chapter: lastChapter ? {
+            username: lastChapter.username,
+            at: lastChapter.attempt.completedAt
+          } : null
+        },
+        sponsorship: {
+          totalUsers,
+          avgEngagement: Math.round(engagement.avgCompletions * 10) / 10,
+          totalInteractions: engagement.totalCompletions,
+          growthRate: Math.round(growthRate),
+          retentionRate: 85 // Mocked for now or calculate from lastLogin
+        },
+        activeUsersByDay: activeUsersByDay.map(d => ({
+          day: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][d._id - 1],
+          users: d.count
+        }))
+      }
+    });
+  } catch (error) {
+    console.error('Detailed stats error:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
 
 // @route   GET /api/admin/users
 // @desc    Get all users with pagination and filters

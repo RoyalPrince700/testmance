@@ -17,9 +17,9 @@ export const chapter9Content = {
             causing harm, death, and economic losses worldwide. Understanding this menace is crucial for
             healthcare professionals and consumers alike.
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Counterfeit medicines are one of the fastest growing grey economies after prostitution,
               narcotics, terrorism, and arms trade, with global sales reaching billions annually!
             </p>
@@ -84,13 +84,13 @@ export const chapter9Content = {
             This unit focuses on the threats of counterfeit drugs to humanity. We have two main sections:
           </p>
           <div class="grid md:grid-cols-2 gap-4 my-6">
-            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-2">1️⃣ Drugs and Counterfeit Drugs</h4>
-              <p class="text-blue-800">Understanding definitions and concepts</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">1️⃣ Drugs and Counterfeit Drugs</h4>
+              <p class="text-blue-800 dark:text-blue-200">Understanding definitions and concepts</p>
             </div>
-            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-2">2️⃣ Implications and Anti-Counterfeit Measures</h4>
-              <p class="text-green-800">Consequences and solutions</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-2">2️⃣ Implications and Anti-Counterfeit Measures</h4>
+              <p class="text-green-800 dark:text-green-200">Consequences and solutions</p>
             </div>
           </div>
         </div>
@@ -133,9 +133,9 @@ export const chapter9Content = {
             the Active Pharmaceutical Ingredient (API) that produces a pharmacological activity.
           </p>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-3">Official Definition:</h4>
-            <p class="text-gray-700 leading-relaxed">
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Official Definition:</h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
               Drug is any substance or mixture of substances manufactured, sold or advertised for use by man
               or animal for the purposes of diagnosis, treatment, mitigation or prevention of any disease or
               disorder, abnormal physical state or symptoms thereof, restoration, correction or modification
@@ -144,9 +144,9 @@ export const chapter9Content = {
             </p>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">⚠️ Important Distinction</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">⚠️ Important Distinction</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               The term "medicines" is used instead of "drugs" to describe pharmaceutical preparations used in
               clinical health care practice. The word "drugs" is frequently associated with narcotic or illicit substances.
             </p>
@@ -167,57 +167,57 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-4 my-6">
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-2">🌍 WHO Definition</h4>
-              <p class="text-red-800">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-2">🌍 WHO Definition</h4>
+              <p class="text-red-800 dark:text-red-200">
                 A counterfeit medicine is one which is <strong>deliberately and fraudulently mislabeled</strong>
                 with respect to identity and/or source. Counterfeiting can apply to both branded and generic products.
               </p>
-              <p class="text-red-800 text-sm mt-2">
+              <p class="text-red-800 dark:text-red-200 text-sm mt-2">
                 <em>Source: World Health Organization (WHO, 2003a)</em>
               </p>
             </div>
 
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-2">🇺🇸 US Federal Definition</h4>
-              <p class="text-blue-800">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">🇺🇸 US Federal Definition</h4>
+              <p class="text-blue-800 dark:text-blue-200">
                 A drug which, or the containers or labeling of which, without authorization, bears the trademark,
                 trade name, or other identifying mark of a manufacturer other than the actual manufacturer.
               </p>
-              <p class="text-blue-800 text-sm mt-2">
+              <p class="text-blue-800 dark:text-blue-200 text-sm mt-2">
                 <em>Source: United States Federal Food, Drug & Cosmetics Act</em>
               </p>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-2">🇵🇭 Philippines Definition</h4>
-              <p class="text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-2">🇵🇭 Philippines Definition</h4>
+              <p class="text-green-800 dark:text-green-200">
                 Medicinal products with correct ingredients but not in the amounts provided, wrong ingredients,
                 without active ingredients, with insufficient quantity of active ingredients, resulting in
                 reduction of drug's safety, efficacy, quality, strength or purity.
               </p>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-2">🇳🇬 Nigerian Definition</h4>
-              <p class="text-purple-800">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-2">🇳🇬 Nigerian Definition</h4>
+              <p class="text-purple-800 dark:text-purple-200">
                 Any drug product which is not what it purports to be; any drug or drug product which is so colored,
                 coated, powdered or polished that the damage is concealed; or any drug product whose label does not
                 bear adequate directions for use and such adequate warning against unsafe dosage.
               </p>
-              <p class="text-purple-800 text-sm mt-2">
+              <p class="text-purple-800 dark:text-purple-200 text-sm mt-2">
                 <em>Source: Nigerian Counterfeit and Fake Drugs Decree</em>
               </p>
             </div>
           </div>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-3">🔬 Related Terms:</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3">🔬 Related Terms:</h4>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Substandard Medicines:</strong> Genuine medicines that don't meet quality specifications
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Adulterated Medicines:</strong> Medicines that don't conform to Good Manufacturing Practice
               </div>
             </div>
@@ -236,8 +236,8 @@ export const chapter9Content = {
             Counterfeit medicines can be classified "mathematically" based on their composition and packaging:
           </p>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4">Counterfeit Medicine Combinations:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4">Counterfeit Medicine Combinations:</h4>
             <div class="space-y-3 text-sm">
               <div class="flex items-start">
                 <span class="text-red-500 mr-3 font-bold">•</span>
@@ -262,9 +262,9 @@ export const chapter9Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">📈 Genuine Medicine</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">📈 Genuine Medicine</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Genuine packaging + correct quantity of correct ingredient + sanitary facility and processing (cGMP) = genuine medicine
             </p>
           </div>
@@ -283,8 +283,8 @@ export const chapter9Content = {
             and developing countries. The true extent is not fully known due to lack of global studies.
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-red-900 mb-4">🚨 Global Statistics:</h4>
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">🚨 Global Statistics:</h4>
             <div class="space-y-3">
               <div class="flex items-start">
                 <span class="text-red-600 mr-3 font-bold">📊</span>
@@ -302,9 +302,9 @@ export const chapter9Content = {
           </div>
 
           <div class="grid md:grid-cols-2 gap-4 my-6">
-            <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-200">
-              <h4 class="font-bold text-yellow-900 mb-3">🦠 Health Impact</h4>
-              <ul class="space-y-2 text-yellow-800 text-sm">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-lg border border-yellow-200">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">🦠 Health Impact</h4>
+              <ul class="space-y-2 text-yellow-800 dark:text-yellow-200 text-sm">
                 <li>• Up to 40% of artesunate products contain no active ingredients</li>
                 <li>• 60% of WHO database cases had no active ingredient</li>
                 <li>• HIV/AIDS treatment counterfeiting discovered in 2002</li>
@@ -321,19 +321,19 @@ export const chapter9Content = {
             </div>
           </div>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-4">🌐 Regional Impact:</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4">🌐 Regional Impact:</h4>
             <div class="grid md:grid-cols-2 gap-4">
-              <div class="bg-white p-4 rounded">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <strong>India:</strong> 13-30% of pharmaceutical market
               </div>
-              <div class="bg-white p-4 rounded">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <strong>Nigeria:</strong> 70% of drugs in circulation (2002)
               </div>
-              <div class="bg-white p-4 rounded">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <strong>China:</strong> Major exporter of counterfeits
               </div>
-              <div class="bg-white p-4 rounded">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded">
                 <strong>Angola:</strong> 70% of medicines were forgeries
               </div>
             </div>
@@ -353,19 +353,19 @@ export const chapter9Content = {
           </p>
 
           <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Points:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Points:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">💊 Drug Definition</h5>
-                <p class="text-gray-700 text-sm">A single chemical substance forming the active ingredient of medicine (API)</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">💊 Drug Definition</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">A single chemical substance forming the active ingredient of medicine (API)</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🚫 Counterfeit Medicine</h5>
-                <p class="text-gray-700 text-sm">Deliberately and fraudulently mislabeled medicine with respect to identity/source</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🚫 Counterfeit Medicine</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Deliberately and fraudulently mislabeled medicine with respect to identity/source</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">🌍 Global Burden</h5>
-                <p class="text-gray-700 text-sm">10% of pharmaceutical trade, causing deaths, drug resistance, and economic losses</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">🌍 Global Burden</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">10% of pharmaceutical trade, causing deaths, drug resistance, and economic losses</p>
               </div>
             </div>
           </div>
@@ -386,17 +386,17 @@ export const chapter9Content = {
           </p>
 
           <div class="grid md:grid-cols-3 gap-4 my-6">
-            <div class="bg-red-50 p-4 rounded-lg border border-red-200 text-center">
+            <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 text-center">
               <div class="text-3xl mb-2">⚠️</div>
-              <h4 class="font-bold text-red-900 mb-2">Factors Encouraging Counterfeiting</h4>
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-2">Factors Encouraging Counterfeiting</h4>
             </div>
             <div class="bg-orange-50 p-4 rounded-lg border border-orange-200 text-center">
               <div class="text-3xl mb-2">💥</div>
               <h4 class="font-bold text-orange-900 mb-2">Implications</h4>
             </div>
-            <div class="bg-green-50 p-4 rounded-lg border border-green-200 text-center">
+            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800 text-center">
               <div class="text-3xl mb-2">🛡️</div>
-              <h4 class="font-bold text-green-900 mb-2">Anti-Counterfeit Measures</h4>
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-2">Anti-Counterfeit Measures</h4>
             </div>
           </div>
         </div>
@@ -440,9 +440,9 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-4 my-6">
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3">⚖️ Weak Enforcement</h4>
-              <p class="text-red-800">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">⚖️ Weak Enforcement</h4>
+              <p class="text-red-800 dark:text-red-200">
                 Lack of or weak enforcement of existing laws on quality, safety, and efficacy of medicines.
                 Offenders are not afraid of arrest and prosecution.
               </p>
@@ -456,37 +456,37 @@ export const chapter9Content = {
               </p>
             </div>
 
-            <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-3">🏥 Weak Drug Regulation</h4>
-              <p class="text-yellow-800">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">🏥 Weak Drug Regulation</h4>
+              <p class="text-yellow-800 dark:text-yellow-200">
                 Absence of competent national drug regulatory authorities with adequate human and financial resources.
               </p>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">🤝 Corruption & Conflict</h4>
-              <p class="text-purple-800">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🤝 Corruption & Conflict</h4>
+              <p class="text-purple-800 dark:text-purple-200">
                 Corruption and conflict of interest adversely affect enforcement of laws prohibiting counterfeiting.
               </p>
             </div>
 
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">💰 High Profits</h4>
-              <p class="text-blue-800">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">💰 High Profits</h4>
+              <p class="text-blue-800 dark:text-blue-200">
                 Low cost of manufacture combined with high demand results in significantly high profits.
               </p>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🤝 Lack of Cooperation</h4>
-              <p class="text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🤝 Lack of Cooperation</h4>
+              <p class="text-green-800 dark:text-green-200">
                 Lack of cooperation between stakeholders allows counterfeiters to escape detection and prosecution.
               </p>
             </div>
 
-            <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
-              <h4 class="font-bold text-indigo-900 mb-3">🌐 Free Trade Zones</h4>
-              <p class="text-indigo-800">
+            <div class="bg-indigo-50 dark:bg-indigo-900/20 p-5 rounded-lg border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400">
+              <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3">🌐 Free Trade Zones</h4>
+              <p class="text-indigo-800 dark:text-indigo-200">
                 Lack of control by exporting countries and within free trade zones where drug regulation is lax.
               </p>
             </div>
@@ -498,15 +498,15 @@ export const chapter9Content = {
               </p>
             </div>
 
-            <div class="bg-teal-50 p-5 rounded-lg border-l-4 border-teal-500">
-              <h4 class="font-bold text-teal-900 mb-3">💸 Poverty</h4>
-              <p class="text-teal-800">
+            <div class="bg-teal-50 dark:bg-teal-900/20 p-5 rounded-lg border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400">
+              <h4 class="font-bold text-teal-900 dark:text-teal-100 mb-3">💸 Poverty</h4>
+              <p class="text-teal-800 dark:text-teal-200">
                 Poverty drives people to seek cheaper medicines, often from unregulated outlets where counterfeits are common.
               </p>
             </div>
 
-            <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-gray-500">
-              <h4 class="font-bold text-gray-900 mb-3">🔬 Low Testing Facilities</h4>
+            <div class="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg border-l-4 border-gray-500">
+              <h4 class="font-bold text-gray-900 dark:text-white mb-3">🔬 Low Testing Facilities</h4>
               <p class="text-gray-800">
                 Lack of testing facilities makes detection of counterfeit medicines difficult, emboldening offenders.
               </p>
@@ -527,22 +527,22 @@ export const chapter9Content = {
             and entire nations. Let's examine these serious consequences:
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-red-900 mb-4">🏥 Public Health Crisis</h4>
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">🏥 Public Health Crisis</h4>
             <div class="space-y-3">
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Drug Resistance:</strong> Ineffective treatment leads to microbial resistance
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Obsolescence:</strong> Cheap effective drugs become useless
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Adverse Reactions:</strong> Unexpected side effects and toxicity
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Morbidity & Mortality:</strong> Increased illness and death rates
               </div>
-              <div class="bg-white p-3 rounded">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
                 <strong>Loss of Confidence:</strong> In healthcare systems and professionals
               </div>
             </div>
@@ -555,29 +555,29 @@ export const chapter9Content = {
                 Profits from counterfeit medicines fund organized criminal and terrorist operations globally.
               </p>
             </div>
-            <div class="bg-blue-50 p-5 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-3">💰 Negative Economic Impact</h4>
-              <p class="text-blue-800 text-sm">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">💰 Negative Economic Impact</h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">
                 Huge financial wastage, loss of productivity, increased hospital stays, and tax revenue losses.
               </p>
             </div>
           </div>
 
-          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-            <p class="font-semibold text-purple-900 mb-2">⚖️ Intellectual Property Violations</p>
-            <p class="text-purple-800">
+          <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 p-4 my-4">
+            <p class="font-semibold text-purple-900 dark:text-purple-100 mb-2">⚖️ Intellectual Property Violations</p>
+            <p class="text-purple-800 dark:text-purple-200">
               Counterfeiting violates intellectual property rights, including patents and industrial design,
               affecting trademark owners and legitimate manufacturers.
             </p>
           </div>
 
-          <div class="bg-yellow-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-yellow-900 mb-4">📊 Case Study: Heparin Contamination (2008)</h4>
-            <p class="text-yellow-800 mb-3">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-4">📊 Case Study: Heparin Contamination (2008)</h4>
+            <p class="text-yellow-800 dark:text-yellow-200 mb-3">
               Counterfeit heparin contaminated with oversulfated chondroitin sulfate caused severe allergic
               reactions. The FDA documented 81 deaths and about 600 allergic reactions linked to the tainted drug.
             </p>
-            <p class="text-yellow-800 text-sm italic">
+            <p class="text-yellow-800 dark:text-yellow-200 text-sm italic">
               This case illustrates how counterfeit medicines can cause complex health crises through treatment
               failure, adverse reactions, and loss of confidence in healthcare systems.
             </p>
@@ -598,20 +598,20 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-4 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">📦 Tamper-Evident/Tamper-Resistant Packing</h4>
-              <p class="text-blue-800">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">📦 Tamper-Evident/Tamper-Resistant Packing</h4>
+              <p class="text-blue-800 dark:text-blue-200">
                 Packaging with indicators that provide visible evidence when tampered with. Examples include
                 blister packs, shrink seals, and breakable caps.
               </p>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🌈 Holograms</h4>
-              <p class="text-green-800 mb-3">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🌈 Holograms</h4>
+              <p class="text-green-800 dark:text-green-200 mb-3">
                 Security features combining overt, covert, and forensic elements. Includes:
               </p>
-              <ul class="space-y-1 text-green-800 text-sm ml-4">
+              <ul class="space-y-1 text-green-800 dark:text-green-200 text-sm ml-4">
                 <li>• Overt features (visible)</li>
                 <li>• Covert features (require special tools)</li>
                 <li>• Forensic features (destructible)</li>
@@ -619,20 +619,20 @@ export const chapter9Content = {
               </ul>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">📱 mPedigree (Mobile Authentication)</h4>
-              <p class="text-purple-800 mb-3">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">📱 mPedigree (Mobile Authentication)</h4>
+              <p class="text-purple-800 dark:text-purple-200 mb-3">
                 A track-and-trace system using mobile phones for authentication:
               </p>
-              <div class="bg-white p-3 rounded mt-2">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded mt-2">
                 <p class="font-semibold mb-2 text-sm">How it works:</p>
-                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700">
+                <ol class="list-decimal list-inside space-y-1 text-sm text-gray-700 dark:text-gray-300">
                   <li>Scratch distinctive panel to reveal PIN</li>
                   <li>Text PIN to 38353</li>
                   <li>Receive SMS response (genuine or counterfeit)</li>
                 </ol>
               </div>
-              <p class="text-purple-800 text-sm mt-2 italic">
+              <p class="text-purple-800 dark:text-purple-200 text-sm mt-2 italic">
                 Incorporated into Nigeria's national quality assurance standards by NAFDAC
               </p>
             </div>
@@ -652,27 +652,27 @@ export const chapter9Content = {
             techniques can identify even the slightest differences in formulation.
           </p>
 
-          <div class="bg-indigo-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-indigo-900 mb-4">🧪 Key Analytical Methods:</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-4">🧪 Key Analytical Methods:</h4>
             <div class="grid md:grid-cols-2 gap-3">
-              <div class="bg-white p-3 rounded">High Performance Liquid Chromatography (HPLC)</div>
-              <div class="bg-white p-3 rounded">Gas Chromatography (GC)</div>
-              <div class="bg-white p-3 rounded">Thin-Layer Chromatography (TLC)</div>
-              <div class="bg-white p-3 rounded">Colorimetry</div>
-              <div class="bg-white p-3 rounded">Optical Spectroscopy</div>
-              <div class="bg-white p-3 rounded">Near-Infrared (NIR) Spectroscopy</div>
-              <div class="bg-white p-3 rounded">Raman Spectroscopy</div>
-              <div class="bg-white p-3 rounded">Isotopic Characterization</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">High Performance Liquid Chromatography (HPLC)</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Gas Chromatography (GC)</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Thin-Layer Chromatography (TLC)</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Colorimetry</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Optical Spectroscopy</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Near-Infrared (NIR) Spectroscopy</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Raman Spectroscopy</div>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">Isotopic Characterization</div>
             </div>
           </div>
 
-          <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500 my-4">
-            <h4 class="font-bold text-green-900 mb-3">📱 TruScan Raman Spectrometer (Nigeria)</h4>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">📱 TruScan Raman Spectrometer (Nigeria)</h4>
+            <p class="text-green-800 dark:text-green-200">
               Used by NAFDAC to detect counterfeit medicines. It identifies the slightest difference in medicine
               formulation and provides a clear "pass" or "fail" reading within seconds of use.
             </p>
-            <p class="text-green-800 text-sm mt-2">
+            <p class="text-green-800 dark:text-green-200 text-sm mt-2">
               <strong>How it works:</strong> Uses interaction between light and molecular bonds to create unique
               chemical fingerprints for each compound.
             </p>
@@ -693,9 +693,9 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-4 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🏛️ Policy and Legislation</h4>
-              <ul class="space-y-2 text-blue-800 text-sm">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🏛️ Policy and Legislation</h4>
+              <ul class="space-y-2 text-blue-800 dark:text-blue-200 text-sm">
                 <li>• Develop appropriate medicines policy options</li>
                 <li>• Enact new laws or update existing drug laws</li>
                 <li>• Establish competent drug regulatory institutions</li>
@@ -704,9 +704,9 @@ export const chapter9Content = {
               </ul>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🤝 International Cooperation</h4>
-              <ul class="space-y-2 text-green-800 text-sm">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🤝 International Cooperation</h4>
+              <ul class="space-y-2 text-green-800 dark:text-green-200 text-sm">
                 <li>• Foster international cooperation</li>
                 <li>• Enter bilateral and multilateral agreements</li>
                 <li>• Work with WHO, Interpol, and WCO</li>
@@ -715,9 +715,9 @@ export const chapter9Content = {
               </ul>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500">
-              <h4 class="font-bold text-purple-900 mb-3">👥 Stakeholder Engagement</h4>
-              <ul class="space-y-2 text-purple-800 text-sm">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">👥 Stakeholder Engagement</h4>
+              <ul class="space-y-2 text-purple-800 dark:text-purple-200 text-sm">
                 <li>• Education and information campaigns</li>
                 <li>• Training for enforcement officers</li>
                 <li>• NGO and CBO involvement</li>
@@ -753,30 +753,30 @@ export const chapter9Content = {
           </p>
 
           <div class="bg-gradient-to-r from-red-50 to-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-red-700 mb-2">⚠️ Implications</h5>
-                <p class="text-gray-700 text-sm">Public health crisis, national security threat, economic losses, and IP violations</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">⚠️ Implications</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Public health crisis, national security threat, economic losses, and IP violations</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🔍 Contributing Factors</h5>
-                <p class="text-gray-700 text-sm">Weak enforcement, corruption, high profits, poverty, and lack of cooperation</p>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Weak enforcement, corruption, high profits, poverty, and lack of cooperation</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🛡️ Anti-Counterfeit Measures</h5>
-                <p class="text-gray-700 text-sm">Tamper-evident packaging, holograms, mPedigree, and analytical methods</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🛡️ Anti-Counterfeit Measures</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Tamper-evident packaging, holograms, mPedigree, and analytical methods</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">💡 Solutions</h5>
-                <p class="text-gray-700 text-sm">Policy reforms, international cooperation, education, and technology investment</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">💡 Solutions</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Policy reforms, international cooperation, education, and technology investment</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Remember</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Remember</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Combating counterfeit medicines is a <strong>shared responsibility</strong>. No action today means
               no solution tomorrow!
             </p>
@@ -796,21 +796,21 @@ export const chapter9Content = {
             Let's recap what we've covered:
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">📚 Complete Chapter Overview:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">📚 Complete Chapter Overview:</h4>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">💊 Unit 1: Drugs and Counterfeit Drugs</h5>
-                <p class="text-gray-700 text-sm">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">💊 Unit 1: Drugs and Counterfeit Drugs</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">
                   • Definition of drugs and medicines<br>
                   • Multiple definitions of counterfeit medicines (WHO, US, Philippines, Nigeria)<br>
                   • Mathematical classification of counterfeit types<br>
                   • Global magnitude and burden (10% of pharmaceutical trade, billions in losses)
                 </p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🛡️ Unit 2: Implications and Solutions</h5>
-                <p class="text-gray-700 text-sm">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🛡️ Unit 2: Implications and Solutions</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">
                   • 10 factors encouraging counterfeiting<br>
                   • 5 major implications (health crisis, security threat, economic impact, IP violations)<br>
                   • Anti-counterfeit measures (packaging, holograms, mPedigree, analytical methods)<br>
@@ -820,18 +820,18 @@ export const chapter9Content = {
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">🌟 Key Message</p>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">🌟 Key Message</p>
+            <p class="text-green-800 dark:text-green-200">
               Counterfeit medicines cause serious public health crises and threaten national and international
               security. They create negative economic impacts and violate intellectual property rights.
               <strong>We must take positive actions today to combat this menace!</strong>
             </p>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Next Steps</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Next Steps</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Use your knowledge to identify counterfeit medicines, support genuine pharmaceutical practices,
               and advocate for stronger drug regulation. Your awareness can save lives! 💪
             </p>
@@ -851,25 +851,25 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border border-blue-200">
-              <h4 class="font-bold text-blue-900 mb-3">I. Define Drug</h4>
-              <p class="text-blue-800 text-sm">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">I. Define Drug</h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">
                 Provide a comprehensive definition of what constitutes a drug, including its components
                 and purposes.
               </p>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">II. Give 3 definitions of counterfeit medicine</h4>
-              <p class="text-green-800 text-sm">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">II. Give 3 definitions of counterfeit medicine</h4>
+              <p class="text-green-800 dark:text-green-200 text-sm">
                 Provide definitions from at least three different authoritative sources (e.g., WHO, US FDA,
                 Nigerian law).
               </p>
             </div>
 
-            <div class="bg-purple-50 p-5 rounded-lg border border-purple-200">
-              <h4 class="font-bold text-purple-900 mb-3">III. Give brief description of the magnitude of counterfeit medicine</h4>
-              <p class="text-purple-800 text-sm">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border border-purple-200 dark:border-purple-800">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">III. Give brief description of the magnitude of counterfeit medicine</h4>
+              <p class="text-purple-800 dark:text-purple-200 text-sm">
                 Describe the global scale, economic impact, health consequences, and regional variations
                 in counterfeit medicine prevalence.
               </p>
@@ -890,9 +890,9 @@ export const chapter9Content = {
           </p>
 
           <div class="space-y-6 my-6">
-            <div class="bg-red-50 p-5 rounded-lg border border-red-200">
-              <h4 class="font-bold text-red-900 mb-3">I. Give global description of counterfeit drug</h4>
-              <p class="text-red-800 text-sm">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border border-red-200">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">I. Give global description of counterfeit drug</h4>
+              <p class="text-red-800 dark:text-red-200 text-sm">
                 Provide a comprehensive global overview of counterfeit drugs, including definitions,
                 prevalence, impacts, and international efforts to combat them.
               </p>

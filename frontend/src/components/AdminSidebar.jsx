@@ -76,17 +76,17 @@ const AdminSidebar = ({ onCollapseChange }) => {
   ];
 
   return (
-    <div className={`fixed left-0 top-16 z-40 h-[calc(100vh-4rem)] bg-white border-r border-gray-200 flex flex-col transition-all duration-300 ease-in-out ${
+    <div className={`fixed left-0 top-16 z-40 h-[calc(100vh-4rem)] bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col transition-all duration-300 ease-in-out ${
       isCollapsed ? 'w-16' : 'w-64'
     }`}>
       {/* Header with Collapse Button */}
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between">
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
         {!isCollapsed && (
           <Link to="/admin/dashboard" className="flex items-center space-x-2 flex-1">
             <Shield className="h-8 w-8 text-purple-600 flex-shrink-0" />
             <div className="min-w-0 flex-1">
-              <h1 className="text-xl font-bold text-gray-900 truncate">Admin Panel</h1>
-              <p className="text-sm text-gray-500 truncate">TestMancer</p>
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white truncate">Admin Panel</h1>
+              <p className="text-sm text-gray-500 dark:text-gray-400 truncate">TestMancer</p>
             </div>
           </Link>
         )}
@@ -95,12 +95,12 @@ const AdminSidebar = ({ onCollapseChange }) => {
         )}
         <button
           onClick={toggleCollapse}
-          className={`p-1 rounded-md hover:bg-gray-100 transition-colors flex-shrink-0 ${
+          className={`p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex-shrink-0 ${
             isCollapsed ? 'mx-auto' : ''
           }`}
           title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
-          <ArrowLeft className={`h-5 w-5 text-gray-500 transition-transform duration-300 ${
+          <ArrowLeft className={`h-5 w-5 text-gray-500 dark:text-gray-400 transition-transform duration-300 ${
             isCollapsed ? 'rotate-180' : ''
           }`} />
         </button>
@@ -108,7 +108,7 @@ const AdminSidebar = ({ onCollapseChange }) => {
 
       {/* User Info */}
       {user && (
-        <div className={`p-4 border-b border-gray-200 ${isCollapsed ? 'flex justify-center' : ''}`}>
+        <div className={`p-4 border-b border-gray-200 dark:border-gray-700 ${isCollapsed ? 'flex justify-center' : ''}`}>
           {isCollapsed ? (
             <img
               src={getAvatarSrc(user.avatar)}
@@ -124,8 +124,8 @@ const AdminSidebar = ({ onCollapseChange }) => {
                 className="h-10 w-10 rounded-full border-2 border-purple-200 object-cover"
               />
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-gray-900 truncate">{user.username}</p>
-                <p className="text-sm text-gray-500">{user.isAdmin ? 'Administrator' : 'User'}</p>
+                <p className="font-semibold text-gray-900 dark:text-white truncate">{user.username}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{user.isAdmin ? 'Administrator' : 'User'}</p>
               </div>
             </div>
           )}
@@ -145,25 +145,25 @@ const AdminSidebar = ({ onCollapseChange }) => {
                 to={item.path}
                 className={`group flex items-center ${isCollapsed ? 'justify-center px-3 py-3' : 'px-3 py-3'} rounded-lg transition-colors ${
                   active
-                    ? 'bg-purple-50 text-purple-700 border-r-2 border-purple-600'
-                    : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border-r-2 border-purple-600'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
                 }`}
                 title={isCollapsed ? item.label : undefined}
               >
                 <Icon className={`h-5 w-5 flex-shrink-0 ${
                   isCollapsed ? '' : 'mr-3'
                 } ${
-                  active ? 'text-purple-600' : 'text-gray-400 group-hover:text-gray-600'
+                  active ? 'text-purple-600 dark:text-purple-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300'
                 }`} />
                 {!isCollapsed && (
                   <div className="flex-1 min-w-0">
                     <p className={`font-medium truncate ${
-                      active ? 'text-purple-700' : 'text-gray-900'
+                      active ? 'text-purple-700 dark:text-purple-300' : 'text-gray-900 dark:text-white'
                     }`}>
                       {item.label}
                     </p>
                     <p className={`text-xs truncate ${
-                      active ? 'text-purple-500' : 'text-gray-500'
+                      active ? 'text-purple-500 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400'
                     }`}>
                       {item.description}
                     </p>
@@ -176,10 +176,10 @@ const AdminSidebar = ({ onCollapseChange }) => {
       </nav>
 
       {/* Footer */}
-      <div className={`p-4 border-t border-gray-200 ${isCollapsed ? 'flex flex-col items-center space-y-2' : ''}`}>
+      <div className={`p-4 border-t border-gray-200 dark:border-gray-700 ${isCollapsed ? 'flex flex-col items-center space-y-2' : ''}`}>
         <Link
           to="/dashboard"
-          className={`flex items-center ${isCollapsed ? 'justify-center px-3 py-3' : 'px-3 py-2'} text-gray-700 hover:bg-gray-50 rounded-lg transition-colors ${
+          className={`flex items-center ${isCollapsed ? 'justify-center px-3 py-3' : 'px-3 py-2'} text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-colors ${
             isCollapsed ? '' : 'mb-2'
           }`}
           title={isCollapsed ? 'Back to User Dashboard' : undefined}
@@ -189,7 +189,7 @@ const AdminSidebar = ({ onCollapseChange }) => {
         </Link>
         <button
           onClick={logout}
-          className={`flex items-center ${isCollapsed ? 'justify-center px-3 py-3' : 'w-full px-3 py-2'} text-red-600 hover:bg-red-50 rounded-lg transition-colors`}
+          className={`flex items-center ${isCollapsed ? 'justify-center px-3 py-3' : 'w-full px-3 py-2'} text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors`}
           title={isCollapsed ? 'Logout' : undefined}
         >
           <LogOut className="h-4 w-4 flex-shrink-0" />

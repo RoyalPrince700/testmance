@@ -28,6 +28,11 @@ const questionSchema = new mongoose.Schema({
   timeLimit: {
     type: Number, // in seconds, 0 means no limit
     default: 0
+  },
+  difficulty: {
+    type: String,
+    enum: ['easy', 'medium', 'difficult'],
+    default: 'medium'
   }
 });
 

@@ -19,7 +19,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Grammatical words are also known as function words, as they serve grammatical functions rather than carrying specific meaning.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary role of grammatical words in sentences?',
@@ -31,7 +32,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Grammatical words show grammatical relationships among meaning-giving words in sentences.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of these is NOT a grammatical word?',
@@ -43,7 +45,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A noun is a content word (lexical word), while prepositions, articles, and auxiliary verbs are grammatical words.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What do prepositions link in a sentence?',
@@ -55,7 +58,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Prepositions link nouns, pronouns, or phrases to other words within a sentence, indicating relationships.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of these is a preposition of time?',
@@ -67,7 +71,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'All three - "in", "on", and "at" - can function as prepositions of time, depending on context.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Identify the preposition of place: "The book is _____ the table."',
@@ -79,7 +84,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"On" is a preposition of place indicating location on a surface.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which preposition indicates movement toward something?',
@@ -91,7 +97,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"To" is a preposition of direction indicating movement toward something.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What type of preposition is "with" in: "She ate with a fork"?',
@@ -103,7 +110,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: '"With" in this context is a preposition of manner or instrument, showing how something was done.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is a preposition of cause/reason?',
@@ -115,7 +123,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: '"Because of" is a preposition of cause/reason, while "because" and "since" are conjunctions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What do conjunctions do in sentences?',
@@ -127,7 +136,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Conjunctions are words that join or link words, phrases, or clauses to one another in sentences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is an example of a coordinating conjunction?',
@@ -139,7 +149,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: '"And" is a coordinating conjunction that joins items of equal grammatical status.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is unique about coordinating conjunctions?',
@@ -151,7 +162,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Coordinating conjunctions join items (words, phrases, clauses) of equal grammatical status without subordinating one to another.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which conjunction introduces a subordinating clause?',
@@ -163,7 +175,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: '"Because" is a subordinating conjunction that reduces the status of the clause it introduces.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What happens to a clause introduced by a subordinating conjunction?',
@@ -175,7 +188,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A subordinating conjunction reduces or lowers the status of a clause, making it dependent and incomplete without context.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of these is a correlative conjunction pair?',
@@ -187,7 +201,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"Either...or" is a correlative conjunction pair that works together to connect elements.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What type of article is "the"?',
@@ -199,7 +214,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"The" is the definite article, used to refer to specific nouns known to both speaker and listener.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'When should you use the definite article "the"?',
@@ -211,7 +227,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"The" is used before specific nouns that are known to both encoder and decoder.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which indefinite article should be used before a word starting with a vowel sound?',
@@ -223,7 +240,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"An" is used before words that begin with a vowel sound, like "apple" or "hour".',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are auxiliary verbs also known as?',
@@ -235,7 +253,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Auxiliary verbs are also known as helping verbs because they help main verbs achieve grammatical correctness.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is an auxiliary verb?',
@@ -247,7 +266,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: '"Will" is an auxiliary verb that helps the main verb express future tense.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary function of auxiliary verbs?',
@@ -259,7 +279,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Auxiliary verbs help main verbs with additional grammatical meaning along the lines of tenses, moods, voices, or questions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What do pronouns do in sentences?',
@@ -271,7 +292,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Pronouns take the place of nouns in sentences to avoid repetition and make sentences more concise.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is a personal pronoun?',
@@ -283,7 +305,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: '"He" is a personal pronoun that refers to a specific person.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What type of pronoun is "myself"?',
@@ -295,7 +318,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"Myself" is a reflexive pronoun used when the subject and object of a sentence are the same.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which pronoun type is used for emphasis?',
@@ -307,7 +331,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Emphatic pronouns are used to emphasize that a particular entity performed an action.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What do demonstrative pronouns do?',
@@ -319,7 +344,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Demonstrative pronouns (this, that, these, those) point to specific things or people.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is an interrogative pronoun?',
@@ -331,7 +357,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '"Who" is an interrogative pronoun used to ask questions about unknown persons.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What type of pronoun connects clauses or phrases to nouns?',
@@ -343,7 +370,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Relative pronouns (who, which, that, etc.) connect clauses or phrases to nouns.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which pronoun type refers to non-specific persons or things?',
@@ -355,7 +383,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Indefinite pronouns (anyone, everybody, someone, etc.) refer to non-specific persons or things.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What do reciprocal pronouns express?',
@@ -367,7 +396,8 @@ export const gst111Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Reciprocal pronouns (each other, one another) express mutual actions or relationships between entities.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     }
   ]
 };

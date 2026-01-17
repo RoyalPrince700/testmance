@@ -19,7 +19,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The ozone layer in the stratosphere absorbs harmful UV radiation, protecting life on Earth from its damaging effects.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which atmospheric layer contains 75% of the atmospheric mass and is where weather occurs?',
@@ -31,7 +32,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The troposphere extends from 0-10 km and contains 75% of atmospheric mass. All weather phenomena occur in this layer.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the four major interconnected environmental realms mentioned in the chapter?',
@@ -43,7 +45,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The four major environmental realms are lithosphere (Earth\'s crust), hydrosphere (water bodies), biosphere (living organisms), and atmosphere (gaseous envelope).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In which atmospheric layer does temperature increase with altitude?',
@@ -55,7 +58,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In the stratosphere (10-50 km), temperature increases with altitude due to the absorption of UV radiation by the ozone layer.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the coldest atmospheric layer where meteors burn up?',
@@ -67,7 +71,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The mesosphere (50-80 km) is the coldest layer where incoming meteors burn up due to friction with atmospheric gases.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which gas makes up approximately 78.09% of the atmospheric composition?',
@@ -79,7 +84,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Nitrogen makes up 78.09% of the atmosphere, followed by oxygen at 20.95% and argon at 0.93%.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the main difference between primary and secondary pollutants?',
@@ -91,7 +97,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Primary pollutants enter the atmosphere directly (like CO, NOx), while secondary pollutants form through chemical reactions in the atmosphere (like ozone, PAN).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which of the following is NOT a classification of pollutants mentioned in the chapter?',
@@ -103,7 +110,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Pollutants are classified by chemical composition, physical state, and origin, but not by color.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What triggers the formation of photochemical smog?',
@@ -115,7 +123,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Photochemical smog forms when sunlight triggers chemical reactions between nitrogen oxides (NOx) and volatile organic compounds (VOCs).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which step in photochemical smog formation involves NO₂ absorbing UV radiation?',
@@ -127,7 +136,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The first step is absorption where NO₂ absorbs UV radiation, leading to the breakdown into NO and atomic oxygen.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary health impact of air pollution according to WHO estimates?',
@@ -139,7 +149,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The World Health Organization estimates that 800,000 people die annually from air pollution effects.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which group is most vulnerable to biomass burning particulates?',
@@ -151,7 +162,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Children and the elderly are most vulnerable to biomass burning particulates as they can penetrate deep into lungs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What percentage of biomass burning in sub-Saharan Africa is caused by human activities?',
@@ -163,7 +175,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'In sub-Saharan Africa, humans are responsible for about 90% of biomass burning through land clearing, agriculture, and cooking.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the largest source of indoor air pollution globally?',
@@ -175,7 +188,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Cooking with solid fuels (wood, dung, coal) is the largest source of indoor air pollution globally.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How much time do people typically spend indoors where air pollution can be 2-5 times higher?',
@@ -187,7 +201,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'People spend about 90% of their time indoors, where air pollution can be 2-5 times higher than outdoors.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the boiling point threshold for compounds to be classified as VOCs?',
@@ -199,7 +214,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Volatile Organic Compounds (VOCs) are organic chemicals with boiling points ≤ 250°C at standard atmospheric pressure.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which VOC is specifically mentioned as carcinogenic in the chapter?',
@@ -211,7 +227,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Benzene is mentioned as a carcinogenic VOC that can cause cancer along with formaldehyde.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary atmospheric function that gets disrupted by pollution?',
@@ -223,7 +240,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The atmosphere maintains Earth\'s temperature through the greenhouse effect, but pollution disrupts this balance.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which atmospheric layer extends from 80 km and above?',
@@ -235,7 +253,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'The thermosphere extends from 80 km and above, containing very hot gases where auroras occur.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // MEDIUM QUESTIONS (Understanding)
     {
@@ -248,7 +267,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In the troposphere, temperature decreases with altitude because warm air rises near the surface and cools as it expands at higher altitudes.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How do trace gases like CO₂ contribute to atmospheric function?',
@@ -260,7 +280,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Trace gases like CO₂, ozone, and other greenhouse gases regulate Earth\'s temperature through the greenhouse effect.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the key difference between natural and anthropogenic pollutant sources?',
@@ -272,7 +293,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Anthropogenic pollutants come from human activities, while natural pollutants come from natural processes like volcanic eruptions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does photochemical smog peak during midday?',
@@ -284,7 +306,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Photochemical smog peaks during midday because sunlight intensity is highest, providing the energy needed for the chemical reactions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What happens to NO levels during photochemical smog formation?',
@@ -296,7 +319,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'During photochemical smog formation, NO decreases while NO₂ and oxidants like ozone increase, creating the characteristic brown haze.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which health effect is NOT typically associated with air pollution exposure?',
@@ -308,7 +332,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Air pollution causes respiratory diseases, cardiovascular problems, and neurological disorders, but does not improve immune function.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes biomass burning particularly concerning in developing regions?',
@@ -320,7 +345,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Biomass burning releases greenhouse gases, particulates, and toxic compounds, making it a major health and climate concern in developing regions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is indoor air pollution a critical concern?',
@@ -332,7 +358,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Indoor air pollution is concerning because concentrations of VOCs can be 100-1000 times higher than outdoors, especially in poorly ventilated spaces.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the relationship between VOCs and photochemical smog?',
@@ -344,7 +371,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'VOCs are key reactants in photochemical smog formation, reacting with nitrogen oxides in the presence of sunlight to create ozone and other oxidants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which indoor pollutant comes from incomplete combustion?',
@@ -356,7 +384,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Carbon monoxide is produced from incomplete combustion of fuels like wood, dung, or coal used for cooking and heating.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the significance of the 800,000 annual deaths from air pollution?',
@@ -368,7 +397,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The 800,000 annual deaths from air pollution indicate it is a major global health crisis and leading cause of preventable deaths.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are children particularly vulnerable to biomass burning emissions?',
@@ -380,7 +410,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Children are particularly vulnerable because they breathe more air per body weight than adults, increasing their exposure to harmful particulates.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main reason for higher pollution levels indoors?',
@@ -392,7 +423,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Indoor pollution is higher due to poor ventilation and concentrated pollutant sources like cooking, smoking, and household products.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How do VOCs contribute to long-term health problems?',
@@ -404,7 +436,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'VOCs like benzene and formaldehyde can cause long-term health problems including cancer, liver and kidney damage, and reproductive problems.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What role does the atmosphere play in climate regulation?',
@@ -416,7 +449,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The atmosphere regulates climate by maintaining Earth\'s temperature through the greenhouse effect using gases like CO₂ and water vapor.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is the stratosphere important for life on Earth?',
@@ -428,7 +462,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The stratosphere is important because it contains the ozone layer that absorbs harmful UV radiation, protecting life on Earth\'s surface.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What makes particulate matter from biomass burning dangerous?',
@@ -440,7 +475,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Particulate matter from biomass burning is dangerous because small particles (PM₁₀, PM₂.₅) can penetrate deep into the lungs, causing serious health problems.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does air pollution affect the cardiovascular system?',
@@ -452,7 +488,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Air pollution contributes to cardiovascular diseases by causing inflammation, increasing blood pressure, and promoting plaque buildup in arteries.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the primary source of nitrogen oxides indoors?',
@@ -464,7 +501,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nitrogen oxides indoors primarily come from gas cooking appliances and tobacco smoke.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     // DIFFICULT QUESTIONS (Analysis/Application)
     {
@@ -477,7 +515,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The mesosphere\'s extremely cold temperatures cause incoming meteors to burn up through friction with atmospheric gases, protecting Earth\'s surface.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the greenhouse effect depend on trace gases rather than major atmospheric components?',
@@ -489,7 +528,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The greenhouse effect depends on trace gases because major components like nitrogen and oxygen don\'t absorb infrared radiation, while trace gases like CO₂ do.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the classification of pollutants by origin (natural vs anthropogenic) help in pollution control?',
@@ -501,7 +541,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Classifying pollutants by origin helps identify anthropogenic sources that can be controlled through policy and technology changes.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is ozone both beneficial in the stratosphere and harmful in the troposphere?',
@@ -513,7 +554,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Ozone in the stratosphere protects by absorbing UV radiation, but in the troposphere it\'s a harmful secondary pollutant formed during photochemical smog.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the diurnal pattern of photochemical smog formation demonstrate atmospheric chemistry principles?',
@@ -525,7 +567,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The midday peak in smog formation demonstrates that sunlight provides the activation energy for photochemical reactions between NOx and VOCs.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why are neurological effects of air pollution particularly concerning for long-term public health?',
@@ -537,7 +580,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Neurological effects are concerning because they can cause permanent cognitive impairment, Alzheimer\'s disease, and other irreversible brain damage.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does biomass burning in sub-Saharan Africa exemplify the interaction between human activity and atmospheric chemistry?',
@@ -549,7 +593,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Biomass burning shows how human land use practices create significant climate forcing through greenhouse gas emissions and particulate matter.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does indoor VOC concentration being 100-1000 times higher than outdoors pose unique health risks?',
@@ -561,7 +606,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'High indoor VOC concentrations are risky because prolonged exposure in confined spaces significantly increases the total toxic dose individuals receive.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the definition of VOCs based on boiling point relate to their environmental and health impacts?',
@@ -573,7 +619,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The low boiling point (≤250°C) means VOCs readily evaporate and become airborne, making them easily inhalable and increasing their health and environmental impact.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is the WHO estimate of 800,000 annual deaths significant for atmospheric science?',
@@ -585,7 +632,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The WHO estimate quantifies the enormous human cost of atmospheric pollution, providing scientific justification for pollution control measures.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the vulnerability of children to biomass burning illustrate developmental physiology principles?',
@@ -597,7 +645,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Children\'s vulnerability stems from higher metabolic rates requiring more oxygen, resulting in breathing more air per body weight than adults.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does the 90% human contribution to sub-Saharan biomass burning complicate climate mitigation strategies?',
@@ -609,7 +658,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The high human contribution requires mitigation strategies that address cultural practices, economic needs, and land use policies, not just technological solutions.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the indoor air pollution time factor (90% of time spent indoors) amplify health risks?',
@@ -621,7 +671,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Spending 90% of time indoors concentrates lifetime exposure to potentially high-pollution environments, amplifying cumulative health risks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why are VOCs particularly problematic in modern indoor environments?',
@@ -633,7 +684,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'VOCs are problematic indoors because modern building materials, paints, furniture, and cleaning products continuously release them into the air.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the atmospheric temperature inversion in smog formation demonstrate atmospheric stability principles?',
@@ -645,7 +697,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Temperature inversions trap pollutants near the surface by creating a layer of warm air above cooler air, preventing vertical mixing and dispersion.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why does the ozone formation reaction (O + O₂ → O₃) in photochemical smog represent a chain reaction?',
@@ -657,7 +710,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The ozone formation is part of a chain reaction where initial NO₂ photolysis leads to ozone, which then reacts with hydrocarbons to form other oxidants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does biomass burning particulate size (PM₁₀, PM₂.₅) determine its respiratory health impacts?',
@@ -669,7 +723,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Smaller particulates (PM₂.₅) penetrate deeper into the lungs, reaching alveoli and potentially entering the bloodstream, causing more severe health effects.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why do VOC exposure symptoms progress from short-term irritation to long-term organ damage?',
@@ -681,7 +736,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'VOC exposure progresses from irritation to organ damage because accumulated exposure causes oxidative stress, cellular damage, and systemic toxicity over time.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the atmospheric composition (78% nitrogen) affect pollution chemistry?',
@@ -693,7 +749,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Nitrogen dilutes pollutants through its high concentration but doesn\'t participate in pollution chemistry, unlike oxygen which forms ozone and other oxidants.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why is the thermosphere\'s extreme heat significant despite being far from Earth\'s surface?',
@@ -705,7 +762,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The thermosphere\'s extreme heat demonstrates how UV radiation can energize atmospheric gases, though the heat isn\'t felt at the surface due to low density.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the lithosphere-hydrosphere-atmosphere-biosphere interaction explain pollution transport?',
@@ -717,7 +775,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The interconnected environmental spheres allow pollutants to move between them - for example, soil pollutants can become airborne or enter water systems.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does photochemical smog formation require both NOx and VOCs?',
@@ -729,7 +788,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Photochemical smog requires both NOx (provides NO₂ for photolysis and NO for titration) and VOCs (provide hydrocarbons for oxidation) to complete the reaction chain.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does indoor carbon monoxide formation illustrate incomplete combustion chemistry?',
@@ -741,7 +801,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Carbon monoxide forms during incomplete combustion when there\'s insufficient oxygen, resulting in CO instead of the complete oxidation product CO₂.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why are reproductive problems from VOC exposure particularly concerning for public health?',
@@ -753,7 +814,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Reproductive problems from VOCs are concerning because they can cause birth defects, infertility, and developmental problems that affect future generations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the mesosphere\'s meteor-burning function demonstrate atmospheric density principles?',
@@ -765,7 +827,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The mesosphere\'s function demonstrates that sufficient atmospheric density at high altitudes provides friction to ablate (burn up) incoming meteors.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why does biomass burning contribute significantly to both climate change and air quality degradation?',
@@ -777,7 +840,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Biomass burning contributes to both by emitting greenhouse gases (climate change) and particulates/toxic compounds (air quality degradation) in the same process.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does the 2-5 times higher indoor pollution level amplify VOC health risks?',
@@ -789,7 +853,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: '2-5 times higher indoor pollution increases exposure concentration in spaces where people spend most of their time, amplifying inhalation of harmful VOCs.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is the ozone layer\'s location in the stratosphere optimal for UV protection?',
@@ -801,7 +866,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The stratosphere\'s altitude is optimal because it\'s high enough to intercept UV radiation before it reaches Earth, but low enough to maintain sufficient ozone concentration.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does nitrogen dioxide\'s UV absorption demonstrate photochemical principles?',
@@ -813,7 +879,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'NO₂ absorption of UV light demonstrates photochemistry by converting light energy into chemical energy, breaking the molecule and initiating the smog formation chain.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Why do particulate matter standards distinguish between PM₁₀ and PM₂.₅?',
@@ -825,7 +892,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'PM₁₀ and PM₂.₅ standards distinguish because smaller PM₂.₅ particles penetrate deeper into the lungs and potentially into the bloodstream, causing more severe health effects.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does the atmospheric lifetime of pollutants affect their environmental impact?',
@@ -837,7 +905,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Pollutant lifetime determines impact scope: short-lived pollutants (like VOCs) cause intense local effects, while long-lived ones (like CO₂) cause global, cumulative effects.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Why is the greenhouse effect essential despite being disrupted by pollution?',
@@ -849,7 +918,8 @@ export const gns311Chapter7Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The greenhouse effect is essential because it maintains Earth\'s average temperature at habitable levels; without it, Earth would be too cold to support life.',
-      points: 1
+      points: 1,
+      difficulty: 'difficult'
     }
   ]
 };

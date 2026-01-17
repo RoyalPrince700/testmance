@@ -19,7 +19,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Hearing is the passive process of receiving sound waves, while listening is the active process of directing attention to speech sound contrasts.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a component of listening skills?',
@@ -31,7 +32,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'While responding can be part of effective communication, the core components of listening skills are receiving, understanding, evaluating, and responding.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Active listening is characterized by:',
@@ -43,7 +45,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Active listening requires concentration and the ability to accurately receive and interpret messages in the communication process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Passive listening is defined as:',
@@ -55,7 +58,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Passive listening is essentially the same as hearing - it does not require concentration or active engagement.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of these is NOT one of the eight principles of effective listening?',
@@ -67,7 +71,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'Interrupting the speaker is not a principle of effective listening. The eight principles include stopping talking, relaxing, putting the speaker at ease, ignoring distractions, empathizing, being patient, listening to tone/pitch/volume, and watching non-verbal communication.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the first step in the listening communication process?',
@@ -79,7 +84,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The listening process begins with receiving sounds, followed by processing, and then responding.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a barrier to effective listening?',
@@ -91,7 +97,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Multitasking by listening to multiple conversations divides attention and reduces comprehension.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Attitudinal listening requires the listener to:',
@@ -103,7 +110,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'Attitudinal listening requires developing a positive attitude toward the subject matter of the speech.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Appreciative listening involves:',
@@ -115,7 +123,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Appreciative listening involves watching out for the speaker\'s tune/intonation to infer their mood and how words affect meaning.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Analytical/Critical listening involves:',
@@ -127,7 +136,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Analytical listening involves listening to explicitly stated points and using them to arrive at other points in discourse situations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT a purpose of listening?',
@@ -139,7 +149,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'While winning arguments might be a goal of speaking, the eight purposes of listening are: information processing, conversations, directions, inferences, narrations, arguments, advertisements, and note taking.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'ESL learners face listening challenges because:',
@@ -151,7 +162,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'ESL learners struggle because some English sounds don\'t exist in their native languages, leading to confusion between similar sounds.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Auditory discrimination is important for:',
@@ -163,7 +175,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Auditory discrimination aids general comprehension of listening types, purposes, processes, and aims.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The listening process begins with:',
@@ -175,7 +188,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The listening process starts with predicting what the talk is about based on context.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which step involves identifying discourse markers?',
@@ -187,7 +201,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Recognizing discourse markers and cohesive devices is one of the seven steps in the listening process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Effective listening requires the development of:',
@@ -199,7 +214,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Listeners must develop auditory discrimination among sounds, tones, stress, intonation, words, and sentences.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which type of listening focuses on information processing?',
@@ -211,7 +227,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'All types of listening can involve information processing, but it\'s specifically mentioned as one of the eight purposes of listening.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The principle "Stop talking" in effective listening means:',
@@ -223,7 +240,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Stop talking means giving the speaker your full attention without interrupting or planning your response.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Empathizing in listening involves:',
@@ -235,7 +253,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Empathizing means trying to understand the other person\'s point of view, even if you disagree.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Non-verbal communication in listening includes watching:',
@@ -247,7 +266,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Watching non-verbal communication includes observing body language, facial expressions, and gestures for additional meaning.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Listening for inferences involves:',
@@ -259,7 +279,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Listening for inferences involves drawing conclusions from context and implied meanings.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In ESL classrooms, learners need training because:',
@@ -271,7 +292,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'ESL learners tend to mistake foreign sounds for familiar sounds in their native languages.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Listening to advertisements requires:',
@@ -283,7 +305,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Listening to advertisements involves evaluating persuasive techniques and the claims being made.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The listening process includes separating:',
@@ -295,7 +318,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Separating facts from opinions is one of the seven steps in the listening process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Understanding the speaker\'s inferred meaning involves:',
@@ -307,7 +331,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Understanding inferred meaning involves comprehending the speaker\'s attitude and implied messages.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Listening is considered one of the four:',
@@ -319,7 +344,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Listening is one of the four communicative skills of language, along with speaking, reading, and writing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The most effective way to overcome listening barriers is to:',
@@ -331,7 +357,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Recognizing barriers and consciously practicing mindfulness and attention are key to overcoming listening obstacles.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Critical listening in arguments involves:',
@@ -343,7 +370,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Critical listening involves carefully evaluating arguments, claims, and evidence.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'In listening for directions, you focus on:',
@@ -355,7 +383,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Listening for directions involves following step-by-step instructions for completing tasks.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'The conclusion of the listening chapter emphasizes that listening:',
@@ -367,7 +396,8 @@ export const gst111Chapter3Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The chapter concludes that listening is not only hearing, but goes beyond to pay attention to cogent messages, information, arguments, directions, instructions, etc.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

@@ -19,7 +19,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'English has 26 letters in its alphabet but 44 speech sounds, making pronunciation challenging for non-native speakers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the two broad types of the English phonological system?',
@@ -31,7 +32,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The phonological system is divided into Segmental (sound system) and Suprasegmental (stress and intonation).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is NOT one of the three processes involved in speech sound production?',
@@ -43,7 +45,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The three processes are: the airstream process, the phonation process, and the oro-nasal process.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many vowel sounds does English have?',
@@ -55,7 +58,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English has 20 vowel sounds: 12 monothongs and 8 diphthongs.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following is a monothong?',
@@ -67,7 +71,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: '/i:/ is a monothong (pure vowel sound), while the others are diphthongs (gliding vowel sounds).',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many diphthongs does English have?',
@@ -79,7 +84,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English has 8 diphthongs: /aʋ/, /aɪ/, /ɔɪ/, /əʋ/, /eɪ/, /eə/, /iə/, /ʋə/.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How many consonant sounds does English have?',
@@ -91,7 +97,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'English has 24 consonant sounds: 15 voiced and 9 voiceless.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following consonant sounds is voiceless?',
@@ -103,7 +110,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: '/p/ is a voiceless bilabial stop/plosive, while the others are voiced.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What are the three types of stress in English?',
@@ -115,7 +123,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The three types of stress are: primary stress, secondary stress, and weak/unstressed syllable.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following shows correct stress differentiation between noun and verb?',
@@ -127,7 +136,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 3,
       explanation: 'All three examples show how stress placement differentiates nouns from verbs: convert, export, increase.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What are the two basic tunes in English intonation?',
@@ -139,7 +149,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The two basic tunes in English intonation are: Falling tune [↘] and Rising tune [↗].',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which intonation tune is used for statements and commands?',
@@ -151,7 +162,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Falling tune [↘] is used to mark declaratives/statements, imperatives, and exclamations.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'According to the guidelines, how should the comparative/superlative markers "-er" and "-est" be pronounced?',
@@ -163,7 +175,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The markers are pronounced as /ə/ and /ɪst/ respectively, not as written.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which of the following words demonstrates a silent consonant?',
@@ -175,7 +188,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Both "knee" and "comb" have silent consonants ("k" and "b" respectively).',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'A Nigerian student learning English pronounces "schedule" as /ˈʃɛdju:l/ instead of /ˈskɛdʒu:l/. This error demonstrates interference from which phonological aspect?',
@@ -187,7 +201,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'The student is omitting the /sk/ cluster at the beginning, which is common mother-tongue interference where Nigerian languages lack complex consonant clusters that English has.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When teaching a Nigerian learner to pronounce "the", which articulatory guidance would be most appropriate?',
@@ -199,7 +214,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The /ð/ sound (voiced dental fricative) requires placing the tongue tip between the teeth with very light air friction, which differs from Nigerian language articulation patterns.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'A student says "I goed to school" instead of "I went to school". This error involves which phonological guideline?',
@@ -211,7 +227,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This demonstrates incorrect application of the past tense marker "-ed" pronunciation rules. "Go" is a voiceless final sound, so "-ed" should be pronounced as /t/, not /d/.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the sentence "I want to study PHONOLOGY", a Nigerian learner stresses "PHONOLOGY" heavily. What suprasegmental correction is needed?',
@@ -223,7 +240,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'In English, content words in neutral statements receive appropriate but not exaggerated stress. Over-stressing can sound unnatural and may reflect tonal language habits.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When pronouncing "psychology", which articulatory processes must coordinate properly?',
@@ -235,7 +253,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Complex words like "psychology" require coordination of all three processes: airstream for sound initiation, phonation for voicing distinctions, and oro-nasal for oral vs nasal sound production.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A learner pronounces "enough" as /ɪˈnʌf/ instead of /ɪˈnʌf/. What phonological awareness does this demonstrate?',
@@ -247,7 +266,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The learner is pronouncing the silent "gh" in "enough", demonstrating mother-tongue interference where spelling is expected to match pronunciation exactly.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In "education", where should primary stress be applied and why?',
@@ -259,7 +279,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Derivational suffixes like "-tion" often attract primary stress in English words, demonstrating the phonological rule that suffix stress can change word meaning and pronunciation.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When correcting "an hospital" to "a hospital", what phonological principle is being applied?',
@@ -271,7 +292,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Article selection (a/an) depends on the initial sound of the following word, not its spelling. "Hospital" begins with a consonant sound /h/, so "a" is correct.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A student consistently pronounces "that" as /dæt/. What specific articulatory retraining is needed?',
@@ -283,7 +305,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'The student is replacing /ð/ (dental fricative) with /d/ (alveolar plosive). They need to learn to place the tongue tip between the teeth with light friction for the correct sound.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the question "You don\'t understand?↗", what intonation pattern should be used and why?',
@@ -295,7 +318,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Tag questions seeking confirmation use rising intonation to invite agreement or correction, demonstrating pragmatic use of suprasegmental features.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When pronouncing "photography", which syllable receives secondary stress and what linguistic principle explains this?',
@@ -307,7 +331,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'In compound words or words with multiple morphemes, secondary stress often appears on earlier elements while primary stress goes to the main stressed syllable, following English stress rules.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'A learner says "I have went" instead of "I have gone". What grammatical-phonological confusion is evident?',
@@ -319,7 +344,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'This shows confusion between regular past tense forms ("went") and irregular past participles ("gone"), where phonological rules for tense markers don\'t apply to irregular verbs.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In teaching consonant clusters like "str" in "street", what articulatory sequencing must be learned?',
@@ -331,7 +357,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Consonant clusters require precise articulatory sequencing where sounds blend smoothly. In "str-", the /s/ (alveolar), /t/ (dental), and /r/ (alveolar) must be produced in rapid succession.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'When a Nigerian learner pronounces "this" as /dis/, what systematic phonological intervention is most effective?',
@@ -343,7 +370,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'This is a systematic error affecting the /ð/ vs /d/ contrast. Minimal pairs practice (this/thick, that/dat) combined with articulatory training for dental fricatives provides the most effective intervention.',
-      points: 2
+      points: 2,
+      difficulty: 'easy'
     },
     {
       question: 'In the command "Sit down now!↘", why is falling intonation crucial for communicative effectiveness?',
@@ -355,7 +383,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Falling intonation in commands signals completion and authority. Without it, the utterance might be interpreted as a question rather than a directive, demonstrating how suprasegmental features affect pragmatic meaning.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     },
     {
       question: 'A student pronounces "library" as /ˈlaɪbrəri/ instead of /ˈlaɪbrɛri/. What phonotactic rule needs reinforcement?',
@@ -367,7 +396,8 @@ export const gst111Chapter1Quiz = {
       ],
       correctAnswer: 0,
       explanation: 'The error shows incorrect vowel reduction - the final syllable should have the schwa /ə/ sound, not /i/. This demonstrates the English rule of vowel reduction in unstressed positions.',
-      points: 2
+      points: 2,
+      difficulty: 'medium'
     }
   ]
 };

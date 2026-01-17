@@ -5,6 +5,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const { body, validationResult } = require('express-validator');
 const User = require('../models/User');
 const University = require('../models/University');
+const DailyStats = require('../models/DailyStats');
 const { protect } = require('../middleware/auth');
 
 const router = express.Router();
@@ -73,6 +74,9 @@ async (accessToken, refreshToken, profile, done) => {
     });
 
     await user.save();
+
+    // Increment new user count in daily stats
+    await DailyStats.incrementMetric('newUsers');
 
     // Update university student count
     await defaultUniversity.updateStudentCount();

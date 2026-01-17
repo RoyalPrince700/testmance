@@ -18,9 +18,9 @@ export const chapter15Content = {
             significant impacts on human health. Understanding microbes and the diseases they cause
             is essential for maintaining good health and preventing illness.
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Microbes are everywhere! They form a significant part of the community that ensures
               interaction between living and non-living components, making them essential for
               ecosystem sustainability. Some microbes help us (like in yogurt production), while
@@ -84,9 +84,9 @@ export const chapter15Content = {
             single-celled or cell-cluster organisms that cannot be seen with the naked eye. They combine
             plant and animal features and require special equipment like microscopes to observe them.
           </p>
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">🔍 What are Microbes?</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">🔍 What are Microbes?</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Microbes include bacteria, fungi, viruses, and protozoans. Despite their small size,
               they play very important roles in nature, including synthesis and degradation of organic
               substances. Humans have learned to harness microbes for beneficial purposes like beer
@@ -113,42 +113,42 @@ export const chapter15Content = {
             cannot be seen with the naked eye. They exist as single cells or cell clusters and can
             only be appreciated with the aid of special gadgets such as the microscope.
           </p>
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-3">Main Groups of Microorganisms:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-3">Main Groups of Microorganisms:</h4>
             <div class="space-y-3">
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">1.</span>
                 <div>
-                  <strong class="text-gray-900">Bacteria:</strong> Single-celled prokaryotic organisms
+                  <strong class="text-gray-900 dark:text-white">Bacteria:</strong> Single-celled prokaryotic organisms
                   that can be beneficial or harmful
                 </div>
               </div>
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">2.</span>
                 <div>
-                  <strong class="text-gray-900">Fungi:</strong> Eukaryotic organisms including yeasts
+                  <strong class="text-gray-900 dark:text-white">Fungi:</strong> Eukaryotic organisms including yeasts
                   and molds
                 </div>
               </div>
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">3.</span>
                 <div>
-                  <strong class="text-gray-900">Viruses:</strong> Obligate parasites that require host
+                  <strong class="text-gray-900 dark:text-white">Viruses:</strong> Obligate parasites that require host
                   cells to reproduce
                 </div>
               </div>
               <div class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">4.</span>
                 <div>
-                  <strong class="text-gray-900">Protozoans:</strong> Single-celled eukaryotic organisms
+                  <strong class="text-gray-900 dark:text-white">Protozoans:</strong> Single-celled eukaryotic organisms
                   that can be free-living or parasitic
                 </div>
               </div>
             </div>
           </div>
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🌍 Ecological Importance</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🌍 Ecological Importance</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Microbes form a significant integral part of ecosystems, ensuring interaction between
               living and non-living components. Man has taken advantage of this through production
               of beer, yogurt, antibiotics, baking, soak-away systems, etc.
@@ -169,12 +169,12 @@ export const chapter15Content = {
             their host. This requires overcoming the host's defense mechanisms, primarily the impenetrable skin barrier.
           </p>
 
-          <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500 my-4">
-            <h4 class="font-bold text-red-900 mb-3">🛡️ Breaking the Skin Barrier</h4>
-            <p class="text-red-800 mb-3">
+          <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">🛡️ Breaking the Skin Barrier</h4>
+            <p class="text-red-800 dark:text-red-200 mb-3">
               Microbes use various strategies to breach host defenses:
             </p>
-            <ul class="space-y-2 text-red-800">
+            <ul class="space-y-2 text-red-800 dark:text-red-200">
               <li><strong>Adhesion:</strong> Attaching to host surfaces and producing enzymes to break down barriers</li>
               <li><strong>Wound exploitation:</strong> Taking advantage of skin lacerations and wounds</li>
               <li><strong>Site preference:</strong> Some microbes prefer specific locations (e.g., Neisseria gonorrhoeae in urogenital tract)</li>
@@ -182,15 +182,15 @@ export const chapter15Content = {
             </ul>
           </div>
 
-          <div class="bg-purple-50 p-5 rounded-lg border-l-4 border-purple-500 my-4">
-            <h4 class="font-bold text-purple-900 mb-3">🏠 Human Microflora</h4>
-            <p class="text-purple-800 mb-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🏠 Human Microflora</h4>
+            <p class="text-purple-800 dark:text-purple-200 mb-3">
               Normal human microflora resides on skin, orifices, body fluids, and tissues. Most are harmless,
               but some can become pathogenic under certain conditions.
             </p>
-            <div class="bg-white p-3 rounded mt-2">
+            <div class="bg-white dark:bg-gray-700 p-3 rounded mt-2">
               <p class="text-sm font-semibold mb-2">Locations include:</p>
-              <ul class="space-y-1 text-sm text-gray-700">
+              <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                 <li>• Skin and skin appendages</li>
                 <li>• Mouth, nose, anus, vagina</li>
                 <li>• Body fluids (saliva, blood, semen)</li>
@@ -199,9 +199,9 @@ export const chapter15Content = {
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">⚠️ Disease Development</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">⚠️ Disease Development</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Pathogenic microbes cause disease by altering host systems, resulting in loss of productivity.
               This disease condition is an alteration in the host system leading to various health issues.
             </p>
@@ -224,36 +224,36 @@ export const chapter15Content = {
           <div class="bg-orange-50 p-6 rounded-lg my-4">
             <h4 class="font-bold text-orange-900 mb-4">Mechanisms of Pathogenicity:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🧪 Production of Toxins</h5>
-                <p class="text-gray-700">Excretory wastes that are intolerable to the host, causing various symptoms</p>
+                <p class="text-gray-700 dark:text-gray-300">Excretory wastes that are intolerable to the host, causing various symptoms</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🥛 Nutrient Deprivation</h5>
-                <p class="text-gray-700">Microbes compete with hosts for essential nutrients</p>
+                <p class="text-gray-700 dark:text-gray-300">Microbes compete with hosts for essential nutrients</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🏗️ Tissue Confiscation</h5>
-                <p class="text-gray-700">Using host tissue for microbial reproduction (e.g., viral infections)</p>
+                <p class="text-gray-700 dark:text-gray-300">Using host tissue for microbial reproduction (e.g., viral infections)</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">💥 Tissue Destruction</h5>
-                <p class="text-gray-700">Direct destruction of host tissue (e.g., anemia from malaria)</p>
+                <p class="text-gray-700 dark:text-gray-300">Direct destruction of host tissue (e.g., anemia from malaria)</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🔄 Tissue Changes</h5>
-                <p class="text-gray-700">Initiating abnormal changes that may lead to cancers or tumors</p>
+                <p class="text-gray-700 dark:text-gray-300">Initiating abnormal changes that may lead to cancers or tumors</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">🛡️ Immune Suppression</h5>
-                <p class="text-gray-700">Reducing host immune response, creating opportunities for opportunistic infections</p>
+                <p class="text-gray-700 dark:text-gray-300">Reducing host immune response, creating opportunities for opportunistic infections</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">⚖️ Pathogenicity vs. Normal Flora</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">⚖️ Pathogenicity vs. Normal Flora</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Normal human flora are microorganisms that reside in or on the body without causing harm.
               Pathogenic microbes, however, cause disease by disrupting normal body functions and eliciting
               harmful responses.
@@ -275,9 +275,9 @@ export const chapter15Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-4 my-6">
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">🌍 Major Reservoirs</h4>
-              <ul class="space-y-2 text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🌍 Major Reservoirs</h4>
+              <ul class="space-y-2 text-green-800 dark:text-green-200">
                 <li>💧 <strong>Water:</strong> Rivers, lakes, groundwater</li>
                 <li>🌱 <strong>Soil:</strong> Rich source of various microbes</li>
                 <li>💨 <strong>Atmosphere:</strong> Airborne microorganisms</li>
@@ -285,24 +285,24 @@ export const chapter15Content = {
                 <li>🐾 <strong>Animals:</strong> Domestic and wild animal reservoirs</li>
               </ul>
             </div>
-            <div class="bg-red-50 p-5 rounded-lg border border-red-200">
-              <h4 class="font-bold text-red-900 mb-3">🔄 Movement Between Reservoirs</h4>
-              <p class="text-red-800 mb-3">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border border-red-200">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">🔄 Movement Between Reservoirs</h4>
+              <p class="text-red-800 dark:text-red-200 mb-3">
                 Microbes move from one reservoir to another in their bid to survive. Successful
                 establishment in a host leads to disease transmission.
               </p>
-              <div class="bg-white p-3 rounded">
-                <p class="text-sm font-bold mb-2 text-red-900">Zoonotic Diseases:</p>
-                <p class="text-sm text-gray-700">
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <p class="text-sm font-bold mb-2 text-red-900 dark:text-red-100">Zoonotic Diseases:</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">
                   Diseases that can be transmitted from animals to humans (e.g., rabies, avian flu)
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">🔬 Importance of Understanding Reservoirs</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">🔬 Importance of Understanding Reservoirs</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Knowledge of microbial reservoirs helps in developing effective prevention and control
               strategies for infectious diseases. Breaking the chain of transmission often involves
               targeting the reservoir.
@@ -323,9 +323,9 @@ export const chapter15Content = {
             <strong>how they spread</strong> and the <strong>diseases they cause</strong>. This knowledge
             is crucial for prevention and treatment strategies.
           </p>
-          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-            <p class="font-semibold text-purple-900 mb-2">🎯 Unit Focus</p>
-            <p class="text-purple-800">
+          <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 p-4 my-4">
+            <p class="font-semibold text-purple-900 dark:text-purple-100 mb-2">🎯 Unit Focus</p>
+            <p class="text-purple-800 dark:text-purple-200">
               We'll cover transmission routes, different types of microbial diseases (viral, bacterial,
               fungal, protozoan), and prevention strategies. Special emphasis will be given to diseases
               common in Nigeria.
@@ -350,31 +350,31 @@ export const chapter15Content = {
             media that are inevitably used by prospective hosts, such as air, water, food, etc.
           </p>
 
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-4">🛣️ Four Basic Transmission Routes:</h4>
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-4">🛣️ Four Basic Transmission Routes:</h4>
             <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🥤 Contaminated Food and Water (Oral-faecal Route)</h5>
-                <p class="text-gray-700">Most common route where pathogens from faeces contaminate food/water. Poor sanitation and hand hygiene contribute to spread.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🥤 Contaminated Food and Water (Oral-faecal Route)</h5>
+                <p class="text-gray-700 dark:text-gray-300">Most common route where pathogens from faeces contaminate food/water. Poor sanitation and hand hygiene contribute to spread.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">💨 Respiratory Tract Contamination (Respiratory Route)</h5>
-                <p class="text-gray-700">Pathogens spread through droplets from coughing/sneezing. Can remain infective even after drying.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">💨 Respiratory Tract Contamination (Respiratory Route)</h5>
+                <p class="text-gray-700 dark:text-gray-300">Pathogens spread through droplets from coughing/sneezing. Can remain infective even after drying.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🤝 Direct Contact</h5>
-                <p class="text-gray-700">Direct or indirect contact with infected persons/objects. Includes sexual contact, kissing, sharing personal items.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🤝 Direct Contact</h5>
+                <p class="text-gray-700 dark:text-gray-300">Direct or indirect contact with infected persons/objects. Includes sexual contact, kissing, sharing personal items.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">💉 Inoculation Through Skin</h5>
-                <p class="text-gray-700">Blood-sucking vectors transmit pathogens. Mosquitoes are common vectors for many diseases.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">💉 Inoculation Through Skin</h5>
+                <p class="text-gray-700 dark:text-gray-300">Blood-sucking vectors transmit pathogens. Mosquitoes are common vectors for many diseases.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Breaking the Transmission Chain</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Breaking the Transmission Chain</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Understanding these routes helps us develop effective prevention strategies like improved
               sanitation, vector control, and personal hygiene practices.
             </p>
@@ -394,9 +394,9 @@ export const chapter15Content = {
             They are obligate parasites that can only live and multiply within host cells.
           </p>
 
-          <div class="bg-red-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-red-900 mb-4">🔬 Viral Characteristics:</h4>
-            <ul class="space-y-2 text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-red-900 dark:text-red-100 mb-4">🔬 Viral Characteristics:</h4>
+            <ul class="space-y-2 text-red-800 dark:text-red-200">
               <li>• Cannot be seen under ordinary light microscopes</li>
               <li>• Obligate parasites requiring host cells</li>
               <li>• Inert outside host cells (borderline living/non-living)</li>
@@ -405,8 +405,8 @@ export const chapter15Content = {
             </ul>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4">📊 Common Viral Diseases in Nigeria:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4">📊 Common Viral Diseases in Nigeria:</h4>
             <div class="overflow-x-auto">
               <table class="min-w-full table-auto">
                 <thead>
@@ -453,9 +453,9 @@ export const chapter15Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">💊 Treatment Challenges</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">💊 Treatment Challenges</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Viral diseases are difficult to treat because viruses live inside host cells. Drugs that
               kill viruses may also damage host cells. Prevention through vaccination and hygiene
               is often the best approach.
@@ -477,9 +477,9 @@ export const chapter15Content = {
             anus, or broken skin.
           </p>
 
-          <div class="bg-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-green-900 mb-4">🔬 Bacterial Characteristics:</h4>
-            <ul class="space-y-2 text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🔬 Bacterial Characteristics:</h4>
+            <ul class="space-y-2 text-green-800 dark:text-green-200">
               <li>• Secrete enzymes to break down food substances</li>
               <li>• Produce toxic waste products</li>
               <li>• Can be treated with antibiotics</li>
@@ -488,8 +488,8 @@ export const chapter15Content = {
             </ul>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4">📊 Common Bacterial Diseases in Nigeria:</h4>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4">📊 Common Bacterial Diseases in Nigeria:</h4>
             <div class="overflow-x-auto">
               <table class="min-w-full table-auto">
                 <thead>
@@ -536,9 +536,9 @@ export const chapter15Content = {
             </div>
           </div>
 
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💧 Prevention Focus</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💧 Prevention Focus</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Good water supply, personal hygiene, and proper sanitation are crucial for preventing
               bacterial diseases. Vaccination and antibiotic treatment are effective when available.
             </p>
@@ -559,30 +559,30 @@ export const chapter15Content = {
           </p>
 
           <div class="grid md:grid-cols-2 gap-6 my-6">
-            <div class="bg-purple-50 p-5 rounded-lg border border-purple-200">
-              <h4 class="font-bold text-purple-900 mb-3">🍄 Fungal Diseases</h4>
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-5 rounded-lg border border-purple-200 dark:border-purple-800">
+              <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🍄 Fungal Diseases</h4>
               <div class="space-y-3">
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-purple-800">Ringworm & Athlete's Foot</h5>
-                  <p class="text-sm text-gray-700">Caused by Trichophyton sp. Affects skin, scalp, feet. Spread by contact.</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-purple-800 dark:text-purple-200">Ringworm & Athlete's Foot</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Caused by Trichophyton sp. Affects skin, scalp, feet. Spread by contact.</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-purple-800">Treatment & Prevention</h5>
-                  <p class="text-sm text-gray-700">Antiseptic treatments, personal cleanliness, avoid sharing personal items.</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-purple-800 dark:text-purple-200">Treatment & Prevention</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Antiseptic treatments, personal cleanliness, avoid sharing personal items.</p>
                 </div>
               </div>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-              <h4 class="font-bold text-green-900 mb-3">🦠 Protozoan Diseases</h4>
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border border-green-200 dark:border-green-800">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🦠 Protozoan Diseases</h4>
               <div class="space-y-3">
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Malaria</h5>
-                  <p class="text-sm text-gray-700">Caused by Plasmodium sp. Transmitted by Anopheles mosquitoes.</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Malaria</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Caused by Plasmodium sp. Transmitted by Anopheles mosquitoes.</p>
                 </div>
-                <div class="bg-white p-3 rounded">
-                  <h5 class="font-semibold text-green-800">Trypanosomiasis (Sleeping Sickness)</h5>
-                  <p class="text-sm text-gray-700">Caused by Trypanosoma sp. Transmitted by Tsetse flies.</p>
+                <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                  <h5 class="font-semibold text-green-800 dark:text-green-200">Trypanosomiasis (Sleeping Sickness)</h5>
+                  <p class="text-sm text-gray-700 dark:text-gray-300">Caused by Trypanosoma sp. Transmitted by Tsetse flies.</p>
                 </div>
               </div>
             </div>
@@ -594,9 +594,9 @@ export const chapter15Content = {
               Malaria is caused by Plasmodium parasites that live in human blood. They destroy red blood cells,
               causing anemia and other complications.
             </p>
-            <div class="bg-white p-3 rounded">
+            <div class="bg-white dark:bg-gray-700 p-3 rounded">
               <p class="text-sm font-semibold mb-2">Key Facts:</p>
-              <ul class="text-sm text-gray-700 space-y-1">
+              <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
                 <li>• Transmitted by female Anopheles mosquitoes</li>
                 <li>• Causes fever, headache, joint pains</li>
                 <li>• Major cause of death in tropical regions</li>
@@ -606,9 +606,9 @@ export const chapter15Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-            <p class="font-semibold text-blue-900 mb-2">🌍 Tropical Disease Burden</p>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 p-4 my-4">
+            <p class="font-semibold text-blue-900 dark:text-blue-100 mb-2">🌍 Tropical Disease Burden</p>
+            <p class="text-blue-800 dark:text-blue-200">
               Many fungal and protozoan diseases thrive in warm, humid environments. Climate change
               and environmental factors influence their distribution and prevalence.
             </p>
@@ -628,40 +628,40 @@ export const chapter15Content = {
             the key concepts we've covered:
           </p>
 
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">1. Microorganisms</h5>
-                <p class="text-gray-700 text-sm">Microbes include bacteria, viruses, fungi, and protozoans. They play crucial ecological roles and can be beneficial or harmful.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">1. Microorganisms</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Microbes include bacteria, viruses, fungi, and protozoans. They play crucial ecological roles and can be beneficial or harmful.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">2. Host Invasion & Pathogenicity</h5>
-                <p class="text-gray-700 text-sm">Microbes invade hosts by breaking barriers, producing toxins, and competing for resources. Pathogenicity involves tissue damage and immune suppression.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">2. Host Invasion & Pathogenicity</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Microbes invade hosts by breaking barriers, producing toxins, and competing for resources. Pathogenicity involves tissue damage and immune suppression.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">3. Reservoirs & Transmission</h5>
-                <p class="text-gray-700 text-sm">Microbes reside in reservoirs (water, soil, air, humans, animals) and spread through contaminated food/water, respiratory droplets, direct contact, and vectors.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">3. Reservoirs & Transmission</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Microbes reside in reservoirs (water, soil, air, humans, animals) and spread through contaminated food/water, respiratory droplets, direct contact, and vectors.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">4. Microbial Diseases</h5>
-                <p class="text-gray-700 text-sm">Viral, bacterial, fungal, and protozoan diseases each have unique characteristics, transmission routes, and prevention strategies.</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">4. Microbial Diseases</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Viral, bacterial, fungal, and protozoan diseases each have unique characteristics, transmission routes, and prevention strategies.</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Prevention is Key</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Prevention is Key</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Understanding microbes and their diseases empowers us to prevent infections through
               vaccination, hygiene, vector control, and appropriate treatment. Knowledge of these
               microorganisms helps protect individual and community health.
             </p>
           </div>
 
-          <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 my-4">
-            <p class="font-semibold text-indigo-900 mb-2">📚 Further Reading</p>
-            <ul class="text-indigo-800 space-y-1">
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400 p-4 my-4">
+            <p class="font-semibold text-indigo-900 dark:text-indigo-100 mb-2">📚 Further Reading</p>
+            <ul class="text-indigo-800 dark:text-indigo-200 space-y-1">
               <li>• Brock, T. D. et al. (1994). Biology of Microorganisms</li>
               <li>• Cheng, T. C. (1973). General Parasitology</li>
               <li>• Godman, A. and Gutteridge, A. (1978). A New Health Science for Africa</li>

@@ -104,7 +104,7 @@ const CourseDetail = () => {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Main Course Card */}
-      <div className="bg-gray-50 rounded-2xl shadow-lg p-8 mb-6">
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
         {/* Course Header */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-start gap-4 flex-1">
@@ -112,31 +112,31 @@ const CourseDetail = () => {
             <div className="hidden md:block bg-teal-500 p-3 rounded-lg shrink-0">
               <Pencil className="h-6 w-6 text-white" />
             </div>
-            
+
             {/* Course Info */}
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{course.title}</h1>
-              <p className="text-gray-600 text-lg mb-4">{course.description || 'Master the fundamentals and advance your knowledge'}</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{course.title}</h1>
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">{course.description || 'Master the fundamentals and advance your knowledge'}</p>
               
               {/* Progress Indicators */}
               <div className="flex items-center space-x-6 mb-3">
                 <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm text-gray-700 font-medium">
+                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                     {completedCount}/{totalChapters} modules
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm text-gray-700 font-medium">
+                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
                     {progressPercentage}% complete
                   </span>
                 </div>
               </div>
-              
+
               {/* Progress Bar */}
-              <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                <div 
+              <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                <div
                   className="h-full bg-teal-500 rounded-full transition-all duration-300"
                   style={{ width: `${progressPercentage}%` }}
                 />
@@ -157,7 +157,7 @@ const CourseDetail = () => {
         {isExpanded && (
           <div className="mt-8">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 Modules ({completedCount}/{totalChapters} completed)
               </h2>
             </div>
@@ -168,8 +168,8 @@ const CourseDetail = () => {
               </div>
             ) : chapters.length === 0 ? (
               <div className="text-center py-12">
-                <BookOpen className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-600">No modules available for this course yet.</p>
+                <BookOpen className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                <p className="text-gray-600 dark:text-gray-400">No modules available for this course yet.</p>
               </div>
             ) : (
               <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
@@ -179,7 +179,7 @@ const CourseDetail = () => {
                     <Link
                       key={chapter._id}
                       to={`/chapters/${chapter._id}`}
-                      className="flex items-center justify-between bg-white hover:bg-gray-50 rounded-lg p-4 transition-colors border border-gray-200 hover:border-teal-300 group"
+                      className="flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg p-4 transition-colors border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 group"
                     >
                       <div className="flex items-center space-x-4 flex-1 min-w-0">
                         {/* Checkmark or Empty Circle */}
@@ -188,17 +188,17 @@ const CourseDetail = () => {
                             <CheckCircle className="h-4 w-4 text-white fill-current" />
                           </div>
                         ) : (
-                          <div className="shrink-0 w-6 h-6 rounded-full border-2 border-gray-300"></div>
+                          <div className="shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600"></div>
                         )}
-                        
+
                         {/* Chapter Title */}
-                        <span className="text-gray-900 font-medium flex-1 truncate">
+                        <span className="text-gray-900 dark:text-white font-medium flex-1 truncate">
                           {chapter.title}
                         </span>
                       </div>
-                      
+
                       {/* Study Link */}
-                      <div className="flex items-center space-x-1 text-teal-600 group-hover:text-teal-700 font-medium ml-4 shrink-0">
+                      <div className="flex items-center space-x-1 text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 font-medium ml-4 shrink-0">
                         <span>Study</span>
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>

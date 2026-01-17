@@ -19,7 +19,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A software engineer is responsible for the entire software development lifecycle, including design, development, testing, and maintenance of software applications.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which professional is responsible for protecting an organization\'s computer systems and networks from cyber threats?',
@@ -31,7 +32,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A cyber security analyst protects organizations from cyber threats, recommends safeguards, and develops procedures to respond to emergencies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What does a user experience researcher primarily do?',
@@ -43,7 +45,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A user experience researcher analyzes target audiences to understand what users look for when using digital programs, informing design decisions.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which professional creates visual elements for video games using programming languages and graphics design?',
@@ -55,7 +58,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'A video game designer creates visual elements for video games, builds characters and settings, tests functionality, and works with animators and programmers.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     
     {
@@ -68,7 +72,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cloud computing is a form of distributed computing where resources are shared among many users who access them through the internet, enabling data storage and analysis tools without purchasing hardware.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which technology allows computers to learn from data and make predictions without explicit programming?',
@@ -80,7 +85,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Machine learning allows computers to learn from data, identify patterns, and make predictions without being explicitly programmed, with applications across many industries.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the Internet of Things (IoT)?',
@@ -92,7 +98,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'IoT is a technology that connects physical objects like appliances and security systems to the internet, allowing them to interact in real-time or automated cycles.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What advantage does quantum computing offer over traditional computers?',
@@ -104,7 +111,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Quantum computers can solve complex problems that traditional computers cannot, using qubits that exist in multiple states simultaneously for parallel processing.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'Which emerging technology is expected to become ubiquitous across industries and everyday life?',
@@ -116,7 +124,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Artificial Intelligence is expected to become ubiquitous across industries and everyday life, already making significant impacts in healthcare, finance, and other sectors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What will be the primary focus of improvements in personal computer technology over the next ten years?',
@@ -128,7 +137,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Personal computer improvements will focus on better user experience, boosted connectivity, improved performance, AI integration, faster processors, and VR/AR incorporation.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'How does 5G technology enhance cloud computing?',
@@ -140,7 +150,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: '5G networks enhance cloud computing by providing increased speed and reliability, enabling faster data transfer and supporting more connected devices.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is a key benefit of machine learning and deep learning for businesses?',
@@ -152,7 +163,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Machine learning and deep learning offer cost-efficient solutions by automating manual tasks, freeing resources, and achieving highly accurate results.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'Which computing pioneer mentioned in the course is from Nigeria?',
@@ -164,7 +176,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 2,
       explanation: 'Philip Emeagwali is the Nigerian computing pioneer mentioned, known for his supercomputing work and winning the Gordon Bell Prize in 1989.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What role does a cyber security analyst play in emergency response?',
@@ -176,7 +189,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cyber security analysts develop procedures to respond to emergencies and restore or backup digital assets when security breaches occur.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the primary focus of a video game designer?',
@@ -188,7 +202,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Video game designers create visual elements for games, build characters and settings, test functionality and navigation, and ensure visual appeal.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What does a database administrator do to maintain data confidentiality?',
@@ -200,7 +215,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Database administrators ensure data confidentiality by maintaining effective structures and installing security procedures to identify threats and restore lost data.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What programming languages do frontend developers use to create user interfaces?',
@@ -212,7 +228,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Frontend developers use HTML for structure, CSS for styling, and JavaScript for interactivity to create responsive and functional user interfaces.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What makes full stack developers valuable to development teams?',
@@ -224,7 +241,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Full stack developers are valuable because they handle all aspects of development including user interface, server, database, and server-side applications.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is the main advantage of cross-platform mobile development frameworks?',
@@ -236,7 +254,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cross-platform frameworks like React Native and Flutter allow developers to build applications that work on both iOS and Android using a single codebase.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What do system engineers prioritize when developing systems?',
@@ -248,7 +267,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'System engineers prioritize the safety and security of their products while maximizing efficiency and establishing parameters to evaluate project success.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What is a key responsibility of network security engineers?',
@@ -260,7 +280,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Network security engineers install safeguards to protect networks, analyze performance, identify malfunctions, prevent recurring issues, and assess vulnerability to threats.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does cloud computing benefit businesses?',
@@ -272,7 +293,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Cloud computing benefits businesses by providing scalable resources, remote access, cost reduction through no hardware investment, and enhanced collaboration capabilities.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What industries benefit from machine learning applications?',
@@ -284,7 +306,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Machine learning has applications across many industries including healthcare, finance, retail, education, and many others for pattern recognition and predictive analytics.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How does IoT technology improve home automation?',
@@ -296,7 +319,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'IoT enables home automation by connecting devices to the internet, allowing remote control from anywhere and automated operation cycles for improved efficiency.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What computational advantage do quantum computers have?',
@@ -308,7 +332,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Quantum computers use qubits that can exist in multiple states simultaneously, enabling parallel processing of multiple possibilities and solving complex problems that traditional computers cannot.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'What emerging technology will make personal computers more integrated into daily life?',
@@ -320,7 +345,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'IoT and smart device connectivity will make personal computers central hubs for managing and controlling various devices and services in smart homes and connected environments.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is the significance of AI becoming ubiquitous?',
@@ -332,7 +358,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'AI becoming ubiquitous means it will integrate across industries and everyday life, enhancing capabilities in healthcare, finance, transportation, and other sectors.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     },
     {
       question: 'How do machine learning and deep learning provide cost benefits to businesses?',
@@ -344,7 +371,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Machine learning and deep learning provide cost benefits by automating manual tasks, freeing up resources, and achieving highly accurate results more efficiently.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What role will 5G play in the future of computing?',
@@ -356,7 +384,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: '5G will enhance cloud computing with increased speed and reliability, support IoT proliferation, and improve overall connectivity for emerging technologies.',
-      points: 1
+      points: 1,
+      difficulty: 'medium'
     },
     {
       question: 'What is a key characteristic of quantum computing?',
@@ -368,7 +397,8 @@ export const cos101Chapter6Quiz = {
       ],
       correctAnswer: 1,
       explanation: 'Quantum computing can solve complex problems like optimization, cryptography challenges, and molecular simulations that traditional computers cannot handle efficiently.',
-      points: 1
+      points: 1,
+      difficulty: 'easy'
     }
   ]
 };

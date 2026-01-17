@@ -57,12 +57,12 @@ const AdminDashboard = () => {
     return (
       <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`min-h-screen bg-gray-50 flex items-center justify-center transition-all duration-300 ${
+        <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center transition-all duration-300 ${
           sidebarCollapsed ? 'ml-16' : 'ml-64'
         }`}>
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading dashboard...</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400 mx-auto"></div>
+            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading dashboard...</p>
           </div>
         </div>
       </>
@@ -73,14 +73,14 @@ const AdminDashboard = () => {
     return (
       <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`min-h-screen bg-gray-50 flex items-center justify-center transition-all duration-300 ${
+        <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center transition-all duration-300 ${
           sidebarCollapsed ? 'ml-16' : 'ml-64'
         }`}>
           <div className="text-center">
-            <p className="text-red-600 mb-4">{error}</p>
+            <p className="text-red-600 dark:text-red-400 mb-4">{error}</p>
             <button
               onClick={fetchStats}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
+              className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white px-4 py-2 rounded-lg"
             >
               Try Again
             </button>
@@ -138,14 +138,14 @@ const AdminDashboard = () => {
     <>
       <AdminSidebar onCollapseChange={setSidebarCollapsed} />
 
-      <div className={`min-h-screen bg-gray-50 p-8 transition-all duration-300 ${
+      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 p-8 transition-all duration-300 ${
         sidebarCollapsed ? 'ml-16' : 'ml-64'
       }`}>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Dashboard</h1>
-            <p className="text-gray-600">Welcome back! Here's what's happening with TestMancer.</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Admin Dashboard</h1>
+            <p className="text-gray-600 dark:text-gray-400">Welcome back! Here's what's happening with TestMancer.</p>
           </div>
 
           {/* Overview Cards */}
@@ -153,12 +153,12 @@ const AdminDashboard = () => {
             {overviewCards.map((card, index) => {
               const Icon = card.icon;
               return (
-                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm font-medium text-gray-600">{card.title}</p>
-                      <p className="text-2xl font-bold text-gray-900 mt-1">{card.value.toLocaleString()}</p>
-                      <p className="text-sm text-green-600 mt-1">{card.change} from last month</p>
+                      <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{card.title}</p>
+                      <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{card.value.toLocaleString()}</p>
+                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">{card.change} from last month</p>
                     </div>
                     <div className={`p-3 rounded-lg ${card.color}`}>
                       <Icon className="h-6 w-6 text-white" />
@@ -172,8 +172,8 @@ const AdminDashboard = () => {
           {/* Charts Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             {/* University Distribution */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Users by University</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Users by University</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={universityData}>
                   <CartesianGrid strokeDasharray="3 3" />
@@ -192,8 +192,8 @@ const AdminDashboard = () => {
             </div>
 
             {/* Level Distribution */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Users by Level</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Users by Level</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
@@ -217,11 +217,11 @@ const AdminDashboard = () => {
           </div>
 
           {/* Recent Activity */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Active Users</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Active Users</h3>
             <div className="space-y-4">
               {stats?.recentActivity?.slice(0, 5).map((user, index) => (
-                <div key={index} className="flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0">
+                <div key={index} className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-600 last:border-b-0">
                   <div className="flex items-center space-x-3">
                     <img
                       src={user.avatar || '/default-avatar.png'}
@@ -229,18 +229,18 @@ const AdminDashboard = () => {
                       className="h-10 w-10 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-medium text-gray-900">{user.username}</p>
-                      <p className="text-sm text-gray-500">{user.recentActivityCount} activities this week</p>
+                      <p className="font-medium text-gray-900 dark:text-white">{user.username}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{user.recentActivityCount} activities this week</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-gray-600">Active</p>
-                    <p className="text-xs text-gray-400">Last 7 days</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Active</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">Last 7 days</p>
                   </div>
                 </div>
               ))}
               {(!stats?.recentActivity || stats.recentActivity.length === 0) && (
-                <p className="text-gray-500 text-center py-8">No recent activity found</p>
+                <p className="text-gray-500 dark:text-gray-400 text-center py-8">No recent activity found</p>
               )}
             </div>
           </div>

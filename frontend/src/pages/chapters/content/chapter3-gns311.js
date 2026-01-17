@@ -17,9 +17,9 @@ export const chapter3Content = {
             Concept is like an accepted norm or definition. So, while trying to understand matter, the adopted 
             concept is what is perceived and accepted as matter.
           </p>
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">💡 Did you know?</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">💡 Did you know?</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Interestingly, only <strong>two kinds of matter</strong> exist in the world! This chapter will 
               help you understand what matter really is and how it behaves.
             </p>
@@ -30,30 +30,30 @@ export const chapter3Content = {
             and the powerful forces within atoms!
           </p>
           
-          <div class="bg-blue-50 p-5 rounded-lg border border-blue-200 my-6">
-            <h4 class="font-bold text-blue-900 mb-3 text-lg">📚 Module Structure</h4>
-            <p class="text-blue-800 mb-4">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800 my-6">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">📚 Module Structure</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-4">
               This module introduces you into the concept of matter vis-a-vis the Kinetic Theory, States of Matter 
               and Nuclear Threats. This module is divided into three units:
             </p>
             <div class="grid md:grid-cols-3 gap-4">
-              <div class="bg-white p-4 rounded-lg border border-blue-200">
-                <h5 class="font-bold text-blue-900 mb-2">📖 Unit 1</h5>
-                <p class="text-blue-800 text-sm">Definition of Matter</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+                <h5 class="font-bold text-blue-900 dark:text-blue-100 mb-2">📖 Unit 1</h5>
+                <p class="text-blue-800 dark:text-blue-200 text-sm">Definition of Matter</p>
               </div>
-              <div class="bg-white p-4 rounded-lg border border-green-200">
-                <h5 class="font-bold text-green-900 mb-2">🔄 Unit 2</h5>
-                <p class="text-green-800 text-sm">Change of State of Matter</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                <h5 class="font-bold text-green-900 dark:text-green-100 mb-2">🔄 Unit 2</h5>
+                <p class="text-green-800 dark:text-green-200 text-sm">Change of State of Matter</p>
               </div>
-              <div class="bg-white p-4 rounded-lg border border-purple-200">
-                <h5 class="font-bold text-purple-900 mb-2">⚛️ Unit 3</h5>
-                <p class="text-purple-800 text-sm">Nuclear Change</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
+                <h5 class="font-bold text-purple-900 dark:text-purple-100 mb-2">⚛️ Unit 3</h5>
+                <p class="text-purple-800 dark:text-purple-200 text-sm">Nuclear Change</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-lg my-4">
-            <p class="text-lg font-semibold mb-4 text-gray-900">🎓 Learning Outcomes</p>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-5 rounded-lg my-4">
+            <p class="text-lg font-semibold mb-4 text-gray-900 dark:text-white">🎓 Learning Outcomes</p>
             <p class="text-gray-800 mb-3">By the end of this module, you'll be able to:</p>
             <ul class="space-y-2 list-none">
               <li class="flex items-start">
@@ -97,25 +97,25 @@ export const chapter3Content = {
             fundamental definition of matter and how scientists study it.
           </p>
           
-          <div class="bg-teal-50 p-5 rounded-lg border-l-4 border-teal-500 my-4">
-            <p class="text-lg font-semibold mb-4 text-teal-900">🎓 Unit 1 Learning Outcomes</p>
-            <p class="text-teal-800 mb-3">At the end of this unit, you should be able to:</p>
+          <div class="bg-teal-50 dark:bg-teal-900/20 p-5 rounded-lg border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 my-4">
+            <p class="text-lg font-semibold mb-4 text-teal-900 dark:text-teal-100">🎓 Unit 1 Learning Outcomes</p>
+            <p class="text-teal-800 dark:text-teal-200 mb-3">At the end of this unit, you should be able to:</p>
             <ul class="space-y-2 list-none">
               <li class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">✓</span>
-                <span class="text-teal-800">Define matter</span>
+                <span class="text-teal-800 dark:text-teal-200">Define matter</span>
               </li>
               <li class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">✓</span>
-                <span class="text-teal-800">Describe the scientific methods of studying matter</span>
+                <span class="text-teal-800 dark:text-teal-200">Describe the scientific methods of studying matter</span>
               </li>
               <li class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">✓</span>
-                <span class="text-teal-800">Classify matter based on its composition and physical states</span>
+                <span class="text-teal-800 dark:text-teal-200">Classify matter based on its composition and physical states</span>
               </li>
               <li class="flex items-start">
                 <span class="text-teal-500 mr-3 font-bold">✓</span>
-                <span class="text-teal-800">Explain the kinetic theory of matter</span>
+                <span class="text-teal-800 dark:text-teal-200">Explain the kinetic theory of matter</span>
               </li>
             </ul>
           </div>
@@ -135,12 +135,12 @@ export const chapter3Content = {
           </p>
           
           <div class="space-y-4 my-6">
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🌱 Living Matter</h4>
-              <p class="text-blue-800 mb-2">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🌱 Living Matter</h4>
+              <p class="text-blue-800 dark:text-blue-200 mb-2">
                 Living matter has the properties of:
               </p>
-              <ul class="space-y-1 text-blue-800 text-sm ml-4">
+              <ul class="space-y-1 text-blue-800 dark:text-blue-200 text-sm ml-4">
                 <li>• Respiration</li>
                 <li>• Growth</li>
                 <li>• Movement</li>
@@ -149,45 +149,45 @@ export const chapter3Content = {
               </ul>
             </div>
 
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">💎 Non-Living Matter</h4>
-              <p class="text-green-800">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">💎 Non-Living Matter</h4>
+              <p class="text-green-800 dark:text-green-200">
                 Non-living matter does not exhibit the above properties. Growth in non-living matter only comes 
                 if there is an addition of the same or different matter by some processes to the matter.
               </p>
             </div>
           </div>
 
-          <div class="bg-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-purple-900 mb-3">📊 Classification of Matter</h4>
-            <p class="text-purple-800 mb-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">📊 Classification of Matter</h4>
+            <p class="text-purple-800 dark:text-purple-200 mb-3">
               Matter is constituted—this means that matter is also made up of something else. Matter by its 
               composition can be divided into:
             </p>
             <div class="grid md:grid-cols-2 gap-4 mt-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">Pure Substances</h5>
-                <ul class="space-y-1 text-sm text-gray-700">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Pure Substances</h5>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                   <li>• Elements</li>
                   <li>• Compounds</li>
                 </ul>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">Mixtures</h5>
-                <ul class="space-y-1 text-sm text-gray-700">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">Mixtures</h5>
+                <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                   <li>• Homogeneous</li>
                   <li>• Heterogeneous</li>
                 </ul>
               </div>
             </div>
-            <p class="text-purple-800 mt-3">
+            <p class="text-purple-800 dark:text-purple-200 mt-3">
               Matter can also exist in any of the three physical states which are <strong>solid, liquid, gas or plasma</strong>.
             </p>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">💡 Key Concepts</p>
-            <div class="space-y-2 text-yellow-800 text-sm">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Key Concepts</p>
+            <div class="space-y-2 text-yellow-800 dark:text-yellow-200 text-sm">
               <p><strong>Element:</strong> Has only one type of atom e.g. hydrogen. About 118 elements exist in nature 
               and are arranged into eight (8) periods of the periodic table.</p>
               <p><strong>Compound:</strong> Has more than one type of atom bonded together chemically which can only be 
@@ -197,23 +197,23 @@ export const chapter3Content = {
             </div>
           </div>
 
-          <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
-            <h4 class="font-bold text-indigo-900 mb-3">🔬 Types of Mixtures</h4>
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-5 rounded-lg border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3">🔬 Types of Mixtures</h4>
             <div class="space-y-3">
-              <div class="bg-white p-3 rounded">
-                <h5 class="font-semibold text-indigo-700 mb-1">Homogeneous Mixture</h5>
-                <p class="text-sm text-gray-700">Uniform composition throughout (e.g., salt in water, air mixture)</p>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <h5 class="font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Homogeneous Mixture</h5>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Uniform composition throughout (e.g., salt in water, air mixture)</p>
               </div>
-              <div class="bg-white p-3 rounded">
-                <h5 class="font-semibold text-indigo-700 mb-1">Heterogeneous Mixture</h5>
-                <p class="text-sm text-gray-700">Non-uniform composition (e.g., chocolate, soil)</p>
+              <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                <h5 class="font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Heterogeneous Mixture</h5>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Non-uniform composition (e.g., chocolate, soil)</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 my-4">
-            <p class="font-semibold text-teal-900 mb-2">📐 Understanding Matter</p>
-            <p class="text-teal-800">
+          <div class="bg-teal-50 dark:bg-teal-900/20 border-l-4 border-teal-500 dark:border-teal-400 dark:border-teal-400 p-4 my-4">
+            <p class="font-semibold text-teal-900 dark:text-teal-100 mb-2">📐 Understanding Matter</p>
+            <p class="text-teal-800 dark:text-teal-200">
               Matter can be represented pictorially while a theory is a statement of facts for understanding, 
               explaining and making predictions about an observable phenomenon. A scientific law is a statement 
               of fact that has been subjected to critical analysis, experimentation and found to correctly explain 
@@ -236,46 +236,46 @@ export const chapter3Content = {
             plausible general principle to explain a phenomenon.
           </p>
           
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-3">🏛️ Historical Background</h4>
-            <p class="text-blue-800 mb-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🏛️ Historical Background</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-3">
               The Greeks in the early stages of formulation of the kinetic theory conceptualized that if attempt 
               is made to continually subdivide matter, a smallest one will be attained that can exist on its own. 
               This is discrete, that is, it is a repeatable entity, cannot be continuously fractionalized at will.
             </p>
-            <p class="text-blue-800">
+            <p class="text-blue-800 dark:text-blue-200">
               This entity is called <strong>molecule</strong> and it is made up of one or more atoms.
             </p>
           </div>
 
-          <div class="bg-green-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-green-900 mb-4">🎯 Key Principle</h4>
-            <p class="text-green-800 text-lg mb-3">
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">🎯 Key Principle</h4>
+            <p class="text-green-800 dark:text-green-200 text-lg mb-3">
               We can explain the behaviour of matter by understanding its state or motional behaviour (kinetics)
             </p>
             <div class="space-y-3 mt-4">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🔲 Solids</h5>
-                <p class="text-sm text-gray-700">Particles only vibrate and rotate about a mean position</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🔲 Solids</h5>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Particles only vibrate and rotate about a mean position</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">💧 Liquids</h5>
-                <p class="text-sm text-gray-700">Particles vibrate and rotate about a mean position but can also 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">💧 Liquids</h5>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Particles vibrate and rotate about a mean position but can also 
                 easily slide over each other</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">💨 Gases</h5>
-                <p class="text-sm text-gray-700">Particles move randomly and are translated from one place to another</p>
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">💨 Gases</h5>
+                <p class="text-sm text-gray-700 dark:text-gray-300">Particles move randomly and are translated from one place to another</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500 my-4">
-            <h4 class="font-bold text-purple-900 mb-4">📋 Fundamental Assumptions of Kinetic Theory</h4>
-            <p class="text-purple-800 mb-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-4">📋 Fundamental Assumptions of Kinetic Theory</h4>
+            <p class="text-purple-800 dark:text-purple-200 mb-3">
               In building up the kinetic theory, some fundamental assumptions are made and employed:
             </p>
-            <div class="space-y-2 text-purple-800">
+            <div class="space-y-2 text-purple-800 dark:text-purple-200">
               <div class="flex items-start">
                 <span class="text-purple-500 mr-2 font-bold">1.</span>
                 <span>Particle dimension is much less than the distance between collisions</span>
@@ -319,22 +319,22 @@ export const chapter3Content = {
             explained by understanding its state or motional behaviour (Kinetic Theory).
           </p>
           
-          <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🔍 Matter Defined</h5>
-                <p class="text-gray-700 text-sm">Anything that occupies space, possesses mass, offers resistance to 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🔍 Matter Defined</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Anything that occupies space, possesses mass, offers resistance to 
                 change of inertia, and may be felt by sensory organs.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">📊 Classification</h5>
-                <p class="text-gray-700 text-sm">Matter can be classified as pure substances (elements, compounds) or 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">📊 Classification</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Matter can be classified as pure substances (elements, compounds) or 
                 mixtures (homogeneous, heterogeneous), and exists in physical states (solid, liquid, gas, plasma).</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">⚡ Kinetic Theory</h5>
-                <p class="text-gray-700 text-sm">Explains matter behavior through particle motion: solids vibrate, 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">⚡ Kinetic Theory</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Explains matter behavior through particle motion: solids vibrate, 
                 liquids slide, gases move randomly. Based on six fundamental assumptions.</p>
               </div>
             </div>
@@ -395,25 +395,25 @@ export const chapter3Content = {
             (and flows when poured) and occupies all available spaces as gas or plasma.
           </p>
           
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-3">🔍 Distinguishing States</h4>
-            <p class="text-blue-800">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🔍 Distinguishing States</h4>
+            <p class="text-blue-800 dark:text-blue-200">
               The state of matter is distinguishable by the <strong>temperature and appearance</strong> of the matter.
             </p>
           </div>
 
           <div class="grid md:grid-cols-3 gap-4 my-6">
-            <div class="bg-yellow-50 p-5 rounded-lg border-l-4 border-yellow-500">
-              <h4 class="font-bold text-yellow-900 mb-2">🔲 Solid</h4>
-              <p class="text-yellow-800 text-sm">Takes its own shape, particles closely packed</p>
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-5 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400">
+              <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-2">🔲 Solid</h4>
+              <p class="text-yellow-800 dark:text-yellow-200 text-sm">Takes its own shape, particles closely packed</p>
             </div>
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-2">💧 Liquid</h4>
-              <p class="text-blue-800 text-sm">Takes shape of container, flows when poured</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-2">💧 Liquid</h4>
+              <p class="text-blue-800 dark:text-blue-200 text-sm">Takes shape of container, flows when poured</p>
             </div>
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-2">💨 Gas/Plasma</h4>
-              <p class="text-green-800 text-sm">Occupies all available spaces</p>
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-2">💨 Gas/Plasma</h4>
+              <p class="text-green-800 dark:text-green-200 text-sm">Occupies all available spaces</p>
             </div>
           </div>
         </div>
@@ -432,33 +432,33 @@ export const chapter3Content = {
           </p>
           
           <div class="space-y-4 my-6">
-            <div class="bg-green-50 p-5 rounded-lg border-l-4 border-green-500">
-              <h4 class="font-bold text-green-900 mb-3">🔄 Physical Change</h4>
-              <p class="text-green-800 mb-3">
+            <div class="bg-green-50 dark:bg-green-900/20 p-5 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400">
+              <h4 class="font-bold text-green-900 dark:text-green-100 mb-3">🔄 Physical Change</h4>
+              <p class="text-green-800 dark:text-green-200 mb-3">
                 The former is referred to as physical change. All physical change involves change of state. Many a time, 
                 matter changes from solid to liquid and to gas but in few others, it changes from solid to gas 
                 without passing through liquid state.
               </p>
-              <div class="bg-white p-4 rounded mt-3">
-                <p class="font-semibold mb-2 text-gray-900">Sublimation:</p>
-                <p class="text-sm text-gray-700 mb-2">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+                <p class="font-semibold mb-2 text-gray-900 dark:text-white">Sublimation:</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">
                   Such substances are said to <strong>sublime</strong> and the process of change is <strong>sublimation</strong>.
                 </p>
-                <p class="text-sm text-gray-700">
+                <p class="text-sm text-gray-700 dark:text-gray-300">
                   Examples include <strong>iodine and ammonium chloride</strong>.
                 </p>
               </div>
             </div>
 
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3">⚗️ Chemical Change</h4>
-              <p class="text-red-800 mb-3">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">⚗️ Chemical Change</h4>
+              <p class="text-red-800 dark:text-red-200 mb-3">
                 The latter is referred to as chemical change. The nature of matter obtained when a chemical change 
                 occurs is fundamentally different from the starting matter.
               </p>
-              <div class="bg-white p-4 rounded mt-3">
-                <p class="font-semibold mb-2 text-gray-900">Example:</p>
-                <p class="text-sm text-gray-700">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+                <p class="font-semibold mb-2 text-gray-900 dark:text-white">Example:</p>
+                <p class="text-sm text-gray-700 dark:text-gray-300">
                   When an iron bar is exposed to the right humidity, temperature and air, it rusts. The product 
                   of rust is different from the pure iron bar.
                 </p>
@@ -466,9 +466,9 @@ export const chapter3Content = {
             </div>
           </div>
 
-          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-            <p class="font-semibold text-purple-900 mb-2">🌡️ Temperature Dependence</p>
-            <p class="text-purple-800">
+          <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 p-4 my-4">
+            <p class="font-semibold text-purple-900 dark:text-purple-100 mb-2">🌡️ Temperature Dependence</p>
+            <p class="text-purple-800 dark:text-purple-200">
               The state of matter depends on temperature. As temperature increases, matter typically changes from 
               solid → liquid → gas. The reverse occurs when temperature decreases.
             </p>
@@ -489,28 +489,28 @@ export const chapter3Content = {
             nucleus surrounded by electrons.
           </p>
           
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-3">🔬 The Planetary Model</h4>
-            <p class="text-blue-800 mb-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🔬 The Planetary Model</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-3">
               Hydrogen is the smallest atom having nuclear particle of one proton and an electron moving round it 
               in spherical orbit as shown in the planetary model.
             </p>
-            <p class="text-blue-800">
+            <p class="text-blue-800 dark:text-blue-200">
               More complicated nucleons have electrons moving in elliptical orbits. The nucleus contains protons 
               and neutrons.
             </p>
           </div>
 
-          <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 my-4">
-            <h4 class="font-bold text-green-900 mb-4">📊 Properties of Subatomic Particles</h4>
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 my-4">
+            <h4 class="font-bold text-green-900 dark:text-green-100 mb-4">📊 Properties of Subatomic Particles</h4>
             <div class="overflow-x-auto">
-              <table class="w-full bg-white rounded-lg">
+              <table class="w-full bg-white dark:bg-gray-700 rounded-lg">
                 <thead class="bg-green-100">
                   <tr>
-                    <th class="px-4 py-2 text-left font-bold text-green-900">Particle</th>
-                    <th class="px-4 py-2 text-left font-bold text-green-900">Symbol</th>
-                    <th class="px-4 py-2 text-left font-bold text-green-900">Charge</th>
-                    <th class="px-4 py-2 text-left font-bold text-green-900">Mass</th>
+                    <th class="px-4 py-2 text-left font-bold text-green-900 dark:text-green-100">Particle</th>
+                    <th class="px-4 py-2 text-left font-bold text-green-900 dark:text-green-100">Symbol</th>
+                    <th class="px-4 py-2 text-left font-bold text-green-900 dark:text-green-100">Charge</th>
+                    <th class="px-4 py-2 text-left font-bold text-green-900 dark:text-green-100">Mass</th>
                   </tr>
                 </thead>
                 <tbody class="text-sm">
@@ -535,21 +535,21 @@ export const chapter3Content = {
                 </tbody>
               </table>
             </div>
-            <p class="text-green-800 mt-3 text-sm">
+            <p class="text-green-800 dark:text-green-200 mt-3 text-sm">
               where charge of 1e = 1.602 × 10⁻¹⁹ Coulombs
             </p>
           </div>
 
-          <div class="bg-purple-50 border-l-4 border-purple-500 p-4 my-4">
-            <p class="font-semibold text-purple-900 mb-2">⚖️ Charge Balance</p>
-            <p class="text-purple-800">
+          <div class="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 dark:border-purple-400 dark:border-purple-400 p-4 my-4">
+            <p class="font-semibold text-purple-900 dark:text-purple-100 mb-2">⚖️ Charge Balance</p>
+            <p class="text-purple-800 dark:text-purple-200">
               A neutral atom always has equal number of protons and electrons since the neutron has no charge.
             </p>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🔗 Charge Interactions</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🔗 Charge Interactions</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               Positive and negative charges (positive-negative or negative-positive) <strong>attract</strong> each other 
               while two similar charges (positive-positive or negative-negative) <strong>repel</strong> each other.
             </p>
@@ -571,21 +571,21 @@ export const chapter3Content = {
           </p>
           
           <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🌊 Three States</h5>
-                <p class="text-gray-700 text-sm">Solid (own shape), Liquid (container shape, flows), Gas/Plasma 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🌊 Three States</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Solid (own shape), Liquid (container shape, flows), Gas/Plasma 
                 (occupies all space). Distinguished by temperature and appearance.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">🔄 State Changes</h5>
-                <p class="text-gray-700 text-sm">Physical changes (state transformation) and chemical changes 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">🔄 State Changes</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Physical changes (state transformation) and chemical changes 
                 (fundamental transformation). Sublimation: solid → gas directly.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">⚛️ Subatomic Particles</h5>
-                <p class="text-gray-700 text-sm">Proton (positive, heavy), Neutron (neutral, heavy), Electron 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">⚛️ Subatomic Particles</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Proton (positive, heavy), Neutron (neutral, heavy), Electron 
                 (negative, light). Neutral atoms have equal protons and electrons.</p>
               </div>
             </div>
@@ -646,55 +646,55 @@ export const chapter3Content = {
           </p>
           
           <div class="space-y-4 my-6">
-            <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
-              <h4 class="font-bold text-red-900 mb-3">⚡ Nuclear Fission</h4>
-              <p class="text-red-800">
+            <div class="bg-red-50 dark:bg-red-900/20 p-5 rounded-lg border-l-4 border-red-500 dark:border-red-400 dark:border-red-400">
+              <h4 class="font-bold text-red-900 dark:text-red-100 mb-3">⚡ Nuclear Fission</h4>
+              <p class="text-red-800 dark:text-red-200">
                 Division of a nucleus into two or more smaller nuclei
               </p>
             </div>
 
-            <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
-              <h4 class="font-bold text-blue-900 mb-3">🔥 Nuclear Fusion</h4>
-              <p class="text-blue-800">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400">
+              <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🔥 Nuclear Fusion</h4>
+              <p class="text-blue-800 dark:text-blue-200">
                 Bonding together of two or more nuclei
               </p>
             </div>
           </div>
 
-          <div class="bg-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-purple-900 mb-3">☢️ Radioactivity</h4>
-            <p class="text-purple-800 mb-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">☢️ Radioactivity</h4>
+            <p class="text-purple-800 dark:text-purple-200 mb-3">
               Some elements are observed to undergo nuclear change. These elements are said to be <strong>radioactive</strong> 
               e.g. uranium. They emit radiation which can be split using magnetic or electric field.
             </p>
-            <div class="bg-white p-4 rounded mt-3">
-              <p class="font-semibold mb-2 text-gray-900">Example of Nuclear Reaction:</p>
-              <p class="text-sm text-gray-700 font-mono mb-2">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+              <p class="font-semibold mb-2 text-gray-900 dark:text-white">Example of Nuclear Reaction:</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300 font-mono mb-2">
                 ²²⁶₈₈Ra → ²²²₈₆Rn + ⁴₂He + radiation
               </p>
-              <p class="text-sm text-gray-700">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
                 This change leads to the emission of alpha particle. Other types of radiations are X-rays.
               </p>
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">🔬 Types of Radiation</p>
-            <p class="text-green-800 mb-2">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">🔬 Types of Radiation</p>
+            <p class="text-green-800 dark:text-green-200 mb-2">
               Both alpha and beta particles are deflected by magnetic and electric plates (field):
             </p>
-            <ul class="space-y-1 text-green-800 text-sm ml-4">
+            <ul class="space-y-1 text-green-800 dark:text-green-200 text-sm ml-4">
               <li>• <strong>Alpha particle:</strong> Helium nucleus</li>
               <li>• <strong>Beta particles:</strong> Electrons</li>
             </ul>
           </div>
 
-          <div class="bg-indigo-50 p-5 rounded-lg border-l-4 border-indigo-500">
-            <h4 class="font-bold text-indigo-900 mb-3">📐 Nuclear Particle Notation</h4>
-            <p class="text-indigo-800 mb-3">
+          <div class="bg-indigo-50 dark:bg-indigo-900/20 p-5 rounded-lg border-l-4 border-indigo-500 dark:border-indigo-400 dark:border-indigo-400">
+            <h4 class="font-bold text-indigo-900 dark:text-indigo-100 mb-3">📐 Nuclear Particle Notation</h4>
+            <p class="text-indigo-800 dark:text-indigo-200 mb-3">
               A nuclear particle is represented as: <span class="font-mono">ᵇᵃX</span>
             </p>
-            <ul class="space-y-1 text-indigo-800 text-sm ml-4">
+            <ul class="space-y-1 text-indigo-800 dark:text-indigo-200 text-sm ml-4">
               <li>• <strong>A</strong> is the mass number</li>
               <li>• <strong>Z</strong> is the proton number</li>
               <li>• <strong>N</strong> is the neutron number</li>
@@ -715,28 +715,28 @@ export const chapter3Content = {
             the mass of the product and the reactants. This seems to imply violation of the law of conservation of mass.
           </p>
           
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">💡 Einstein's Insight</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">💡 Einstein's Insight</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               This law has been restated as the law of conservation of energy when Albert Einstein showed that the 
               change in mass turned into energy, obeying the Einstein law: <strong>E = Δmc²</strong>
             </p>
           </div>
 
-          <div class="bg-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-blue-900 mb-3">📊 Calculating Mass Defect</h4>
-            <p class="text-blue-800 mb-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">📊 Calculating Mass Defect</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-3">
               Mass defect Δm is calculated from the knowledge of values of the mass of protons, neutrons, electrons, etc.
             </p>
-            <div class="bg-white p-4 rounded mt-3">
-              <p class="font-semibold mb-2 text-gray-900">Formula:</p>
-              <p class="text-sm text-gray-700 font-mono mb-2">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+              <p class="font-semibold mb-2 text-gray-900 dark:text-white">Formula:</p>
+              <p class="text-sm text-gray-700 dark:text-gray-300 font-mono mb-2">
                 Δm = ZMₕ + (A-Z)Mₙ - Mₐ
               </p>
-              <p class="text-sm text-gray-700">
+              <p class="text-sm text-gray-700 dark:text-gray-300">
                 Where:
               </p>
-              <ul class="text-sm text-gray-700 ml-4 mt-1">
+              <ul class="text-sm text-gray-700 dark:text-gray-300 ml-4 mt-1">
                 <li>• A nucleus has mass ZMₕ since it contains Z protons</li>
                 <li>• (A-Z)Mₙ for (A-Z) neutrons</li>
                 <li>• When subtracted from the mass of the nucleus Mₐ, it gives mass defect Δm</li>
@@ -744,13 +744,13 @@ export const chapter3Content = {
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">⚡ Energy Release</p>
-            <p class="text-green-800 mb-2">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">⚡ Energy Release</p>
+            <p class="text-green-800 dark:text-green-200 mb-2">
               This change in mass then shows up as energy. So the mass and energy become synonymous. Mass can change 
               into energy and vice versa.
             </p>
-            <p class="text-green-800">
+            <p class="text-green-800 dark:text-green-200">
               This energy is observed in other nuclear reactions such as fission or fusion and is about 
               <strong>200 Mega-electron volts (200 MeV)</strong>.
             </p>
@@ -771,9 +771,9 @@ export const chapter3Content = {
             uranium nuclear fuel is 1/235 × 6.02 × 10²³ × 133 × 200MeV = 68100 × 10⁹ GJ.
           </p>
           
-          <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-            <p class="font-semibold text-red-900 mb-2">💥 The Danger</p>
-            <p class="text-red-800">
+          <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 dark:border-red-400 p-4 my-4">
+            <p class="font-semibold text-red-900 dark:text-red-100 mb-2">💥 The Danger</p>
+            <p class="text-red-800 dark:text-red-200">
               What makes it of special concern is that this enormous amount of energy is released in a short time 
               on a small piece of land - area producing tremor with tremendous impact over long range. When such a 
               war is becoming feasible, it is considered a threat. If it eventually happens; it is then a nuclear 
@@ -781,28 +781,28 @@ export const chapter3Content = {
             </p>
           </div>
 
-          <div class="bg-purple-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-purple-900 mb-3">🔗 Chain Reaction</h4>
-            <p class="text-purple-800 mb-3">
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-purple-900 dark:text-purple-100 mb-3">🔗 Chain Reaction</h4>
+            <p class="text-purple-800 dark:text-purple-200 mb-3">
               Chain reaction occurs when proceed of one reaction leads to another with both source and product initiating 
               the next reaction and resulting in an avalanche. This result in multiples of the energy produced per step 
               and in a very short time large amount of energy is released.
             </p>
-            <p class="text-purple-800">
+            <p class="text-purple-800 dark:text-purple-200">
               This large amount of energy is released in a very short time to a very small volume of space resulting in 
               an explosion or a bomb.
             </p>
           </div>
 
-          <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 my-4">
-            <h4 class="font-bold text-yellow-900 mb-3">💔 Historical Impact: Hiroshima and Nagasaki</h4>
-            <p class="text-yellow-800 mb-3">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 my-4">
+            <h4 class="font-bold text-yellow-900 dark:text-yellow-100 mb-3">💔 Historical Impact: Hiroshima and Nagasaki</h4>
+            <p class="text-yellow-800 dark:text-yellow-200 mb-3">
               In 1944, during World War II, Hiroshima and Nagasaki in Japan were bombed using hydrogen bomb in which 
               150,000 lives were lost in that test or drop. World War II quickly wound up within a year of its drop.
             </p>
-            <div class="bg-white p-4 rounded mt-3">
-              <p class="font-semibold mb-2 text-gray-900">Long-term Effects:</p>
-              <ul class="space-y-1 text-sm text-gray-700">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+              <p class="font-semibold mb-2 text-gray-900 dark:text-white">Long-term Effects:</p>
+              <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                 <li>• Besides those who died instantly, many who suffered from the dust, clay or even after-shock either 
                 died, became cancerous, disabled or deformed</li>
                 <li>• Its other effects which include psychological disorder linger on for many years</li>
@@ -811,17 +811,17 @@ export const chapter3Content = {
             </div>
           </div>
 
-          <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500 my-4">
-            <h4 class="font-bold text-blue-900 mb-3">🌍 Nuclear Non-Proliferation Treaty</h4>
-            <p class="text-blue-800 mb-3">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border-l-4 border-blue-500 dark:border-blue-400 dark:border-blue-400 my-4">
+            <h4 class="font-bold text-blue-900 dark:text-blue-100 mb-3">🌍 Nuclear Non-Proliferation Treaty</h4>
+            <p class="text-blue-800 dark:text-blue-200 mb-3">
               In 1946, the United States of America Congress passed the Atomic Energy Act. In the same year following 
               agitations to have arms control and disarmament including right to acquire Nuclear Free Zone, the 
               <strong>"Nuclear Non-Proliferation Treaty"</strong> was signed in the League of Nations that transformed 
               into the United Nations.
             </p>
-            <div class="bg-white p-4 rounded mt-3">
-              <p class="font-semibold mb-2 text-gray-900">Key Points:</p>
-              <ul class="space-y-1 text-sm text-gray-700">
+            <div class="bg-white dark:bg-gray-700 p-4 rounded mt-3">
+              <p class="font-semibold mb-2 text-gray-900 dark:text-white">Key Points:</p>
+              <ul class="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                 <li>• The intention was not to ever have to use this weapon of mass destruction</li>
                 <li>• Signing of this treaty was made voluntary</li>
                 <li>• Those who had the capability to develop nuclear warheads first constituted themselves into 
@@ -830,9 +830,9 @@ export const chapter3Content = {
             </div>
           </div>
 
-          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
-            <p class="font-semibold text-green-900 mb-2">⚡ Positive Uses</p>
-            <p class="text-green-800">
+          <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 dark:border-green-400 dark:border-green-400 p-4 my-4">
+            <p class="font-semibold text-green-900 dark:text-green-100 mb-2">⚡ Positive Uses</p>
+            <p class="text-green-800 dark:text-green-200">
               The fission reaction energy can be trapped as heat energy and the heat energy can then be converted to 
               electrical energy which is a positive use. But its use in warfare can be very catastrophic.
             </p>
@@ -855,27 +855,27 @@ export const chapter3Content = {
             also being formulated to keep space free and to free other planets from nuclear pollution.
           </p>
           
-          <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">⚛️ Nuclear Changes</h5>
-                <p class="text-gray-700 text-sm">Fission (splitting) and Fusion (combining) involve about 1,000,000 times 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">⚛️ Nuclear Changes</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Fission (splitting) and Fusion (combining) involve about 1,000,000 times 
                 more energy than chemical changes. Radioactive elements emit radiation.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">⚖️ Mass Defect</h5>
-                <p class="text-gray-700 text-sm">Mass defect Δm converts to energy via E = Δmc². Mass and energy are 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">⚖️ Mass Defect</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Mass defect Δm converts to energy via E = Δmc². Mass and energy are 
                 equivalent. Energy release is about 200 MeV per reaction.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-red-700 mb-2">⚠️ Nuclear Threats</h5>
-                <p class="text-gray-700 text-sm">Enormous energy released in short time causes catastrophic damage. 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-red-700 dark:text-red-300 mb-2">⚠️ Nuclear Threats</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Enormous energy released in short time causes catastrophic damage. 
                 Chain reactions multiply the effect. Historical impact: Hiroshima/Nagasaki (150,000 lives lost).</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">🌍 Nuclear Non-Proliferation</h5>
-                <p class="text-gray-700 text-sm">Treaties aim to prevent nuclear warfare. Nuclear energy can be used 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">🌍 Nuclear Non-Proliferation</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Treaties aim to prevent nuclear warfare. Nuclear energy can be used 
                 positively (electricity) but warfare use is catastrophic.</p>
               </div>
             </div>
@@ -894,42 +894,42 @@ export const chapter3Content = {
             Congratulations! 🎉 You've completed Chapter 3! Let's recap what we've learned about matter:
           </p>
           
-          <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-lg my-4">
-            <h4 class="font-bold text-gray-900 mb-4 text-xl">Key Takeaways:</h4>
+          <div class="bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-6 rounded-lg my-4">
+            <h4 class="font-bold text-gray-900 dark:text-white mb-4 text-xl">Key Takeaways:</h4>
             <div class="space-y-3">
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-teal-700 mb-2">1. Matter Defined</h5>
-                <p class="text-gray-700 text-sm">Anything that occupies space, possesses mass, offers resistance to 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-teal-700 dark:text-teal-300 mb-2">1. Matter Defined</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Anything that occupies space, possesses mass, offers resistance to 
                 change of inertia. Can be classified as pure substances (elements, compounds) or mixtures (homogeneous, 
                 heterogeneous).</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-blue-700 mb-2">2. Kinetic Theory</h5>
-                <p class="text-gray-700 text-sm">Explains matter behavior through particle motion: solids vibrate, 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-blue-700 dark:text-blue-300 mb-2">2. Kinetic Theory</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Explains matter behavior through particle motion: solids vibrate, 
                 liquids slide, gases move randomly. Based on six fundamental assumptions about particle behavior.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-green-700 mb-2">3. States of Matter</h5>
-                <p class="text-gray-700 text-sm">Three physical states: solid, liquid, gas/plasma. Matter changes states 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-green-700 dark:text-green-300 mb-2">3. States of Matter</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Three physical states: solid, liquid, gas/plasma. Matter changes states 
                 due to temperature. Physical changes (state transformation) vs chemical changes (fundamental transformation).</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <h5 class="font-bold text-purple-700 mb-2">4. Subatomic Particles</h5>
-                <p class="text-gray-700 text-sm">Proton (positive, 1.673×10⁻²⁷ kg), Neutron (neutral, 1.675×10⁻²⁷ kg), 
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
+                <h5 class="font-bold text-purple-700 dark:text-purple-300 mb-2">4. Subatomic Particles</h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Proton (positive, 1.673×10⁻²⁷ kg), Neutron (neutral, 1.675×10⁻²⁷ kg), 
                 Electron (negative, 9.1×10⁻³¹ kg). Neutral atoms have equal protons and electrons.</p>
               </div>
-              <div class="bg-white p-4 rounded-lg">
+              <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
                 <h5 class="font-bold text-orange-700 mb-2">5. Nuclear Changes</h5>
-                <p class="text-gray-700 text-sm">Fission (splitting) and Fusion (combining) involve massive energy. Mass 
+                <p class="text-gray-700 dark:text-gray-300 text-sm">Fission (splitting) and Fusion (combining) involve massive energy. Mass 
                 defect converts to energy via E = Δmc². Nuclear energy has both positive uses (electricity) and catastrophic 
                 potential (warfare).</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-4">
-            <p class="font-semibold text-yellow-900 mb-2">🎯 Next Steps</p>
-            <p class="text-yellow-800">
+          <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 dark:border-yellow-400 p-4 my-4">
+            <p class="font-semibold text-yellow-900 dark:text-yellow-100 mb-2">🎯 Next Steps</p>
+            <p class="text-yellow-800 dark:text-yellow-200">
               You now understand the fundamental concept of matter, from its basic definition to the powerful forces 
               within atoms! Remember: matter is all around us, and understanding its properties helps us understand 
               the world. Keep exploring! 🔬✨
