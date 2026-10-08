@@ -1,0 +1,44 @@
+[
+  {
+    "id": "hook",
+    "src": "motion/bio101/chapter1/hook.mp3",
+    "seconds": 9.05,
+    "frames": 272,
+    "text": "Chapter one. Biology studies living things. What they do, how, and why. A stone is not alive."
+  },
+  {
+    "id": "traits",
+    "src": "motion/bio101/chapter1/traits.mp3",
+    "seconds": 24.58,
+    "frames": 738,
+    "text": "Seven activities set life apart. Nutrition: plants make food, animals eat it. Respiration releases energy. A leopard runs. A plant still leans. Excretion clears waste. Growth adds cells. Reproduction makes new life. Sensitivity answers the world. Only the living do all seven."
+  },
+  {
+    "id": "ladder",
+    "src": "motion/bio101/chapter1/ladder.mp3",
+    "seconds": 12.41,
+    "frames": 373,
+    "text": "Sort them from kingdom to species. A species can breed fertile young. One easy trait is artificial. Real kinship is natural. Naming them is taxonomy."
+  },
+  {
+    "id": "cell",
+    "src": "motion/bio101/chapter1/cell.mp3",
+    "seconds": 13.22,
+    "frames": 397,
+    "text": "Life is made of cells, and new cells come from old cells. No nucleus: prokaryote. A nucleus: eukaryote. Cells stay small so materials can cross in time."
+  },
+  {
+    "id": "genes",
+    "src": "motion/bio101/chapter1/genes.mp3",
+    "seconds": 12.41,
+    "frames": 373,
+    "text": "Genes are instructions in DNA, on chromosomes, one set from each parent. The set is the genotype. What you show is the phenotype. A changed letter is a mutation."
+  },
+  {
+    "id": "close",
+    "src": "motion/bio101/chapter1/close.mp3",
+    "seconds": 3.29,
+    "frames": 99,
+    "text": "Alive, named, and built of cells."
+  }
+]

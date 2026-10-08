@@ -75,9 +75,10 @@ jspm_packages/
 .nuxt
 dist
 
-# Gatsby files
+# Gatsby build output at the repo root.
+# frontend/public is Vite source (voice, effects, favicon) and must be committed.
 .cache/
-public
+/public
 
 # Vuepress build output
 .vuepress/dist

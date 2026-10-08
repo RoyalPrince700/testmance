@@ -1,0 +1,114 @@
+[
+  {
+    "id": "hook",
+    "src": "motion/bio101/hook.mp3",
+    "seconds": 6.26,
+    "frames": 188,
+    "hold": 196,
+    "text": "Step outside. A tree, a bird, you. A stone is not alive."
+  },
+  {
+    "id": "trait-nutrition",
+    "src": "motion/bio101/trait-nutrition.mp3",
+    "seconds": 3.07,
+    "frames": 93,
+    "hold": 101,
+    "text": "Nutrition. Take in food."
+  },
+  {
+    "id": "trait-respiration",
+    "src": "motion/bio101/trait-respiration.mp3",
+    "seconds": 3.29,
+    "frames": 99,
+    "hold": 107,
+    "text": "Respiration. Release energy."
+  },
+  {
+    "id": "trait-movement",
+    "src": "motion/bio101/trait-movement.mp3",
+    "seconds": 5.26,
+    "frames": 158,
+    "hold": 166,
+    "text": "Movement. A leopard runs. A plant still leans."
+  },
+  {
+    "id": "trait-excretion",
+    "src": "motion/bio101/trait-excretion.mp3",
+    "seconds": 3.43,
+    "frames": 103,
+    "hold": 111,
+    "text": "Excretion. Waste leaves the cell."
+  },
+  {
+    "id": "trait-growth",
+    "src": "motion/bio101/trait-growth.mp3",
+    "seconds": 3.7,
+    "frames": 111,
+    "hold": 119,
+    "text": "Growth. New cells, for good."
+  },
+  {
+    "id": "trait-reproduction",
+    "src": "motion/bio101/trait-reproduction.mp3",
+    "seconds": 3.46,
+    "frames": 104,
+    "hold": 112,
+    "text": "Reproduction. Life makes life."
+  },
+  {
+    "id": "trait-sensitivity",
+    "src": "motion/bio101/trait-sensitivity.mp3",
+    "seconds": 3.55,
+    "frames": 107,
+    "hold": 115,
+    "text": "Sensitivity. The body answers."
+  },
+  {
+    "id": "trait-close",
+    "src": "motion/bio101/trait-close.mp3",
+    "seconds": 2.74,
+    "frames": 83,
+    "hold": 91,
+    "text": "Only a living thing does all seven."
+  },
+  {
+    "id": "ladder",
+    "src": "motion/bio101/ladder.mp3",
+    "seconds": 7.99,
+    "frames": 240,
+    "hold": 248,
+    "text": "Then we name them. Kingdom, phylum, class, order, family, genus, species."
+  },
+  {
+    "id": "web",
+    "src": "motion/bio101/web.mp3",
+    "seconds": 4.66,
+    "frames": 140,
+    "hold": 148,
+    "text": "Nothing lives alone. Ecology is the study of that home."
+  },
+  {
+    "id": "cell",
+    "src": "motion/bio101/cell.mp3",
+    "seconds": 7.39,
+    "frames": 222,
+    "hold": 230,
+    "text": "Life starts in a cell. Prokaryotes have no nucleus. Eukaryotes keep their genes in one."
+  },
+  {
+    "id": "genes",
+    "src": "motion/bio101/genes.mp3",
+    "seconds": 6.65,
+    "frames": 200,
+    "hold": 208,
+    "text": "Genes are the recipe. Heredity passes it on. Evolution rewrites what works."
+  },
+  {
+    "id": "close",
+    "src": "motion/bio101/close.mp3",
+    "seconds": 5.76,
+    "frames": 173,
+    "hold": 181,
+    "text": "Biology One. Six chapters. Start with what is alive."
+  }
+]
