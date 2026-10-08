@@ -2,30 +2,23 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { leaderboardAPI, usersAPI } from '../utils/api';
-import { Trophy, GraduationCap, User, X, School, Building2, Star, AlertCircle } from 'lucide-react';
+import { Trophy, X } from 'lucide-react';
 import { getAvatarSrc } from '../utils/avatarUtils';
 
 const Leaderboard = () => {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [leaderboard, setLeaderboard] = useState([]);
   const [userRank, setUserRank] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('global'); // Default to global view (filtered by level)
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [activeTab, setActiveTab] = useState('global');
   const [profileModalOpen, setProfileModalOpen] = useState(false);
   const [profileLoading, setProfileLoading] = useState(false);
   const [profileData, setProfileData] = useState(null);
   const [validationModalOpen, setValidationModalOpen] = useState(false);
   const [validationMessage, setValidationMessage] = useState('');
-
-  // Check if user has level on mount
-  useEffect(() => {
-    if (!authLoading && user && !user.academicLevel) {
-      setValidationMessage('Please set your academic level in your profile to view the leaderboard.');
-      setValidationModalOpen(true);
-    }
-  }, [user, authLoading]);
+  const [loadError, setLoadError] = useState('');
+  const [emptyReason, setEmptyReason] = useState('');
 
   // Handle tab change with validation
   const handleTabChange = (tab) => {
@@ -49,33 +42,25 @@ const Leaderboard = () => {
     const loadLeaderboardData = async () => {
       try {
         setLoading(true);
+        setLoadError('');
+        setEmptyReason('');
         
         let response;
         const universityId = user?.university?._id || user?.university;
         
         switch (activeTab) {
           case 'global':
-            response = await leaderboardAPI.getGlobal({ 
-              limit: 50,
-              academicLevel: user?.academicLevel 
-            });
+            response = await leaderboardAPI.getGlobal({ limit: 50 });
             setLeaderboard(response.data || []);
             break;
             
           case 'university':
             if (universityId) {
-              response = await leaderboardAPI.getUniversity(universityId, { 
-                limit: 50,
-                academicLevel: user?.academicLevel 
-              });
+              response = await leaderboardAPI.getUniversity(universityId, { limit: 50 });
               setLeaderboard(response.data || []);
             } else {
-              // Fallback to global if no university
-              response = await leaderboardAPI.getGlobal({ 
-                limit: 50,
-                academicLevel: user?.academicLevel 
-              });
-              setLeaderboard(response.data || []);
+              setLeaderboard([]);
+              setEmptyReason('Add your university on your profile to see this board.');
             }
             break;
             
@@ -84,12 +69,12 @@ const Leaderboard = () => {
               response = await leaderboardAPI.getFaculty({
                 faculty: user.faculty,
                 university: universityId,
-                academicLevel: user.academicLevel,
                 limit: 50
               });
               setLeaderboard(response.data || []);
             } else {
               setLeaderboard([]);
+              setEmptyReason('Add your faculty on your profile to see this board.');
             }
             break;
             
@@ -99,20 +84,17 @@ const Leaderboard = () => {
                 department: user.department,
                 faculty: user.faculty,
                 university: universityId,
-                academicLevel: user.academicLevel,
                 limit: 50
               });
               setLeaderboard(response.data || []);
             } else {
               setLeaderboard([]);
+              setEmptyReason('Add your department on your profile to see this board.');
             }
             break;
             
           default:
-            response = await leaderboardAPI.getGlobal({ 
-              limit: 50,
-              academicLevel: user?.academicLevel 
-            });
+            response = await leaderboardAPI.getGlobal({ limit: 50 });
             setLeaderboard(response.data || []);
         }
         
@@ -128,41 +110,14 @@ const Leaderboard = () => {
       } catch (error) {
         console.error('Failed to load leaderboard:', error);
         setLeaderboard([]);
+        setLoadError('The rankings did not load. Refresh and try again.');
       } finally {
         setLoading(false);
       }
     };
 
     loadLeaderboardData();
-  }, [activeTab, user?.university?._id, user?.faculty, user?.department, user?.academicLevel]);
-
-  // Get rank color based on position
-  const getRankColor = (rank) => {
-    switch (rank) {
-      case 1:
-        return 'bg-yellow-400'; // Yellow for #1
-      case 2:
-        return 'bg-gray-400'; // Gray for #2
-      case 3:
-        return 'bg-orange-400'; // Orange for #3
-      default:
-        return 'bg-teal-400'; // Teal/Green for #4+
-    }
-  };
-
-  // Get progress bar color
-  const getProgressBarColor = (rank) => {
-    switch (rank) {
-      case 1:
-        return 'bg-yellow-400';
-      case 2:
-        return 'bg-gray-400';
-      case 3:
-        return 'bg-orange-400';
-      default:
-        return 'bg-teal-400';
-    }
-  };
+  }, [activeTab, user?.university?._id, user?.university, user?.faculty, user?.department]);
 
   // Calculate progress percentage (based on highest gems)
   const getProgressPercentage = (gems, maxGems) => {
@@ -195,196 +150,164 @@ const Leaderboard = () => {
   const closeProfileModal = () => {
     setProfileModalOpen(false);
     setProfileData(null);
-    setSelectedUser(null);
   };
+
+  const tabs = [
+    { id: 'global', label: 'Global' },
+    { id: 'university', label: 'University' },
+    { id: 'faculty', label: 'Faculty' },
+    { id: 'department', label: 'Department' },
+  ];
+  const listedSelf = leaderboard.find((entry) => user && (entry._id === user.id || entry._id === user._id));
+  const rankByScope = {
+    global: userRank?.globalRank,
+    university: userRank?.universityRank,
+    faculty: userRank?.facultyRank,
+    department: userRank?.departmentRank,
+  };
+  const yourRank = listedSelf?.rank || rankByScope[activeTab] || null;
+  const universityName = user?.university?.name || user?.university?.shortName;
+  const scopeLine = {
+    global: 'Ranked by gems across every student.',
+    university: universityName ? `Ranked by gems at ${universityName}.` : 'Ranked by gems at your university.',
+    faculty: user?.faculty ? `Ranked by gems in ${user.faculty}.` : 'Ranked by gems in your faculty.',
+    department: user?.department ? `Ranked by gems in ${user.department}.` : 'Ranked by gems in your department.',
+  }[activeTab];
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
-      {/* Header with Level Info */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center justify-center gap-3">
-          <Trophy className="h-8 w-8 text-yellow-500" />
-          Leaderboard
+    <div className="bg-canvas pb-20 text-ink">
+      <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+        <p className="rise-in text-sm font-medium text-accent">Leaderboard</p>
+        <h1 className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]" style={{ animationDelay: '70ms' }}>
+          Where you stand.
         </h1>
-        {user?.academicLevel && (
-          <p className="text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 inline-block px-4 py-1 rounded-full text-sm font-medium border border-purple-100 dark:border-purple-900/30">
-            Level {user.academicLevel}
-          </p>
-        )}
-      </div>
-
-      {/* Tabs */}
-      <div className="flex justify-center">
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-1 flex flex-wrap gap-1">
-          <button
-            onClick={() => handleTabChange('global')}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
-              activeTab === 'global'
-                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-            }`}
-          >
-            Global
-          </button>
-          <button
-            onClick={() => handleTabChange('university')}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
-              activeTab === 'university'
-                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-            }`}
-          >
-            <div className="flex items-center space-x-2">
-              <GraduationCap className="h-4 w-4" />
-              <span>University</span>
-            </div>
-          </button>
-          <button
-            onClick={() => handleTabChange('faculty')}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
-              activeTab === 'faculty'
-                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-            }`}
-          >
-            <div className="flex items-center space-x-2">
-              <Building2 className="h-4 w-4" />
-              <span>Faculty</span>
-            </div>
-          </button>
-          <button
-            onClick={() => handleTabChange('department')}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors text-sm ${
-              activeTab === 'department'
-                ? 'bg-white dark:bg-gray-700 text-gray-800 dark:text-white shadow-sm'
-                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-            }`}
-          >
-            <div className="flex items-center space-x-2">
-              <School className="h-4 w-4" />
-              <span>Department</span>
-            </div>
-          </button>
-        </div>
-      </div>
-
-      {/* Leaderboard List */}
-      {!user?.academicLevel && !authLoading ? (
-        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <AlertCircle className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Academic Level Required</h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">You need to set your academic level in your profile to participate in the rankings.</p>
-          <button
-            onClick={() => navigate('/profile')}
-            className="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-700 transition-all transform hover:scale-105 shadow-lg"
-          >
-            Update Profile Now
-          </button>
-        </div>
-      ) : leaderboard.length === 0 ? (
-        <div className="text-center py-12 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
-          <Trophy className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No rankings yet</h3>
-          <p className="text-gray-600 dark:text-gray-400">Be the first to start learning and claim the top spot!</p>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {leaderboard.map((leaderboardUser, index) => {
-            const rank = leaderboardUser.rank || index + 1;
-            const isCurrentUser = user && (leaderboardUser._id === user.id || leaderboardUser._id === user._id);
-            const gems = leaderboardUser.gems || leaderboardUser.stats?.totalGems || 0;
-            const rankColor = getRankColor(rank);
-            const progressColor = getProgressBarColor(rank);
-            const progressPercentage = getProgressPercentage(gems, maxGems);
-
+        <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+          {scopeLine}{yourRank ? ` You are #${yourRank}.` : ''}
+        </p>
+        <div className="rise-in mt-8 flex flex-wrap gap-2" style={{ animationDelay: '210ms' }} role="group" aria-label="Leaderboard scope">
+          {tabs.map((tab) => {
+            const selected = activeTab === tab.id;
             return (
-              <div
-                key={leaderboardUser._id}
-                onClick={() => handleUserClick(leaderboardUser._id)}
-                className={`bg-white dark:bg-gray-800 border border-transparent dark:border-gray-700 rounded-lg shadow-md p-4 flex items-center gap-4 cursor-pointer hover:shadow-lg dark:hover:bg-gray-750 transition-all ${
-                  isCurrentUser ? 'ring-2 ring-blue-400 dark:ring-blue-500 border-blue-400 dark:border-blue-500' : ''
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => handleTabChange(tab.id)}
+                aria-pressed={selected}
+                className={`h-9 rounded-full px-4 text-sm font-medium transition-colors ${
+                  selected
+                    ? 'bg-accent-fill text-on-accent'
+                    : 'border border-line bg-surface text-graphite hover:text-ink'
                 }`}
               >
-                {/* Rank Circle */}
-                <div className={`${rankColor} w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm`}>
-                  <span className="text-white text-base font-bold">{rank}</span>
-                </div>
-
-                {/* Avatar */}
-                <div className="shrink-0">
-                  {leaderboardUser.avatar ? (
-                    <img
-                      src={getAvatarSrc(leaderboardUser.avatar)}
-                      alt={leaderboardUser.username}
-                      className="w-10 h-10 rounded-full border-2 border-gray-200 dark:border-gray-700 object-cover"
-                    />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-sm">
-                      {leaderboardUser.username?.charAt(0).toUpperCase() || <User className="h-5 w-5" />}
-                    </div>
-                  )}
-                </div>
-
-                {/* User Info and Progress */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-gray-800 dark:text-white text-lg">
-                      {leaderboardUser.username}
-                    </h3>
-                    {rank === 1 && (
-                      <Trophy className="h-5 w-5 text-yellow-500" />
-                    )}
-                    {isCurrentUser && (
-                      <span className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded">You</span>
-                    )}
-                  </div>
-                  
-                  <div className="text-sm font-bold text-gray-500 dark:text-gray-400 mb-2">
-                    {gems.toLocaleString()} gems
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                    <div
-                      className={`${progressColor} h-full transition-all duration-500`}
-                      style={{ width: `${progressPercentage}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
+                {tab.label}
+              </button>
             );
           })}
         </div>
-      )}
+      </header>
 
-      {/* Profile Modal */}
+      <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
+        {loadError ? (
+          <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <Trophy className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">Rankings did not load</h2>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">{loadError}</p>
+          </div>
+        ) : leaderboard.length === 0 ? (
+          <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <Trophy className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">No rankings yet</h2>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+              {emptyReason || 'Finish a quiz and the first name appears here.'}
+            </p>
+            {emptyReason && (
+              <button type="button" onClick={() => navigate('/profile')} className="btn-primary mt-6">
+                Edit profile
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="overflow-hidden rounded-3xl border border-line bg-surface">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[36rem] border-collapse text-left">
+                <caption className="sr-only">Students ranked by gems</caption>
+                <thead>
+                  <tr className="border-b border-line bg-canvas">
+                    <th scope="col" className="px-5 py-3 text-sm font-medium text-slate md:px-8">Rank</th>
+                    <th scope="col" className="px-4 py-3 text-sm font-medium text-slate">Student</th>
+                    <th scope="col" className="px-5 py-3 text-right text-sm font-medium text-slate md:px-8">Gems</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {leaderboard.map((leaderboardUser, index) => {
+                    const rank = leaderboardUser.rank || index + 1;
+                    const isCurrentUser = user && (leaderboardUser._id === user.id || leaderboardUser._id === user._id);
+                    const gems = leaderboardUser.gems || leaderboardUser.stats?.totalGems || 0;
+                    const progressPercentage = getProgressPercentage(gems, maxGems);
+
+                    return (
+                      <tr key={leaderboardUser._id} className={`border-b border-line last:border-b-0 ${isCurrentUser ? 'bg-accent-soft' : ''}`}>
+                        <td className="px-5 py-4 text-sm font-medium tabular-nums text-ink md:px-8">{rank}</td>
+                        <td className="px-4 py-4">
+                          <button
+                            type="button"
+                            onClick={() => handleUserClick(leaderboardUser._id)}
+                            className="flex items-center gap-3 text-left"
+                          >
+                            {leaderboardUser.avatar ? (
+                              <img
+                                src={getAvatarSrc(leaderboardUser.avatar)}
+                                alt=""
+                                className="h-9 w-9 rounded-full border border-line object-cover"
+                              />
+                            ) : (
+                              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-canvas text-sm font-medium text-ink">
+                                {leaderboardUser.username?.charAt(0).toUpperCase() || '?'}
+                              </span>
+                            )}
+                            <span>
+                              <span className="block text-sm font-medium text-ink">{leaderboardUser.username}</span>
+                              {isCurrentUser && <span className="block text-xs font-medium text-accent">You</span>}
+                            </span>
+                          </button>
+                        </td>
+                        <td className="px-5 py-4 text-right md:px-8">
+                          <span className="text-sm font-medium tabular-nums text-gem">{gems.toLocaleString()}</span>
+                          <div className="ml-auto mt-2 h-1 w-24 overflow-hidden rounded-full bg-canvas">
+                            <div className="h-full rounded-full bg-accent-fill" style={{ width: `${progressPercentage}%` }} />
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+      </section>
+
       {profileModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={closeProfileModal}>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-            <div className="p-6">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">User Profile</h2>
-                <button
-                  onClick={closeProfileModal}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-                >
-                  <X className="h-6 w-6" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4" onClick={closeProfileModal}>
+          <div className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-3xl border border-line bg-surface p-6" role="dialog" aria-modal="true" aria-labelledby="board-profile-title" onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between">
+                <h2 id="board-profile-title" className="text-lg font-medium tracking-tight text-ink">Profile</h2>
+                <button type="button" onClick={closeProfileModal} className="rounded-full p-2 text-slate hover:text-ink" aria-label="Close">
+                  <X className="h-4 w-4" strokeWidth={1.75} />
                 </button>
               </div>
 
-              {/* Loading State */}
               {profileLoading && (
                 <div className="flex items-center justify-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+                  <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
                 </div>
               )}
 
@@ -392,99 +315,62 @@ const Leaderboard = () => {
               {!profileLoading && profileData && (
                 <>
                   {profileData.visible === false ? (
-                    // Visibility Off Message
-                    <div className="text-center py-12">
-                      <div className="bg-gray-100 dark:bg-gray-700 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                        <User className="h-10 w-10 text-gray-400 dark:text-gray-500" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Profile Visibility Off</h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        This user has chosen to keep their profile private.
-                      </p>
-                      <p className="text-gray-500 dark:text-gray-500 text-sm mt-2">
-                        University, faculty, department, and level information is not available.
+                    <div className="py-10 text-center">
+                      <h3 className="text-lg font-medium tracking-tight text-ink">This profile is hidden</h3>
+                      <p className="mt-2 text-[15px] leading-relaxed text-slate">
+                        University, faculty, department, and level stay private.
                       </p>
                     </div>
                   ) : (
                     // Profile Details
-                    <div className="space-y-6">
-                      {/* Avatar and Username */}
-                      <div className="flex items-center space-x-4">
+                    <div className="mt-6">
+                      <div className="flex items-center gap-4">
                         {profileData.user.avatar ? (
-                          <img
-                            src={getAvatarSrc(profileData.user.avatar)}
-                            alt={profileData.user.username}
-                            className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-gray-700 object-cover"
-                          />
+                          <img src={getAvatarSrc(profileData.user.avatar)} alt="" className="h-14 w-14 rounded-full border border-line object-cover" />
                         ) : (
-                          <div className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-gray-700 bg-linear-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white font-semibold text-xl">
-                            {profileData.user.username?.charAt(0).toUpperCase() || <User className="h-8 w-8" />}
-                          </div>
+                          <span className="flex h-14 w-14 items-center justify-center rounded-full border border-line bg-canvas text-lg font-medium text-ink">
+                            {profileData.user.username?.charAt(0).toUpperCase() || '?'}
+                          </span>
                         )}
                         <div>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">{profileData.user.username}</h3>
-                          {profileData.user.level && (
-                            <p className="text-gray-600 dark:text-gray-400">Level {profileData.user.level}</p>
-                          )}
+                          <h3 className="text-lg font-medium tracking-tight text-ink">{profileData.user.username}</h3>
+                          {profileData.user.level && <p className="mt-1 text-sm text-slate">Level {profileData.user.level}</p>}
                         </div>
                       </div>
-
-                      {/* Profile Details */}
-                      <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                      <dl className="mt-6 grid gap-4 border-t border-line pt-4">
                         {profileData.user.university && (
-                          <div className="flex items-start space-x-3">
-                            <School className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">University</p>
-                              <p className="text-gray-900 dark:text-white font-medium">
-                                {typeof profileData.user.university === 'object' 
-                                  ? profileData.user.university.name 
-                                  : profileData.user.university}
-                              </p>
-                            </div>
+                          <div>
+                            <dt className="text-sm text-slate">University</dt>
+                            <dd className="mt-1 text-sm font-medium text-ink">
+                              {typeof profileData.user.university === 'object' ? profileData.user.university.name : profileData.user.university}
+                            </dd>
                           </div>
                         )}
-
                         {profileData.user.faculty && (
-                          <div className="flex items-start space-x-3">
-                            <Building2 className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">Faculty</p>
-                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.faculty}</p>
-                            </div>
+                          <div>
+                            <dt className="text-sm text-slate">Faculty</dt>
+                            <dd className="mt-1 text-sm font-medium text-ink">{profileData.user.faculty}</dd>
                           </div>
                         )}
-
                         {profileData.user.department && (
-                          <div className="flex items-start space-x-3">
-                            <GraduationCap className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">Department</p>
-                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.department}</p>
-                            </div>
+                          <div>
+                            <dt className="text-sm text-slate">Department</dt>
+                            <dd className="mt-1 text-sm font-medium text-ink">{profileData.user.department}</dd>
                           </div>
                         )}
-
                         {profileData.user.academicLevel && (
-                          <div className="flex items-start space-x-3">
-                            <Star className="h-5 w-5 text-gray-500 dark:text-gray-400 mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">Level</p>
-                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.academicLevel} Level</p>
-                            </div>
+                          <div>
+                            <dt className="text-sm text-slate">Level</dt>
+                            <dd className="mt-1 text-sm font-medium text-ink">{profileData.user.academicLevel} level</dd>
                           </div>
                         )}
-
                         {profileData.user.gems !== undefined && (
-                          <div className="flex items-start space-x-3 pt-2 border-t border-gray-200 dark:border-gray-700">
-                            <Trophy className="h-5 w-5 text-yellow-500 mt-0.5 shrink-0" />
-                            <div>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">Total Gems</p>
-                              <p className="text-gray-900 dark:text-white font-medium">{profileData.user.gems.toLocaleString()} gems</p>
-                            </div>
+                          <div>
+                            <dt className="text-sm text-slate">Gems</dt>
+                            <dd className="mt-1 text-sm font-medium tabular-nums text-gem">{profileData.user.gems.toLocaleString()}</dd>
                           </div>
                         )}
-                      </div>
+                      </dl>
                     </div>
                   )}
                 </>
@@ -492,56 +378,31 @@ const Leaderboard = () => {
 
               {/* Error State */}
               {!profileLoading && profileData?.error && (
-                <div className="text-center py-12">
-                  <p className="text-red-600 dark:text-red-400">Failed to load profile. Please try again.</p>
-                </div>
+                <p className="py-10 text-center text-[15px] text-slate">The profile did not load. Try again.</p>
               )}
-            </div>
           </div>
         </div>
       )}
 
-      {/* Validation Modal */}
       {validationModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setValidationModalOpen(false)}>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="bg-yellow-100 dark:bg-yellow-900/30 rounded-full p-2">
-                    <AlertCircle className="h-6 w-6 text-yellow-600 dark:text-yellow-500" />
-                  </div>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">Profile Setup Required</h2>
-                </div>
-                <button
-                  onClick={() => setValidationModalOpen(false)}
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
-                {validationMessage}
-              </p>
-              
-              <div className="flex space-x-3">
-                <button
-                  onClick={() => {
-                    setValidationModalOpen(false);
-                    navigate('/profile');
-                  }}
-                  className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors shadow-sm"
-                >
-                  Go to Profile
-                </button>
-                <button
-                  onClick={() => setValidationModalOpen(false)}
-                  className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4" onClick={() => setValidationModalOpen(false)}>
+          <div className="w-full max-w-md rounded-3xl border border-line bg-surface p-6" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
+            <h2 className="text-lg font-medium tracking-tight text-ink">Finish your profile</h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-slate">{validationMessage}</p>
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => {
+                  setValidationModalOpen(false);
+                  navigate('/profile');
+                }}
+                className="btn-primary w-full sm:w-auto"
+              >
+                Edit profile
+              </button>
+              <button type="button" onClick={() => setValidationModalOpen(false)} className="btn-secondary w-full sm:w-auto">
+                Not now
+              </button>
             </div>
           </div>
         </div>

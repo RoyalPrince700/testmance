@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { adminAPI } from '../../utils/api';
 import AdminSidebar from '../../components/AdminSidebar';
+import Reveal from '../../components/Reveal';
 import {
   TrendingUp,
   Users,
@@ -26,11 +27,18 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
-  Legend,
-  LineChart,
-  Line
+  ResponsiveContainer
 } from 'recharts';
+
+const tooltipStyle = {
+  backgroundColor: 'var(--color-surface)',
+  border: '1px solid var(--color-line)',
+  borderRadius: '16px',
+  color: 'var(--color-ink)',
+  fontSize: '12px'
+};
+
+const axisTick = { fill: 'var(--color-slate)', fontSize: 12 };
 
 const AdminAnalytics = () => {
   const [data, setData] = useState(null);
@@ -56,42 +64,39 @@ const AdminAnalytics = () => {
     }
   };
 
+  const frame = `min-h-screen bg-canvas pb-20 text-ink transition-[margin] duration-300 ${
+    sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'
+  }`;
+
   if (loading) {
     return (
-      <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+      <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`flex-1 flex items-center justify-center transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-64'}`}>
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400 mx-auto"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Analyzing platform data...</p>
-          </div>
+        <div className={`${frame} flex items-center justify-center`}>
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" role="status" aria-label="Loading analytics" />
         </div>
-      </div>
+      </>
     );
   }
 
   if (error) {
     return (
-      <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+      <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`flex-1 flex items-center justify-center transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-64'}`}>
-          <div className="text-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <p className="text-red-600 dark:text-red-400 mb-4 font-medium">{error}</p>
-            <button
-              onClick={fetchDetailedStats}
-              className="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
-            >
-              Try Again
+        <div className={`${frame} flex items-center justify-center px-5`}>
+          <div className="rounded-3xl border border-line bg-surface px-8 py-10 text-center">
+            <p className="text-[15px] text-graphite">{error}</p>
+            <button type="button" onClick={fetchDetailedStats} className="btn-primary mt-4">
+              Try again
             </button>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 
   const { traffic, lastActivities, sponsorship, activeUsersByDay } = data;
 
-  // Format dates for charts
   const chartData = traffic.map(item => ({
     ...item,
     formattedDate: new Date(item.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
@@ -99,285 +104,227 @@ const AdminAnalytics = () => {
 
   const statsCards = [
     {
-      title: 'Daily Visitors',
+      title: 'Daily visitors',
       value: traffic[traffic.length - 1]?.visitors || 0,
       subValue: 'Last 24 hours',
-      icon: Eye,
-      color: 'text-blue-600 dark:text-blue-400',
-      bgColor: 'bg-blue-100 dark:bg-blue-900/30'
+      icon: Eye
     },
     {
-      title: 'Total Users',
+      title: 'Total users',
       value: sponsorship.totalUsers,
-      subValue: `${sponsorship.growthRate >= 0 ? '+' : ''}${sponsorship.growthRate}% Growth`,
+      subValue: `${sponsorship.growthRate >= 0 ? '+' : ''}${sponsorship.growthRate}% growth`,
       icon: Users,
-      color: 'text-purple-600 dark:text-purple-400',
-      bgColor: 'bg-purple-100 dark:bg-purple-900/30',
       trend: sponsorship.growthRate >= 0 ? 'up' : 'down'
     },
     {
-      title: 'Avg. Engagement',
+      title: 'Avg. engagement',
       value: sponsorship.avgEngagement,
-      subValue: 'Interactions/user',
-      icon: Zap,
-      color: 'text-orange-600 dark:text-orange-400',
-      bgColor: 'bg-orange-100 dark:bg-orange-900/30'
+      subValue: 'Interactions per user',
+      icon: Zap
     },
     {
-      title: 'Retention Rate',
+      title: 'Retention rate',
       value: `${sponsorship.retentionRate}%`,
       subValue: 'Active user ratio',
-      icon: Shield,
-      color: 'text-green-600 dark:text-green-400',
-      bgColor: 'bg-green-100 dark:bg-green-900/30'
+      icon: Shield
     }
   ];
 
   const activityItems = [
-    { type: 'Quiz', data: lastActivities.quiz, icon: Target, color: 'text-pink-500' },
-    { type: 'Exam', data: lastActivities.exam, icon: Award, color: 'text-red-500' },
-    { type: 'CA', data: lastActivities.ca, icon: CheckCircle, color: 'text-indigo-500' },
-    { type: 'Chapter', data: lastActivities.chapter, icon: BookOpen, color: 'text-emerald-500' }
+    { type: 'Quiz', data: lastActivities.quiz, icon: Target },
+    { type: 'Exam', data: lastActivities.exam, icon: Award },
+    { type: 'CA', data: lastActivities.ca, icon: CheckCircle },
+    { type: 'Chapter', data: lastActivities.chapter, icon: BookOpen }
   ];
 
+  const growthWidth = `${Math.min(Math.max(sponsorship.growthRate, 0), 100)}%`;
+
   return (
-    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+    <>
       <AdminSidebar onCollapseChange={setSidebarCollapsed} />
 
-      <main className={`flex-1 min-w-0 p-8 transition-all duration-300 ${sidebarCollapsed ? 'ml-16' : 'ml-64'}`}>
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Platform Analytics</h1>
-              <p className="text-gray-600 dark:text-gray-400 mt-1">Comprehensive overview of website performance and user activity.</p>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
-                <Calendar className="h-4 w-4 text-gray-400" />
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Last 30 Days</span>
-              </div>
-              <button 
-                onClick={fetchDetailedStats}
-                className="p-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              >
-                <TrendingUp className="h-4 w-4 text-purple-600" />
-              </button>
-            </div>
+      <main className={frame}>
+        <header className="mx-auto flex max-w-6xl flex-col gap-4 px-5 pt-10 md:flex-row md:items-end md:justify-between md:px-8 md:pt-16">
+          <div>
+            <p className="text-sm font-medium text-accent">Admin</p>
+            <h1 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+              Analytics
+            </h1>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">
+              Visitors, completions, and how students use the platform.
+            </p>
           </div>
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-10 items-center gap-2 rounded-full border border-line bg-surface px-4 text-sm font-medium text-ink">
+              <Calendar className="h-4 w-4 text-slate" strokeWidth={1.75} />
+              Last 30 days
+            </span>
+            <button type="button" onClick={fetchDetailedStats} className="btn-secondary px-3" aria-label="Refresh analytics">
+              <TrendingUp className="h-4 w-4" strokeWidth={1.75} />
+            </button>
+          </div>
+        </header>
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {statsCards.map((card, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{card.title}</p>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">{card.value}</h3>
-                    <div className="flex items-center mt-2">
-                      {card.trend && (
-                        card.trend === 'up' ? 
-                        <ChevronUp className="h-4 w-4 text-green-500 mr-1" /> : 
-                        <ChevronDown className="h-4 w-4 text-red-500 mr-1" />
-                      )}
-                      <span className={`text-xs font-semibold ${card.trend === 'up' ? 'text-green-500' : card.trend === 'down' ? 'text-red-500' : 'text-gray-400'}`}>
-                        {card.subValue}
+        <section className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
+          {statsCards.map((card, index) => (
+            <Reveal key={card.title} as="article" className="rounded-3xl border border-line bg-surface p-6" delay={index * 70}>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                <card.icon className="h-5 w-5" strokeWidth={1.75} />
+              </div>
+              <p className="mt-5 text-sm text-slate">{card.title}</p>
+              <p className="mt-1 text-3xl font-medium tracking-tight text-ink">{card.value}</p>
+              <p className="mt-2 flex items-center text-sm text-slate">
+                {card.trend === 'up' && <ChevronUp className="mr-1 h-4 w-4 text-accent" strokeWidth={1.75} />}
+                {card.trend === 'down' && <ChevronDown className="mr-1 h-4 w-4 text-slate" strokeWidth={1.75} />}
+                {card.subValue}
+              </p>
+            </Reveal>
+          ))}
+        </section>
+
+        <section className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-4 px-5 lg:grid-cols-3 md:px-8">
+          <article className="rounded-3xl border border-line bg-surface p-6 lg:col-span-2">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h2 className="text-lg font-medium tracking-tight text-ink">Traffic and activity</h2>
+                <p className="mt-1 text-sm text-slate">Daily visitors and learning completions</p>
+              </div>
+              <div className="flex items-center gap-4 text-xs text-slate">
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-accent-fill" />
+                  Visitors
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-graphite" />
+                  Completions
+                </span>
+              </div>
+            </div>
+            <div className="mt-6 h-[350px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={chartData} margin={{ top: 10, right: 12, left: 0, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="colorVisitors" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--color-accent-fill)" stopOpacity={0.22} />
+                      <stop offset="95%" stopColor="var(--color-accent-fill)" stopOpacity={0} />
+                    </linearGradient>
+                    <linearGradient id="colorCompletions" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="var(--color-graphite)" stopOpacity={0.18} />
+                      <stop offset="95%" stopColor="var(--color-graphite)" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--color-line)" />
+                  <XAxis dataKey="formattedDate" axisLine={false} tickLine={false} tick={axisTick} minTickGap={30} />
+                  <YAxis axisLine={false} tickLine={false} tick={axisTick} />
+                  <Tooltip contentStyle={tooltipStyle} />
+                  <Area type="monotone" dataKey="visitors" stroke="var(--color-accent-fill)" strokeWidth={2} fillOpacity={1} fill="url(#colorVisitors)" />
+                  <Area type="monotone" dataKey="completions" stroke="var(--color-graphite)" strokeWidth={2} fillOpacity={1} fill="url(#colorCompletions)" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </article>
+
+          <article className="rounded-3xl border border-line bg-surface p-6">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Active users by day</h2>
+            <div className="mt-6 h-[350px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={activeUsersByDay} layout="vertical" margin={{ top: 5, right: 12, left: 8, bottom: 5 }}>
+                  <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--color-line)" />
+                  <XAxis type="number" hide />
+                  <YAxis dataKey="day" type="category" axisLine={false} tickLine={false} tick={axisTick} width={72} />
+                  <Tooltip cursor={{ fill: 'transparent' }} contentStyle={tooltipStyle} />
+                  <Bar dataKey="users" fill="var(--color-accent-fill)" radius={[0, 8, 8, 0]} barSize={16} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            <p className="mt-4 text-center text-sm text-slate">Peak use is usually mid-week.</p>
+          </article>
+        </section>
+
+        <section className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-4 px-5 lg:grid-cols-2 md:px-8">
+          <article className="rounded-3xl border border-line bg-surface p-6">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Recent completions</h2>
+            <ul className="mt-6 space-y-5">
+              {activityItems.map((item) => (
+                <li key={item.type} className="flex items-start gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                    <item.icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0 flex-1 border-b border-line pb-4 last:border-0">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-sm font-medium text-ink">{item.type}</span>
+                      <span className="inline-flex items-center gap-1 text-xs text-slate">
+                        <Clock className="h-3.5 w-3.5" strokeWidth={1.75} />
+                        {item.data ? new Date(item.data.at).toLocaleString() : 'No recent activity'}
                       </span>
                     </div>
+                    <p className="mt-1 text-sm text-slate">
+                      {item.data ? (
+                        <>
+                          <span className="font-medium text-accent">{item.data.username}</span> finished a {item.type.toLowerCase()}.
+                        </>
+                      ) : (
+                        `No ${item.type.toLowerCase()} has been completed yet.`
+                      )}
+                    </p>
                   </div>
-                  <div className={`p-3 rounded-xl ${card.bgColor}`}>
-                    <card.icon className={`h-6 w-6 ${card.color}`} />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </li>
+              ))}
+            </ul>
+          </article>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-            {/* Main Traffic Chart */}
-            <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">Traffic & Activity</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Daily visitors vs learning completions</p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-                    <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">Visitors</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-                    <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">Completions</span>
-                  </div>
-                </div>
+          <article className="rounded-3xl border border-line bg-surface p-6">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Sponsorship</h2>
+            <p className="mt-1 text-sm text-slate">Figures you can share with a sponsor.</p>
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-line bg-accent-soft p-4">
+                <p className="text-sm text-accent">Interactions</p>
+                <p className="mt-1 text-xl font-medium tracking-tight text-ink">{sponsorship.totalInteractions.toLocaleString()}</p>
               </div>
-              <div className="h-[350px] w-full relative">
-                <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                    <defs>
-                      <linearGradient id="colorVisitors" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.1}/>
-                        <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0}/>
-                      </linearGradient>
-                      <linearGradient id="colorCompletions" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#10b981" stopOpacity={0.1}/>
-                        <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
-                      </linearGradient>
-                    </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-                    <XAxis 
-                      dataKey="formattedDate" 
-                      axisLine={false} 
-                      tickLine={false} 
-                      tick={{fill: '#9ca3af', fontSize: 12}}
-                      minTickGap={30}
-                    />
-                    <YAxis 
-                      axisLine={false} 
-                      tickLine={false} 
-                      tick={{fill: '#9ca3af', fontSize: 12}}
-                    />
-                    <Tooltip 
-                      contentStyle={{ backgroundColor: '#fff', borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                      itemStyle={{ fontSize: '12px', fontWeight: 'bold' }}
-                    />
-                    <Area 
-                      type="monotone" 
-                      dataKey="visitors" 
-                      stroke="#8b5cf6" 
-                      strokeWidth={3}
-                      fillOpacity={1} 
-                      fill="url(#colorVisitors)" 
-                    />
-                    <Area 
-                      type="monotone" 
-                      dataKey="completions" 
-                      stroke="#10b981" 
-                      strokeWidth={3}
-                      fillOpacity={1} 
-                      fill="url(#colorCompletions)" 
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div className="rounded-2xl border border-line bg-canvas p-4">
+                <p className="text-sm text-slate">Users</p>
+                <p className="mt-1 text-xl font-medium tracking-tight text-ink">{sponsorship.totalUsers.toLocaleString()}</p>
               </div>
             </div>
 
-            {/* Usage Frequency Chart */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 text-center">Active Users by Day</h3>
-              <div className="h-[350px] w-full relative">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={activeUsersByDay} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
-                    <XAxis type="number" hide />
-                    <YAxis 
-                      dataKey="day" 
-                      type="category" 
-                      axisLine={false} 
-                      tickLine={false}
-                      tick={{fill: '#6b7280', fontSize: 13, fontWeight: 500}}
-                    />
-                    <Tooltip 
-                      cursor={{fill: 'transparent'}}
-                      contentStyle={{ backgroundColor: '#1f2937', color: '#fff', borderRadius: '8px', border: 'none' }}
-                    />
-                    <Bar 
-                      dataKey="users" 
-                      fill="#6366f1" 
-                      radius={[0, 4, 4, 0]} 
-                      barSize={20}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
+            <div className="mt-6 space-y-5">
+              <div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-2 text-sm text-graphite">
+                    <BarChart2 className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                    Monthly growth
+                  </span>
+                  <span className="text-sm font-medium text-accent">
+                    {sponsorship.growthRate >= 0 ? '+' : ''}{sponsorship.growthRate}%
+                  </span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-canvas">
+                  <div className="h-full rounded-full bg-accent-fill" style={{ width: growthWidth }} />
+                </div>
               </div>
-              <p className="text-xs text-center text-gray-500 dark:text-gray-400 mt-4">
-                Peak usage usually occurs on mid-week days.
+
+              <div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-2 text-sm text-graphite">
+                    <Zap className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                    Engagement
+                  </span>
+                  <span className="text-sm font-medium text-ink">High</span>
+                </div>
+                <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-canvas">
+                  <div className="h-full w-[85%] rounded-full bg-accent-fill" />
+                </div>
+              </div>
+
+              <p className="rounded-2xl border border-dashed border-line bg-canvas p-4 text-sm leading-relaxed text-slate">
+                Growth is {sponsorship.growthRate}% this month, with {sponsorship.avgEngagement} learning interactions per user.
               </p>
             </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Last Activity Timeline */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Recent Completion Activity</h3>
-              <div className="space-y-6">
-                {activityItems.map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className={`p-2.5 rounded-lg bg-gray-50 dark:bg-gray-700/50 ${item.color}`}>
-                      <item.icon className="h-5 w-5" />
-                    </div>
-                    <div className="flex-1 border-b border-gray-100 dark:border-gray-700 pb-4 last:border-0">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">{item.type} Completion</span>
-                        <span className="text-xs text-gray-400 dark:text-gray-500 flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {item.data ? new Date(item.data.at).toLocaleString() : 'No recent activity'}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {item.data ? (
-                          <>User <span className="font-semibold text-purple-600 dark:text-purple-400">{item.data.username}</span> finished a {item.type.toLowerCase()}.</>
-                        ) : (
-                          `No ${item.type.toLowerCase()} has been completed yet.`
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Sponsorship & Growth */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">Sponsorship Overview</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">Key metrics to present to potential sponsors.</p>
-              
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="p-4 rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800">
-                  <p className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-1">Total Interactions</p>
-                  <h4 className="text-xl font-extrabold text-gray-900 dark:text-white">{sponsorship.totalInteractions.toLocaleString()}</h4>
-                </div>
-                <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800">
-                  <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">User Base</p>
-                  <h4 className="text-xl font-extrabold text-gray-900 dark:text-white">{sponsorship.totalUsers.toLocaleString()}</h4>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <BarChart2 className="h-4 w-4 text-blue-500" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Monthly Growth Rate</span>
-                  </div>
-                  <span className="text-sm font-bold text-green-500">+{sponsorship.growthRate}%</span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-green-500 h-2 rounded-full" style={{ width: `${Math.min(sponsorship.growthRate, 100)}%` }}></div>
-                </div>
-
-                <div className="flex items-center justify-between mt-6">
-                  <div className="flex items-center gap-2">
-                    <Zap className="h-4 w-4 text-orange-500" />
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Platform Engagement</span>
-                  </div>
-                  <span className="text-sm font-bold text-orange-500">High</span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2">
-                  <div className="bg-orange-500 h-2 rounded-full" style={{ width: '85%' }}></div>
-                </div>
-
-                <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-700/30 rounded-lg border border-dashed border-gray-300 dark:border-gray-600">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed italic">
-                    "Platform growth has increased by {sponsorship.growthRate}% this month with an average of {sponsorship.avgEngagement} learning interactions per user. This demonstrates high stickiness and value for educational sponsors."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </article>
+        </section>
       </main>
-    </div>
+    </>
   );
 };
 

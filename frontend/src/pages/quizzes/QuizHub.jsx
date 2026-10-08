@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { useTheme } from '../../contexts/ThemeContext';
 import { coursesAPI } from '../../utils/api';
-import { BookOpen, Target, TrendingUp, Trophy } from 'lucide-react';
+import { quizCoursePath } from '../../utils/slugs';
+import { ArrowRight, BookOpen, Target } from 'lucide-react';
+import Reveal from '../../components/Reveal';
 
 const QuizHub = () => {
   const { user } = useAuth();
@@ -13,7 +14,6 @@ const QuizHub = () => {
   useEffect(() => {
     const loadCourses = async () => {
       try {
-        // Only load enrolled courses for quiz hub
         const enrolledCoursesResponse = await coursesAPI.getEnrolled();
         setAvailableCourses(enrolledCoursesResponse.data || []);
       } catch (error) {
@@ -31,116 +31,64 @@ const QuizHub = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96 bg-gray-50 dark:bg-gray-900">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-          Quiz Hub 🎯
+    <div className="bg-canvas pb-20 text-ink">
+      <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+        <p className="rise-in text-sm font-medium text-accent">Quiz hub</p>
+        <h1
+          className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]"
+          style={{ animationDelay: '70ms' }}
+        >
+          Practice the chapters you are enrolled in.
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 text-lg">
-          Test your knowledge and earn gems!
+        <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+          Open a course, take the chapter quizzes, and earn gems as the answers land.
         </p>
-      </div>
+      </header>
 
-      {/* Available Courses */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {availableCourses.map((course, index) => {
-          // Color palettes similar to the dashboard
-          const colors = [
-            { // Pink/Red theme
-              bar: 'bg-pink-500',
-              iconBg: 'bg-pink-500',
-              iconColor: 'text-[#ffffff]',
-              button: 'bg-pink-500 hover:bg-pink-600',
-              progressColor: 'text-pink-500'
-            },
-            { // Teal/Green theme
-              bar: 'bg-teal-500',
-              iconBg: 'bg-teal-500',
-              iconColor: 'text-[#ffffff]',
-              button: 'bg-teal-500 hover:bg-teal-600',
-              progressColor: 'text-teal-500'
-            },
-            { // Purple theme
-              bar: 'bg-purple-500',
-              iconBg: 'bg-purple-500',
-              iconColor: 'text-[#ffffff]',
-              button: 'bg-purple-500 hover:bg-purple-600',
-              progressColor: 'text-purple-500'
-            }
-          ];
-          
-          const theme = colors[index % colors.length];
-
-          return (
-            <Link
-              key={course._id}
-              to={`/quiz-hub/courses/${course._id}`}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:hover:shadow-gray-700/50 transform hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* Course Icon */}
-              <div className="flex justify-center mb-6">
-                <div className={`${theme.iconBg} p-4 rounded-2xl shadow-inner`}>
-                  {/* Dynamic icon based on index */}
-                  {index === 0 ? (
-                    <BookOpen className={`h-8 w-8 ${theme.iconColor}`} />
-                  ) : index === 1 ? (
-                    <Target className={`h-8 w-8 ${theme.iconColor}`} />
-                  ) : (
-                    <TrendingUp className={`h-8 w-8 ${theme.iconColor}`} />
-                  )}
-                </div>
-              </div>
-
-              {/* Course Info */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-1">{course.code}</h3>
-                <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">{course.title}</p>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">{course.description?.substring(0, 50)}...</p>
-                
-                <div className="flex items-center justify-center mt-4 space-x-1">
-                  <Target className={`h-4 w-4 ${theme.progressColor}`} />
-                  <span className={`text-sm font-medium ${theme.progressColor}`}>Take Quiz</span>
-                </div>
-              </div>
-
-              {/* Action Button */}
-              <div
-                className={`block w-full py-3 px-4 rounded-xl text-[#ffffff] font-bold text-center transition-colors shadow-md hover:shadow-lg ${theme.button}`}
-              >
-                <div className="flex items-center justify-center space-x-2">
-                  <span>View Chapters</span>
-                  <Target className="h-4 w-4" />
-                </div>
-              </div>
+      <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
+        {availableCourses.length === 0 ? (
+          <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <Target className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">No enrolled courses</h2>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+              Enroll in a course first. Its quizzes show up here.
+            </p>
+            <Link to="/courses" className="btn-primary group mt-6">
+              Browse courses
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
-          );
-        })}
-      </div>
-
-      {availableCourses.length === 0 && (
-        <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
-          <Target className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No enrolled courses</h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in courses to access their quizzes.</p>
-          <Link
-            to="/courses"
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white rounded-lg transition-colors"
-          >
-            Browse Courses
-          </Link>
-        </div>
-      )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {availableCourses.map((course, index) => (
+              <Reveal key={course._id} as="article" className="flex flex-col rounded-3xl border border-line bg-surface p-6" delay={(index % 3) * 70}>
+                <h2 className="text-xl font-medium tracking-tight text-ink">{course.code || 'Course'}</h2>
+                <p className="mt-1 truncate text-base text-graphite" title={course.title}>{course.title}</p>
+                {course.description && (
+                  <p className="mt-3 line-clamp-2 text-[15px] leading-relaxed text-slate">{course.description}</p>
+                )}
+                <p className="mt-4 inline-flex items-center gap-1.5 text-sm text-slate">
+                  <BookOpen className="h-4 w-4" strokeWidth={1.75} />
+                  Chapter quizzes
+                </p>
+                <Link to={quizCoursePath(course)} className="btn-primary group mt-6 w-full">
+                  Take quizzes
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 };
 
 export default QuizHub;
-

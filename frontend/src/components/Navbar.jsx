@@ -1,393 +1,424 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { isLearningPath } from '../utils/slugs';
 import { useTheme } from '../contexts/ThemeContext';
-import { User, Trophy, BookOpen, LogOut, Gem, Target, Menu, X, Shield, LayoutDashboard, Info, Home, Award, FileText, PenTool, Sun, Moon } from 'lucide-react';
+import {
+  User,
+  Trophy,
+  BookOpen,
+  LogOut,
+  Gem,
+  Target,
+  Menu,
+  X,
+  Shield,
+  LayoutDashboard,
+  Info,
+  Mail,
+  Home,
+  Award,
+  FileText,
+  PenTool,
+  ScrollText,
+  Sun,
+  Moon,
+  ChevronDown,
+} from 'lucide-react';
 import { getAvatarSrc } from '../utils/avatarUtils';
 import testmancerLogo from '../assets/testmancer-logo.png';
+
+const COMMUNITY_URL = 'https://chat.whatsapp.com/KJp5NV1ox3T91Vk14UOyai?mode=hqrt3';
+
+const WhatsAppIcon = ({ className = 'h-4 w-4' }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+  </svg>
+);
+
+const isPracticePath = (pathname) =>
+  ['/quiz-hub', '/ca', '/exam'].some((path) => pathname === path || pathname.startsWith(`${path}/`));
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
   const { isDarkMode, toggleDarkMode } = useTheme();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [practiceOpen, setPracticeOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
+  const practiceRef = useRef(null);
+  const userRef = useRef(null);
 
   const handleLogout = () => {
     logout();
     navigate('/');
     setIsSidebarOpen(false);
+    setUserOpen(false);
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+  useEffect(() => {
+    setIsSidebarOpen(false);
+    setPracticeOpen(false);
+    setUserOpen(false);
+  }, [pathname]);
 
-  const MobileNav = () => (
-    <div className="lg:hidden flex justify-between items-center h-16 px-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-      {/* Left: Hamburger */}
-      <button onClick={toggleSidebar} className="p-2 -ml-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400">
-        <Menu className="h-6 w-6" />
-      </button>
+  useEffect(() => {
+    document.body.style.overflow = isSidebarOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isSidebarOpen]);
 
-      {/* Middle: Text only */}
-      <Link to="/" className="text-lg font-bold text-gray-900 dark:text-white">
-        TestMancer
-      </Link>
+  useEffect(() => {
+    const onPointerDown = (event) => {
+      if (practiceRef.current && !practiceRef.current.contains(event.target)) {
+        setPracticeOpen(false);
+      }
+      if (userRef.current && !userRef.current.contains(event.target)) {
+        setUserOpen(false);
+      }
+    };
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setPracticeOpen(false);
+        setUserOpen(false);
+        setIsSidebarOpen(false);
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
-      {/* Right: Theme Toggle & Avatar */}
-      <div className="flex items-center space-x-2">
-        <button
-          onClick={toggleDarkMode}
-          className="p-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-          title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        >
-          {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-        </button>
-        {isAuthenticated && user ? (
-           <Link to="/profile">
-             <img
-               src={getAvatarSrc(user.avatar)}
-               alt="Profile"
-               className="h-8 w-8 rounded-full border border-gray-300 dark:border-gray-600 object-cover"
-             />
-           </Link>
-        ) : (
-           <Link to="/login" className="p-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400">
-             <User className="h-6 w-6" />
-           </Link>
-        )}
-      </div>
-    </div>
+  const linkClass = (active) =>
+    `inline-flex h-16 items-center border-b-2 text-sm transition-colors ${
+      active
+        ? 'border-accent font-medium text-ink'
+        : 'border-transparent text-graphite hover:text-ink'
+    }`;
+
+  const ThemeButton = ({ className = '' }) => (
+    <button
+      type="button"
+      onClick={toggleDarkMode}
+      className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-graphite transition-colors hover:bg-canvas hover:text-ink ${className}`}
+      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </button>
   );
 
-  const DesktopNav = () => {
-    // Separate navigation for authenticated and non-authenticated users
-    if (isAuthenticated) {
-      return (
-        <div className="hidden lg:flex items-center h-16 w-full px-6">
-          {/* Logo */}
-          <Link to="/" className="flex items-center justify-center space-x-2 text-gray-900 dark:text-white font-bold text-xl hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-            <img src={testmancerLogo} alt="TestMancer Logo" className="h-8 w-8 object-contain shrink-0" />
-            <span className="flex items-center">TestMancer</span>
-          </Link>
+  const Logo = ({ onClick }) => (
+    <Link to="/" onClick={onClick} className="flex shrink-0 items-center gap-2.5">
+      <img src={testmancerLogo} alt="" className="h-7 w-auto" />
+      <span className="text-base font-medium tracking-tight text-ink">TestMancer</span>
+    </Link>
+  );
 
-          {/* Navigation Links */}
-          <div className="flex-1 flex justify-center">
-            <div className="flex items-center space-x-6">
-              <Link to="/dashboard" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
+  const practiceLinks = [
+    { to: '/quiz-hub', label: 'Quiz Hub', icon: Target },
+    { to: '/ca', label: 'CA', icon: FileText },
+    { to: '/exam', label: 'Exam', icon: PenTool },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-line bg-surface">
+      <div className="mx-auto hidden h-16 max-w-6xl items-center gap-8 px-5 md:px-8 lg:flex">
+        <Logo />
+
+        <nav className="flex flex-1 items-center gap-6" aria-label="Primary">
+          {isAuthenticated ? (
+            <>
+              <Link to="/dashboard" className={linkClass(pathname === '/dashboard')} aria-current={pathname === '/dashboard' ? 'page' : undefined}>
                 Dashboard
               </Link>
-              <Link to="/courses" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
+              <Link to="/courses" className={linkClass(isLearningPath(pathname))} aria-current={isLearningPath(pathname) ? 'page' : undefined}>
                 Courses
               </Link>
-              <Link to="/quiz-hub" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-                Quiz Hub
-              </Link>
-              <Link to="/ca" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-                CA
-              </Link>
-              <Link to="/exam" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-                Exam
-              </Link>
-              <Link to="/results" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
+              <div className="relative" ref={practiceRef}>
+                <button
+                  type="button"
+                  className={`${linkClass(isPracticePath(pathname))} gap-1`}
+                  aria-expanded={practiceOpen}
+                  aria-haspopup="true"
+                  onClick={() => setPracticeOpen((open) => !open)}
+                >
+                  Practice
+                  <ChevronDown className={`h-4 w-4 transition-transform ${practiceOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {practiceOpen && (
+                  <div className="absolute left-0 top-full z-50 mt-1 w-48 rounded-2xl border border-line bg-surface p-1.5 shadow-lg">
+                    {practiceLinks.map(({ to, label, icon: Icon }) => (
+                      <Link
+                        key={to}
+                        to={to}
+                        className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink"
+                      >
+                        <Icon className="h-4 w-4" />
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <Link to="/results" className={linkClass(pathname.startsWith('/results'))} aria-current={pathname.startsWith('/results') ? 'page' : undefined}>
                 Results
               </Link>
-              <Link to="/leaderboard" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
+              <Link to="/leaderboard" className={linkClass(pathname.startsWith('/leaderboard'))} aria-current={pathname.startsWith('/leaderboard') ? 'page' : undefined}>
                 Leaderboard
               </Link>
-              {user?.isAdmin && (
-                <Link to="/admin/dashboard" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors flex items-center space-x-1 text-sm font-medium">
-                  <Shield className="h-4 w-4" />
-                  <span>Admin</span>
-                </Link>
-              )}
-              <Link to="/about" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-                About Us
+            </>
+          ) : (
+            <>
+              <Link to="/courses" className={linkClass(isLearningPath(pathname))} aria-current={isLearningPath(pathname) ? 'page' : undefined}>
+                Courses
               </Link>
-              <a
-                href="https://chat.whatsapp.com/KJp5NV1ox3T91Vk14UOyai?mode=hqrt3"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition-colors flex items-center text-sm"
-                title="Join our WhatsApp Community"
-              >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-                </svg>
+              <Link to="/about" className={linkClass(pathname.startsWith('/about'))}>
+                About
+              </Link>
+              <Link to="/contact" className={linkClass(pathname.startsWith('/contact'))}>
+                Contact
+              </Link>
+              <a href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer" className={linkClass(false)}>
+                Community
               </a>
-            </div>
-          </div>
+            </>
+          )}
+        </nav>
 
-          {/* User Menu */}
-          {user && (
-            <div className="flex items-center ml-6 space-x-4">
-              {/* Theme Toggle */}
-              <button
-                onClick={toggleDarkMode}
-                className="p-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-              >
-                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </button>
-
-              {/* Gems Display */}
-              <div className="flex items-center space-x-1 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-900/30 px-3 py-1.5 rounded-lg">
-                <Gem className="h-4 w-4 text-yellow-600 dark:text-yellow-500" />
-                <span className="font-semibold text-yellow-700 dark:text-yellow-500">{user.gems || 0}</span>
+        <div className="flex items-center gap-2">
+          <ThemeButton />
+          {isAuthenticated && user ? (
+            <>
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-gem-soft px-3 py-1 text-sm font-medium text-gem">
+                <Gem className="h-3.5 w-3.5" />
+                {user.gems || 0}
               </div>
-
-              {/* User Avatar & Menu */}
-              <div className="relative group">
-                <button className="flex items-center space-x-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+              <div className="relative" ref={userRef}>
+                <button
+                  type="button"
+                  className="flex items-center gap-2 rounded-full py-1 pl-1 pr-2 text-sm text-ink hover:bg-canvas"
+                  aria-expanded={userOpen}
+                  aria-haspopup="true"
+                  onClick={() => setUserOpen((open) => !open)}
+                >
                   <img
                     src={getAvatarSrc(user.avatar)}
-                    alt={user.username}
-                    className="h-8 w-8 rounded-full border-2 border-gray-300 dark:border-gray-600 object-cover"
+                    alt=""
+                    className="h-8 w-8 rounded-full object-cover"
                   />
-                  <span className="block text-sm">{user.username}</span>
+                  <span className="max-w-28 truncate">{user.username}</span>
                 </button>
-
-                {/* Dropdown Menu */}
-                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link to="/profile" className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <User className="h-4 w-4" />
-                    <span>Profile</span>
-                  </Link>
-                  <Link to="/courses" className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <BookOpen className="h-4 w-4" />
-                    <span>My Courses</span>
-                  </Link>
-                  <button onClick={handleLogout} className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <LogOut className="h-4 w-4" />
-                    <span>Logout</span>
-                  </button>
-                </div>
+                {userOpen && (
+                  <div className="absolute right-0 top-full z-50 mt-1 w-52 rounded-2xl border border-line bg-surface p-1.5 shadow-lg">
+                    <Link to="/profile" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <User className="h-4 w-4" />
+                      Profile
+                    </Link>
+                    <Link to="/courses" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <BookOpen className="h-4 w-4" />
+                      My courses
+                    </Link>
+                    <Link to="/about" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <Info className="h-4 w-4" />
+                      About
+                    </Link>
+                    <Link to="/contact" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <Mail className="h-4 w-4" />
+                      Contact
+                    </Link>
+                    <Link to="/terms" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <ScrollText className="h-4 w-4" />
+                      Terms
+                    </Link>
+                    <Link to="/privacy" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <ScrollText className="h-4 w-4" />
+                      Privacy
+                    </Link>
+                    <a href={COMMUNITY_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <WhatsAppIcon className="h-4 w-4" />
+                      Community
+                    </a>
+                    {user?.isAdmin && (
+                      <Link to="/admin/dashboard" className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                        <Shield className="h-4 w-4" />
+                        Admin
+                      </Link>
+                    )}
+                    <button type="button" onClick={handleLogout} className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-sm text-graphite hover:bg-canvas hover:text-ink">
+                      <LogOut className="h-4 w-4" />
+                      Log out
+                    </button>
+                  </div>
+                )}
               </div>
-            </div>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="px-3 text-sm font-medium text-graphite hover:text-ink">
+                Sign in
+              </Link>
+              <Link to="/register" className="btn-primary">
+                Get started
+              </Link>
+            </>
           )}
         </div>
-      );
-    }
+      </div>
 
-    // Non-authenticated desktop navigation
-    return (
-      <div className="hidden lg:flex items-center h-16 w-full px-6">
-        {/* Logo */}
-        <Link to="/" className="flex items-center justify-center space-x-2 text-gray-900 dark:text-white font-bold text-xl hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-          <img src={testmancerLogo} alt="TestMancer Logo" className="h-8 w-8 object-contain shrink-0" />
-          <span className="flex items-center">TestMancer</span>
-        </Link>
-
-        {/* Center Navigation */}
-        <div className="flex-1 flex justify-center">
-          <div className="flex items-center space-x-6">
-            <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-              Home
+      <div className="flex h-14 items-center justify-between px-4 lg:hidden">
+        <button
+          type="button"
+          onClick={() => setIsSidebarOpen(true)}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full text-ink"
+          aria-label="Open menu"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+        <Logo />
+        <div className="flex items-center gap-1">
+          <ThemeButton />
+          {isAuthenticated && user ? (
+            <Link to="/profile" aria-label="Profile">
+              <img src={getAvatarSrc(user.avatar)} alt="" className="h-8 w-8 rounded-full object-cover" />
             </Link>
-            <Link to="/about" className="text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm font-medium">
-              About Us
+          ) : (
+            <Link to="/login" className="inline-flex h-9 w-9 items-center justify-center rounded-full text-ink" aria-label="Sign in">
+              <User className="h-5 w-5" />
             </Link>
-            <a
-              href="https://chat.whatsapp.com/KJp5NV1ox3T91Vk14UOyai?mode=hqrt3"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition-colors flex items-center text-sm"
-              title="Join our WhatsApp Community"
-            >
-              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
-            </svg>
-          </a>
+          )}
         </div>
       </div>
 
-      {/* Right Actions */}
-      <div className="flex items-center space-x-4">
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleDarkMode}
-          className="p-2 text-gray-700 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-          title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        >
-          {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-        </button>
-        <Link to="/courses" className="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1.5 rounded-lg transition-colors font-semibold text-sm">
-          Browse Courses
-        </Link>
-        <Link to="/login" className="border border-teal-500 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/30 px-3 py-1.5 rounded-lg transition-colors font-semibold text-sm">
-          Login
-        </Link>
-      </div>
-    </div>
-  );
-};
-
-  const Sidebar = () => (
-    <>
-      {/* Overlay */}
       {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+        <button
+          type="button"
+          className="fixed inset-0 z-40 bg-ink/40 lg:hidden"
+          aria-label="Close menu"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
-      {/* Sidebar Panel */}
       <div
-        className={`fixed top-0 left-0 bottom-0 w-[85%] bg-white dark:bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        inert={isSidebarOpen ? undefined : true}
+        aria-hidden={!isSidebarOpen}
+        className={`fixed inset-y-0 left-0 z-50 flex w-[min(100%,20rem)] flex-col bg-surface transition-transform duration-200 lg:hidden ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex flex-col h-full">
-          {/* Sidebar Header */}
-          <div className="flex justify-between items-center p-4 border-b dark:border-gray-700">
-             <Link to="/" className="flex items-center space-x-2 text-gray-900 dark:text-white font-bold text-lg" onClick={() => setIsSidebarOpen(false)}>
-                <img src={testmancerLogo} alt="TestMancer Logo" className="h-6 w-6 object-contain shrink-0" />
-                <span>TestMancer</span>
-             </Link>
-             <button onClick={() => setIsSidebarOpen(false)} className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
-               <X className="h-6 w-6" />
-             </button>
-          </div>
+        <div className="flex h-14 items-center justify-between border-b border-line px-4">
+          <Logo onClick={() => setIsSidebarOpen(false)} />
+          <button
+            type="button"
+            onClick={() => setIsSidebarOpen(false)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-graphite"
+            aria-label="Close menu"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-          {/* Sidebar Links */}
-          <div className="flex-1 overflow-y-auto py-4 px-4 space-y-4">
+        <div className="flex-1 overflow-y-auto px-3 py-4">
+          {isAuthenticated && user && (
+            <div className="mb-4 flex items-center gap-3 rounded-2xl bg-canvas px-3 py-3">
+              <img src={getAvatarSrc(user.avatar)} alt="" className="h-10 w-10 rounded-full object-cover" />
+              <div>
+                <p className="text-sm font-medium text-ink">{user.username}</p>
+                <p className="mt-0.5 inline-flex items-center gap-1 text-sm text-gem">
+                  <Gem className="h-3.5 w-3.5" />
+                  {user.gems || 0} gems
+                </p>
+              </div>
+            </div>
+          )}
+
+          <nav className="space-y-1" aria-label="Mobile">
             {isAuthenticated ? (
               <>
-                {/* User Info Card */}
-                {user && (
-                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg mb-6 flex items-center space-x-3">
-                    <img
-                      src={getAvatarSrc(user.avatar)}
-                      alt={user.username}
-                      className="h-12 w-12 rounded-full border-2 border-purple-200 dark:border-purple-800 object-cover"
-                    />
-                    <div>
-                      <p className="font-bold text-gray-900 dark:text-white">{user.username}</p>
-                      <div className="flex items-center space-x-1 text-yellow-700 dark:text-yellow-500">
-                        <Gem className="h-3 w-3" />
-                        <span className="text-sm font-medium">{user.gems || 0} Gems</span>
-                      </div>
-                    </div>
-                  </div>
+                <MobileLink to="/dashboard" icon={LayoutDashboard} onClick={() => setIsSidebarOpen(false)}>Dashboard</MobileLink>
+                <MobileLink to="/courses" icon={BookOpen} onClick={() => setIsSidebarOpen(false)}>Courses</MobileLink>
+                <MobileLink to="/quiz-hub" icon={Target} onClick={() => setIsSidebarOpen(false)}>Quiz Hub</MobileLink>
+                <MobileLink to="/ca" icon={FileText} onClick={() => setIsSidebarOpen(false)}>CA</MobileLink>
+                <MobileLink to="/exam" icon={PenTool} onClick={() => setIsSidebarOpen(false)}>Exam</MobileLink>
+                <MobileLink to="/results" icon={Award} onClick={() => setIsSidebarOpen(false)}>Results</MobileLink>
+                <MobileLink to="/leaderboard" icon={Trophy} onClick={() => setIsSidebarOpen(false)}>Leaderboard</MobileLink>
+                <MobileLink to="/profile" icon={User} onClick={() => setIsSidebarOpen(false)}>Profile</MobileLink>
+                <MobileLink to="/about" icon={Info} onClick={() => setIsSidebarOpen(false)}>About</MobileLink>
+                <MobileLink to="/contact" icon={Mail} onClick={() => setIsSidebarOpen(false)}>Contact</MobileLink>
+                <MobileLink to="/terms" icon={ScrollText} onClick={() => setIsSidebarOpen(false)}>Terms</MobileLink>
+                <MobileLink to="/privacy" icon={ScrollText} onClick={() => setIsSidebarOpen(false)}>Privacy</MobileLink>
+                {user?.isAdmin && (
+                  <MobileLink to="/admin/dashboard" icon={Shield} onClick={() => setIsSidebarOpen(false)}>Admin</MobileLink>
                 )}
-
-                <nav className="space-y-2">
-                  <Link to="/dashboard" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <LayoutDashboard className="h-5 w-5" />
-                    <span className="font-medium">Dashboard</span>
-                  </Link>
-                  <Link to="/courses" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <BookOpen className="h-5 w-5" />
-                    <span className="font-medium">Courses</span>
-                  </Link>
-                  <Link to="/quiz-hub" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <Target className="h-5 w-5" />
-                    <span className="font-medium">Quiz Hub</span>
-                  </Link>
-                  <Link to="/ca" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <FileText className="h-5 w-5" />
-                    <span className="font-medium">CA Test</span>
-                  </Link>
-                  <Link to="/exam" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <PenTool className="h-5 w-5" />
-                    <span className="font-medium">Final Exam</span>
-                  </Link>
-                  <Link to="/results" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <Award className="h-5 w-5" />
-                    <span className="font-medium">Results</span>
-                  </Link>
-                  <Link to="/leaderboard" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <Trophy className="h-5 w-5" />
-                    <span className="font-medium">Leaderboard</span>
-                  </Link>
-                  <Link to="/profile" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <User className="h-5 w-5" />
-                    <span className="font-medium">Profile</span>
-                  </Link>
-                  <Link to="/about" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                    <Info className="h-5 w-5" />
-                    <span className="font-medium">About Us</span>
-                  </Link>
-                  <a
-                    href="https://chat.whatsapp.com/KJp5NV1ox3T91Vk14UOyai?mode=hqrt3"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsSidebarOpen(false)}
-                    className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400"
-                    title="Join our WhatsApp Community"
-                  >
-                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                    </svg>
-                    <span className="font-medium">Community</span>
-                  </a>
-                  {user?.isAdmin && (
-                    <Link to="/admin/dashboard" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-purple-600 dark:text-purple-400">
-                      <Shield className="h-5 w-5" />
-                      <span className="font-medium">Admin Panel</span>
-                    </Link>
-                  )}
-                </nav>
               </>
             ) : (
-              <nav className="space-y-2">
-                <Link to="/" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium">
-                  <Home className="h-5 w-5" />
-                  <span>Home</span>
-                </Link>
-                <Link to="/about" onClick={() => setIsSidebarOpen(false)} className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium">
-                  <Info className="h-5 w-5" />
-                  <span>About Us</span>
-                </Link>
-                <a
-                  href="https://chat.whatsapp.com/KJp5NV1ox3T91Vk14UOyai?mode=hqrt3"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsSidebarOpen(false)}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-700 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 font-medium"
-                  title="Join our WhatsApp Community"
-                >
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                  </svg>
-                  <span>Community</span>
-                </a>
-              </nav>
+              <>
+                <MobileLink to="/" icon={Home} onClick={() => setIsSidebarOpen(false)}>Home</MobileLink>
+                <MobileLink to="/courses" icon={BookOpen} onClick={() => setIsSidebarOpen(false)}>Courses</MobileLink>
+                <MobileLink to="/about" icon={Info} onClick={() => setIsSidebarOpen(false)}>About</MobileLink>
+                <MobileLink to="/contact" icon={Mail} onClick={() => setIsSidebarOpen(false)}>Contact</MobileLink>
+                <MobileLink to="/terms" icon={ScrollText} onClick={() => setIsSidebarOpen(false)}>Terms</MobileLink>
+                <MobileLink to="/privacy" icon={ScrollText} onClick={() => setIsSidebarOpen(false)}>Privacy</MobileLink>
+              </>
             )}
-          </div>
+            <a
+              href={COMMUNITY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsSidebarOpen(false)}
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-graphite hover:bg-canvas hover:text-ink"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              Community
+            </a>
+          </nav>
+        </div>
 
-          {/* Sidebar Footer */}
-          <div className="p-4 border-t dark:border-gray-700">
-            {isAuthenticated ? (
-              <button
-                onClick={handleLogout}
-                className="flex items-center space-x-3 w-full px-3 py-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-              >
-                <LogOut className="h-5 w-5" />
-                <span className="font-medium">Logout</span>
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setIsSidebarOpen(false)}
-                className="block w-full px-3 py-2 bg-teal-500 text-white font-medium text-center rounded-lg hover:bg-teal-600 transition-colors"
-              >
-                Login
-              </Link>
-            )}
-          </div>
+        <div className="border-t border-line p-4">
+          {isAuthenticated ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-graphite hover:bg-canvas hover:text-ink"
+            >
+              <LogOut className="h-5 w-5" />
+              Log out
+            </button>
+          ) : (
+            <Link to="/register" onClick={() => setIsSidebarOpen(false)} className="btn-primary w-full">
+              Get started
+            </Link>
+          )}
         </div>
       </div>
-    </>
+    </header>
   );
+};
+
+const MobileLink = ({ to, icon: Icon, children, onClick }) => {
+  const { pathname } = useLocation();
+  const active = to === '/courses'
+    ? isLearningPath(pathname)
+    : to === '/'
+      ? pathname === '/'
+      : pathname === to || pathname.startsWith(`${to}/`);
 
   return (
-    <nav className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
-      <DesktopNav />
-      <MobileNav />
-      <Sidebar />
-    </nav>
+    <Link
+      to={to}
+      onClick={onClick}
+      aria-current={active ? 'page' : undefined}
+      className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm ${
+        active ? 'bg-accent-soft font-medium text-accent' : 'text-graphite hover:bg-canvas hover:text-ink'
+      }`}
+    >
+      <Icon className="h-5 w-5" />
+      {children}
+    </Link>
   );
 };
 

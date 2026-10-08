@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { chaptersAPI, coursesAPI, quizzesAPI } from '../../utils/api';
+import { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { chaptersAPI, coursesAPI, getPublishedCourses, quizzesAPI } from '../../utils/api';
+import { courseSlug, findChapterBySlug, isObjectId, quizCoursePath, quizPath } from '../../utils/slugs';
 import { useAuth } from '../../contexts/AuthContext';
-import { ArrowLeft, CheckCircle, XCircle, Trophy, Target, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Target } from 'lucide-react';
 import { getQuizContent } from './content';
 import { QuizCongratulationsModal, QuizAnswersModal } from './components';
 
 const Quiz = () => {
-  const { chapterId } = useParams();
+  const { chapterId, courseSlug: routeCourseSlug, chapterSlug: routeChapterSlug } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const loadedPath = useRef('');
   const { user, loadUser } = useAuth();
 
   const [quiz, setQuiz] = useState(null);
@@ -24,89 +27,98 @@ const Quiz = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  // Get course color theme (default to teal)
-  const getCourseTheme = () => {
-    if (!course) return 'teal';
-    const courseCode = course.code || '';
-    // You can customize colors per course code here
-    if (courseCode.includes('GNS')) return 'teal';
-    if (courseCode.includes('GST')) return 'teal';
-    return 'teal'; // Default
+  const goToQuizList = () => {
+    navigate(course ? quizCoursePath(course) : '/quiz-hub');
   };
-
-  const theme = getCourseTheme();
-  const themeColors = {
-    teal: {
-      primary: 'teal',
-      bg: 'bg-teal-50',
-      border: 'border-teal-200',
-      text: 'text-teal-700',
-      button: 'bg-teal-500 hover:bg-teal-600',
-      buttonSecondary: 'bg-teal-100 hover:bg-teal-200 text-teal-700',
-      accent: 'text-teal-600',
-      progress: 'bg-teal-500',
-      selected: 'border-teal-500 bg-teal-50 dark:border-teal-400 dark:bg-teal-900/30',
-      icon: 'text-teal-500'
-    },
-    purple: {
-      primary: 'purple',
-      bg: 'bg-purple-50',
-      border: 'border-purple-200',
-      text: 'text-purple-700',
-      button: 'bg-purple-500 hover:bg-purple-600',
-      buttonSecondary: 'bg-purple-100 hover:bg-purple-200 text-purple-700',
-      accent: 'text-purple-600',
-      progress: 'bg-purple-500',
-      selected: 'border-purple-500 bg-purple-50 dark:border-purple-400 dark:bg-purple-900/30',
-      icon: 'text-purple-500'
-    }
-  };
-
-  const colors = themeColors[theme] || themeColors.teal;
 
   useEffect(() => {
+    const path = decodeURI(location.pathname);
+    if (loadedPath.current === path) return;
+
+    let cancelled = false;
+
     const loadQuiz = async () => {
       try {
-        // Load chapter details first
-        const chapterResponse = await chaptersAPI.getById(chapterId);
-        const chapterData = chapterResponse.data;
-        setChapter(chapterData);
-
-        // Load course details
+        setLoading(true);
+        let chapterData = null;
         let courseData = null;
-        if (chapterData.course) {
-          const courseResponse = await coursesAPI.getById(chapterData.course._id || chapterData.course);
-          courseData = courseResponse.data;
-          setCourse(courseData);
+        let chapters = [];
+        let quizContentPromise = null;
+
+        if (routeCourseSlug && routeChapterSlug && !isObjectId(routeCourseSlug)) {
+          const list = await getPublishedCourses();
+          const match = list.find((item) => courseSlug(item) === routeCourseSlug);
+          if (!match) {
+            if (!cancelled) setQuiz(null);
+            return;
+          }
+
+          courseData = match;
+          const chaptersResponse = await coursesAPI.getChapters(match._id);
+          chapters = chaptersResponse.data || [];
+          chapterData = findChapterBySlug(chapters, routeChapterSlug);
+          if (!chapterData) {
+            if (!cancelled) {
+              setCourse(courseData);
+              setQuiz(null);
+            }
+            return;
+          }
+        } else if (isObjectId(chapterId)) {
+          const chapterResponse = await chaptersAPI.getById(chapterId);
+          chapterData = chapterResponse.data;
+          const courseRef = chapterData.course;
+          const courseId = courseRef?._id || courseRef;
+          const courseCode = typeof courseRef === 'object' ? courseRef.code : null;
+          quizContentPromise = getQuizContent(chapterData.title, chapterData.order, courseCode || 'GNS 311');
+          if (courseId) {
+            const chaptersResponse = await coursesAPI.getChapters(courseId);
+            chapters = chaptersResponse.data || [];
+            courseData = typeof courseRef === 'object' ? courseRef : (await coursesAPI.getById(courseId)).data;
+          }
+        } else {
+          if (!cancelled) setQuiz(null);
+          return;
         }
 
-        // Load local quiz content (required for all quizzes)
-        const quizContent = await getQuizContent(
-          chapterData.title,
-          chapterData.order,
-          courseData?.code || 'GNS 311'
-        );
+        const quizContent = quizContentPromise
+          ? await quizContentPromise
+          : await getQuizContent(chapterData.title, chapterData.order, courseData?.code || 'GNS 311');
+
+        if (cancelled) return;
 
         if (!quizContent) {
           console.error('Quiz content not found for chapter:', chapterData.title);
+          setChapter(chapterData);
+          setCourse(courseData);
+          setQuiz(null);
           setLoading(false);
           return;
         }
 
+        setChapter(chapterData);
+        setCourse(courseData);
         setQuiz(quizContent);
-        // Store quiz with answers (from local content) for review modal
-        // All quizzes now come from local content with correct answers included
         setQuizWithAnswers(quizContent);
         setAnswers(new Array(quizContent.questions.length).fill(null));
+        setLoading(false);
+
+        const pretty = courseData ? quizPath(courseData, chapterData, chapters) : path;
+        loadedPath.current = pretty;
+        if (path !== pretty) navigate(pretty, { replace: true });
       } catch (error) {
         console.error('Failed to load quiz:', error);
+        if (!cancelled) setQuiz(null);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     loadQuiz();
-  }, [chapterId]);
+    return () => {
+      cancelled = true;
+    };
+  }, [chapterId, routeCourseSlug, routeChapterSlug, location.pathname, navigate]);
 
   const handleAnswerSelect = (questionIndex, answerIndex) => {
     const newAnswers = [...answers];
@@ -155,12 +167,12 @@ const Quiz = () => {
   };
 
   const handleSubmit = async () => {
-    if (submitting || !quiz || !chapterId || !chapter) return;
+    if (submitting || !quiz || !chapter?._id) return;
 
     setSubmitting(true);
     try {
       // Always use chapter-based submission for consistency
-      const submitResponse = await quizzesAPI.submitByChapter(chapterId, answers, {
+      const submitResponse = await quizzesAPI.submitByChapter(chapter._id, answers, {
         title: quiz.title,
         description: quiz.description,
         questions: quiz.questions,
@@ -225,30 +237,21 @@ const Quiz = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96 bg-white dark:bg-gray-900">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 dark:border-teal-400"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   if (!quiz) {
     return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 py-8 px-4 flex items-center justify-center">
-        <div className="text-center max-w-md">
-          <Target className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Quiz not found</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">No quiz available for this chapter.</p>
-          <button
-            onClick={() => {
-              if (course?._id) {
-                navigate(`/quiz-hub/courses/${course._id}`);
-              } else {
-                navigate('/quiz-hub');
-              }
-            }}
-            className={`${colors.button} dark:${colors.button} text-white px-6 py-2 rounded-lg font-semibold transition-colors`}
-          >
-            Back to Quiz Hub
+      <div className="mx-auto max-w-3xl px-5 py-16 text-center md:px-8">
+        <div className="rounded-3xl border border-line bg-surface px-6 py-16">
+          <Target className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h1 className="mt-4 text-lg font-medium tracking-tight text-ink">Quiz not found</h1>
+          <p className="mt-2 text-[15px] leading-relaxed text-slate">This chapter does not have a quiz yet.</p>
+          <button type="button" onClick={goToQuizList} className="btn-primary mt-6">
+            Back to quizzes
           </button>
         </div>
       </div>
@@ -265,13 +268,7 @@ const Quiz = () => {
           onClose={() => {
             setShowCongratulations(false);
             // If answers modal is not open, navigate away
-            if (!showAnswersModal) {
-              if (course?._id) {
-                navigate(`/quiz-hub/courses/${course._id}`);
-              } else {
-                navigate('/quiz-hub');
-              }
-            }
+            if (!showAnswersModal) goToQuizList();
           }}
           username={user?.username || 'Student'}
           quizTitle={quiz?.title}
@@ -283,6 +280,7 @@ const Quiz = () => {
           isFirstAttempt={results?.isFirstAttempt !== false}
           chapterId={chapter?._id}
           courseId={course?._id || chapter?.course?._id || chapter?.course}
+          backPath={course ? quizCoursePath(course) : '/quiz-hub'}
           onViewAnswers={() => {
             setShowCongratulations(false);
             setShowAnswersModal(true);
@@ -296,11 +294,7 @@ const Quiz = () => {
             if (results) {
               setShowCongratulations(true);
             } else {
-              if (course?._id) {
-                navigate(`/quiz-hub/courses/${course._id}`);
-              } else {
-                navigate('/quiz-hub');
-              }
+              goToQuizList();
             }
           }}
           questions={quizWithAnswers?.questions || quiz?.questions || []}
@@ -323,149 +317,89 @@ const Quiz = () => {
   const displayQuestion = question.question.replace(/Royal Prince/g, username);
   const displayOptions = question.options.map(opt => opt.replace(/Royal Prince/g, username));
 
+  const answeredCount = answers.filter((answer) => answer !== null).length;
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Mobile Back Button - Top Position */}
-        <div className="block sm:hidden mb-4">
-          <button
-            onClick={() => {
-              if (course?._id) {
-                navigate(`/quiz-hub/courses/${course._id}`);
-              } else {
-                navigate('/quiz-hub');
-              }
-            }}
-            className={`flex items-center space-x-2 ${colors.text} dark:${colors.text} hover:${colors.accent} dark:hover:${colors.accent} transition-colors font-medium px-4 py-2 rounded-lg border ${colors.border} dark:${colors.border} ${colors.bg} dark:${colors.bg}`}
-          >
-            <ArrowLeft className="h-5 w-5" />
-            <span>Back</span>
-          </button>
-        </div>
-
-        {/* Header Card */}
-        <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg p-6 mb-6">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            {/* Desktop Back Button - Hidden on mobile */}
-            <button
-              onClick={() => {
-                if (course?._id) {
-                  navigate(`/quiz-hub/courses/${course._id}`);
-                } else {
-                  navigate('/quiz-hub');
-                }
-              }}
-              className={`hidden sm:flex items-center space-x-2 ${colors.text} hover:${colors.accent} transition-colors font-medium`}
-            >
-              <ArrowLeft className="h-5 w-5" />
-              <span>Back</span>
-            </button>
-
-            <div className="text-left flex-1">
-              <h1 className={`text-2xl font-bold ${colors.text} dark:${colors.text} mb-1`}>{quiz.title}</h1>
-              <p className="text-gray-600 dark:text-gray-400 text-sm">{quiz.description}</p>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className={`flex items-center space-x-2 ${colors.bg} dark:${colors.bg} px-4 py-2 rounded-lg border ${colors.border} dark:${colors.border}`}>
-                <Target className={`h-5 w-5 ${colors.icon} dark:${colors.icon}`} />
-                <span className={`font-semibold ${colors.text} dark:${colors.text}`}>{currentQuestion + 1}/{quiz.questions.length}</span>
+    <div className="bg-canvas pb-16 text-ink">
+      <div className="border-b border-line bg-surface">
+        <div className="mx-auto max-w-3xl px-5 py-4 md:px-8">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex min-w-0 items-center gap-3">
+              <button type="button" onClick={goToQuizList} className="rounded-full p-2 text-graphite hover:text-ink" aria-label="Back to quizzes">
+                <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+              </button>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-medium text-ink">{quiz.title}</p>
+                <p className="truncate text-sm text-slate">{course?.code || 'Quiz'} · {quiz.questions.length} questions</p>
               </div>
             </div>
+            <p className="shrink-0 text-sm font-medium text-ink">{currentQuestion + 1}/{quiz.questions.length}</p>
+          </div>
+          <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-canvas">
+            <div className="h-full rounded-full bg-accent-fill" style={{ width: `${progress}%` }} />
           </div>
         </div>
+      </div>
 
-        {/* Progress Bar */}
-        <div className="mb-6">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Progress</span>
-            <span className={`text-sm font-bold ${colors.text} dark:${colors.text}`}>{Math.round(progress)}%</span>
-          </div>
-          <div className="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-            <div
-              className={`h-full ${colors.progress} dark:${colors.progress} rounded-full transition-all duration-300`}
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-        </div>
-
-        {/* Question Card */}
-        <div className="bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg p-8 mb-6">
-          <div className="flex items-center space-x-3 mb-6">
-            <div className={`${colors.button} dark:${colors.button} text-white px-4 py-2 rounded-lg font-bold text-lg`}>
-              Q{currentQuestion + 1}
-            </div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Question {currentQuestion + 1} of {quiz.questions.length}
-            </h2>
-          </div>
-
-          <div className="mb-8">
-            <p className="text-gray-900 dark:text-white text-lg leading-relaxed font-medium">{displayQuestion}</p>
-          </div>
-
-          {/* Options */}
-          <div className="space-y-3">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+        <div className="rounded-3xl border border-line bg-surface p-5 sm:p-8">
+          <h2 className="text-lg font-medium tracking-tight text-ink">
+            Question {currentQuestion + 1} of {quiz.questions.length}
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-graphite">{displayQuestion}</p>
+          <div className="mt-6 space-y-3">
             {displayOptions.map((option, index) => {
               const isSelected = answers[currentQuestion] === index;
               return (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => handleAnswerSelect(currentQuestion, index)}
-                  className={`w-full text-left p-5 rounded-xl border-2 transition-all quiz-option ${
-                    isSelected
-                      ? `${colors.selected} dark:${colors.selected} ${colors.border} dark:${colors.border} shadow-md`
-                      : 'border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-500 hover:bg-gray-100 dark:hover:bg-gray-600'
+                  className={`flex w-full items-center gap-3 rounded-2xl border p-4 text-left text-[15px] leading-relaxed transition-colors ${
+                    isSelected ? 'border-accent bg-accent-soft text-ink' : 'border-line text-graphite hover:bg-canvas'
                   }`}
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className={`shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
-                      isSelected
-                        ? `${colors.button} dark:${colors.button} text-white`
-                        : 'bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300'
-                    }`}>
-                      {String.fromCharCode(65 + index)}
-                    </div>
-                    <span className={`flex-1 font-medium ${isSelected ? colors.text : 'text-gray-700 dark:text-gray-300'}`}>
-                      {option}
-                    </span>
-                    {isSelected && (
-                      <Sparkles className={`h-5 w-5 ${colors.icon} dark:${colors.icon}`} />
-                    )}
-                  </div>
+                  <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${isSelected ? 'border-accent-fill bg-accent-fill' : 'border-line'}`}>
+                    {isSelected && <span className="h-2 w-2 rounded-full bg-on-accent" />}
+                  </span>
+                  {option}
                 </button>
               );
             })}
           </div>
-        </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between gap-4">
-          <button
-            onClick={handlePrevious}
-            disabled={currentQuestion === 0}
-            className={`px-6 py-3 ${colors.buttonSecondary} rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors border-2 ${colors.border}`}
-          >
-            Previous
-          </button>
-
-          {currentQuestion === quiz.questions.length - 1 ? (
+          <div className="mt-8 flex min-w-0 flex-wrap items-center gap-3 border-t border-line pt-6">
             <button
-              onClick={handleSubmit}
-              disabled={submitting || answers.includes(null)}
-              className={`px-8 py-3 ${colors.button} text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-md hover:shadow-lg`}
+              type="button"
+              onClick={handlePrevious}
+              disabled={currentQuestion === 0}
+              className="btn-secondary shrink-0 disabled:opacity-40"
             >
-              {submitting ? 'Submitting...' : 'Submit Quiz ✨'}
+              <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+              Previous
             </button>
-          ) : (
-            <button
-              onClick={handleNext}
-              disabled={answers[currentQuestion] === null}
-              className={`px-8 py-3 ${colors.button} text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-md hover:shadow-lg`}
-            >
-              Next Question →
-            </button>
-          )}
+            <p className="hidden text-sm text-slate sm:block">{answeredCount} of {quiz.questions.length} answered</p>
+            {currentQuestion === quiz.questions.length - 1 ? (
+              <button
+                type="button"
+                onClick={handleSubmit}
+                disabled={submitting || answers.includes(null)}
+                className="btn-primary ml-auto shrink-0 disabled:opacity-50"
+              >
+                {submitting ? 'Submitting...' : 'Submit quiz'}
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={answers[currentQuestion] === null}
+                className="btn-primary ml-auto shrink-0 disabled:opacity-50"
+              >
+                Next
+                <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { resultsAPI, coursesAPI } from '../../utils/api';
 import { useAuth } from '../../contexts/AuthContext';
-import { Trophy } from 'lucide-react';
+import { ArrowRight, Trophy } from 'lucide-react';
+import Reveal from '../../components/Reveal';
+import testmancerLogo from '../../assets/testmancer-logo.png';
 
 const ResultsPage = () => {
   const { user } = useAuth();
@@ -30,18 +33,6 @@ const ResultsPage = () => {
     fetchData();
   }, []);
 
-  const getGradeColor = (grade) => {
-    switch (grade) {
-      case 'A': return 'text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-900/30 border-green-300 dark:border-green-600';
-      case 'B': return 'text-blue-700 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 border-blue-300 dark:border-blue-600';
-      case 'C': return 'text-yellow-700 dark:text-yellow-400 bg-yellow-100 dark:bg-yellow-900/30 border-yellow-300 dark:border-yellow-600';
-      case 'D': return 'text-orange-700 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30 border-orange-300 dark:border-orange-600';
-      case 'E': return 'text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/30 border-red-300 dark:border-red-600';
-      case 'F': return 'text-red-700 dark:text-red-400 bg-red-100 dark:bg-red-900/30 border-red-300 dark:border-red-600';
-      default: return 'text-gray-700 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600';
-    }
-  };
-
   const combinedResults = enrolledCourses.map(course => {
     const result = results.find(r => r.course?._id === course._id);
     return {
@@ -54,103 +45,142 @@ const ResultsPage = () => {
       caScore: result?.caScore || 0,
       examScore: result?.examScore || 0,
       totalScore: result?.totalScore || 0,
-      grade: result?.grade || 'F',
-      percentage: result?.percentage || 0,
+      grade: result?.grade,
       caCompletedAt: result?.caCompletedAt,
       examCompletedAt: result?.examCompletedAt,
       isComplete: result?.isComplete || false
     };
   });
 
+  const issued = new Date().toLocaleDateString(undefined, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  const universityName = user?.university?.name || (typeof user?.university === 'string' ? user.university : null);
+  const details = [
+    { label: 'Student', value: user?.username },
+    { label: 'Level', value: user?.academicLevel ? `${user.academicLevel} level` : null },
+    { label: 'University', value: universityName },
+    { label: 'Department', value: user?.department }
+  ].filter((item) => item.value);
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Loading your results...</p>
-        </div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">My Results</h1>
-          <p className="text-gray-600 dark:text-gray-400">Continuous Assessment and Final Exam grades</p>
-        </div>
+    <div className="bg-canvas pb-20 text-ink">
+      <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+        <p className="rise-in text-sm font-medium text-accent">Results</p>
+        <h1
+          className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]"
+          style={{ animationDelay: '70ms' }}
+        >
+          Your statement of results.
+        </h1>
+        <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+          Continuous assessment is 30. The exam is 70. The grade is recorded when both are done.
+        </p>
+      </header>
 
-        {/* Results List */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 mb-8 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead className="bg-gray-50 dark:bg-gray-800">
-                <tr>
-                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Course
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    CA Score (30)
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Exam Score (70)
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Total (100)
-                  </th>
-                  <th scope="col" className="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                    Grade
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                {combinedResults.length === 0 ? (
-                  <tr>
-                    <td colSpan="5" className="px-6 py-12 text-center text-gray-500 dark:text-gray-400">
-                      <Trophy className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                      <p>No enrolled courses found.</p>
-                      <p className="text-sm">Enroll in courses to see your results here.</p>
-                    </td>
+      <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
+        {combinedResults.length === 0 ? (
+          <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <Trophy className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">No enrolled courses</h2>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+              Enroll in a course and the scores show up here after you sit the CA or the exam.
+            </p>
+            <Link to="/courses" className="btn-primary group mt-6">
+              Browse courses
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          </div>
+        ) : (
+          <Reveal className="overflow-hidden rounded-3xl border border-line bg-surface">
+            <div className="border-b border-line px-5 py-6 md:px-8">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <img src={testmancerLogo} alt="" className="h-7 w-auto" />
+                  <p className="mt-5 text-sm font-medium text-accent">Statement of results</p>
+                  <h2 className="mt-1 text-lg font-medium tracking-tight text-ink">
+                    Continuous assessment and final exam
+                  </h2>
+                </div>
+                <p className="shrink-0 text-sm text-slate">{issued}</p>
+              </div>
+              {details.length > 0 && (
+                <dl className="mt-6 grid gap-4 border-t border-line pt-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {details.map((item) => (
+                    <div key={item.label}>
+                      <dt className="text-sm text-slate">{item.label}</dt>
+                      <dd className="mt-1 text-sm font-medium text-ink">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[40rem] border-collapse text-left">
+                <caption className="sr-only">
+                  Course results with continuous assessment out of 30, exam out of 70, total out of 100, and grade
+                </caption>
+                <thead>
+                  <tr className="border-b border-line bg-canvas">
+                    <th scope="col" className="px-5 py-3 text-sm font-medium text-slate md:px-8">Course</th>
+                    <th scope="col" className="px-4 py-3 text-center text-sm font-medium text-slate">
+                      CA
+                      <span className="mt-0.5 block text-xs font-normal">out of 30</span>
+                    </th>
+                    <th scope="col" className="px-4 py-3 text-center text-sm font-medium text-slate">
+                      Exam
+                      <span className="mt-0.5 block text-xs font-normal">out of 70</span>
+                    </th>
+                    <th scope="col" className="px-4 py-3 text-center text-sm font-medium text-slate">
+                      Total
+                      <span className="mt-0.5 block text-xs font-normal">out of 100</span>
+                    </th>
+                    <th scope="col" className="px-5 py-3 text-center text-sm font-medium text-slate md:px-8">Grade</th>
                   </tr>
-                ) : (
-                  combinedResults.map((result) => (
-                    <tr key={result._id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex flex-col">
-                          <span className="text-sm font-bold text-gray-900 dark:text-white">{result.course.code}</span>
-                          <span className="text-sm text-gray-600 dark:text-gray-400">{result.course.title}</span>
-                        </div>
+                </thead>
+                <tbody>
+                  {combinedResults.map((result) => (
+                    <tr key={result._id} className="border-b border-line last:border-b-0">
+                      <th scope="row" className="px-5 py-4 text-left font-normal md:px-8">
+                        <span className="block text-sm font-medium text-ink">{result.course.code}</span>
+                        <span className="mt-0.5 block text-sm text-slate">{result.course.title}</span>
+                      </th>
+                      <td className={`px-4 py-4 text-center text-sm tabular-nums ${result.caCompletedAt ? 'font-medium text-ink' : 'text-slate'}`}>
+                        {result.caCompletedAt ? result.caScore : '—'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <span className={`text-sm font-semibold ${result.caCompletedAt ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-500'}`}>
-                          {result.caScore}
-                        </span>
+                      <td className={`px-4 py-4 text-center text-sm tabular-nums ${result.examCompletedAt ? 'font-medium text-ink' : 'text-slate'}`}>
+                        {result.examCompletedAt ? result.examScore : '—'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <span className={`text-sm font-semibold ${result.examCompletedAt ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-500'}`}>
-                          {result.examScore}
-                        </span>
+                      <td className={`px-4 py-4 text-center text-sm tabular-nums ${(result.caCompletedAt || result.examCompletedAt) ? 'font-medium text-ink' : 'text-slate'}`}>
+                        {result.caCompletedAt || result.examCompletedAt ? result.totalScore : '—'}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">
-                          {result.totalScore}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-center">
-                        <div className={`inline-flex items-center justify-center w-10 h-10 rounded-full border-2 font-bold ${getGradeColor(result.grade)}`}>
-                          {result.grade}
-                        </div>
+                      <td className={`px-5 py-4 text-center text-sm tabular-nums md:px-8 ${result.isComplete ? 'font-medium text-accent' : 'text-slate'}`}>
+                        {result.isComplete ? result.grade : '—'}
                       </td>
                     </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="border-t border-line px-5 py-4 text-sm text-slate md:px-8">
+              A grade appears when both the CA and the exam for that course are complete.
+            </p>
+          </Reveal>
+        )}
+      </section>
     </div>
   );
 };

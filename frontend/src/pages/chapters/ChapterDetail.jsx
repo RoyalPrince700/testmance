@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { chaptersAPI, coursesAPI } from '../../utils/api';
+import { chapterPath, coursePath, courseSlug, findChapterBySlug, isObjectId, quizPath } from '../../utils/slugs';
 import { BookOpen } from 'lucide-react';
 import { ChapterHeader, SectionViewer, ChapterNavigation, CongratulationsModal } from './components';
 import { getChapterContent } from './content';
-import { getQuizContent } from '../quizzes/content';
+import { chapterHasQuiz } from '../quizzes/quizAvailability';
 import { useAuth } from '../../contexts/AuthContext';
 
 const ChapterDetail = () => {
-  const { id } = useParams();
+  const { id, courseSlug: routeCourseSlug, chapterSlug: routeChapterSlug } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, loadUser } = useAuth();
   const [chapter, setChapter] = useState(null);
   const [course, setCourse] = useState(null);
@@ -26,83 +28,137 @@ const ChapterDetail = () => {
   const [isCompleting, setIsCompleting] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
   const [hasQuiz, setHasQuiz] = useState(false);
+  const loadedPath = useRef('');
 
   useEffect(() => {
+    const path = decodeURI(location.pathname);
+    if (loadedPath.current === path) return;
+
+    let cancelled = false;
+
     const loadChapterData = async () => {
       try {
-        // Load chapter details
-        const chapterResponse = await chaptersAPI.getById(id);
-        const chapterData = chapterResponse.data;
-        setChapter(chapterData);
-
-        // Load course details first (needed for content lookup)
+        setLoading(true);
+        let chapterId = id;
+        let chapterData = null;
         let courseData = null;
-        if (chapterData.course) {
-          const courseId = chapterData.course._id || chapterData.course;
-          const [courseResponse, enrolledResponse] = await Promise.all([
-            coursesAPI.getById(courseId),
+        let chapters = [];
+
+        if (routeCourseSlug && routeChapterSlug && !isObjectId(routeCourseSlug)) {
+          const list = await coursesAPI.getAll();
+          const match = (list.data || []).find((item) => courseSlug(item) === routeCourseSlug);
+          if (!match) {
+            if (!cancelled) {
+              setChapter(null);
+              setCourse(null);
+            }
+            return;
+          }
+
+          const [courseResponse, chaptersResponse, enrolledResponse] = await Promise.all([
+            coursesAPI.getById(match._id),
+            coursesAPI.getChapters(match._id),
             coursesAPI.getEnrolled().catch(() => ({ data: [] }))
           ]);
-          
+
           courseData = courseResponse.data;
-          setCourse(courseData);
+          chapters = chaptersResponse.data || [];
+          const found = findChapterBySlug(chapters, routeChapterSlug);
+          if (!found) {
+            if (!cancelled) {
+              setCourse(courseData);
+              setAllChapters(chapters);
+              setChapter(null);
+            }
+            return;
+          }
 
-          // Check if user is enrolled in this course
+          const chapterResponse = await chaptersAPI.getById(found._id);
+          chapterData = chapterResponse.data;
+          chapterId = found._id;
+
           const enrolledCourses = enrolledResponse.data || [];
-          const enrolled = enrolledCourses.some(c => c._id === courseId || c._id === courseData._id);
-          setIsEnrolled(enrolled);
+          if (!cancelled) {
+            setIsEnrolled(enrolledCourses.some(c => c._id === match._id || c._id === courseData._id));
+          }
+        } else if (isObjectId(id)) {
+          const chapterResponse = await chaptersAPI.getById(id);
+          chapterData = chapterResponse.data;
+          chapterId = chapterData._id;
 
-          // Load all chapters for navigation
-          const chaptersResponse = await coursesAPI.getChapters(courseId);
-          const chapters = chaptersResponse.data;
-          setAllChapters(chapters);
-
-          // Find current chapter index
-          const index = chapters.findIndex(ch => ch._id === id);
-          setCurrentIndex(index);
+          if (chapterData.course) {
+            const courseId = chapterData.course._id || chapterData.course;
+            const [courseResponse, enrolledResponse, chaptersResponse] = await Promise.all([
+              coursesAPI.getById(courseId),
+              coursesAPI.getEnrolled().catch(() => ({ data: [] })),
+              coursesAPI.getChapters(courseId)
+            ]);
+            courseData = courseResponse.data;
+            chapters = chaptersResponse.data || [];
+            const enrolledCourses = enrolledResponse.data || [];
+            if (!cancelled) {
+              setIsEnrolled(enrolledCourses.some(c => c._id === courseId || c._id === courseData._id));
+            }
+          }
+        } else {
+          if (!cancelled) setChapter(null);
+          return;
         }
 
-        // Load structured content if available (after course is loaded)
+        if (cancelled || !chapterData) return;
 
-        // Load structured content
         const structuredContent = await getChapterContent(
           chapterData.title,
           chapterData.order,
           courseData?.code
         );
-        if (structuredContent) {
-          setChapterContent(structuredContent);
+        if (cancelled) return;
+
+        let wasCompleted = false;
+        let progressData = null;
+        try {
+          const progressResponse = await chaptersAPI.getProgress(chapterId);
+          progressData = progressResponse.data;
+          wasCompleted = Boolean(progressResponse.data?.isCompleted);
+        } catch (progressError) {
+          wasCompleted = false;
         }
 
-        // Load progress if authenticated
-        try {
-          const progressResponse = await chaptersAPI.getProgress(id);
-          setProgress(progressResponse.data);
-          const wasCompleted = progressResponse.data.isCompleted;
-          setCompleted(wasCompleted);
-          setWasCompletedBefore(wasCompleted); // Track if it was already completed
-        } catch (progressError) {
-          // User might not be authenticated or chapter not completed
-          setWasCompletedBefore(false);
+        if (cancelled) return;
+
+        setChapter(chapterData);
+        setCourse(courseData);
+        setAllChapters(chapters);
+        setCurrentIndex(chapters.findIndex(ch => String(ch._id) === String(chapterId)));
+        setChapterContent(structuredContent || null);
+        setProgress(progressData);
+        setCompleted(wasCompleted);
+        setWasCompletedBefore(wasCompleted);
+        setLoading(false);
+
+        const pretty = courseData ? chapterPath(courseData, chapterData, chapters) : path;
+        loadedPath.current = pretty;
+        if (path !== pretty) {
+          navigate(pretty, { replace: true });
         }
       } catch (error) {
         console.error('Failed to load chapter:', error);
+        if (!cancelled) setChapter(null);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     };
 
     loadChapterData();
-  }, [id]);
+    return () => {
+      cancelled = true;
+    };
+  }, [id, routeCourseSlug, routeChapterSlug, location.pathname, navigate]);
 
   useEffect(() => {
-    const checkQuiz = async () => {
-      if (chapter && course) {
-        const quiz = await getQuizContent(chapter.title, chapter.order, course.code);
-        setHasQuiz(quiz !== null);
-      }
-    };
-    checkQuiz();
+    if (chapter && course) {
+      setHasQuiz(chapterHasQuiz(course.code, chapter.order));
+    }
   }, [chapter, course]);
 
   const handleMarkComplete = async () => {
@@ -114,7 +170,7 @@ const ChapterDetail = () => {
     setIsCompleting(true);
     
     try {
-      const response = await chaptersAPI.complete(id);
+      const response = await chaptersAPI.complete(chapter._id);
       setCompleted(true);
       
       // Get gems earned from response
@@ -128,7 +184,7 @@ const ChapterDetail = () => {
       
       // Reload progress to get updated stats and refresh user data
       try {
-        const progressResponse = await chaptersAPI.getProgress(id);
+        const progressResponse = await chaptersAPI.getProgress(chapter._id);
         setProgress(progressResponse.data);
         // Reload user data to ensure gems are synced immediately
         await loadUser();
@@ -152,54 +208,51 @@ const ChapterDetail = () => {
   };
 
   const handleTakeQuiz = () => {
-    if (chapter?._id) {
-      navigate(`/quizzes/${chapter._id}`);
+    if (chapter?._id && course) {
+      navigate(quizPath(course, chapter, allChapters));
     }
   };
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   if (!chapter) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Chapter not found</h3>
-        <p className="text-gray-600 dark:text-gray-400">The chapter you're looking for doesn't exist.</p>
-        <Link
-          to={course ? `/courses/${course._id}` : "/dashboard"}
-          className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 rounded-lg text-white transition-colors"
-        >
-          Back to {course ? 'Course' : 'Dashboard'}
-        </Link>
+      <div className="mx-auto max-w-3xl px-5 py-16 text-center md:px-8">
+        <div className="rounded-3xl border border-line bg-surface px-6 py-16">
+          <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h1 className="mt-4 text-lg font-medium tracking-tight text-ink">Chapter not found</h1>
+          <p className="mt-2 text-[15px] leading-relaxed text-slate">This chapter is not on the course.</p>
+          <Link to={course ? coursePath(course) : '/dashboard'} className="btn-primary mt-6">
+            Back to {course ? 'course' : 'dashboard'}
+          </Link>
+        </div>
       </div>
     );
   }
 
   if (!isEnrolled && !loading && course) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course Not Enrolled</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in this course to access its chapters.</p>
-        <div className="flex gap-4 justify-center">
-          <Link
-            to={`/courses/${course._id}`}
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
-          >
-            Enroll in Course
-          </Link>
-          <Link
-            to="/courses"
-            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg text-white transition-colors"
-          >
-            Browse Courses
-          </Link>
+      <div className="mx-auto max-w-3xl px-5 py-16 text-center md:px-8">
+        <div className="rounded-3xl border border-line bg-surface px-6 py-16">
+          <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h1 className="mt-4 text-lg font-medium tracking-tight text-ink">Enroll to read this chapter</h1>
+          <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+            This chapter is part of {course.code || course.title}. Enroll in the course to open it.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
+            <Link to={coursePath(course)} className="btn-primary">
+              Enroll in course
+            </Link>
+            <Link to="/courses" className="btn-secondary">
+              Browse courses
+            </Link>
+          </div>
         </div>
       </div>
     );
@@ -219,7 +272,7 @@ const ChapterDetail = () => {
   const username = rawUsername.charAt(0).toUpperCase() + rawUsername.slice(1);
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="mx-auto max-w-3xl px-5 py-10 md:px-8 md:py-16">
       {/* Congratulations Modal */}
       <CongratulationsModal
         isOpen={showCongratulations}
@@ -230,7 +283,9 @@ const ChapterDetail = () => {
         isFirstCompletion={!wasCompletedBefore}
         hasQuiz={hasQuiz}
         quizId={chapterId}
+        quizTo={course && chapter ? quizPath(course, chapter, allChapters) : null}
         courseId={courseId}
+        backPath={course ? coursePath(course) : null}
         gemsEarned={gemsEarned}
       />
 
@@ -251,27 +306,19 @@ const ChapterDetail = () => {
               onMarkComplete={handleMarkComplete}
               completed={completed}
               isCompleting={isCompleting}
+              hasQuiz={hasQuiz}
+              onTakeQuiz={handleTakeQuiz}
             />
           );
         }
         
         return (
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
-            <div className="prose prose-lg max-w-none">
-              <div className="mb-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 text-sm">
-                <strong>Debug Info:</strong>
-                <ul className="mt-2 space-y-1 list-disc list-inside">
-                  <li>Chapter title: "{chapter.title}"</li>
-                  <li>Has chapterContent: {chapterContent ? 'Yes' : 'No'}</li>
-                  <li>Sections count: {chapterContent?.sections?.length || 0}</li>
-                </ul>
-              </div>
-              <div
-                className="text-gray-800 dark:text-gray-200 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: chapter.content.replace(/Royal Prince/g, username) }}
-              />
-            </div>
-          </div>
+          <article className="rounded-3xl border border-line bg-surface p-6 md:p-8">
+            <div
+              className="chapter-body text-lg leading-relaxed text-graphite"
+              dangerouslySetInnerHTML={{ __html: (chapter.content || '').replace(/Royal Prince/g, username) }}
+            />
+          </article>
         );
       })()}
 
@@ -279,8 +326,10 @@ const ChapterDetail = () => {
       <ChapterNavigation
         prevChapter={prevChapter}
         nextChapter={nextChapter}
+        course={course}
+        chapters={allChapters}
         completed={completed}
-        hasQuiz={hasQuiz}
+        hasQuiz={hasQuiz && !(chapterContent && chapterContent.sections && chapterContent.sections.length > 0)}
         onMarkComplete={handleMarkComplete}
         onTakeQuiz={handleTakeQuiz}
         showMarkComplete={!chapterContent || !chapterContent.sections}

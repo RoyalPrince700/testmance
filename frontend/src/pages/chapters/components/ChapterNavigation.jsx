@@ -1,71 +1,63 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Play, Loader } from 'lucide-react';
+import { chapterPath } from '../../../utils/slugs';
 
 const ChapterNavigation = ({
   prevChapter,
-  nextChapter,
   completed,
   hasQuiz,
   onMarkComplete,
   onTakeQuiz,
   showMarkComplete = true,
-  isCompleting = false
+  isCompleting = false,
+  course,
+  chapters = []
 }) => {
+  const showComplete = !completed && showMarkComplete;
+  const showQuiz = hasQuiz && completed;
+
+  if (!prevChapter && !showComplete && !showQuiz) {
+    return null;
+  }
+
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          {/* Previous Chapter */}
-          {prevChapter && (
-            <Link
-              to={`/chapters/${prevChapter._id}`}
-              className="flex items-center space-x-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg text-gray-700 dark:text-gray-300 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              <span>Previous</span>
-            </Link>
-          )}
+    <div className="mt-6 flex min-w-0 flex-wrap items-center gap-3 rounded-3xl border border-line bg-surface p-4 md:p-6">
+      {prevChapter ? (
+        <Link
+          to={course ? chapterPath(course, prevChapter, chapters) : `/chapters/${prevChapter._id}`}
+          className="btn-secondary shrink-0"
+        >
+          <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+          Previous
+        </Link>
+      ) : (
+        <span />
+      )}
 
-          {/* Mark Complete - Only show if showMarkComplete is true */}
-          {!completed && showMarkComplete && (
-            <button
-              onClick={onMarkComplete}
-              disabled={isCompleting || completed}
-              className={`flex items-center space-x-2 px-6 py-2 rounded-lg text-white transition-colors ${
-                isCompleting || completed
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-green-500 hover:bg-green-600'
-              }`}
-            >
-              {isCompleting ? (
-                <>
-                  <Loader className="h-4 w-4 animate-spin" />
-                  <span>Completing...</span>
-                </>
-              ) : (
-                <>
-                  <CheckCircle className="h-4 w-4" />
-                  <span>Mark Complete</span>
-                </>
-              )}
-            </button>
+      {showComplete && (
+        <button
+          type="button"
+          onClick={onMarkComplete}
+          disabled={isCompleting || completed}
+          className="btn-primary ml-auto shrink-0 disabled:opacity-50"
+        >
+          {isCompleting ? (
+            <Loader className="h-4 w-4 animate-spin" strokeWidth={1.75} />
+          ) : (
+            <CheckCircle className="h-4 w-4" strokeWidth={1.75} />
           )}
+          {isCompleting ? 'Completing...' : 'Mark complete'}
+        </button>
+      )}
 
-          {/* Take Quiz */}
-          {hasQuiz && completed && (
-            <button
-              onClick={onTakeQuiz}
-              className="flex items-center space-x-2 px-6 py-2 bg-teal-500 hover:bg-teal-600 rounded-lg text-white transition-colors"
-            >
-              <Play className="h-4 w-4" />
-              <span>Take Quiz</span>
-            </button>
-          )}
-        </div>
-      </div>
+      {showQuiz && (
+        <button type="button" onClick={onTakeQuiz} className="btn-primary ml-auto shrink-0">
+          <Play className="h-4 w-4" strokeWidth={1.75} />
+          Take quiz
+        </button>
+      )}
     </div>
   );
 };
 
 export default ChapterNavigation;
-

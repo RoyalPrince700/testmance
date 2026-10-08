@@ -1,15 +1,12 @@
 const ChapterContent = ({ content }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-      <div className="prose prose-lg max-w-none">
-        <div
-          className="text-gray-800 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      </div>
+    <div className="rounded-3xl border border-line bg-surface p-6 md:p-8">
+      <div
+        className="chapter-body text-lg leading-relaxed text-graphite"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 };
 
 export default ChapterContent;
-

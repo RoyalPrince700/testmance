@@ -2,17 +2,9 @@ import { useState, useEffect } from 'react';
 import { adminAPI } from '../../utils/api';
 import AdminSidebar from '../../components/AdminSidebar';
 import { getAvatarSrc } from '../../utils/avatarUtils';
-import {
-  Search,
-  Filter,
-  MoreVertical,
-  Edit,
-  Trash2,
-  UserCheck,
-  UserX,
-  Shield,
-  ShieldCheck
-} from 'lucide-react';
+import { Search, Edit, Trash2, ShieldCheck } from 'lucide-react';
+
+const fieldClass = 'h-11 w-full rounded-2xl border border-line bg-surface px-4 text-sm text-ink placeholder:text-slate focus:border-accent focus:outline-none';
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -50,7 +42,6 @@ const AdminUsers = () => {
         isAdmin: filters.isAdmin || undefined
       };
 
-      // Remove undefined values from params
       Object.keys(params).forEach(key => {
         if (params[key] === undefined || params[key] === '') {
           delete params[key];
@@ -76,7 +67,7 @@ const AdminUsers = () => {
   const handleUpdateUser = async (userId, updates) => {
     try {
       await adminAPI.updateUser(userId, updates);
-      fetchUsers(); // Refresh the list
+      fetchUsers();
       setShowUserModal(false);
       setSelectedUser(null);
     } catch (err) {
@@ -92,7 +83,7 @@ const AdminUsers = () => {
 
     try {
       await adminAPI.deleteUser(userId);
-      fetchUsers(); // Refresh the list
+      fetchUsers();
     } catch (err) {
       console.error('Failed to delete user:', err);
       alert('Failed to delete user');
@@ -106,6 +97,10 @@ const AdminUsers = () => {
       day: 'numeric'
     });
   };
+
+  const frame = `min-h-screen bg-canvas pb-20 text-ink transition-[margin] duration-300 ${
+    sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'
+  }`;
 
   const UserModal = ({ user, onClose, onUpdate }) => {
     const [formData, setFormData] = useState({
@@ -123,104 +118,94 @@ const AdminUsers = () => {
     };
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 dark:bg-opacity-70 flex items-center justify-center z-50">
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Edit User</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4" onClick={onClose}>
+        <div
+          className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-3xl border border-line bg-surface p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="edit-user-title"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <h2 id="edit-user-title" className="text-lg font-medium tracking-tight text-ink">Edit user</h2>
+          <form onSubmit={handleSubmit} className="mt-5 space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                Username
-              </label>
+              <label htmlFor="edit-username" className="mb-2 block text-sm font-medium text-ink">Username</label>
               <input
+                id="edit-username"
                 type="text"
                 value={formData.username}
-                onChange={(e) => setFormData({...formData, username: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                className={fieldClass}
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                Email
-              </label>
+              <label htmlFor="edit-email" className="mb-2 block text-sm font-medium text-ink">Email</label>
               <input
+                id="edit-email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className={fieldClass}
                 required
               />
             </div>
 
-            <div className="flex items-center">
+            <label className="flex items-start gap-3 rounded-2xl border border-line p-4">
               <input
                 type="checkbox"
-                id="isAdmin"
                 checked={formData.isAdmin}
-                onChange={(e) => setFormData({...formData, isAdmin: e.target.checked})}
-                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 dark:border-gray-600 rounded"
+                onChange={(e) => setFormData({ ...formData, isAdmin: e.target.checked })}
+                className="mt-1 h-4 w-4 accent-accent"
               />
-              <label htmlFor="isAdmin" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                Admin User
-              </label>
-            </div>
+              <span>
+                <span className="block text-sm font-medium text-ink">Admin</span>
+                <span className="mt-1 block text-sm text-slate">Can open the admin screens.</span>
+              </span>
+            </label>
 
-            <div className="flex items-center">
+            <label className="flex items-start gap-3 rounded-2xl border border-line p-4">
               <input
                 type="checkbox"
-                id="isActive"
                 checked={formData.isActive}
-                onChange={(e) => setFormData({...formData, isActive: e.target.checked})}
-                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 dark:border-gray-600 rounded"
+                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                className="mt-1 h-4 w-4 accent-accent"
               />
-              <label htmlFor="isActive" className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-                Active Account
-              </label>
-            </div>
+              <span>
+                <span className="block text-sm font-medium text-ink">Active account</span>
+                <span className="mt-1 block text-sm text-slate">Inactive accounts cannot sign in.</span>
+              </span>
+            </label>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Gems
-                </label>
+                <label htmlFor="edit-gems" className="mb-2 block text-sm font-medium text-ink">Gems</label>
                 <input
+                  id="edit-gems"
                   type="number"
                   value={formData.gems}
-                  onChange={(e) => setFormData({...formData, gems: parseInt(e.target.value) || 0})}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  onChange={(e) => setFormData({ ...formData, gems: parseInt(e.target.value, 10) || 0 })}
+                  className={fieldClass}
                   min="0"
                 />
               </div>
-
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Level
-                </label>
+                <label htmlFor="edit-level" className="mb-2 block text-sm font-medium text-ink">Level</label>
                 <input
+                  id="edit-level"
                   type="number"
                   value={formData.level}
-                  onChange={(e) => setFormData({...formData, level: parseInt(e.target.value) || 1})}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  onChange={(e) => setFormData({ ...formData, level: parseInt(e.target.value, 10) || 1 })}
+                  className={fieldClass}
                   min="1"
                 />
               </div>
             </div>
 
-            <div className="flex space-x-3 pt-4">
-              <button
-                type="submit"
-                className="flex-1 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium"
-              >
-                Save Changes
-              </button>
-              <button
-                type="button"
-                onClick={onClose}
-                className="flex-1 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-300 px-4 py-2 rounded-lg font-medium"
-              >
-                Cancel
-              </button>
+            <div className="flex flex-col gap-2 border-t border-line pt-4 sm:flex-row">
+              <button type="submit" className="btn-primary w-full sm:w-auto">Save</button>
+              <button type="button" onClick={onClose} className="btn-secondary w-full sm:w-auto">Cancel</button>
             </div>
           </form>
         </div>
@@ -232,159 +217,141 @@ const AdminUsers = () => {
     <>
       <AdminSidebar onCollapseChange={setSidebarCollapsed} />
 
-      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 p-8 transition-all duration-300 ${
-        sidebarCollapsed ? 'ml-16' : 'ml-64'
-      }`}>
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">User Management</h1>
-            <p className="text-gray-600 dark:text-gray-400">Manage and monitor all TestMancer users</p>
-          </div>
+      <div className={frame}>
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <p className="text-sm font-medium text-accent">Admin</p>
+          <h1 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            Users
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">
+            Search accounts, then edit status, gems, or level.
+          </p>
+        </header>
 
-          {/* Filters and Search */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6">
-            <div className="flex flex-col md:flex-row gap-4">
-              {/* Search */}
-              <div className="flex-1">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search users by username or email..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  />
-                </div>
+        <section className="mx-auto mt-12 max-w-6xl px-5 md:px-8">
+          <div className="rounded-3xl border border-line bg-surface p-4 sm:p-5">
+            <div className="flex flex-col gap-3 md:flex-row">
+              <div className="relative flex-1">
+                <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate" strokeWidth={1.75} />
+                <input
+                  type="search"
+                  placeholder="Search by username or email"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className={`${fieldClass} pl-10`}
+                  aria-label="Search users"
+                />
               </div>
-
-              {/* Filters */}
-              <div className="flex gap-4">
-                <select
-                  value={filters.isActive}
-                  onChange={(e) => setFilters({...filters, isActive: e.target.value})}
-                  className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                >
-                  <option value="">All Status</option>
-                  <option value="true">Active</option>
-                  <option value="false">Inactive</option>
-                </select>
-
-                <select
-                  value={filters.isAdmin}
-                  onChange={(e) => setFilters({...filters, isAdmin: e.target.value})}
-                  className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                >
-                  <option value="">All Users</option>
-                  <option value="true">Admins Only</option>
-                  <option value="false">Regular Users</option>
-                </select>
-              </div>
+              <select
+                value={filters.isActive}
+                onChange={(e) => setFilters({ ...filters, isActive: e.target.value })}
+                className={`${fieldClass} md:w-40`}
+                aria-label="Filter by status"
+              >
+                <option value="">All status</option>
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+              </select>
+              <select
+                value={filters.isAdmin}
+                onChange={(e) => setFilters({ ...filters, isAdmin: e.target.value })}
+                className={`${fieldClass} md:w-44`}
+                aria-label="Filter by role"
+              >
+                <option value="">All users</option>
+                <option value="true">Admins</option>
+                <option value="false">Students</option>
+              </select>
             </div>
           </div>
+        </section>
 
-          {/* Users Table */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <section className="mx-auto mt-4 max-w-6xl px-5 md:px-8">
+          <div className="overflow-hidden rounded-3xl border border-line bg-surface">
             {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600"></div>
-                <span className="ml-2 text-gray-600">Loading users...</span>
+              <div className="flex items-center justify-center gap-3 py-16">
+                <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" role="status" aria-label="Loading users" />
               </div>
             ) : error ? (
-              <div className="text-center py-12">
-                <p className="text-red-600 mb-4">{error}</p>
-                <button
-                  onClick={fetchUsers}
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
-                >
-                  Try Again
-                </button>
+              <div className="px-6 py-16 text-center">
+                <p className="text-[15px] text-graphite">{error}</p>
+                <button type="button" onClick={fetchUsers} className="btn-primary mt-4">Try again</button>
               </div>
+            ) : users.length === 0 ? (
+              <p className="px-6 py-16 text-center text-[15px] text-slate">No users match that search.</p>
             ) : (
               <>
                 <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                      <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          User
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          University
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Stats
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Status
-                        </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                          Joined
-                        </th>
-                        <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                          Actions
-                        </th>
+                  <table className="w-full min-w-[44rem] border-collapse text-left">
+                    <caption className="sr-only">TestMancer users</caption>
+                    <thead>
+                      <tr className="border-b border-line bg-canvas">
+                        <th scope="col" className="px-5 py-3 text-sm font-medium text-slate">User</th>
+                        <th scope="col" className="px-4 py-3 text-sm font-medium text-slate">University</th>
+                        <th scope="col" className="px-4 py-3 text-sm font-medium text-slate">Stats</th>
+                        <th scope="col" className="px-4 py-3 text-sm font-medium text-slate">Status</th>
+                        <th scope="col" className="px-4 py-3 text-sm font-medium text-slate">Joined</th>
+                        <th scope="col" className="px-5 py-3 text-right text-sm font-medium text-slate">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                    <tbody>
                       {users.map((user) => (
-                        <tr key={user._id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center">
+                        <tr key={user._id} className="border-b border-line last:border-b-0 hover:bg-canvas">
+                          <td className="px-5 py-4">
+                            <div className="flex items-center gap-3">
                               <img
                                 src={getAvatarSrc(user.avatar)}
-                                alt={user.username}
-                                className="h-10 w-10 rounded-full object-cover mr-3"
+                                alt=""
+                                className="h-9 w-9 rounded-full border border-line object-cover"
                               />
-                              <div>
-                                <div className="flex items-center space-x-2">
-                                  <p className="text-sm font-medium text-gray-900 dark:text-white">{user.username}</p>
-                                  {user.isAdmin && (
-                                    <ShieldCheck className="h-4 w-4 text-purple-600" />
-                                  )}
-                                </div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{user.email}</p>
+                              <div className="min-w-0">
+                                <p className="flex items-center gap-1.5 text-sm font-medium text-ink">
+                                  <span className="truncate">{user.username}</span>
+                                  {user.isAdmin && <ShieldCheck className="h-4 w-4 shrink-0 text-accent" strokeWidth={1.75} aria-label="Admin" />}
+                                </p>
+                                <p className="truncate text-sm text-slate">{user.email}</p>
                               </div>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <p className="text-sm text-gray-900 dark:text-white">{user.university?.name || 'N/A'}</p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{user.university?.shortName}</p>
+                          <td className="px-4 py-4">
+                            <p className="text-sm text-ink">{user.university?.name || '—'}</p>
+                            {user.university?.shortName && (
+                              <p className="text-sm text-slate">{user.university.shortName}</p>
+                            )}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-900 dark:text-white">
-                              <p>Level {user.level} • {user.gems} gems</p>
-                            </div>
+                          <td className="px-4 py-4 text-sm text-ink">
+                            Level {user.level}
+                            <span className="text-slate"> · </span>
+                            <span className="font-medium text-gem">{user.gems} gems</span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap">
-                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                              user.isActive
-                                ? 'bg-green-100 text-green-800'
-                                : 'bg-red-100 text-red-800'
+                          <td className="px-4 py-4">
+                            <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${
+                              user.isActive ? 'bg-accent-soft text-accent' : 'bg-canvas text-slate'
                             }`}>
                               {user.isActive ? 'Active' : 'Inactive'}
                             </span>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                            {formatDate(user.createdAt)}
-                          </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <div className="flex items-center justify-end space-x-2">
+                          <td className="px-4 py-4 text-sm text-slate">{formatDate(user.createdAt)}</td>
+                          <td className="px-5 py-4">
+                            <div className="flex items-center justify-end gap-1">
                               <button
+                                type="button"
                                 onClick={() => {
                                   setSelectedUser(user);
                                   setShowUserModal(true);
                                 }}
-                                className="text-purple-600 hover:text-purple-900 p-1"
+                                className="rounded-full p-2 text-slate hover:text-ink"
+                                aria-label={`Edit ${user.username}`}
                               >
-                                <Edit className="h-4 w-4" />
+                                <Edit className="h-4 w-4" strokeWidth={1.75} />
                               </button>
                               <button
+                                type="button"
                                 onClick={() => handleDeleteUser(user._id)}
-                                className="text-red-600 hover:text-red-900 p-1"
+                                className="rounded-full p-2 text-slate hover:text-ink"
+                                aria-label={`Delete ${user.username}`}
                               >
-                                <Trash2 className="h-4 w-4" />
+                                <Trash2 className="h-4 w-4" strokeWidth={1.75} />
                               </button>
                             </div>
                           </td>
@@ -394,37 +361,35 @@ const AdminUsers = () => {
                   </table>
                 </div>
 
-                {/* Pagination */}
-                <div className="bg-white dark:bg-gray-800 px-4 py-3 border-t border-gray-200 dark:border-gray-700 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-700 dark:text-gray-300">
-                      Showing {((pagination.page - 1) * pagination.limit) + 1} to {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total} users
-                    </div>
-                    <div className="flex space-x-2">
-                      <button
-                        onClick={() => setPagination(prev => ({ ...prev, page: prev.page - 1 }))}
-                        disabled={pagination.page === 1}
-                        className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700"
-                      >
-                        Previous
-                      </button>
-                      <button
-                        onClick={() => setPagination(prev => ({ ...prev, page: prev.page + 1 }))}
-                        disabled={pagination.page === pagination.pages}
-                        className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700"
-                      >
-                        Next
-                      </button>
-                    </div>
+                <div className="flex flex-col gap-3 border-t border-line px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm text-slate">
+                    Showing {((pagination.page - 1) * pagination.limit) + 1} to {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total}
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setPagination(prev => ({ ...prev, page: prev.page - 1 }))}
+                      disabled={pagination.page === 1}
+                      className="btn-secondary disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPagination(prev => ({ ...prev, page: prev.page + 1 }))}
+                      disabled={pagination.page >= pagination.pages}
+                      className="btn-secondary disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Next
+                    </button>
                   </div>
                 </div>
               </>
             )}
           </div>
-        </div>
+        </section>
       </div>
 
-      {/* User Modal */}
       {showUserModal && selectedUser && (
         <UserModal
           user={selectedUser}

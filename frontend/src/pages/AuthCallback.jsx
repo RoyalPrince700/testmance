@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { useTheme } from '../contexts/ThemeContext';
 import { CheckCircle, XCircle } from 'lucide-react';
 import testmancerLogo from '../assets/testmancer-logo.png';
 
@@ -11,9 +10,8 @@ const AuthCallback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { loadUser, user } = useAuth();
-  const { isDarkMode } = useTheme();
-  const [status, setStatus] = useState('processing'); // 'processing', 'success', 'error'
-  const [message, setMessage] = useState('Processing your authentication...');
+  const [status, setStatus] = useState('processing');
+  const [message, setMessage] = useState('Checking your Google account.');
 
   useEffect(() => {
     const handleCallback = async () => {
@@ -24,14 +22,14 @@ const AuthCallback = () => {
 
         if (error) {
           setStatus('error');
-          setMessage('Authentication failed. Please try again.');
+          setMessage('Google sign-in did not finish. Try again from the sign-in page.');
           setTimeout(() => navigate('/login'), 3000);
           return;
         }
 
         if (!token || success !== 'true') {
           setStatus('error');
-          setMessage('Invalid authentication response.');
+          setMessage('The sign-in link was incomplete. Try again from the sign-in page.');
           setTimeout(() => navigate('/login'), 3000);
           return;
         }
@@ -43,7 +41,7 @@ const AuthCallback = () => {
         await loadUser();
 
         setStatus('success');
-        setMessage('Authentication successful! Redirecting...');
+        setMessage('Taking you to your courses.');
 
         // Redirect based on profile setup status
         setTimeout(() => {
@@ -59,7 +57,7 @@ const AuthCallback = () => {
       } catch (err) {
         console.error('Auth callback error:', err);
         setStatus('error');
-        setMessage('An error occurred during authentication.');
+        setMessage('Something went wrong while signing you in. Try again.');
         setTimeout(() => navigate('/login'), 3000);
       }
     };
@@ -81,55 +79,39 @@ const AuthCallback = () => {
     }
   }, [user, status, navigate]);
 
+  const title = status === 'success' ? "You're in." : status === 'error' ? "That didn't work." : 'One moment.';
+
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <div className="flex justify-center">
-            <img
-              src={testmancerLogo}
-              alt="TestMancer Logo"
-              className="h-12 w-12 object-contain"
-            />
-          </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900 dark:text-white">
-            TestMancer
-          </h2>
-        </div>
+    <div className="flex min-h-[calc(100vh-3.5rem)] items-center px-5 py-16 md:min-h-[calc(100vh-4rem)] md:px-8">
+      <div className="mx-auto w-full max-w-md">
+        <img src={testmancerLogo} alt="" className="h-7 w-auto" />
+        <p className="mt-8 text-sm font-medium text-accent">
+          {status === 'success' ? 'Signed in' : 'Sign in'}
+        </p>
+        <h1 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+          {title}
+        </h1>
+        <p className="mt-4 text-lg leading-relaxed text-graphite">{message}</p>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 shadow-sm card-hover">
-          <div className="text-center">
-            {status === 'processing' && (
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400 mx-auto mb-4"></div>
-            )}
-
-            {status === 'success' && (
-              <CheckCircle className="h-12 w-12 text-green-600 dark:text-green-400 mx-auto mb-4" />
-            )}
-
-            {status === 'error' && (
-              <XCircle className="h-12 w-12 text-red-600 dark:text-red-400 mx-auto mb-4" />
-            )}
-
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              {status === 'processing' && 'Processing...'}
-              {status === 'success' && 'Success!'}
-              {status === 'error' && 'Authentication Failed'}
-            </h3>
-
-            <p className="text-gray-600 dark:text-gray-300">
-              {message}
-            </p>
-
-            {status === 'error' && (
-              <button
-                onClick={() => navigate('/login')}
-                className="mt-4 bg-black dark:bg-gray-700 text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
-              >
-                Back to Login
+        <div className="mt-8">
+          {status === 'processing' && (
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
+          )}
+          {status === 'success' && (
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <CheckCircle className="h-5 w-5" strokeWidth={1.75} />
+            </div>
+          )}
+          {status === 'error' && (
+            <>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                <XCircle className="h-5 w-5" strokeWidth={1.75} />
+              </div>
+              <button type="button" onClick={() => navigate('/login')} className="btn-primary mt-6">
+                Back to sign in
               </button>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </div>
     </div>

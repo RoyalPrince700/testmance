@@ -1,37 +1,74 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import Reveal from '../../components/Reveal';
 
-const StatItem = ({ number, label }) => (
-  <div className="text-center p-2 sm:p-4 md:p-6">
-    <div className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-teal-400 mb-1 sm:mb-2">
-      {number}
-    </div>
-    <div className="text-sm sm:text-base md:text-lg font-medium text-purple-100 opacity-90">{label}</div>
-  </div>
-);
+const stats = [
+  { value: 1000, suffix: '+', label: 'Students' },
+  { value: 50, suffix: '+', label: 'Courses' },
+  { value: 5000, suffix: '+', label: 'Quizzes taken' },
+  { value: 10, suffix: '+', label: 'Partners' },
+];
 
-const Stats = () => {
-  const stats = [
-    { number: '1000+', label: 'Happy Students' },
-    { number: '50+', label: 'Courses Available' },
-    { number: '5000+', label: 'Quizzes Taken' },
-    { number: '10+', label: 'Partners ' }
-  ];
+const Count = ({ value, suffix, active }) => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      setCurrent(value);
+      return;
+    }
+
+    let frame;
+    const start = performance.now();
+    const duration = 900;
+
+    const tick = (now) => {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCurrent(Math.round(value * eased));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, value]);
 
   return (
-    <section className="py-12 md:py-20 bg-gray-900 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-600 rounded-full blur-3xl"></div>
-      </div>
+    <>
+      {current}
+      {suffix}
+    </>
+  );
+};
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 divide-x-0 md:divide-x divide-gray-800">
-          {stats.map((stat, index) => (
-            <StatItem key={index} {...stat} />
-          ))}
-        </div>
-      </div>
+const StatCell = ({ stat, index }) => {
+  const [active, setActive] = useState(false);
+  const borders = [
+    index > 0 ? 'md:border-l md:border-line' : '',
+    index % 2 === 1 ? 'border-l border-line' : '',
+    index > 1 ? 'border-t border-line md:border-t-0' : '',
+  ].join(' ');
+
+  return (
+    <Reveal className={`px-5 py-8 md:px-8 ${borders}`} delay={index * 80} onShow={() => setActive(true)}>
+      <dt className="text-sm text-slate">{stat.label}</dt>
+      <dd className="mt-1 text-3xl font-medium tracking-tight text-ink md:text-4xl">
+        <Count value={stat.value} suffix={stat.suffix} active={active} />
+      </dd>
+    </Reveal>
+  );
+};
+
+const Stats = () => {
+  return (
+    <section className="border-y border-line bg-surface">
+      <dl className="mx-auto grid max-w-6xl grid-cols-2 md:grid-cols-4">
+        {stats.map((stat, index) => (
+          <StatCell key={stat.label} stat={stat} index={index} />
+        ))}
+      </dl>
     </section>
   );
 };

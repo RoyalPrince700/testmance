@@ -1,25 +1,55 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect, lazy, Suspense } from 'react';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import { coursesAPI } from '../utils/api';
-import { BookOpen, ArrowRight, CheckCircle, Pencil, BarChart3, ChevronUp } from 'lucide-react';
+import { chapterPath, coursePath, courseSlug, isObjectId } from '../utils/slugs';
+import { getChapterMotion, getMotionResource } from '../motion/catalog.js';
+import { BookOpen, ArrowRight, ArrowLeft, CheckCircle, Play } from 'lucide-react';
+
+const CourseMotion = lazy(() => import('../components/CourseMotion.jsx'));
+const MotionDialog = lazy(() => import('../components/MotionDialog.jsx'));
 
 const CourseDetail = () => {
-  const { id } = useParams();
+  const { courseSlug: slug } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [course, setCourse] = useState(null);
   const [chapters, setChapters] = useState([]);
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(true);
   const [chaptersLoading, setChaptersLoading] = useState(true);
   const [isEnrolled, setIsEnrolled] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [enrolling, setEnrolling] = useState(false);
+  const [chapterFilm, setChapterFilm] = useState(null);
 
   useEffect(() => {
+    if (course && (courseSlug(course) === slug || course._id === slug)) {
+      const pretty = coursePath(course);
+      if (location.pathname !== pretty) {
+        navigate(pretty, { replace: true });
+      }
+      return;
+    }
+
     const loadCourseData = async () => {
       try {
+        setLoading(true);
+        setChaptersLoading(true);
+
+        let courseId = slug;
+        if (!isObjectId(slug)) {
+          const list = await coursesAPI.getAll();
+          const match = (list.data || []).find((item) => courseSlug(item) === slug);
+          if (!match) {
+            setCourse(null);
+            return;
+          }
+          courseId = match._id;
+        }
+
         const [courseResponse, chaptersResponse, progressResponse, enrolledResponse] = await Promise.all([
-          coursesAPI.getById(id),
-          coursesAPI.getChapters(id),
-          coursesAPI.getProgress(id).catch(() => ({ data: { completedChapters: 0, totalChapters: 0, progressPercentage: 0, completedChapterIds: [] } })),
+          coursesAPI.getById(courseId),
+          coursesAPI.getChapters(courseId),
+          coursesAPI.getProgress(courseId).catch(() => ({ data: { completedChapters: 0, totalChapters: 0, progressPercentage: 0, completedChapterIds: [] } })),
           coursesAPI.getEnrolled().catch(() => ({ data: [] }))
         ]);
 
@@ -28,12 +58,13 @@ const CourseDetail = () => {
         setChapters(chaptersResponse.data);
         setProgress(progressResponse.data);
 
-        // Check if user is enrolled in this course
         const enrolledCourses = enrolledResponse.data || [];
-        const enrolled = enrolledCourses.some(c => c._id === id || c._id === courseData._id);
+        const enrolled = enrolledCourses.some(c => c._id === courseId || c._id === courseData._id);
         setIsEnrolled(enrolled);
+
       } catch (error) {
         console.error('Failed to load course data:', error);
+        setCourse(null);
       } finally {
         setLoading(false);
         setChaptersLoading(false);
@@ -41,7 +72,7 @@ const CourseDetail = () => {
     };
 
     loadCourseData();
-  }, [id]);
+  }, [slug, course, location.pathname, navigate]);
 
   const completedChapterIds = progress?.completedChapterIds || [];
   const completedCount = completedChapterIds.length;
@@ -53,163 +84,183 @@ const CourseDetail = () => {
     return completedChapterIds.some(id => id.toString() === chapterIdStr);
   };
 
+  const handleEnroll = async () => {
+    if (!course || enrolling) return;
+    try {
+      setEnrolling(true);
+      await coursesAPI.enroll(course._id);
+      setIsEnrolled(true);
+    } catch (error) {
+      console.error('Failed to enroll:', error);
+      alert(error.message || 'Failed to enroll in course');
+    } finally {
+      setEnrolling(false);
+    }
+  };
+
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course not found</h3>
-        <p className="text-gray-600">The course you're looking for doesn't exist.</p>
-        <Link
-          to="/dashboard"
-          className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 rounded-lg text-white transition-colors"
-        >
-          Back to Dashboard
-        </Link>
+      <div className="mx-auto max-w-6xl px-5 py-16 text-center md:px-8">
+        <div className="rounded-3xl border border-line bg-surface px-6 py-16">
+          <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h1 className="mt-4 text-lg font-medium tracking-tight text-ink">Course not found</h1>
+          <p className="mt-2 text-[15px] leading-relaxed text-slate">This course is not on TestMancer.</p>
+          <Link to="/courses" className="btn-primary mt-6">Browse courses</Link>
+        </div>
       </div>
     );
   }
 
   if (!isEnrolled && !loading) {
     return (
-      <div className="text-center py-12">
-        <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Course Not Enrolled</h3>
-        <p className="text-gray-600 mb-4">You need to enroll in this course to access its content.</p>
-        <div className="flex gap-4 justify-center">
-          <Link
-            to="/courses"
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition-colors"
-          >
-            Browse Courses
+      <div className="bg-canvas pb-20 text-ink">
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <Link to="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink">
+            <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+            Courses
           </Link>
-          <Link
-            to="/dashboard"
-            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 rounded-lg text-white transition-colors"
-          >
-            Back to Dashboard
-          </Link>
-        </div>
+          <p className="mt-8 text-sm font-medium text-accent">{course.code || 'Course'}</p>
+          <h1 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            {course.title}
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">
+            {course.description || 'Enroll to open the chapters and start reading.'}
+          </p>
+          <div className="mt-8 flex flex-col gap-2 sm:flex-row">
+            <button type="button" onClick={handleEnroll} disabled={enrolling} className="btn-primary disabled:opacity-50">
+              {enrolling ? 'Enrolling...' : 'Enroll'}
+            </button>
+            <Link to="/courses" className="btn-secondary">Back to courses</Link>
+          </div>
+        </header>
+        {getMotionResource(course.code) && (
+          <Suspense fallback={null}>
+            <CourseMotion courseCode={course.code} />
+          </Suspense>
+        )}
       </div>
     );
   }
 
   return (
-    <div className="max-w-5xl mx-auto">
-      {/* Main Course Card */}
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
-        {/* Course Header */}
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex items-start gap-4 flex-1">
-            {/* Teal Icon */}
-            <div className="hidden md:block bg-teal-500 p-3 rounded-lg shrink-0">
-              <Pencil className="h-6 w-6 text-white" />
-            </div>
+    <div className="bg-canvas pb-20 text-ink">
+      <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+        <Link to="/courses" className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink">
+          <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+          Courses
+        </Link>
+        <p className="rise-in mt-8 text-sm font-medium text-accent">{course.code || 'Course'}</p>
+        <h1 className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]" style={{ animationDelay: '70ms' }}>
+          {course.title}
+        </h1>
+        {course.description && (
+          <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+            {course.description}
+          </p>
+        )}
+      </header>
 
-            {/* Course Info */}
-            <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{course.title}</h1>
-              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">{course.description || 'Master the fundamentals and advance your knowledge'}</p>
-              
-              {/* Progress Indicators */}
-              <div className="flex items-center space-x-6 mb-3">
-                <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {completedCount}/{totalChapters} modules
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {progressPercentage}% complete
-                  </span>
-                </div>
-              </div>
+      {getMotionResource(course.code) && (
+        <Suspense fallback={null}>
+          <CourseMotion courseCode={course.code} />
+        </Suspense>
+      )}
 
-              {/* Progress Bar */}
-              <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-teal-500 rounded-full transition-all duration-300"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
+      <section className="mt-12 border-y border-line bg-surface" aria-label="Course progress">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2">
+          <div className="px-5 py-8 md:px-8">
+            <dt className="text-sm text-slate">Chapters</dt>
+            <dd className="mt-1 text-3xl font-medium tracking-tight text-ink md:text-4xl">
+              {completedCount}<span className="text-slate">/{totalChapters}</span>
+            </dd>
+          </div>
+          <div className="border-l border-line px-5 py-8 md:px-8">
+            <dt className="text-sm text-slate">Complete</dt>
+            <dd className="mt-1 text-3xl font-medium tracking-tight text-accent md:text-4xl">{progressPercentage}%</dd>
+            <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-canvas">
+              <div className="h-full rounded-full bg-accent-fill" style={{ width: `${progressPercentage}%` }} />
             </div>
           </div>
-          
-          {/* Circular Button */}
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="w-12 h-12 bg-teal-500 hover:bg-teal-600 rounded-full flex items-center justify-center text-white transition-colors shrink-0 ml-4"
-          >
-            <ChevronUp className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} />
-          </button>
-        </div>
+        </dl>
+      </section>
 
-        {/* Modules Section */}
-        {isExpanded && (
-          <div className="mt-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                Modules ({completedCount}/{totalChapters} completed)
-              </h2>
-            </div>
+      <section className="mx-auto max-w-6xl px-5 pt-16 md:px-8 md:pt-20">
+        <p className="text-sm font-medium text-accent">Chapters</p>
+        <h2 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+          Read through the course
+        </h2>
 
-            {chaptersLoading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
-              </div>
-            ) : chapters.length === 0 ? (
-              <div className="text-center py-12">
-                <BookOpen className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <p className="text-gray-600 dark:text-gray-400">No modules available for this course yet.</p>
-              </div>
-            ) : (
-              <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
-                {chapters.map((chapter) => {
-                  const isCompleted = isChapterCompleted(chapter._id);
-                  return (
-                    <Link
-                      key={chapter._id}
-                      to={`/chapters/${chapter._id}`}
-                      className="flex items-center justify-between bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg p-4 transition-colors border border-gray-200 dark:border-gray-700 hover:border-teal-300 dark:hover:border-teal-600 group"
-                    >
-                      <div className="flex items-center space-x-4 flex-1 min-w-0">
-                        {/* Checkmark or Empty Circle */}
-                        {isCompleted ? (
-                          <div className="shrink-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
-                            <CheckCircle className="h-4 w-4 text-white fill-current" />
-                          </div>
-                        ) : (
-                          <div className="shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 dark:border-gray-600"></div>
-                        )}
-
-                        {/* Chapter Title */}
-                        <span className="text-gray-900 dark:text-white font-medium flex-1 truncate">
-                          {chapter.title}
-                        </span>
-                      </div>
-
-                      {/* Study Link */}
-                      <div className="flex items-center space-x-1 text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 font-medium ml-4 shrink-0">
-                        <span>Study</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
+        {chaptersLoading ? (
+          <div className="flex items-center justify-center py-16">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
+          </div>
+        ) : chapters.length === 0 ? (
+          <div className="mt-12 rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h3 className="mt-4 text-lg font-medium tracking-tight text-ink">No chapters yet</h3>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+              This course does not have chapters to read yet.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-10 overflow-hidden rounded-3xl border border-line bg-surface">
+            {chapters.map((chapter, index) => {
+              const isCompleted = isChapterCompleted(chapter._id);
+              const film = getChapterMotion(course.code, chapter.order);
+              const to = chapterPath(course, chapter, chapters);
+              return (
+                <div
+                  key={chapter._id}
+                  className={`flex items-center justify-between gap-4 px-5 py-4 hover:bg-canvas md:px-6 ${
+                    index < chapters.length - 1 ? 'border-b border-line' : ''
+                  }`}
+                >
+                  <Link to={to} className="flex min-w-0 flex-1 items-center gap-3">
+                    {isCompleted ? (
+                      <CheckCircle className="h-4 w-4 shrink-0 text-accent" strokeWidth={1.75} />
+                    ) : (
+                      <span className="h-4 w-4 shrink-0 rounded-full border border-line" />
+                    )}
+                    <span className="truncate text-sm font-medium text-ink">
+                      {chapter.order ? `${chapter.order}. ` : ''}{chapter.title}
+                    </span>
+                  </Link>
+                  <span className="flex shrink-0 items-center gap-4">
+                    {film && (
+                      <button
+                        type="button"
+                        onClick={() => setChapterFilm(film)}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-ink hover:text-accent"
+                      >
+                        <Play className="h-4 w-4" strokeWidth={1.75} />
+                        Video
+                      </button>
+                    )}
+                    <Link to={to} className="group inline-flex items-center gap-1 text-sm font-medium text-accent">
+                      Read
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={1.75} />
                     </Link>
-                  );
-                })}
-              </div>
-            )}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         )}
-      </div>
+      </section>
+
+      {chapterFilm && (
+        <Suspense fallback={null}>
+          <MotionDialog resource={chapterFilm} onClose={() => setChapterFilm(null)} />
+        </Suspense>
+      )}
     </div>
   );
 };

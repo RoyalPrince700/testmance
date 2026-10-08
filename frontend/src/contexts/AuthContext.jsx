@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { authAPI, uploadsAPI } from '../utils/api';
+import { API_BASE_URL, authAPI, uploadsAPI } from '../utils/api';
 
 const AuthContext = createContext();
 
@@ -48,8 +48,7 @@ export const AuthProvider = ({ children }) => {
 
   const googleLogin = () => {
     // Redirect to Google OAuth
-    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-    window.location.href = `${apiUrl}/auth/google`;
+    window.location.href = `${API_BASE_URL}/auth/google`;
   };
 
   const googleLoginMobile = async (googleData) => {

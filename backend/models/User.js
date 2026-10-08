@@ -190,26 +190,31 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
 
 // Get user stats
 userSchema.methods.getStats = function() {
-  const totalQuizzes = this.quizAttempts.length;
+  const quizAttempts = this.quizAttempts || [];
+  const caAttempts = this.caAttempts || [];
+  const examAttempts = this.examAttempts || [];
+  const completedChapters = this.completedChapters || [];
+
+  const totalQuizzes = quizAttempts.length;
   const averageScore = totalQuizzes > 0
-    ? this.quizAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalQuizzes
+    ? quizAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalQuizzes
     : 0;
 
-  const totalCAs = this.caAttempts.length;
+  const totalCAs = caAttempts.length;
   const averageCAScore = totalCAs > 0
-    ? this.caAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalCAs
+    ? caAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalCAs
     : 0;
 
-  const totalExams = this.examAttempts.length;
+  const totalExams = examAttempts.length;
   const averageExamScore = totalExams > 0
-    ? this.examAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalExams
+    ? examAttempts.reduce((sum, attempt) => sum + attempt.score, 0) / totalExams
     : 0;
 
   return {
     totalGems: this.gems,
     level: this.level,
     xp: this.xp,
-    completedChapters: this.completedChapters.length,
+    completedChapters: completedChapters.length,
     totalQuizzes,
     averageScore: Math.round(averageScore * 100) / 100,
     totalCAs,

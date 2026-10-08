@@ -8,7 +8,7 @@ const QuizAnswersModal = ({
   questions = [],
   userAnswers = [],
   quizTitle,
-  correctness = [] // Array indicating which answers are correct
+  correctness = []
 }) => {
   const { user } = useAuth();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -16,17 +16,15 @@ const QuizAnswersModal = ({
   const rawUsername = user?.username || 'Student';
   const username = rawUsername.charAt(0).toUpperCase() + rawUsername.slice(1);
 
-  // Helper to replace "Royal Prince" with username
   const processText = (text) => {
     if (!text) return '';
     return text.replace(/Royal Prince/g, username);
   };
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      setCurrentQuestionIndex(0); // Reset to first question when modal opens
+      setCurrentQuestionIndex(0);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -39,7 +37,6 @@ const QuizAnswersModal = ({
 
   const currentQuestion = questions[currentQuestionIndex];
   const userAnswer = userAnswers[currentQuestionIndex];
-  // Use correctness array if available, otherwise fall back to question.correctAnswer
   const isCorrect = correctness[currentQuestionIndex] !== undefined
     ? correctness[currentQuestionIndex]
     : userAnswer === currentQuestion.correctAnswer;
@@ -57,181 +54,115 @@ const QuizAnswersModal = ({
     }
   };
 
-  const goToQuestion = (index) => {
-    setCurrentQuestionIndex(index);
-  };
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-      {/* Modal Content */}
-      <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] flex flex-col">
-        {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Quiz Review</h2>
-            {quizTitle && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{quizTitle}</p>
-            )}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+      <div className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-line bg-surface" role="dialog" aria-modal="true">
+        <div className="flex items-start justify-between gap-4 border-b border-line px-5 py-4 md:px-6">
+          <div className="min-w-0">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Review</h2>
+            {quizTitle && <p className="mt-1 truncate text-sm text-slate">{quizTitle}</p>}
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full p-2 transition-colors"
-          >
-            <X className="h-5 w-5" />
+          <button type="button" onClick={onClose} className="rounded-full p-2 text-slate hover:text-ink" aria-label="Close">
+            <X className="h-4 w-4" strokeWidth={1.75} />
           </button>
         </div>
 
-        {/* Question Navigation */}
-        <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Question {currentQuestionIndex + 1} of {totalQuestions}
-            </span>
-            <div className="flex gap-1 overflow-x-auto pb-1 max-w-full">
-              {questions.map((_, index) => {
-                const userAns = userAnswers[index];
-                const correct = userAns === questions[index].correctAnswer;
-                return (
-                  <button
-                    key={index}
-                    onClick={() => goToQuestion(index)}
-                    className={`flex-shrink-0 w-8 h-8 rounded text-xs font-medium transition-colors ${
-                      index === currentQuestionIndex
-                        ? 'bg-teal-500 dark:bg-teal-600 text-white'
-                        : correct
-                        ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-900/50'
-                        : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-900/50'
-                    }`}
-                    title={`Question ${index + 1}: ${correct ? 'Correct' : 'Incorrect'}`}
-                  >
-                    {index + 1}
-                  </button>
-                );
-              })}
-            </div>
+        <div className="border-b border-line px-5 py-4 md:px-6">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <span className="text-sm text-slate">Question {currentQuestionIndex + 1} of {totalQuestions}</span>
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
-            <div
-              className="bg-teal-500 dark:bg-teal-600 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${((currentQuestionIndex + 1) / totalQuestions) * 100}%` }}
-            />
+          <div className="flex gap-1.5 overflow-x-auto">
+            {questions.map((_, index) => {
+              const userAns = userAnswers[index];
+              const correct = correctness[index] !== undefined
+                ? correctness[index]
+                : userAns === questions[index].correctAnswer;
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setCurrentQuestionIndex(index)}
+                  className={`h-8 w-8 shrink-0 rounded-full text-sm font-medium ${
+                    index === currentQuestionIndex
+                      ? 'bg-accent-fill text-on-accent'
+                      : correct
+                      ? 'bg-accent-soft text-accent'
+                      : 'border border-line text-slate'
+                  }`}
+                  aria-label={`Question ${index + 1}, ${correct ? 'correct' : 'incorrect'}`}
+                >
+                  {index + 1}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Question Content - Scrollable */}
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="max-w-3xl mx-auto">
-            {/* Question Header */}
-            <div className="flex items-start gap-3 mb-6">
-              <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg ${
-                isCorrect ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-              }`}>
-                {isCorrect ? <CheckCircle className="h-6 w-6" /> : <XCircle className="h-6 w-6" />}
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-semibold text-gray-600 dark:text-gray-400">
-                    Question {currentQuestionIndex + 1}
-                  </span>
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${
-                    isCorrect ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-                  }`}>
-                    {isCorrect ? 'Correct' : 'Incorrect'}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                  {processText(currentQuestion.question)}
-                </h3>
-              </div>
-            </div>
-
-            {/* Options */}
-            <div className="space-y-3 mb-6">
-              {currentQuestion.options.map((option, index) => {
-                const isUserAnswer = userAnswer === index;
-                const isCorrectAnswer = index === currentQuestion.correctAnswer;
-                let optionStyle = 'border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700';
-
-                if (isCorrectAnswer) {
-                  optionStyle = 'border-green-500 dark:border-green-400 bg-green-50 dark:bg-green-900/20';
-                } else if (isUserAnswer && !isCorrectAnswer) {
-                  optionStyle = 'border-red-500 dark:border-red-400 bg-red-50 dark:bg-red-900/20';
-                }
-
-                return (
-                  <div
-                    key={index}
-                    className={`p-4 rounded-xl border-2 ${optionStyle} transition-colors`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold ${
-                        isCorrectAnswer
-                          ? 'bg-green-500 dark:bg-green-600 text-white'
-                          : isUserAnswer && !isCorrectAnswer
-                          ? 'bg-red-500 dark:bg-red-600 text-white'
-                          : 'bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300'
-                      }`}>
-                        {String.fromCharCode(65 + index)}
-                      </div>
-                      <div className="flex-1">
-                        <span className={`font-medium ${
-                          isCorrectAnswer
-                            ? 'text-green-900 dark:text-green-200'
-                            : isUserAnswer && !isCorrectAnswer
-                            ? 'text-red-900 dark:text-red-200'
-                            : 'text-gray-700 dark:text-gray-300'
-                        }`}>
-                          {processText(option)}
-                        </span>
-                        {isCorrectAnswer && (
-                          <span className="ml-2 text-green-700 dark:text-green-300 font-semibold text-sm">
-                            ✓ Correct Answer
-                          </span>
-                        )}
-                        {isUserAnswer && !isCorrectAnswer && (
-                          <span className="ml-2 text-red-700 dark:text-red-300 font-semibold text-sm">
-                            ✗ Your Answer
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Explanation */}
-            {currentQuestion.explanation && (
-              <div className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-700 rounded-xl p-4">
-                <h4 className="font-semibold text-blue-900 dark:text-blue-200 mb-2">Explanation:</h4>
-                <p className="text-blue-800 dark:text-blue-200">{processText(currentQuestion.explanation)}</p>
-              </div>
+        <div className="flex-1 overflow-y-auto px-5 py-6 md:px-6">
+          <div className="flex items-start gap-3">
+            {isCorrect ? (
+              <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" strokeWidth={1.75} />
+            ) : (
+              <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-slate" strokeWidth={1.75} />
             )}
+            <div>
+              <p className="text-sm font-medium text-accent">{isCorrect ? 'Correct' : 'Incorrect'}</p>
+              <h3 className="mt-2 text-lg font-medium tracking-tight text-ink">
+                {processText(currentQuestion.question)}
+              </h3>
+            </div>
           </div>
+
+          <div className="mt-6 space-y-3">
+            {currentQuestion.options.map((option, index) => {
+              const isUserAnswer = userAnswer === index;
+              const isCorrectAnswer = index === currentQuestion.correctAnswer;
+              return (
+                <div
+                  key={index}
+                  className={`rounded-2xl border p-4 text-[15px] leading-relaxed ${
+                    isCorrectAnswer
+                      ? 'border-accent bg-accent-soft text-ink'
+                      : isUserAnswer
+                      ? 'border-line bg-canvas text-ink'
+                      : 'border-line text-graphite'
+                  }`}
+                >
+                  <span>{processText(option)}</span>
+                  {isCorrectAnswer && <span className="mt-1 block text-sm font-medium text-accent">Correct answer</span>}
+                  {isUserAnswer && !isCorrectAnswer && <span className="mt-1 block text-sm text-slate">Your answer</span>}
+                </div>
+              );
+            })}
+          </div>
+
+          {currentQuestion.explanation && (
+            <div className="mt-6 rounded-2xl border border-line bg-canvas p-4">
+              <h4 className="text-sm font-medium text-ink">Explanation</h4>
+              <p className="mt-2 text-[15px] leading-relaxed text-graphite">{processText(currentQuestion.explanation)}</p>
+            </div>
+          )}
         </div>
 
-        {/* Footer Navigation */}
-        <div className="flex items-center justify-between p-6 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700">
+        <div className="flex min-w-0 flex-wrap items-center gap-3 border-t border-line px-5 py-4 md:px-6">
           <button
+            type="button"
             onClick={handlePrevious}
             disabled={currentQuestionIndex === 0}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed bg-white dark:bg-gray-600 border-2 border-gray-300 dark:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-300"
+            className="btn-secondary shrink-0 disabled:opacity-40"
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className="h-4 w-4" strokeWidth={1.75} />
             Previous
           </button>
-
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            {currentQuestionIndex + 1} / {totalQuestions}
-          </span>
-
+          <span className="text-sm text-slate">{currentQuestionIndex + 1} / {totalQuestions}</span>
           <button
+            type="button"
             onClick={handleNext}
             disabled={currentQuestionIndex === totalQuestions - 1}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 text-white"
+            className="btn-primary ml-auto shrink-0 disabled:opacity-40"
           >
             Next
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className="h-4 w-4" strokeWidth={1.75} />
           </button>
         </div>
       </div>
@@ -240,4 +171,3 @@ const QuizAnswersModal = ({
 };
 
 export default QuizAnswersModal;
-

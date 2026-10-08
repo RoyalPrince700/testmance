@@ -1,4 +1,5 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const rawApiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+export const API_BASE_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 
 // Helper function to get auth token
 const getAuthToken = () => {
@@ -90,6 +91,20 @@ export const coursesAPI = {
 
   getEnrolled: () => apiRequest('/courses/user/enrolled'),
 };
+
+let publishedCoursesPromise = null;
+
+export function getPublishedCourses() {
+  if (!publishedCoursesPromise) {
+    publishedCoursesPromise = coursesAPI.getAll()
+      .then((response) => response.data || [])
+      .catch((error) => {
+        publishedCoursesPromise = null;
+        throw error;
+      });
+  }
+  return publishedCoursesPromise;
+}
 
 // Chapters API
 export const chaptersAPI = {
@@ -261,6 +276,13 @@ export const resultsAPI = {
   getGrade: (courseId) => apiRequest(`/results/${courseId}/grade`),
 
   getSummary: () => apiRequest('/results/summary/stats'),
+};
+
+export const contactAPI = {
+  send: (data) => apiRequest('/contact', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }),
 };
 
 // Admin API

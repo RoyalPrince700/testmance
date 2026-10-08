@@ -2,21 +2,22 @@ import { useEffect } from 'react';
 import { X, Gem, ArrowRight, BookOpen, Trophy, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const CongratulationsModal = ({ 
-  isOpen, 
-  onClose, 
-  username, 
-  chapterTitle, 
-  chapterOrder, 
-  isFirstCompletion, 
+const CongratulationsModal = ({
+  isOpen,
+  onClose,
+  username,
+  chapterTitle,
+  chapterOrder,
+  isFirstCompletion,
   hasQuiz,
   quizId,
+  quizTo,
   courseId,
+  backPath,
   gemsEarned = 3
 }) => {
   const navigate = useNavigate();
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -31,171 +32,100 @@ const CongratulationsModal = ({
   if (!isOpen) return null;
 
   const handleTakeQuiz = () => {
-    if (hasQuiz && quizId) {
-      navigate(`/quizzes/${quizId}`); // quizId is now chapterId
+    if (hasQuiz && (quizTo || quizId)) {
+      navigate(quizTo || `/quizzes/${quizId}`);
       onClose();
     }
   };
 
   const handleBackToModule = () => {
-    if (courseId) {
-      navigate(`/courses/${courseId}`);
-      onClose();
-    } else {
-      navigate('/dashboard');
-      onClose();
-    }
+    navigate(backPath || (courseId ? `/courses/${courseId}` : '/dashboard'));
+    onClose();
   };
 
-  const handleTakeNewChapter = () => {
-    if (courseId) {
-      navigate(`/courses/${courseId}`);
-      onClose();
-    } else {
-      navigate('/dashboard');
-      onClose();
-    }
-  };
+  const chapterLabel = chapterOrder ? `Chapter ${chapterOrder}` : 'this chapter';
+  const quizIsPrimary = Boolean(hasQuiz && (quizTo || quizId));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-      {/* Modal Content */}
-      <div className="relative bg-white rounded-lg shadow-xl max-w-lg w-full p-8">
-        {/* Close Button */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+      <div className="relative w-full max-w-md rounded-3xl border border-line bg-surface p-6 sm:p-8" role="dialog" aria-modal="true">
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 rounded-full p-2 transition-colors"
+          className="absolute right-4 top-4 rounded-full p-2 text-slate hover:text-ink"
+          aria-label="Close"
         >
-          <X className="h-5 w-5" />
+          <X className="h-4 w-4" strokeWidth={1.75} />
         </button>
 
-        {/* Main Content */}
-        <div className="text-center">
-          {isFirstCompletion ? (
-            <>
-              {/* First Completion Message */}
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                🎉 Congratulations {username}! 🎉
-              </h2>
-              <p className="text-lg text-gray-700 mb-3">
-                Well done for completing{' '}
-                <span className="font-semibold">
-                  {chapterOrder ? `Chapter ${chapterOrder}` : 'this chapter'}
-                </span>
-              </p>
-              {chapterTitle && (
-                <p className="text-base text-gray-600 mb-6 italic">
-                  "{chapterTitle}"
-                </p>
-              )}
-              
-              {/* Gems Earned */}
-              <div className="flex flex-col items-center justify-center gap-2 mt-6 mb-8">
-                <p className="text-base text-gray-700">You have earned</p>
-                <div className="flex items-center justify-center gap-2">
-                  <Gem className="h-6 w-6 text-teal-500" />
-                  <p className="text-2xl font-bold text-gray-900">
-                    {gemsEarned} Gems! 💎
-                  </p>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Already Completed Message */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                ⚡ Great Job! ⚡
-              </h2>
-              <p className="text-lg text-gray-700 mb-3">
-                You have previously earned{' '}
-                <span className="font-semibold">{gemsEarned} gems</span>{' '}
-                for{' '}
-                <span className="font-semibold">
-                  {chapterOrder ? `Chapter ${chapterOrder}` : 'this chapter'}
-                </span>
-              </p>
-              <p className="text-base text-gray-600 mb-6">
-                To earn more gems, take the quiz or start a new chapter!
-              </p>
-            </>
-          )}
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gem-soft text-gem">
+          <Gem className="h-5 w-5" strokeWidth={1.75} />
         </div>
-        
-        {/* Leaderboard Encouragement */}
-        <div className="mt-2 mb-6 p-4 bg-teal-50 rounded-xl border border-teal-100 flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
+
+        {isFirstCompletion ? (
+          <>
+            <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">
+              Chapter complete, {username}.
+            </h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-slate">
+              You finished {chapterLabel}
+              {chapterTitle ? `, ${chapterTitle}` : ''}.
+            </p>
+            <p className="gem-pop mt-4 inline-flex items-center gap-2 rounded-full bg-gem-soft px-3 py-1 text-sm font-medium text-gem">
+              <Gem className="h-4 w-4" strokeWidth={1.75} />
+              {gemsEarned} gems
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">Already completed.</h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-slate">
+              You already earned {gemsEarned} gems for {chapterLabel}. Take the quiz or open another chapter to earn more.
+            </p>
+          </>
+        )}
+
+        <div className="mt-6 flex items-center justify-between gap-3 rounded-2xl border border-line bg-canvas p-4">
           <div className="flex items-center gap-3">
-            <div className="bg-teal-100 p-2 rounded-full shrink-0">
-              <Trophy className="h-5 w-5 text-teal-600" />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <Trophy className="h-5 w-5" strokeWidth={1.75} />
             </div>
-            <div className="text-left">
-              <p className="text-sm font-semibold text-teal-900">Track Your Progress</p>
-              <p className="text-xs text-teal-700">See how your new gems affect your rank!</p>
+            <div>
+              <p className="text-sm font-medium text-ink">Leaderboard</p>
+              <p className="text-[15px] leading-relaxed text-slate">See how these gems change your rank.</p>
             </div>
           </div>
           <button
+            type="button"
             onClick={() => {
               navigate('/leaderboard');
               onClose();
             }}
-            className="text-sm font-bold text-teal-600 hover:text-teal-700 whitespace-nowrap pl-12 sm:pl-0"
+            className="shrink-0 text-sm font-medium text-accent"
           >
-            View Leaderboard →
+            View
           </button>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-8">
-          {isFirstCompletion ? (
-            <>
-              {/* First Completion Buttons */}
-              {hasQuiz && quizId ? (
-                <button
-                  onClick={handleTakeQuiz}
-                  className="flex-1 flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"
-                >
-                  Take Quiz
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              ) : null}
-              <button
-                onClick={handleBackToModule}
-                className={`flex-1 flex items-center justify-center gap-2 ${
-                  hasQuiz && quizId
-                    ? 'bg-white border-2 border-teal-500 text-teal-600 hover:bg-teal-50'
-                    : 'bg-teal-500 hover:bg-teal-600 text-white'
-                } font-medium py-3 px-6 rounded-lg transition-colors`}
-              >
-                <ArrowLeft className="h-5 w-5" />
-                Back
-               
-              </button>
-            </>
-          ) : (
-            <>
-              {/* Already Completed Buttons */}
-              {hasQuiz && quizId ? (
-                <button
-                  onClick={handleTakeQuiz}
-                  className="flex-1 flex items-center justify-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"
-                >
-                  Take Quiz
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              ) : null}
-              <button
-                onClick={handleTakeNewChapter}
-                className={`flex-1 flex items-center justify-center gap-2 ${
-                  hasQuiz && quizId
-                    ? 'bg-white border-2 border-teal-500 text-teal-600 hover:bg-teal-50'
-                    : 'bg-teal-500 hover:bg-teal-600 text-white'
-                } font-medium py-3 px-6 rounded-lg transition-colors`}
-              >
-                <BookOpen className="h-5 w-5" />
-                Take a New Chapter
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          {quizIsPrimary && (
+            <button type="button" onClick={handleTakeQuiz} className="btn-primary w-full sm:w-auto">
+              Take quiz
+              <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+            </button>
           )}
+          <button
+            type="button"
+            onClick={handleBackToModule}
+            className={quizIsPrimary ? 'btn-secondary w-full sm:w-auto' : 'btn-primary w-full sm:w-auto'}
+          >
+            {isFirstCompletion ? (
+              <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+            ) : (
+              <BookOpen className="h-4 w-4" strokeWidth={1.75} />
+            )}
+            {isFirstCompletion ? 'Back to course' : 'Another chapter'}
+          </button>
         </div>
       </div>
     </div>
@@ -203,4 +133,3 @@ const CongratulationsModal = ({
 };
 
 export default CongratulationsModal;
-

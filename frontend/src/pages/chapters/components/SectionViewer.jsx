@@ -1,36 +1,30 @@
 import { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, CheckCircle, Sparkles, X, Loader } from 'lucide-react';
-import { aiAPI } from '../../../utils/api';
+import { ArrowLeft, ArrowRight, BookOpen, CheckCircle, Sparkles, X, Loader, Clock, Play } from 'lucide-react';
 import { useAuth } from '../../../contexts/AuthContext';
 
-const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed, isCompleting = false }) => {
-  const { user, updateProfile } = useAuth();
+const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed, isCompleting = false, hasQuiz = false, onTakeQuiz }) => {
+  const { user } = useAuth();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
   const rawUsername = user?.username || 'Student';
   const username = rawUsername.charAt(0).toUpperCase() + rawUsername.slice(1);
 
-  // Helper to replace "Royal Prince" with username in HTML content
   const processContent = (content) => {
     if (!content) return '';
     return content.replace(/Royal Prince/g, username);
   };
-  
-  // AI State
+
   const [isExplaining, setIsExplaining] = useState(false);
   const [explanation, setExplanation] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [error, setError] = useState(null);
-  
 
   useEffect(() => {
-    // Calculate progress
     if (sections.length > 0) {
       const progressValue = ((currentSectionIndex + 1) / sections.length) * 100;
       setProgress(progressValue);
     }
-    // Reset AI state when changing sections
     setExplanation(null);
     setShowExplanation(false);
     setError(null);
@@ -41,7 +35,6 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
   const hasNext = currentSectionIndex < sections.length - 1;
   const isLastSection = currentSectionIndex === sections.length - 1;
 
-  // Notify parent when on last section
   useEffect(() => {
     if (onLastSection) {
       onLastSection(isLastSection);
@@ -62,11 +55,6 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
     }
   };
 
-  const handleExplainClick = () => {
-    generateExplanation();
-  };
-
-
   const generateExplanation = async () => {
     if (!currentSection) return;
 
@@ -75,10 +63,7 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
     setShowExplanation(true);
 
     try {
-      // Simulate AI processing delay (3 seconds)
       await new Promise(resolve => setTimeout(resolve, 3000));
-
-      // Use manual explanation from the current section
       const manualExplanation = currentSection.manualExplanation || 'No explanation available for this section.';
       setExplanation(manualExplanation);
     } catch (err) {
@@ -91,9 +76,9 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
 
   if (!sections || sections.length === 0) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6 text-center">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-        <p className="text-gray-600 dark:text-gray-400">No content available for this chapter.</p>
+      <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+        <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+        <p className="mt-4 text-[15px] leading-relaxed text-slate">No content available for this chapter.</p>
       </div>
     );
   }
@@ -102,201 +87,172 @@ const SectionViewer = ({ sections = [], onLastSection, onMarkComplete, completed
     return null;
   }
 
+  const showComplete = isLastSection && !completed && onMarkComplete;
+
   return (
     <div className="space-y-6">
-
-      {/* Progress Bar */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+      <div>
+        <div className="mb-2 flex items-center justify-between text-sm">
+          <span className="font-medium text-ink">
             Section {currentSectionIndex + 1} of {sections.length}
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            {Math.round(progress)}% Complete
-          </span>
+          <span className="text-slate">{Math.round(progress)}%</span>
         </div>
-        <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+        <div className="h-1.5 overflow-hidden rounded-full bg-line">
           <div
-            className="h-full bg-teal-500 rounded-full transition-all duration-300"
+            className="h-full rounded-full bg-accent-fill transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
-      {/* Current Section */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6 relative">
-        {/* Section Header */}
-        <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-          <div className="flex justify-between items-start">
-            <div className="flex-1">
-              {currentSection.subtitle && (
-                <span className="text-sm font-semibold text-teal-600 dark:text-teal-400 uppercase tracking-wide">
-                  {currentSection.subtitle}
-                </span>
-              )}
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mt-2">
-                {currentSection.title}
-              </h2>
-              {currentSection.estimatedTime && (
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  ⏱️ Estimated reading time: {currentSection.estimatedTime} minutes
-                </p>
-              )}
-            </div>
-          </div>
+      <article className="rounded-3xl border border-line bg-surface p-6 md:p-8">
+        <div className="border-b border-line pb-5">
+          {currentSection.subtitle && (
+            <p className="text-sm font-medium text-accent">{currentSection.subtitle}</p>
+          )}
+          <h2 className="mt-2 text-2xl font-medium tracking-[-0.02em] text-ink md:text-3xl">
+            {currentSection.title}
+          </h2>
+          {currentSection.estimatedTime && (
+            <p className="mt-3 inline-flex items-center gap-2 text-sm text-slate">
+              <Clock className="h-4 w-4" strokeWidth={1.75} />
+              {currentSection.estimatedTime} min
+            </p>
+          )}
         </div>
 
-        {/* Section Content */}
         <div
-          className="prose prose-lg max-w-none text-gray-800 dark:text-gray-200 leading-relaxed"
+          className="chapter-body mt-6 text-lg leading-relaxed text-graphite"
           dangerouslySetInnerHTML={{ __html: processContent(currentSection.content) }}
         />
 
-        {/* AI Explanation Button */}
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8">
           <button
-            onClick={handleExplainClick}
+            type="button"
+            onClick={generateExplanation}
             disabled={isExplaining}
-            className="flex items-center space-x-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-            title="Get an AI explanation of this section"
+            className="btn-secondary disabled:opacity-50"
           >
             {isExplaining ? (
-              <Loader className="h-5 w-5 animate-spin" />
+              <Loader className="h-4 w-4 animate-spin" strokeWidth={1.75} />
             ) : (
-              <Sparkles className="h-5 w-5" />
+              <Sparkles className="h-4 w-4" strokeWidth={1.75} />
             )}
-            <span className="font-semibold">Explain this section with AI</span>
+            Explain this section
           </button>
         </div>
 
-        {/* AI Explanation Panel */}
         {showExplanation && (
-          <div className="mt-8 bg-indigo-50 dark:bg-indigo-950/50 border-2 border-indigo-100 dark:border-indigo-800 rounded-2xl overflow-hidden shadow-xl shadow-indigo-100/50 dark:shadow-indigo-900/50 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-white dark:bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-indigo-100 dark:border-indigo-800">
-              <div className="flex items-center space-x-3 text-indigo-900 dark:text-indigo-100 font-bold text-lg">
-                <div className="p-1.5 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
-                  <Sparkles className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+          <div className="mt-6 overflow-hidden rounded-2xl border border-line bg-accent-soft">
+            <div className="flex items-center justify-between border-b border-line px-5 py-4">
+              <div className="flex items-center gap-3 text-sm font-medium text-ink">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-surface text-accent">
+                  <Sparkles className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-                <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-                  <span>AI Tutor Explanation</span>
-                </div>
+                Explanation
               </div>
               <button
+                type="button"
                 onClick={() => setShowExplanation(false)}
-                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 p-2 rounded-full transition-all duration-200"
+                className="rounded-full p-2 text-slate hover:text-ink"
+                aria-label="Close explanation"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4" strokeWidth={1.75} />
               </button>
             </div>
-            <div className="p-8 md:p-10">
+            <div className="px-5 py-6 md:px-8">
               {isExplaining ? (
-                <div className="flex flex-col items-center justify-center py-12 space-y-4">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-indigo-200 dark:bg-indigo-800 rounded-full animate-ping opacity-25"></div>
-                    <Loader className="h-10 w-10 text-indigo-600 dark:text-indigo-400 animate-spin relative z-10" />
-                  </div>
-                  <p className="text-indigo-900 dark:text-indigo-100 font-medium animate-pulse text-lg">
-                    Cooking up your explanation... 🍳
-                  </p>
+                <div className="flex items-center gap-3 py-6 text-sm text-slate">
+                  <Loader className="h-4 w-4 animate-spin" strokeWidth={1.75} />
+                  Writing the explanation
                 </div>
               ) : error ? (
-                <div className="text-red-600 dark:text-red-400 text-center py-8 bg-red-50 dark:bg-red-950/50 rounded-xl border border-red-100 dark:border-red-800">
-                  <p className="font-medium">{error}</p>
-                  <button
-                    onClick={generateExplanation}
-                    className="mt-3 text-sm text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg transition-colors shadow-sm"
-                  >
+                <div>
+                  <p className="text-[15px] leading-relaxed text-ink">{error}</p>
+                  <button type="button" onClick={generateExplanation} className="btn-secondary mt-4">
                     Try again
                   </button>
                 </div>
               ) : (
-                <div className="prose prose-lg prose-indigo dark:prose-invert max-w-none prose-headings:text-indigo-900 dark:prose-headings:text-indigo-100 prose-headings:font-extrabold prose-p:text-indigo-900 dark:prose-p:text-indigo-100 prose-p:leading-loose prose-p:text-lg prose-strong:text-indigo-700 dark:prose-strong:text-indigo-300 prose-strong:font-bold">
-                  <div
-                    dangerouslySetInnerHTML={{ __html: processContent(explanation) }}
-                  />
-                </div>
+                <div
+                  className="chapter-body text-lg leading-relaxed text-graphite"
+                  dangerouslySetInnerHTML={{ __html: processContent(explanation) }}
+                />
               )}
             </div>
           </div>
         )}
-      </div>
+      </article>
 
-      {/* Navigation */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 md:p-6">
-        <div className="flex items-center justify-between gap-2 md:gap-0">
-          {/* Previous Button */}
-          <button
-            onClick={goToPrevious}
-            disabled={!hasPrevious}
-            className={`flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors flex-shrink-0 ${
-              hasPrevious
-                ? 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300'
-                : 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            <ArrowLeft className="h-4 w-4 md:h-5 md:w-5" />
-            <span className="text-sm md:text-base">Previous</span>
-          </button>
+      <div className="flex min-w-0 flex-wrap items-center gap-3 rounded-3xl border border-line bg-surface p-4 md:p-6">
+        <button
+          type="button"
+          onClick={goToPrevious}
+          disabled={!hasPrevious}
+          className="btn-secondary shrink-0 disabled:opacity-40"
+        >
+          <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+          Previous
+        </button>
 
-          {/* Section Indicator - Hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden min-w-0 flex-1 overflow-x-auto md:block">
+          <div className="mx-auto flex w-max items-center gap-1.5">
             {sections.map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => {
                   setCurrentSectionIndex(index);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className={`w-2 h-2 rounded-full transition-all ${
+                className={`h-1.5 shrink-0 rounded-full transition-all ${
                   index === currentSectionIndex
-                    ? 'bg-teal-500 w-8'
+                    ? 'w-8 bg-accent'
                     : index < currentSectionIndex
-                    ? 'bg-teal-300 dark:bg-teal-600'
-                    : 'bg-gray-300 dark:bg-gray-600'
+                    ? 'w-1.5 bg-accent/40'
+                    : 'w-1.5 bg-line'
                 }`}
                 aria-label={`Go to section ${index + 1}`}
               />
             ))}
           </div>
-
-          {/* Next Button or Mark Complete on Last Section */}
-          {isLastSection && !completed && onMarkComplete ? (
-            <button
-              onClick={onMarkComplete}
-              disabled={isCompleting || completed}
-              className={`flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors shrink-0 ${
-                isCompleting || completed
-                  ? 'bg-gray-400 cursor-not-allowed text-white'
-                  : 'bg-green-500 hover:bg-green-600 text-white'
-              }`}
-            >
-              {isCompleting ? (
-                <>
-                  <Loader className="h-4 w-4 md:h-5 md:w-5 animate-spin" />
-                  <span className="text-sm md:text-base">Completing...</span>
-                </>
-              ) : (
-                <>
-                  <CheckCircle className="h-4 w-4 md:h-5 md:w-5" />
-                  <span className="text-sm md:text-base">Mark Complete</span>
-                </>
-              )}
-            </button>
-          ) : (
-            <button
-              onClick={goToNext}
-              disabled={!hasNext}
-              className={`flex items-center space-x-2 px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-colors flex-shrink-0 ${
-                hasNext
-                  ? 'bg-teal-500 hover:bg-teal-600 text-white'
-                  : 'bg-gray-50 dark:bg-gray-800 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-              }`}
-            >
-              <span className="text-sm md:text-base">Next</span>
-              <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
-            </button>
-          )}
         </div>
+
+        {showComplete ? (
+          <button
+            type="button"
+            onClick={onMarkComplete}
+            disabled={isCompleting || completed}
+            className="btn-primary ml-auto shrink-0 disabled:opacity-50"
+          >
+            {isCompleting ? (
+              <Loader className="h-4 w-4 animate-spin" strokeWidth={1.75} />
+            ) : (
+              <CheckCircle className="h-4 w-4" strokeWidth={1.75} />
+            )}
+            {isCompleting ? 'Completing...' : 'Mark complete'}
+          </button>
+        ) : hasNext ? (
+          <div className="ml-auto flex shrink-0 items-center gap-4">
+            {completed && hasQuiz && onTakeQuiz && (
+              <button type="button" onClick={onTakeQuiz} className="text-sm font-medium text-accent">
+                Take quiz
+              </button>
+            )}
+            <button type="button" onClick={goToNext} className="btn-primary">
+              Next
+              <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+            </button>
+          </div>
+        ) : completed && hasQuiz && onTakeQuiz ? (
+          <button type="button" onClick={onTakeQuiz} className="btn-primary ml-auto shrink-0">
+            <Play className="h-4 w-4" strokeWidth={1.75} />
+            Take quiz
+          </button>
+        ) : (
+          <span className="ml-auto" />
+        )}
       </div>
     </div>
   );

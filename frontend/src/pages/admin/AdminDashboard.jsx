@@ -1,21 +1,10 @@
 import { useState, useEffect } from 'react';
 import { adminAPI } from '../../utils/api';
 import AdminSidebar from '../../components/AdminSidebar';
+import Reveal from '../../components/Reveal';
+import { getAvatarSrc } from '../../utils/avatarUtils';
+import { Users, UserCheck, BookOpen, Target } from 'lucide-react';
 import {
-  Users,
-  UserCheck,
-  BookOpen,
-  Target,
-  Trophy,
-  TrendingUp,
-  Calendar,
-  Award
-} from 'lucide-react';
-import {
-  LineChart,
-  Line,
-  AreaChart,
-  Area,
   BarChart,
   Bar,
   PieChart,
@@ -25,9 +14,25 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer
 } from 'recharts';
+
+const chartFills = [
+  'var(--color-accent-fill)',
+  'var(--color-accent-deep)',
+  'var(--color-graphite)',
+  'var(--color-slate)'
+];
+
+const tooltipStyle = {
+  backgroundColor: 'var(--color-surface)',
+  border: '1px solid var(--color-line)',
+  borderRadius: '16px',
+  color: 'var(--color-ink)',
+  fontSize: '12px'
+};
+
+const axisTick = { fill: 'var(--color-slate)', fontSize: 12 };
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
@@ -53,17 +58,16 @@ const AdminDashboard = () => {
     }
   };
 
+  const frame = `min-h-screen bg-canvas pb-20 text-ink transition-[margin] duration-300 ${
+    sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-64'
+  }`;
+
   if (loading) {
     return (
       <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center transition-all duration-300 ${
-          sidebarCollapsed ? 'ml-16' : 'ml-64'
-        }`}>
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 dark:border-purple-400 mx-auto"></div>
-            <p className="mt-4 text-gray-600 dark:text-gray-400">Loading dashboard...</p>
-          </div>
+        <div className={`${frame} flex items-center justify-center`}>
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" role="status" aria-label="Loading dashboard" />
         </div>
       </>
     );
@@ -73,16 +77,11 @@ const AdminDashboard = () => {
     return (
       <>
         <AdminSidebar onCollapseChange={setSidebarCollapsed} />
-        <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center transition-all duration-300 ${
-          sidebarCollapsed ? 'ml-16' : 'ml-64'
-        }`}>
+        <div className={`${frame} flex items-center justify-center px-5`}>
           <div className="text-center">
-            <p className="text-red-600 dark:text-red-400 mb-4">{error}</p>
-            <button
-              onClick={fetchStats}
-              className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white px-4 py-2 rounded-lg"
-            >
-              Try Again
+            <p className="text-[15px] text-graphite">{error}</p>
+            <button type="button" onClick={fetchStats} className="btn-primary mt-4">
+              Try again
             </button>
           </div>
         </div>
@@ -91,37 +90,12 @@ const AdminDashboard = () => {
   }
 
   const overviewCards = [
-    {
-      title: 'Total Users',
-      value: stats?.overview?.totalUsers || 0,
-      icon: Users,
-      color: 'bg-blue-500',
-      change: '+12%'
-    },
-    {
-      title: 'Active Users',
-      value: stats?.overview?.activeUsers || 0,
-      icon: UserCheck,
-      color: 'bg-green-500',
-      change: '+8%'
-    },
-    {
-      title: 'Quiz Attempts',
-      value: stats?.overview?.totalQuizAttempts || 0,
-      icon: Target,
-      color: 'bg-purple-500',
-      change: '+15%'
-    },
-    {
-      title: 'Completed Chapters',
-      value: stats?.overview?.totalCompletedChapters || 0,
-      icon: BookOpen,
-      color: 'bg-orange-500',
-      change: '+20%'
-    }
+    { title: 'Total users', value: stats?.overview?.totalUsers || 0, icon: Users, change: '+12% from last month' },
+    { title: 'Active users', value: stats?.overview?.activeUsers || 0, icon: UserCheck, change: '+8% from last month' },
+    { title: 'Quiz attempts', value: stats?.overview?.totalQuizAttempts || 0, icon: Target, change: '+15% from last month' },
+    { title: 'Completed chapters', value: stats?.overview?.totalCompletedChapters || 0, icon: BookOpen, change: '+20% from last month' }
   ];
 
-  // Prepare chart data
   const universityData = stats?.universityStats?.slice(0, 8).map(item => ({
     name: item._id?.substring(0, 15) + '...' || 'Unknown',
     users: item.count
@@ -132,69 +106,57 @@ const AdminDashboard = () => {
     users: item.count
   })) || [];
 
-  const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff7c7c', '#8dd1e1', '#d084d0'];
-
   return (
     <>
       <AdminSidebar onCollapseChange={setSidebarCollapsed} />
 
-      <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 p-8 transition-all duration-300 ${
-        sidebarCollapsed ? 'ml-16' : 'ml-64'
-      }`}>
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Admin Dashboard</h1>
-            <p className="text-gray-600 dark:text-gray-400">Welcome back! Here's what's happening with TestMancer.</p>
-          </div>
+      <div className={frame}>
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <p className="text-sm font-medium text-accent">Admin</p>
+          <h1 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            Dashboard
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">
+            Users, quizzes, and chapters across TestMancer.
+          </p>
+        </header>
 
-          {/* Overview Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {overviewCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{card.title}</p>
-                      <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">{card.value.toLocaleString()}</p>
-                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">{card.change} from last month</p>
-                    </div>
-                    <div className={`p-3 rounded-lg ${card.color}`}>
-                      <Icon className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
+        <section className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-4 px-5 sm:grid-cols-2 lg:grid-cols-4 md:px-8">
+          {overviewCards.map((card, index) => {
+            const Icon = card.icon;
+            return (
+              <Reveal key={card.title} as="article" className="rounded-3xl border border-line bg-surface p-6" delay={index * 70}>
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+                  <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </div>
-              );
-            })}
-          </div>
+                <p className="mt-5 text-sm text-slate">{card.title}</p>
+                <p className="mt-1 text-3xl font-medium tracking-tight text-ink">{card.value.toLocaleString()}</p>
+                <p className="mt-2 text-sm text-slate">{card.change}</p>
+              </Reveal>
+            );
+          })}
+        </section>
 
-          {/* Charts Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {/* University Distribution */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Users by University</h3>
-              <ResponsiveContainer width="100%" height={300}>
+        <section className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-4 px-5 lg:grid-cols-2 md:px-8">
+          <article className="rounded-3xl border border-line bg-surface p-6">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Users by university</h2>
+            <div className="mt-6 h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={universityData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis
-                    dataKey="name"
-                    angle={-45}
-                    textAnchor="end"
-                    height={80}
-                    fontSize={12}
-                  />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="users" fill="#8884d8" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-line)" vertical={false} />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={axisTick} axisLine={false} tickLine={false} />
+                  <YAxis tick={axisTick} axisLine={false} tickLine={false} />
+                  <Tooltip contentStyle={tooltipStyle} />
+                  <Bar dataKey="users" fill="var(--color-accent-fill)" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
+          </article>
 
-            {/* Level Distribution */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Users by Level</h3>
-              <ResponsiveContainer width="100%" height={300}>
+          <article className="rounded-3xl border border-line bg-surface p-6">
+            <h2 className="text-lg font-medium tracking-tight text-ink">Users by level</h2>
+            <div className="mt-6 h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={levelData}
@@ -203,48 +165,47 @@ const AdminDashboard = () => {
                     labelLine={false}
                     label={({ level, percent }) => `${level} (${(percent * 100).toFixed(0)}%)`}
                     outerRadius={80}
-                    fill="#8884d8"
                     dataKey="users"
+                    stroke="var(--color-surface)"
                   >
                     {levelData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      <Cell key={`cell-${index}`} fill={chartFills[index % chartFills.length]} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip contentStyle={tooltipStyle} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
-          </div>
+          </article>
+        </section>
 
-          {/* Recent Activity */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Active Users</h3>
-            <div className="space-y-4">
-              {stats?.recentActivity?.slice(0, 5).map((user, index) => (
-                <div key={index} className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-gray-600 last:border-b-0">
-                  <div className="flex items-center space-x-3">
-                    <img
-                      src={user.avatar || '/default-avatar.png'}
-                      alt={user.username}
-                      className="h-10 w-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-medium text-gray-900 dark:text-white">{user.username}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{user.recentActivityCount} activities this week</p>
+        <section className="mx-auto mt-8 max-w-6xl px-5 md:px-8">
+          <article className="overflow-hidden rounded-3xl border border-line bg-surface">
+            <h2 className="px-6 pt-6 text-lg font-medium tracking-tight text-ink">Recent active users</h2>
+            {stats?.recentActivity?.length > 0 ? (
+              <ul className="mt-4 divide-y divide-line">
+                {stats.recentActivity.slice(0, 5).map((user, index) => (
+                  <li key={user._id || index} className="flex items-center justify-between gap-4 px-6 py-4">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <img
+                        src={getAvatarSrc(user.avatar)}
+                        alt=""
+                        className="h-9 w-9 rounded-full border border-line object-cover"
+                      />
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-medium text-ink">{user.username}</p>
+                        <p className="text-sm text-slate">{user.recentActivityCount} activities this week</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Active</p>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">Last 7 days</p>
-                  </div>
-                </div>
-              ))}
-              {(!stats?.recentActivity || stats.recentActivity.length === 0) && (
-                <p className="text-gray-500 dark:text-gray-400 text-center py-8">No recent activity found</p>
-              )}
-            </div>
-          </div>
-        </div>
+                    <p className="shrink-0 text-sm text-slate">Last 7 days</p>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="px-6 py-12 text-center text-[15px] text-slate">No recent activity.</p>
+            )}
+          </article>
+        </section>
       </div>
     </>
   );

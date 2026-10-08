@@ -1,4 +1,5 @@
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet, useLocation, useParams } from 'react-router-dom';
+import { isReservedPath } from './utils/slugs';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
@@ -18,18 +19,45 @@ import Leaderboard from './pages/Leaderboard';
 import Profile from './pages/Profile';
 import ProfileSetup from './pages/ProfileSetup';
 import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
+import Terms from './pages/legal/Terms';
+import Privacy from './pages/legal/Privacy';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminAnalytics from './pages/admin/AdminAnalytics';
+import testmancerLogo from './assets/testmancer-logo.png';
+
+const AuthLoading = () => (
+  <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-5">
+    <div className="w-full rounded-3xl border border-line bg-surface px-6 py-16 text-center" role="status" aria-live="polite">
+      <img src={testmancerLogo} alt="" className="mx-auto h-7 w-auto" />
+      <p className="mt-6 text-sm font-medium text-accent">One moment</p>
+      <div className="mx-auto mt-6 h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
+    </div>
+  </div>
+);
 
 // Layout Component
 const Layout = () => {
+  const { pathname } = useLocation();
+  const segments = pathname.split('/').filter(Boolean);
+  const knownSingle = new Set(['about', 'contact', 'terms', 'privacy', 'login', 'register', 'profile-setup', 'dashboard', 'courses', 'quiz-hub', 'ca', 'exam', 'results', 'leaderboard', 'profile']);
+  const isCourseDetail = (segments.length === 1 && !knownSingle.has(segments[0])) || (segments[0] === 'courses' && segments.length === 2);
+  const isChapterReader = pathname.startsWith('/chapters/') || (segments.length === 2 && !['courses', 'quiz-hub', 'ca', 'exam', 'admin', 'auth', 'quizzes'].includes(segments[0]));
+  const isQuiz = pathname.startsWith('/quizzes/') || pathname.startsWith('/quiz-hub/');
+  const isAdmin = pathname.startsWith('/admin');
+  const isFullBleed = isAdmin || isQuiz || isCourseDetail || isChapterReader || pathname === '/' || pathname === '/courses' || pathname === '/about' || pathname === '/contact' || pathname === '/terms' || pathname === '/privacy' || pathname === '/login' || pathname === '/register' || pathname.startsWith('/auth/') || pathname === '/dashboard' || pathname === '/quiz-hub' || pathname === '/results' || pathname === '/profile' || pathname === '/leaderboard' || pathname === '/ca' || pathname.startsWith('/ca/') || pathname === '/exam' || pathname.startsWith('/exam/');
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-canvas text-ink">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
+      {isFullBleed ? (
         <Outlet />
-      </main>
+      ) : (
+        <main className="container mx-auto px-4 py-8">
+          <Outlet />
+        </main>
+      )}
     </div>
   );
 };
@@ -40,9 +68,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
-      </div>
+      <AuthLoading />
     );
   }
 
@@ -55,9 +81,7 @@ const AdminRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
-      </div>
+      <AuthLoading />
     );
   }
 
@@ -74,9 +98,7 @@ const PublicRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
-      </div>
+      <AuthLoading />
     );
   }
 
@@ -89,9 +111,7 @@ const ProfileSetupRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
-      </div>
+      <AuthLoading />
     );
   }
 
@@ -107,15 +127,19 @@ const ProfileSetupRoute = ({ children }) => {
   return children;
 };
 
+const ReadableCourseRoute = ({ children }) => {
+  const { courseSlug } = useParams();
+  if (isReservedPath(courseSlug)) return <DefaultRoute />;
+  return <ProtectedRoute>{children}</ProtectedRoute>;
+};
+
 // Default Route Component (redirects authenticated users to dashboard, others to home)
 const DefaultRoute = () => {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">TestMancer</h1>
-      </div>
+      <AuthLoading />
     );
   }
 
@@ -136,12 +160,24 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "terms",
+        element: <Terms />,
+      },
+      {
+        path: "privacy",
+        element: <Privacy />,
+      },
+      {
         path: "login",
         element: <PublicRoute><Login /></PublicRoute>,
       },
       {
         path: "register",
-        element: <Navigate to="/login" />,
+        element: <PublicRoute><Register /></PublicRoute>,
       },
       {
         path: "auth/callback",
@@ -160,12 +196,20 @@ const router = createBrowserRouter([
         element: <Courses />,
       },
       {
-        path: "courses/:id",
+        path: "courses/:courseSlug",
         element: <ProtectedRoute><CourseDetail /></ProtectedRoute>,
       },
       {
         path: "chapters/:id",
         element: <ProtectedRoute><ChapterDetail /></ProtectedRoute>,
+      },
+      {
+        path: ":courseSlug",
+        element: <ReadableCourseRoute><CourseDetail /></ReadableCourseRoute>,
+      },
+      {
+        path: ":courseSlug/:chapterSlug",
+        element: <ReadableCourseRoute><ChapterDetail /></ReadableCourseRoute>,
       },
       {
         path: "quizzes/:chapterId",
@@ -176,8 +220,16 @@ const router = createBrowserRouter([
         element: <ProtectedRoute><QuizHub /></ProtectedRoute>,
       },
       {
-        path: "quiz-hub/courses/:id",
+        path: "quiz-hub/courses/:courseSlug",
         element: <ProtectedRoute><QuizCourseDetail /></ProtectedRoute>,
+      },
+      {
+        path: "quiz-hub/:courseSlug",
+        element: <ProtectedRoute><QuizCourseDetail /></ProtectedRoute>,
+      },
+      {
+        path: "quiz-hub/:courseSlug/:chapterSlug",
+        element: <ProtectedRoute><Quiz /></ProtectedRoute>,
       },
       {
         path: "ca",

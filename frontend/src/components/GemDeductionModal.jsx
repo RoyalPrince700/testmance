@@ -1,15 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Gem, X, AlertCircle, Target, BookOpen, TrendingUp, Sparkles } from 'lucide-react';
+import { Gem, X, AlertCircle, Target, BookOpen } from 'lucide-react';
 
-const GemDeductionModal = ({ 
-  isOpen, 
-  onClose, 
-  onConfirm, 
-  amount, 
-  userGems, 
-  title = "Start Activity",
-  type = "CA", // "CA" or "Exam"
+const GemDeductionModal = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  amount,
+  userGems,
+  type = "CA",
   isLoading = false
 }) => {
   const navigate = useNavigate();
@@ -25,123 +24,70 @@ const GemDeductionModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm overflow-hidden">
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 border-4 border-purple-100 dark:border-purple-900 transform transition-all animate-in fade-in zoom-in duration-300 scrollbar-thin scrollbar-thumb-purple-200 dark:scrollbar-thumb-purple-700 scrollbar-track-transparent">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+      <div className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-3xl border border-line bg-surface p-6 sm:p-8" role="dialog" aria-modal="true">
         <button
+          type="button"
           onClick={onClose}
           disabled={isLoading}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-200 rounded-full p-2 transition-colors z-10 bg-white dark:bg-gray-800 shadow-sm disabled:opacity-50"
+          className="absolute right-4 top-4 rounded-full p-2 text-slate hover:text-ink disabled:opacity-50"
+          aria-label="Close"
         >
-          <X className="h-6 w-6" />
+          <X className="h-4 w-4" strokeWidth={1.75} />
         </button>
 
         {hasEnoughGems ? (
-          <div className="text-center">
-            <div className="bg-purple-100 dark:bg-purple-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
-              <Gem className="h-10 w-10 text-purple-600 dark:text-purple-400" />
+          <div>
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gem-soft text-gem">
+              <Gem className="h-5 w-5" strokeWidth={1.75} />
             </div>
-
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Ready to shine? ✨
-            </h2>
-            
-            <div className="space-y-4 mb-8">
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Starting this <span className="font-bold text-purple-600 dark:text-purple-400">{type}</span> will cost <span className="font-bold text-purple-600 dark:text-purple-400">{amount} Gems</span>.
-              </p>
-              <div className="flex items-center justify-center space-x-2 bg-yellow-50 dark:bg-yellow-900/20 px-4 py-2 rounded-xl border border-yellow-200 dark:border-yellow-800 w-fit mx-auto">
-                <span className="text-sm text-yellow-800 dark:text-yellow-200 font-medium">Your Balance:</span>
-                <Gem className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
-                <span className="font-bold text-yellow-700 dark:text-yellow-300">{userGems || 0}</span>
-                <span className="text-yellow-600 dark:text-yellow-400">→</span>
-                <span className="font-bold text-yellow-700 dark:text-yellow-300">{(userGems || 0) - amount}</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={onConfirm}
-                disabled={isLoading}
-                className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                ) : (
-                  <Sparkles className="h-5 w-5" />
-                )}
-                {isLoading ? 'Processing...' : 'Deduct & Proceed'}
+            <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">This {type} costs {amount} gems.</h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-slate">
+              Your balance moves from {userGems || 0} to {(userGems || 0) - amount} when you continue.
+            </p>
+            <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-gem-soft px-3 py-1 text-sm font-medium text-gem">
+              <Gem className="h-3.5 w-3.5" strokeWidth={1.75} />
+              {userGems || 0} gems
+            </p>
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <button type="button" onClick={onConfirm} disabled={isLoading} className="btn-primary w-full disabled:opacity-50 sm:w-auto">
+                {isLoading ? 'Working…' : 'Continue'}
               </button>
-              <button
-                onClick={onClose}
-                disabled={isLoading}
-                className="flex-1 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50"
-              >
-                Not Now
+              <button type="button" onClick={onClose} disabled={isLoading} className="btn-secondary w-full disabled:opacity-50 sm:w-auto">
+                Not now
               </button>
             </div>
           </div>
         ) : (
-          <div className="text-center">
-            <div className="bg-red-100 dark:bg-red-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <AlertCircle className="h-10 w-10 text-red-500 dark:text-red-400" />
+          <div>
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+              <AlertCircle className="h-5 w-5" strokeWidth={1.75} />
             </div>
-
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Gems are low! 💎💨
-            </h2>
-            
-            <div className="space-y-4 mb-8">
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Oops! You need <span className="font-bold text-red-600 dark:text-red-400">{amount} Gems</span> to start this {type}, but you only have <span className="font-bold text-red-600 dark:text-red-400">{userGems || 0}</span>.
-              </p>
-              <p className="text-md text-gray-600 dark:text-gray-400 italic">
-                Time to go on a gem-collecting quest! 🏹
-              </p>
-            </div>
-
-            <div className="bg-teal-50 dark:bg-teal-900/20 rounded-2xl p-6 mb-8 border border-teal-100 dark:border-teal-800 text-left">
-              <h4 className="font-bold text-teal-800 dark:text-teal-200 mb-3 flex items-center">
-                <TrendingUp className="h-5 w-5 mr-2" />
-                How to earn more:
-              </h4>
-              <ul className="space-y-3">
-                <li className="flex items-start text-teal-700 dark:text-teal-300">
-                  <div className="bg-teal-200 dark:bg-teal-800 rounded-full p-1 mr-3 mt-0.5">
-                    <BookOpen className="h-3 w-3" />
-                  </div>
-                  <span>Complete a chapter: <span className="font-bold">+3 Gems</span></span>
-                </li>
-                <li className="flex items-start text-teal-700 dark:text-teal-300">
-                  <div className="bg-teal-200 dark:bg-teal-800 rounded-full p-1 mr-3 mt-0.5">
-                    <Target className="h-3 w-3" />
-                  </div>
-                  <span>Every correct quiz answer: <span className="font-bold">+1 Gem</span></span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <button
-                onClick={() => handleEarnGems('/courses')}
-                className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-              >
-                <BookOpen className="h-5 w-5" />
-                Go to Courses
+            <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">You need {amount} gems.</h2>
+            <p className="mt-2 text-[15px] leading-relaxed text-slate">
+              This {type} costs {amount} gems and you have {userGems || 0}. Finish a chapter or a quiz to earn more.
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-slate">
+              <li className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                A finished chapter is worth 3 gems.
+              </li>
+              <li className="flex items-center gap-2">
+                <Target className="h-4 w-4 text-accent" strokeWidth={1.75} />
+                A correct quiz answer is worth 1 gem.
+              </li>
+            </ul>
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+              <button type="button" onClick={() => handleEarnGems('/courses')} className="btn-primary w-full sm:w-auto">
+                Browse courses
               </button>
-              <button
-                onClick={() => handleEarnGems('/quiz-hub')}
-                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-              >
-                <Target className="h-5 w-5" />
-                Go to Quiz Hub
-              </button>
-              <button
-                onClick={onClose}
-                className="w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold py-3 px-6 rounded-xl transition-all"
-              >
-                Maybe Later
+              <button type="button" onClick={() => handleEarnGems('/quiz-hub')} className="btn-secondary w-full sm:w-auto">
+                Quiz hub
               </button>
             </div>
+            <button type="button" onClick={onClose} className="mt-3 text-sm font-medium text-slate hover:text-ink">
+              Not now
+            </button>
           </div>
         )}
       </div>

@@ -4,40 +4,44 @@ const { protect, optionalAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
+const PUBLIC_FIELDS = 'username avatar gems xp';
+
+function parseLimit(value, fallback = 50) {
+  const parsed = parseInt(value, 10);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.min(Math.max(parsed, 1), 100);
+}
+
+async function rankedUsers(query, limit) {
+  const users = await User.find(query)
+    .select(PUBLIC_FIELDS)
+    .sort({ gems: -1, xp: -1, username: 1 })
+    .limit(parseLimit(limit));
+
+  return users.map((user, index) => ({
+    _id: user._id,
+    username: user.username,
+    avatar: user.avatar,
+    gems: user.gems || 0,
+    rank: index + 1
+  }));
+}
+
+function sendRanked(res, rankedLeaderboard) {
+  res.json({
+    success: true,
+    count: rankedLeaderboard.length,
+    data: rankedLeaderboard
+  });
+}
+
 // @route   GET /api/leaderboard/global
 // @desc    Get global leaderboard
 // @access  Public
 router.get('/global', optionalAuth, async (req, res) => {
   try {
-    const { limit = 50, university, academicLevel } = req.query;
-    let query = { isActive: true };
-
-    if (university) {
-      query.university = university;
-    }
-
-    if (academicLevel) {
-      query.academicLevel = academicLevel;
-    }
-
-    const leaderboard = await User.find(query)
-      .populate('university', 'name shortName')
-      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1 })
-      .limit(parseInt(limit));
-
-    // Add rank to each user
-    const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user.toObject(),
-      rank: index + 1,
-      stats: user.getStats()
-    }));
-
-    res.json({
-      success: true,
-      count: rankedLeaderboard.length,
-      data: rankedLeaderboard
-    });
+    const rankedLeaderboard = await rankedUsers({ isActive: true }, req.query.limit);
+    sendRanked(res, rankedLeaderboard);
   } catch (error) {
     console.error('Get global leaderboard error:', error);
     res.status(500).json({
@@ -52,33 +56,12 @@ router.get('/global', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/university/:universityId', optionalAuth, async (req, res) => {
   try {
-    const { limit = 25, academicLevel } = req.query;
-    let query = {
+    const rankedLeaderboard = await rankedUsers({
       university: req.params.universityId,
       isActive: true
-    };
+    }, req.query.limit);
 
-    if (academicLevel) {
-      query.academicLevel = academicLevel;
-    }
-
-    const leaderboard = await User.find(query)
-    .populate('university', 'name shortName')
-    .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-    .sort({ gems: -1, xp: -1 })
-    .limit(parseInt(limit));
-
-    const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user.toObject(),
-      rank: index + 1,
-      stats: user.getStats()
-    }));
-
-    res.json({
-      success: true,
-      count: rankedLeaderboard.length,
-      data: rankedLeaderboard
-    });
+    sendRanked(res, rankedLeaderboard);
   } catch (error) {
     console.error('Get university leaderboard error:', error);
     res.status(500).json({
@@ -93,7 +76,7 @@ router.get('/university/:universityId', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/faculty', optionalAuth, async (req, res) => {
   try {
-    const { faculty, university, limit = 50, academicLevel } = req.query;
+    const { faculty, university, limit = 50 } = req.query;
 
     if (!faculty) {
       return res.status(400).json({
@@ -102,8 +85,8 @@ router.get('/faculty', optionalAuth, async (req, res) => {
       });
     }
 
-    let query = {
-      faculty: faculty,
+    const query = {
+      faculty,
       isActive: true
     };
 
@@ -111,27 +94,8 @@ router.get('/faculty', optionalAuth, async (req, res) => {
       query.university = university;
     }
 
-    if (academicLevel) {
-      query.academicLevel = academicLevel;
-    }
-
-    const leaderboard = await User.find(query)
-      .populate('university', 'name shortName')
-      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1 })
-      .limit(parseInt(limit));
-
-    const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user.toObject(),
-      rank: index + 1,
-      stats: user.getStats()
-    }));
-
-    res.json({
-      success: true,
-      count: rankedLeaderboard.length,
-      data: rankedLeaderboard
-    });
+    const rankedLeaderboard = await rankedUsers(query, limit);
+    sendRanked(res, rankedLeaderboard);
   } catch (error) {
     console.error('Get faculty leaderboard error:', error);
     res.status(500).json({
@@ -146,7 +110,7 @@ router.get('/faculty', optionalAuth, async (req, res) => {
 // @access  Public
 router.get('/department', optionalAuth, async (req, res) => {
   try {
-    const { department, faculty, university, limit = 50, academicLevel } = req.query;
+    const { department, faculty, university, limit = 50 } = req.query;
 
     if (!department) {
       return res.status(400).json({
@@ -155,8 +119,8 @@ router.get('/department', optionalAuth, async (req, res) => {
       });
     }
 
-    let query = {
-      department: department,
+    const query = {
+      department,
       isActive: true
     };
 
@@ -168,27 +132,8 @@ router.get('/department', optionalAuth, async (req, res) => {
       query.university = university;
     }
 
-    if (academicLevel) {
-      query.academicLevel = academicLevel;
-    }
-
-    const leaderboard = await User.find(query)
-      .populate('university', 'name shortName')
-      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1 })
-      .limit(parseInt(limit));
-
-    const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user.toObject(),
-      rank: index + 1,
-      stats: user.getStats()
-    }));
-
-    res.json({
-      success: true,
-      count: rankedLeaderboard.length,
-      data: rankedLeaderboard
-    });
+    const rankedLeaderboard = await rankedUsers(query, limit);
+    sendRanked(res, rankedLeaderboard);
   } catch (error) {
     console.error('Get department leaderboard error:', error);
     res.status(500).json({
@@ -229,23 +174,8 @@ router.get('/level', optionalAuth, async (req, res) => {
       query.university = university;
     }
 
-    const leaderboard = await User.find(query)
-      .populate('university', 'name shortName')
-      .select('username avatar gems level xp completedChapters quizAttempts profileVisibility')
-      .sort({ gems: -1 })
-      .limit(parseInt(limit));
-
-    const rankedLeaderboard = leaderboard.map((user, index) => ({
-      ...user.toObject(),
-      rank: index + 1,
-      stats: user.getStats()
-    }));
-
-    res.json({
-      success: true,
-      count: rankedLeaderboard.length,
-      data: rankedLeaderboard
-    });
+    const rankedLeaderboard = await rankedUsers(query, limit);
+    sendRanked(res, rankedLeaderboard);
   } catch (error) {
     console.error('Get level leaderboard error:', error);
     res.status(500).json({
@@ -260,33 +190,50 @@ router.get('/level', optionalAuth, async (req, res) => {
 // @access  Private
 router.get('/user/rank', protect, async (req, res) => {
   try {
-    const { academicLevel } = req.user;
-    
-    // Base query for ranking
     const baseRankQuery = {
       isActive: true,
       gems: { $gt: req.user.gems || 0 }
     };
 
-    if (academicLevel) {
-      baseRankQuery.academicLevel = academicLevel;
-    }
-
-    // Global rank (within level)
     const globalRank = await User.countDocuments(baseRankQuery) + 1;
 
-    // University rank (within level)
-    const universityRankQuery = { ...baseRankQuery };
+    let universityRank = null;
     if (req.user.university) {
-      universityRankQuery.university = req.user.university;
+      universityRank = await User.countDocuments({
+        ...baseRankQuery,
+        university: req.user.university
+      }) + 1;
     }
-    const universityRank = await User.countDocuments(universityRankQuery) + 1;
+
+    let facultyRank = null;
+    if (req.user.university && req.user.faculty) {
+      facultyRank = await User.countDocuments({
+        ...baseRankQuery,
+        university: req.user.university,
+        faculty: req.user.faculty
+      }) + 1;
+    }
+
+    let departmentRank = null;
+    if (req.user.university && req.user.department) {
+      const departmentQuery = {
+        ...baseRankQuery,
+        university: req.user.university,
+        department: req.user.department
+      };
+      if (req.user.faculty) {
+        departmentQuery.faculty = req.user.faculty;
+      }
+      departmentRank = await User.countDocuments(departmentQuery) + 1;
+    }
 
     res.json({
       success: true,
       data: {
         globalRank,
         universityRank,
+        facultyRank,
+        departmentRank,
         userStats: req.user.getStats()
       }
     });

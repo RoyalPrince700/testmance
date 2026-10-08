@@ -1,68 +1,80 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, CheckCircle } from 'lucide-react';
+import { ArrowRight, Gem } from 'lucide-react';
+
+const options = [
+  'Reread the notes and hope it sticks',
+  'Answer questions, then review the miss',
+  'Leave it until the night before',
+];
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-white dark:bg-gray-900 pt-16 pb-32 md:pt-24 md:pb-40">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-purple-100 dark:bg-purple-900/20 blur-3xl opacity-60"></div>
-        <div className="absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-teal-100 dark:bg-teal-900/20 blur-3xl opacity-60"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-semibold mb-6">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-            </span>
-            New Courses Available
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
-            Make Exam Prep <br />
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-600 to-teal-500">
-              Exciting & Rewarding
-            </span>
+    <section className="pt-14 pb-16 md:pt-20 md:pb-24">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-16">
+        <div>
+          <p className="rise-in text-sm font-medium text-accent">Courses, quizzes, CA, and exams</p>
+          <h1
+            className="rise-in mt-4 max-w-xl text-[2.6rem] font-medium leading-[1.05] tracking-[-0.03em] text-ink sm:text-6xl lg:text-[4.5rem]"
+            style={{ animationDelay: '70ms' }}
+          >
+            Exam prep that keeps the score.
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Transform studying into a game. Master your subjects with adaptive quizzes, track your growth, and earn rewards for every milestone.
+          <p className="rise-in mt-6 max-w-lg text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+            Study a course, answer adaptive questions, and earn gems for the work. TestMancer shows where you stand before the paper does.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/register"
-              className="group bg-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 flex items-center gap-2"
-            >
-              Start Learning Now
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <div className="rise-in mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: '210ms' }}>
+            <Link to="/register" className="btn-primary group h-12 px-6 text-base">
+              Get started free
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
-            <Link
-              to="/courses"
-              className="px-8 py-4 rounded-xl font-bold text-lg text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 flex items-center gap-2"
-            >
-              <BookOpen className="w-5 h-5" />
-              Browse Courses
+            <Link to="/courses" className="btn-secondary h-12 px-6 text-base">
+              Browse courses
             </Link>
           </div>
+          <ul className="rise-in mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate" style={{ animationDelay: '280ms' }}>
+            <li>Free to start</li>
+            <li>Adaptive quizzes</li>
+            <li>Gems and leaderboards</li>
+          </ul>
+        </div>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-gray-500 dark:text-gray-400 text-sm font-medium">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-teal-500" />
-              <span>Free to Get Started</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-teal-500" />
-              <span>Adaptive Difficulty</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-teal-500" />
-              <span>Gamified Learning</span>
-            </div>
+        <div className="rise-in" style={{ animationDelay: '180ms' }}>
+        <div className="float-card rounded-3xl border border-line bg-surface p-5 shadow-[0_24px_50px_-28px_rgba(20,32,30,0.35)] sm:p-7">
+          <div className="h-1.5 overflow-hidden rounded-full bg-canvas">
+            <div className="quiz-progress h-full rounded-full bg-accent-fill" />
           </div>
+          <div className="mt-4 flex items-center justify-between text-sm">
+            <span className="text-slate">Question 4 of 10</span>
+            <span className="gem-pop inline-flex items-center gap-1 font-medium text-gem">
+              <Gem className="h-3.5 w-3.5" />
+              +5
+            </span>
+          </div>
+          <p className="mt-5 text-xl font-medium leading-snug tracking-tight text-ink">
+            Which habit does TestMancer reward?
+          </p>
+          <ul className="mt-5 space-y-2.5">
+            {options.map((option, index) => {
+              const selected = index === 1;
+              return (
+                <li
+                  key={option}
+                  className={`rounded-2xl border px-4 py-3 text-sm ${
+                    selected
+                      ? 'border-accent bg-accent-soft font-medium text-ink'
+                      : 'border-line text-graphite'
+                  }`}
+                >
+                  {option}
+                </li>
+              );
+            })}
+          </ul>
+          <div className="mt-6 flex items-center justify-between">
+            <span className="text-sm text-slate">Chapter quiz</span>
+            <span className="btn-primary pointer-events-none h-9">Check answer</span>
+          </div>
+        </div>
         </div>
       </div>
     </section>

@@ -1,41 +1,33 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useBlocker } from 'react-router-dom';
 import { caAPI, coursesAPI, usersAPI } from '../../utils/api';
 import { useAuth } from '../../contexts/AuthContext';
-import { ArrowLeft, CheckCircle, XCircle, Trophy, Target, Sparkles, Clock, AlertCircle, BookOpen, Play, CheckCircle2, Lock, X, LogOut, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, XCircle, AlertCircle, BookOpen, Play, Lock, X, AlertTriangle } from 'lucide-react';
 import GemDeductionModal from '../../components/GemDeductionModal';
+import Reveal from '../../components/Reveal';
+
+const Spinner = () => (
+  <div className="flex min-h-[50vh] items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
+  </div>
+);
 
 const ConfirmLeaveModal = ({ isOpen, onConfirm, onCancel, type = 'CA' }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8 border-4 border-teal-500 animate-in fade-in zoom-in duration-300">
-        <div className="text-center">
-          <div className="bg-teal-100 dark:bg-teal-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <AlertTriangle className="h-10 w-10 text-teal-600 dark:text-teal-400" />
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Abandon {type}? 🛑</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            If you leave now, your {type.toLowerCase()} will end immediately and your current progress will be recorded as your final score. 
-            <br/><br/>
-            <span className="font-bold text-teal-600 dark:text-teal-400 text-lg">This action cannot be undone!</span>
-          </p>
-          <div className="flex flex-col gap-3">
-            <button
-              onClick={onConfirm}
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"
-            >
-              <LogOut className="h-5 w-5" />
-              End {type} & Leave
-            </button>
-            <button
-              onClick={onCancel}
-              className="w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold py-3 px-6 rounded-xl transition-all"
-            >
-              Stay and Finish
-            </button>
-          </div>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/40 p-4">
+      <div className="w-full max-w-md rounded-3xl border border-line bg-surface p-6 sm:p-8" role="dialog" aria-modal="true">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+          <AlertTriangle className="h-5 w-5" strokeWidth={1.75} />
+        </div>
+        <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">Leave this {type}?</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-slate">
+          Leaving now submits what you have answered. That score is final.
+        </p>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          <button type="button" onClick={onCancel} className="btn-primary w-full sm:w-auto">Stay and finish</button>
+          <button type="button" onClick={onConfirm} className="btn-secondary w-full sm:w-auto">End and leave</button>
         </div>
       </div>
     </div>
@@ -46,31 +38,18 @@ const ProceedModal = ({ isOpen, onConfirm, onCancel, type = 'CA' }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8 border-4 border-teal-500 animate-in fade-in zoom-in duration-300">
-        <div className="text-center">
-          <div className="bg-teal-50 dark:bg-teal-900/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Play className="h-10 w-10 text-teal-600 dark:text-teal-400 fill-current" />
-          </div>
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Ready to Start? 🚀</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-            You are about to start the <span className="font-bold text-teal-600 dark:text-teal-400">{type}</span>. Once you begin, the timer will start and you cannot pause.
-          </p>
-          <div className="flex flex-col gap-3">
-            <button
-              onClick={onConfirm}
-              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="h-5 w-5" />
-              Proceed to {type}
-            </button>
-            <button
-              onClick={onCancel}
-              className="w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 font-bold py-3 px-6 rounded-xl transition-all"
-            >
-              Wait, Not Yet
-            </button>
-          </div>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+      <div className="w-full max-w-md rounded-3xl border border-line bg-surface p-6 sm:p-8" role="dialog" aria-modal="true">
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+          <Play className="h-5 w-5" strokeWidth={1.75} />
+        </div>
+        <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">Start the {type}?</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-slate">
+          The timer starts when you continue, and it does not pause.
+        </p>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          <button type="button" onClick={onConfirm} className="btn-primary w-full sm:w-auto">Start</button>
+          <button type="button" onClick={onCancel} className="btn-secondary w-full sm:w-auto">Not yet</button>
         </div>
       </div>
     </div>
@@ -83,56 +62,21 @@ const CALockedModal = ({ isOpen, onClose, courseTitle }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-lg w-full p-8 border-4 border-yellow-400 transform transition-all animate-in fade-in zoom-in duration-300">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full p-2 transition-colors"
-        >
-          <X className="h-6 w-6" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4">
+      <div className="relative w-full max-w-md rounded-3xl border border-line bg-surface p-6 sm:p-8" role="dialog" aria-modal="true">
+        <button type="button" onClick={onClose} className="absolute right-4 top-4 rounded-full p-2 text-slate hover:text-ink" aria-label="Close">
+          <X className="h-4 w-4" strokeWidth={1.75} />
         </button>
-
-        <div className="text-center">
-          <div className="bg-yellow-100 dark:bg-yellow-900/30 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Lock className="h-10 w-10 text-yellow-600 dark:text-yellow-400" />
-          </div>
-
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">
-            CA Already Completed! 🎓
-          </h2>
-          
-          <div className="space-y-4 mb-8">
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              You've already tackled the Continuous Assessment for 
-              <span className="font-bold block mt-1 text-gray-800 dark:text-gray-200">"{courseTitle}"</span>.
-            </p>
-            <p className="text-md text-gray-600 dark:text-gray-400">
-              In TestMancer, CA tests are a <span className="font-bold text-yellow-600 dark:text-yellow-400">one-shot challenge</span> to keep things exciting! 
-            </p>
-          </div>
-
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-8 border border-blue-200 dark:border-blue-800">
-            <p className="text-sm text-blue-800 dark:text-blue-300 font-medium">
-              Ready for the next step? Check your results or prepare for the Final Exam! 🚀
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => navigate('/results')}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-            >
-              <Trophy className="h-5 w-5" />
-              View Results
-            </button>
-            <button
-              onClick={() => navigate('/exam')}
-              className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="h-5 w-5" />
-              To Final Exam
-            </button>
-          </div>
+        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent">
+          <Lock className="h-5 w-5" strokeWidth={1.75} />
+        </div>
+        <h2 className="mt-5 text-lg font-medium tracking-tight text-ink">This CA is already done.</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-slate">
+          {courseTitle} has one continuous assessment. The score is already on your results.
+        </p>
+        <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+          <button type="button" onClick={() => navigate('/results')} className="btn-primary w-full sm:w-auto">View results</button>
+          <button type="button" onClick={() => navigate('/exam')} className="btn-secondary w-full sm:w-auto">Go to exams</button>
         </div>
       </div>
     </div>
@@ -144,21 +88,17 @@ const CAPage = () => {
   const navigate = useNavigate();
   const { user, loadUser } = useAuth();
 
-  // Course selection state
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [loadingCourses, setLoadingCourses] = useState(false);
 
-  // Gem Modal state
   const [showGemModal, setShowGemModal] = useState(false);
   const [pendingCourseId, setPendingCourseId] = useState(null);
   const [isDeductingGems, setIsDeductingGems] = useState(false);
 
-  // Locked Modal state
   const [showLockedModal, setShowLockedModal] = useState(false);
   const [selectedCourseTitle, setSelectedCourseTitle] = useState('');
   const [isCheckingStatus, setIsCheckingStatus] = useState(false);
 
-  // Start confirmation state
   const [showProceedModal, setShowProceedModal] = useState(false);
 
   const [ca, setCa] = useState(null);
@@ -167,22 +107,19 @@ const CAPage = () => {
   const [answers, setAnswers] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState(null);
-  const [loading, setLoading] = useState(false); // Don't show loading initially
+  const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [error, setError] = useState(null);
 
-  // CA time limit (15 minutes = 900 seconds)
   const CA_TIME_LIMIT = 900;
 
-  // Blocker for navigation
   const blocker = useBlocker(
     ({ currentLocation, nextLocation }) =>
       ca && !showResults && !submitting && currentLocation.pathname !== nextLocation.pathname
   );
 
-  // Handle browser back/refresh/close
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       if (ca && !showResults && !submitting) {
@@ -193,31 +130,6 @@ const CAPage = () => {
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [ca, showResults, submitting]);
-
-  // Get course color theme
-  const getCourseTheme = () => {
-    if (!course) return 'teal';
-    const courseCode = course.code || '';
-    if (courseCode.includes('GNS')) return 'teal';
-    if (courseCode.includes('GST')) return 'teal';
-    return 'teal';
-  };
-
-  const theme = getCourseTheme();
-  const themeColors = {
-    teal: {
-      primary: 'teal',
-      bg: 'bg-teal-50 dark:bg-teal-900/10',
-      border: 'border-teal-200 dark:border-teal-800',
-      text: 'text-teal-700 dark:text-teal-300',
-      button: 'bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-500',
-      buttonSecondary: 'bg-teal-100 hover:bg-teal-200 dark:bg-teal-900/30 dark:hover:bg-teal-900/50 text-teal-700 dark:text-teal-300',
-      accent: 'text-teal-600 dark:text-teal-400',
-      progress: 'bg-teal-500 dark:bg-teal-400',
-      selected: 'border-teal-500 bg-teal-50 dark:bg-teal-900/20',
-      icon: 'text-teal-500 dark:text-teal-400'
-    },
-  };
 
   useEffect(() => {
     if (!courseId) {
@@ -231,7 +143,6 @@ const CAPage = () => {
     try {
       setLoadingCourses(true);
       const response = await coursesAPI.getEnrolled();
-      // response is { success: true, count: X, data: [...] }
       setEnrolledCourses(response.data || []);
     } catch (error) {
       console.error('Error loading enrolled courses:', error);
@@ -245,18 +156,17 @@ const CAPage = () => {
     try {
       setIsCheckingStatus(true);
       const caStatus = await caAPI.getStatus(course._id);
-      
+
       if (caStatus.data?.isCompleted) {
         setSelectedCourseTitle(course.title);
         setShowLockedModal(true);
         return;
       }
-      
+
       setPendingCourseId(course._id);
       setShowGemModal(true);
     } catch (error) {
       console.error('Error checking CA status:', error);
-      // Fallback: let the Gem modal show and loadCA will handle it if needed
       setPendingCourseId(course._id);
       setShowGemModal(true);
     } finally {
@@ -268,9 +178,9 @@ const CAPage = () => {
     try {
       setIsDeductingGems(true);
       await usersAPI.deductGems(10, `CA Test for course ${pendingCourseId}`);
-      await loadUser(); // Refresh gems in navbar
+      await loadUser();
       setShowGemModal(false);
-      setShowProceedModal(true); // Show proceed modal instead of navigating
+      setShowProceedModal(true);
     } catch (error) {
       console.error('Error deducting gems:', error);
       alert(error.message || 'Failed to deduct gems. Please try again.');
@@ -290,7 +200,6 @@ const CAPage = () => {
         const elapsed = Math.floor((Date.now() - startTime) / 1000);
         setTimeSpent(elapsed);
 
-        // Auto-submit when time is up
         if (elapsed >= CA_TIME_LIMIT) {
           handleSubmit(true);
         }
@@ -303,18 +212,15 @@ const CAPage = () => {
     try {
       setLoading(true);
       setError(null);
-      setLoadingCourses(false); // Make sure course loading is false
+      setLoadingCourses(false);
 
-      // Load course details
       const courseData = await coursesAPI.getById(courseId);
       setCourse(courseData.data);
 
-      // Load CA questions
       const caData = await caAPI.getByCourse(courseId);
       setCa(caData.data);
       setAnswers(new Array(caData.data.questions.length).fill(null));
       setStartTime(Date.now());
-
     } catch (error) {
       console.error('Error loading CA:', error);
       setError(error.message || 'Failed to load CA. You may have already completed it.');
@@ -351,9 +257,7 @@ const CAPage = () => {
       setResults(resultData);
       setShowResults(true);
 
-      // Reload user data to update stats
       await loadUser();
-
     } catch (error) {
       console.error('Error submitting CA:', error);
       setError('Failed to submit CA. Please try again.');
@@ -364,9 +268,7 @@ const CAPage = () => {
 
   const handleConfirmLeave = async () => {
     if (blocker.state === "blocked") {
-      // First submit the CA
-      await handleSubmit(false, true); // forceSubmit = true
-      // Then proceed with navigation
+      await handleSubmit(false, true);
       blocker.proceed();
     }
   };
@@ -395,102 +297,79 @@ const CAPage = () => {
   };
 
   if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">Loading CA...</p>
-        </div>
-      </div>
-    );
+    return <Spinner />;
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto p-6">
-          <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Unable to Load CA</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">{error}</p>
-          <button
-            onClick={() => navigate('/dashboard')}
-            className="bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600 transition-colors"
-          >
-            Return to Dashboard
-          </button>
-        </div>
+      <div className="mx-auto flex min-h-[50vh] max-w-md flex-col items-center justify-center px-5 text-center">
+        <AlertCircle className="h-8 w-8 text-slate" strokeWidth={1.75} />
+        <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">Unable to load this CA</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-slate">{error}</p>
+        <button type="button" onClick={() => navigate('/dashboard')} className="btn-primary mt-6">Back to dashboard</button>
       </div>
     );
   }
 
   if (showResults && results) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-            <div className="text-center mb-8">
-              <Trophy className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">CA Completed!</h1>
-              <p className="text-gray-600 dark:text-gray-400 mt-2">{course?.title} - Continuous Assessment</p>
+      <div className="bg-canvas pb-20 text-ink">
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <p className="text-sm font-medium text-accent">Continuous assessment</p>
+          <h1 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            CA submitted.
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">{course?.title}</p>
+        </header>
+
+        <section className="mt-12 border-y border-line bg-surface">
+          <dl className="mx-auto grid max-w-6xl grid-cols-3">
+            <div className="px-5 py-8 md:px-8">
+              <dt className="text-sm text-slate">Correct</dt>
+              <dd className="mt-1 text-3xl font-medium tracking-tight text-ink">{results.score}/{results.totalQuestions}</dd>
             </div>
-
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-teal-50 dark:bg-teal-900/20 p-6 rounded-lg text-center">
-                <Target className="h-8 w-8 text-teal-500 dark:text-teal-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-teal-700 dark:text-teal-300">{results.score}/{results.totalQuestions}</div>
-                <div className="text-sm text-teal-600 dark:text-teal-400">Questions Correct</div>
-              </div>
-
-              <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg text-center">
-                <CheckCircle className="h-8 w-8 text-blue-500 dark:text-blue-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">{results.percentage}%</div>
-                <div className="text-sm text-blue-600 dark:text-blue-400">Score</div>
-              </div>
-
-              <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg text-center">
-                <Clock className="h-8 w-8 text-purple-500 dark:text-purple-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-purple-700 dark:text-purple-300">{formatTime(results.timeSpent || timeSpent)}</div>
-                <div className="text-sm text-purple-600 dark:text-purple-400">Time Spent</div>
-              </div>
+            <div className="border-l border-line px-5 py-8 md:px-8">
+              <dt className="text-sm text-slate">Score</dt>
+              <dd className="mt-1 text-3xl font-medium tracking-tight text-ink">{results.percentage}%</dd>
             </div>
-
-            <div className="text-center mb-8">
-              <button
-                onClick={() => navigate('/results')}
-                className="bg-teal-500 text-white px-8 py-3 rounded-lg hover:bg-teal-600 transition-colors font-semibold"
-              >
-                View Full Results
-              </button>
+            <div className="border-l border-line px-5 py-8 md:px-8">
+              <dt className="text-sm text-slate">Time</dt>
+              <dd className="mt-1 text-3xl font-medium tracking-tight text-ink">{formatTime(results.timeSpent || timeSpent)}</dd>
             </div>
+          </dl>
+        </section>
 
-            <div className="border-t dark:border-gray-700 pt-8">
-              <h3 className="text-xl font-semibold dark:text-white mb-4">Question Review</h3>
-              <div className="space-y-4">
-                {results.questions.map((question, index) => (
-                  <div key={index} className="border dark:border-gray-700 rounded-lg p-4">
-                    <div className="flex items-start justify-between mb-2">
-                      <h4 className="font-medium dark:text-gray-200 flex-1">Question {index + 1}</h4>
-                      {question.isCorrect ? (
-                        <CheckCircle className="h-5 w-5 text-green-500 ml-2" />
-                      ) : (
-                        <XCircle className="h-5 w-5 text-red-500 ml-2" />
-                      )}
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 mb-2">{question.question}</p>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      Your answer: {question.userAnswer !== null ? question.options[question.userAnswer] : 'Not answered'}
-                    </div>
-                    {!question.isCorrect && (
-                      <div className="text-sm text-green-600 dark:text-green-400 mt-1">
-                        Correct answer: {question.options[question.correctAnswer]}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
+        <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
+          <button type="button" onClick={() => navigate('/results')} className="btn-primary group">
+            View results
+            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </button>
+
+          <h2 className="mt-12 text-lg font-medium tracking-tight text-ink">Question review</h2>
+          <div className="mt-4 grid gap-3">
+            {results.questions.map((question, index) => (
+              <article key={index} className={`rounded-2xl border p-4 ${question.isCorrect ? 'border-accent bg-accent-soft' : 'border-line bg-surface'}`}>
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-sm font-medium text-ink">Question {index + 1}</h3>
+                  {question.isCorrect ? (
+                    <CheckCircle className="h-4 w-4 shrink-0 text-accent" strokeWidth={1.75} />
+                  ) : (
+                    <XCircle className="h-4 w-4 shrink-0 text-slate" strokeWidth={1.75} />
+                  )}
+                </div>
+                <p className="mt-2 text-[15px] leading-relaxed text-graphite">{question.question}</p>
+                <p className="mt-2 text-sm text-slate">
+                  Your answer: {question.userAnswer !== null ? question.options[question.userAnswer] : 'Not answered'}
+                </p>
+                {!question.isCorrect && (
+                  <p className="mt-1 text-sm font-medium text-accent">
+                    Correct answer: {question.options[question.correctAnswer]}
+                  </p>
+                )}
+              </article>
+            ))}
           </div>
-        </div>
+        </section>
       </div>
     );
   }
@@ -498,159 +377,119 @@ const CAPage = () => {
   const currentQ = ca?.questions?.[currentQuestion];
   const answeredCount = answers.filter(answer => answer !== null).length;
 
-  // Course Selection Interface
   if (!courseId) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="bg-canvas pb-20 text-ink">
         <GemDeductionModal
           isOpen={showGemModal}
           onClose={() => setShowGemModal(false)}
           onConfirm={handleConfirmDeduction}
           amount={10}
           userGems={user?.gems}
-          type="CA Test"
+          type="CA"
           isLoading={isDeductingGems}
         />
         <ProceedModal
           isOpen={showProceedModal}
           onConfirm={handleStartCA}
           onCancel={() => setShowProceedModal(false)}
-          type="CA Test"
+          type="CA"
         />
-        <CALockedModal 
+        <CALockedModal
           isOpen={showLockedModal}
           onClose={() => setShowLockedModal(false)}
           courseTitle={selectedCourseTitle}
         />
-        {/* Header */}
-        <div className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
-          <div className="max-w-4xl mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={() => navigate('/dashboard')}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                >
-                  <ArrowLeft className="h-5 w-5 dark:text-gray-200" />
-                </button>
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Continuous Assessment</h1>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Select a course to take your CA test</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Course Selection */}
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <button type="button" onClick={() => navigate('/dashboard')} className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink">
+            <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+            Dashboard
+          </button>
+          <p className="rise-in mt-6 text-sm font-medium text-accent">Continuous assessment</p>
+          <h1 className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]" style={{ animationDelay: '70ms' }}>
+            Sit the CA for a course.
+          </h1>
+          <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+            30 questions, 15 minutes, once per course. It counts for 30 of the final 100.
+          </p>
+        </header>
+
+        <section className="mx-auto max-w-6xl px-5 pt-12 md:px-8">
           {loadingCourses ? (
-            <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 mx-auto"></div>
-              <p className="mt-4 text-gray-600 dark:text-gray-400">Loading your enrolled courses...</p>
-            </div>
+            <Spinner />
           ) : enrolledCourses.length === 0 ? (
-            <div className="text-center py-12">
-              <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Enrolled Courses</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">You need to enroll in courses to take CA tests.</p>
-              <button
-                onClick={() => navigate('/courses')}
-                className="bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600 transition-colors"
-              >
-                Browse Courses
+            <div className="rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+              <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+              <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">No enrolled courses</h2>
+              <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+                Enroll in a course before you sit its CA.
+              </p>
+              <button type="button" onClick={() => navigate('/courses')} className="btn-primary group mt-6">
+                Browse courses
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </button>
             </div>
           ) : (
-            <div>
-              <div className="mb-6">
-                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Select a Course</h2>
-                <p className="text-gray-600 dark:text-gray-400">Choose the course for which you want to take the Continuous Assessment test.</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {enrolledCourses.map((course) => (
-                  <div
-                    key={course._id}
-                    className={`bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 hover:shadow-md transition-shadow cursor-pointer ${isCheckingStatus ? 'opacity-75 cursor-wait' : ''}`}
-                    onClick={() => !isCheckingStatus && handleCourseSelect(course)}
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{course.title}</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{course.code}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-500">{course.category}</p>
-                      </div>
-                      <div className="ml-4">
-                        <Play className="h-8 w-8 text-teal-500 dark:text-teal-400" />
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">30 Questions • 15 Minutes • Easy & Medium</span>
-                      <button 
-                        className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition-colors text-sm font-medium"
-                        disabled={isCheckingStatus}
-                      >
-                        {isCheckingStatus ? 'Checking...' : 'Start CA'}
-                      </button>
-                    </div>
-                  </div>
+            <>
+              <div className="grid gap-4 md:grid-cols-2">
+                {enrolledCourses.map((item, index) => (
+                  <Reveal key={item._id} as="article" className="flex flex-col rounded-3xl border border-line bg-surface p-6" delay={(index % 2) * 70}>
+                    <h2 className="text-xl font-medium tracking-tight text-ink">{item.code || 'Course'}</h2>
+                    <p className="mt-1 text-base text-graphite">{item.title}</p>
+                    {item.category && <p className="mt-3 text-sm text-slate">{item.category}</p>}
+                    <p className="mt-4 text-sm text-slate">30 questions · 15 minutes · 10 gems</p>
+                    <button
+                      type="button"
+                      onClick={() => handleCourseSelect(item)}
+                      disabled={isCheckingStatus}
+                      className="btn-primary mt-6 w-full disabled:opacity-50"
+                    >
+                      {isCheckingStatus ? 'Checking…' : 'Start CA'}
+                    </button>
+                  </Reveal>
                 ))}
               </div>
-
-              <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-                <div className="flex items-start">
-                  <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mr-3 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-1">About CA Tests</h4>
-                    <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
-                      <li>• 30 questions from all chapters in the course</li>
-                      <li>• Easy and medium difficulty questions</li>
-                      <li>• 15-minute time limit with auto-submission</li>
-                      <li>• Can only be taken once per course</li>
-                      <li>• Contributes 30% to your final grade</li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="mt-8 rounded-3xl border border-line bg-surface p-6">
+                <h2 className="text-lg font-medium tracking-tight text-ink">Before you start</h2>
+                <ul className="mt-3 space-y-2 text-[15px] leading-relaxed text-slate">
+                  <li>Questions come from the chapters in the course.</li>
+                  <li>The paper closes itself when the 15 minutes end.</li>
+                  <li>You can sit it once.</li>
+                </ul>
               </div>
-            </div>
+            </>
           )}
-        </div>
+        </section>
       </div>
     );
   }
 
   if (!ca || !course) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div>
         <GemDeductionModal
           isOpen={showGemModal}
           onClose={() => setShowGemModal(false)}
           onConfirm={handleConfirmDeduction}
           amount={10}
           userGems={user?.gems}
-          type="CA Test"
+          type="CA"
           isLoading={isDeductingGems}
         />
         <ProceedModal
           isOpen={showProceedModal}
           onConfirm={handleStartCA}
           onCancel={() => setShowProceedModal(false)}
-          type="CA Test"
+          type="CA"
         />
-        <div className="text-center max-w-md mx-auto p-6">
-          <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Unable to Load CA</h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
-            {!ca ? 'CA data could not be loaded.' : 'Course information is missing.'}
+        <div className="mx-auto flex min-h-[50vh] max-w-md flex-col items-center justify-center px-5 text-center">
+          <AlertCircle className="h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">Unable to load this CA</h2>
+          <p className="mt-2 text-[15px] leading-relaxed text-slate">
+            {!ca ? 'The questions did not load.' : 'The course is missing.'}
           </p>
-          <button
-            onClick={() => navigate('/ca')}
-            className="bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600 transition-colors"
-          >
-            Return to CA Selection
-          </button>
+          <button type="button" onClick={() => navigate('/ca')} className="btn-primary mt-6">Back to CA</button>
         </div>
       </div>
     );
@@ -658,36 +497,26 @@ const CAPage = () => {
 
   if (!ca.questions || ca.questions.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto p-6">
-          <AlertCircle className="h-16 w-16 text-yellow-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">No CA Questions Available</h2>
-          <div className="text-gray-600 dark:text-gray-400 mb-6">
-            There are no questions available for this course's CA test. This may be because:
-            <ul className="text-left mt-4 space-y-2 text-sm">
-              <li>• No quizzes have been created for this course yet</li>
-              <li>• The quizzes don't have easy or medium difficulty questions</li>
-              <li>• The course content is still being set up</li>
-            </ul>
-          </div>
-          <button
-            onClick={() => navigate('/ca')}
-            className="bg-teal-500 text-white px-6 py-2 rounded-lg hover:bg-teal-600 transition-colors"
-          >
-            Return to CA Selection
-          </button>
-        </div>
+      <div className="mx-auto flex min-h-[50vh] max-w-md flex-col items-center justify-center px-5 text-center">
+        <AlertCircle className="h-8 w-8 text-slate" strokeWidth={1.75} />
+        <h2 className="mt-4 text-lg font-medium tracking-tight text-ink">No CA questions yet</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-slate">
+          This course does not have easy or medium questions for a continuous assessment yet.
+        </p>
+        <button type="button" onClick={() => navigate('/ca')} className="btn-primary mt-6">Back to CA</button>
       </div>
     );
   }
 
+  const remaining = getTimeRemaining();
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="bg-canvas pb-16 text-ink">
       <ConfirmLeaveModal
         isOpen={blocker.state === "blocked"}
         onConfirm={handleConfirmLeave}
         onCancel={handleCancelLeave}
-        type="CA Test"
+        type="CA"
       />
       <GemDeductionModal
         isOpen={showGemModal}
@@ -695,70 +524,52 @@ const CAPage = () => {
         onConfirm={handleConfirmDeduction}
         amount={10}
         userGems={user?.gems}
-        type="CA Test"
+        type="CA"
       />
-      {/* Header */}
-      <div className={`bg-white dark:bg-gray-800 shadow-sm border-b ${themeColors[theme].border}`}>
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => navigate('/ca')}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5 dark:text-gray-200" />
+
+      <div className="border-b border-line bg-surface">
+        <div className="mx-auto max-w-3xl px-5 py-4 md:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <button type="button" onClick={() => navigate('/ca')} className="rounded-full p-2 text-graphite hover:text-ink" aria-label="Back to CA">
+                <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
               </button>
               <div>
-                <h1 className="text-xl font-semibold text-gray-900 dark:text-white">{course.title}</h1>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Continuous Assessment (30 Questions)</p>
+                <p className="text-sm font-medium text-ink">{course.title}</p>
+                <p className="text-sm text-slate">Continuous assessment</p>
               </div>
             </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="text-right">
-                <div className="text-sm text-gray-600 dark:text-gray-400">Time Remaining</div>
-                <div className={`font-mono text-lg font-bold ${getTimeRemaining() < 60 ? 'text-red-500 dark:text-red-400' : 'text-gray-900 dark:text-white'}`}>
-                  {formatTime(getTimeRemaining())}
-                </div>
+            <div className="flex items-center gap-6">
+              <div>
+                <p className="text-sm text-slate">Time left</p>
+                <p className={`font-medium tabular-nums ${remaining < 60 ? 'text-accent' : 'text-ink'}`}>{formatTime(remaining)}</p>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-gray-600 dark:text-gray-400">Progress</div>
-                <div className="font-semibold text-gray-900 dark:text-white">{answeredCount}/{ca.questions.length}</div>
+              <div>
+                <p className="text-sm text-slate">Answered</p>
+                <p className="font-medium text-ink">{answeredCount}/{ca.questions.length}</p>
               </div>
             </div>
           </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4">
-            <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
-              <span>Progress</span>
-              <span>{getProgressPercentage()}%</span>
-            </div>
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-              <div
-                className={`h-2 rounded-full ${themeColors[theme].progress} transition-all duration-300`}
-                style={{ width: `${getProgressPercentage()}%` }}
-              ></div>
-            </div>
+          <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-canvas">
+            <div className="h-full rounded-full bg-accent-fill" style={{ width: `${getProgressPercentage()}%` }} />
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-          {/* Question Navigation */}
-          <div className="flex flex-wrap gap-2 mb-6">
+      <div className="mx-auto max-w-3xl px-5 py-8 md:px-8">
+        <div className="rounded-3xl border border-line bg-surface p-5 sm:p-8">
+          <div className="flex flex-wrap gap-2">
             {ca.questions.map((_, index) => (
               <button
                 key={index}
+                type="button"
                 onClick={() => setCurrentQuestion(index)}
-                className={`w-8 h-8 rounded-full text-sm font-medium transition-colors ${
+                className={`h-8 w-8 rounded-full text-sm font-medium ${
                   index === currentQuestion
-                    ? `${themeColors[theme].button} text-white`
+                    ? 'bg-accent-fill text-on-accent'
                     : answers[index] !== null
-                    ? 'bg-green-500 text-white'
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                    ? 'bg-accent-soft text-accent'
+                    : 'border border-line text-slate hover:text-ink'
                 }`}
               >
                 {index + 1}
@@ -766,88 +577,69 @@ const CAPage = () => {
             ))}
           </div>
 
-          {/* Current Question */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Question {currentQuestion + 1} of {ca.questions.length}
-              </h2>
-              {currentQ && (
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                  currentQ.difficulty === 'easy' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200' :
-                  currentQ.difficulty === 'medium' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200' :
-                  'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200'
-                }`}>
-                  {currentQ.difficulty}
-                </span>
-              )}
-            </div>
-
-            {currentQ ? (
-              <>
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">{currentQ.question}</p>
-
-                <div className="space-y-3">
-                  {currentQ.options.map((option, optionIndex) => (
-                <button
-                  key={optionIndex}
-                  onClick={() => handleAnswerSelect(currentQuestion, optionIndex)}
-                  className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
-                    answers[currentQuestion] === optionIndex
-                      ? `${themeColors[theme].selected} ${themeColors[theme].border}`
-                      : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
-                  }`}
-                >
-                  <div className="flex items-center">
-                    <div className={`w-6 h-6 rounded-full border-2 mr-3 flex items-center justify-center ${
-                      answers[currentQuestion] === optionIndex
-                        ? `border-teal-500 bg-teal-500`
-                        : 'border-gray-300 dark:border-gray-500'
-                    }`}>
-                      {answers[currentQuestion] === optionIndex && (
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                      )}
-                    </div>
-                    <span className="text-gray-700 dark:text-gray-300">{option}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-              </>
-            ) : (
-              <div className="text-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 mx-auto"></div>
-                <p className="mt-4 text-gray-600 dark:text-gray-400">Loading question...</p>
-              </div>
+          <div className="mt-8 flex items-center justify-between gap-3">
+            <h2 className="text-lg font-medium tracking-tight text-ink">
+              Question {currentQuestion + 1} of {ca.questions.length}
+            </h2>
+            {currentQ?.difficulty && (
+              <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium capitalize text-accent">
+                {currentQ.difficulty}
+              </span>
             )}
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center">
+          {currentQ ? (
+            <>
+              <p className="mt-4 text-lg leading-relaxed text-graphite">{currentQ.question}</p>
+              <div className="mt-6 space-y-3">
+                {currentQ.options.map((option, optionIndex) => {
+                  const selected = answers[currentQuestion] === optionIndex;
+                  return (
+                    <button
+                      key={optionIndex}
+                      type="button"
+                      onClick={() => handleAnswerSelect(currentQuestion, optionIndex)}
+                      className={`flex w-full items-center gap-3 rounded-2xl border p-4 text-left text-[15px] leading-relaxed transition-colors ${
+                        selected ? 'border-accent bg-accent-soft text-ink' : 'border-line text-graphite hover:bg-canvas'
+                      }`}
+                    >
+                      <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${selected ? 'border-accent-fill bg-accent-fill' : 'border-line'}`}>
+                        {selected && <span className="h-2 w-2 rounded-full bg-on-accent" />}
+                      </span>
+                      {option}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <Spinner />
+          )}
+
+          <div className="mt-8 flex flex-col-reverse gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
             <button
+              type="button"
               onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
               disabled={currentQuestion === 0}
-              className="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-gray-700 dark:text-gray-300"
+              className="btn-secondary w-full disabled:opacity-50 sm:w-auto"
             >
               Previous
             </button>
-
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              {answeredCount} of {ca.questions.length} answered
-            </div>
-
+            <p className="text-center text-sm text-slate">{answeredCount} of {ca.questions.length} answered</p>
             {currentQuestion === ca.questions.length - 1 ? (
               <button
-                onClick={handleSubmit}
+                type="button"
+                onClick={() => handleSubmit()}
                 disabled={submitting || answeredCount === 0}
-                className={`px-8 py-2 ${themeColors[theme].button} text-white rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold`}
+                className="btn-primary w-full disabled:opacity-50 sm:w-auto"
               >
-                {submitting ? 'Submitting...' : 'Submit CA'}
+                {submitting ? 'Submitting…' : 'Submit CA'}
               </button>
             ) : (
               <button
+                type="button"
                 onClick={() => setCurrentQuestion(Math.min(ca.questions.length - 1, currentQuestion + 1))}
-                className={`px-6 py-2 ${themeColors[theme].button} text-white rounded-lg hover:opacity-90 transition-colors`}
+                className="btn-primary w-full sm:w-auto"
               >
                 Next
               </button>

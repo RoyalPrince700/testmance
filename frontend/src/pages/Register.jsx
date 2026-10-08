@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { GraduationCap } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
+import testmancerLogo from '../assets/testmancer-logo.png';
 
 const Register = () => {
   const { googleLogin, clearError } = useAuth();
   const location = useLocation();
+  const notice = location.state?.message;
 
   useEffect(() => {
     return () => {
@@ -15,40 +16,45 @@ const Register = () => {
   }, [clearError]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="max-w-md w-full space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <div className="flex justify-center">
-            <GraduationCap className="h-12 w-12 text-purple-600" />
-          </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Join TestMancer
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Sign up with Google to start your learning journey
+    <div className="flex min-h-[calc(100vh-3.5rem)] items-center px-5 py-16 md:min-h-[calc(100vh-4rem)] md:px-8">
+      <div className="mx-auto w-full max-w-md">
+        <img src={testmancerLogo} alt="" className="h-8 w-auto" />
+        <p className="rise-in mt-8 text-sm font-medium text-accent">Sign up</p>
+        <h1
+          className="rise-in mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]"
+          style={{ animationDelay: '70ms' }}
+        >
+          Sign up with Google.
+        </h1>
+        <p className="rise-in mt-4 text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+          Create an account to open courses, quizzes, and gems.
+        </p>
+
+        {notice && (
+          <p className="rise-in mt-6 rounded-2xl bg-accent-soft px-4 py-3 text-sm text-accent" style={{ animationDelay: '180ms' }}>
+            {notice}
           </p>
-          {location.state?.message && (
-            <p className="mt-2 text-sm text-purple-600 font-medium">
-              {location.state.message}
-            </p>
-          )}
-        </div>
+        )}
 
-        {/* Google Sign In */}
-        <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm card-hover">
-          <button
-            onClick={googleLogin}
-            className="w-full bg-white border border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors flex items-center justify-center gap-3"
-          >
-            <FcGoogle className="h-5 w-5" />
-            Continue with Google
-          </button>
-
-          <div className="mt-4 text-center text-sm text-gray-600">
-            Create your account to start learning
-          </div>
-        </div>
+        <button
+          type="button"
+          onClick={googleLogin}
+          className="btn-secondary rise-in mt-8 h-12 w-full text-base"
+          style={{ animationDelay: '210ms' }}
+        >
+          <FcGoogle className="h-5 w-5" />
+          Sign up with Google
+        </button>
+        <p className="rise-in mt-4 text-sm leading-relaxed text-slate" style={{ animationDelay: '280ms' }}>
+          Already have an account?{' '}
+          <Link to="/login" className="font-medium text-accent">Sign in</Link>
+        </p>
+        <p className="rise-in mt-3 text-sm leading-relaxed text-slate" style={{ animationDelay: '320ms' }}>
+          By continuing, you agree to the{' '}
+          <Link to="/terms" className="font-medium text-accent">Terms</Link>
+          {' '}and the{' '}
+          <Link to="/privacy" className="font-medium text-accent">Privacy policy</Link>.
+        </p>
       </div>
     </div>
   );

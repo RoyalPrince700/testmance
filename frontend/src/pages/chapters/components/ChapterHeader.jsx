@@ -1,73 +1,54 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Clock, CheckCircle, ChevronUp } from 'lucide-react';
+import { coursePath } from '../../../utils/slugs';
 
 const ChapterHeader = ({ chapter, course, completed, onScrollTop }) => {
   return (
-    <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg p-4 md:p-8 mb-6">
-      {/* Back Button - Mobile: Top, Desktop: Inline */}
-      <div className="mb-4 md:mb-0 md:hidden">
+    <header className="mb-8">
+      <div className="flex items-center justify-between gap-4">
         <Link
-          to={course ? `/courses/${course._id}` : "/dashboard"}
-          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors w-full py-2"
+          to={course ? coursePath(course) : '/dashboard'}
+          className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink"
         >
-          <ArrowLeft className="h-5 w-5" />
-          <span className="font-medium">Back</span>
+          <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+          Back
         </Link>
-      </div>
-
-      <div className="flex items-start justify-between">
-        <div className="flex items-start space-x-4 flex-1">
-          {/* Back Button - Desktop Only */}
-          <Link
-            to={course ? `/courses/${course._id}` : "/dashboard"}
-            className="hidden md:flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex-shrink-0"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            <span>Back</span>
-          </Link>
-
-          {/* Chapter Info */}
-          <div className="flex-1 min-w-0">
-            {course && (
-              <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                {course.code} - {course.title}
-              </div>
-            )}
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">{chapter.title}</h1>
-            {chapter.description && (
-              <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg mb-4">{chapter.description}</p>
-            )}
-
-            {/* Meta Information */}
-            <div className="flex flex-wrap items-center gap-4 md:space-x-6 mb-3">
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                  {chapter.estimatedTime || 30} min read
-                </span>
-              </div>
-              {completed && (
-                <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-                  <CheckCircle className="h-4 w-4" />
-                  <span className="text-sm font-medium">Completed</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll to Top Button */}
         <button
+          type="button"
           onClick={onScrollTop}
-          className="hidden md:flex w-12 h-12 bg-teal-500 hover:bg-teal-600 rounded-full items-center justify-center text-white transition-colors flex-shrink-0 ml-4"
+          className="btn-secondary h-10 w-10 px-0"
           aria-label="Scroll to top"
         >
-          <ChevronUp className="h-6 w-6" />
+          <ChevronUp className="h-4 w-4" strokeWidth={1.75} />
         </button>
       </div>
-    </div>
+
+      {course && (
+        <p className="mt-8 text-sm font-medium text-accent">
+          {course.code}{chapter.order ? ` · Chapter ${chapter.order}` : ''}
+        </p>
+      )}
+      <h1 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+        {chapter.title}
+      </h1>
+      {chapter.description && (
+        <p className="mt-4 text-lg leading-relaxed text-graphite">{chapter.description}</p>
+      )}
+
+      <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+        <span className="inline-flex items-center gap-2 text-slate">
+          <Clock className="h-4 w-4" strokeWidth={1.75} />
+          {chapter.estimatedTime || 30} min read
+        </span>
+        {completed && (
+          <span className="inline-flex items-center gap-2 font-medium text-accent">
+            <CheckCircle className="h-4 w-4" strokeWidth={1.75} />
+            Completed
+          </span>
+        )}
+      </div>
+    </header>
   );
 };
 
 export default ChapterHeader;
-

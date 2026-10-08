@@ -1,247 +1,248 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { coursesAPI, quizzesAPI } from '../../utils/api';
-import { BookOpen, ArrowRight, Target, Pencil, BarChart3, ChevronUp, CheckCircle } from 'lucide-react';
-import { getQuizContent } from './content';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import { coursesAPI, getPublishedCourses, quizzesAPI } from '../../utils/api';
+import { courseSlug, isObjectId, quizCoursePath, quizPath } from '../../utils/slugs';
+import { BookOpen, ArrowRight, ArrowLeft, Target, CheckCircle } from 'lucide-react';
+import { chapterHasQuiz } from './quizAvailability';
 
 const QuizCourseDetail = () => {
-  const { id } = useParams();
+  const { courseSlug: slug } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [course, setCourse] = useState(null);
-  const [chapters, setChapters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [chaptersLoading, setChaptersLoading] = useState(true);
   const [isEnrolled, setIsEnrolled] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(true);
   const [quizAttempts, setQuizAttempts] = useState({});
+  const [attemptsReady, setAttemptsReady] = useState(false);
   const [chaptersWithQuizzes, setChaptersWithQuizzes] = useState([]);
 
   useEffect(() => {
+    if (course && (courseSlug(course) === slug || course._id === slug)) {
+      const pretty = quizCoursePath(course);
+      if (location.pathname !== pretty) navigate(pretty, { replace: true });
+      return;
+    }
+
+    let cancelled = false;
+
     const loadCourseData = async () => {
       try {
+        setLoading(true);
+        setAttemptsReady(false);
+        setQuizAttempts({});
+
+        let courseId = slug;
+        if (!isObjectId(slug)) {
+          const courses = await getPublishedCourses();
+          const match = courses.find((item) => courseSlug(item) === slug);
+          if (!match) {
+            if (!cancelled) setCourse(null);
+            return;
+          }
+          courseId = match._id;
+        }
+
         const [courseResponse, chaptersResponse, enrolledResponse] = await Promise.all([
-          coursesAPI.getById(id),
-          coursesAPI.getChapters(id),
+          coursesAPI.getById(courseId),
+          coursesAPI.getChapters(courseId),
           coursesAPI.getEnrolled().catch(() => ({ data: [] }))
         ]);
 
+        if (cancelled) return;
+
         const courseData = courseResponse.data;
-        setCourse(courseData);
-        const chaptersData = chaptersResponse.data;
-        setChapters(chaptersData);
-
-        // Filter chapters that have quizzes in frontend content
-        const filteredChapters = [];
-        for (const chapter of chaptersData) {
-          const quizContent = await getQuizContent(chapter.title, chapter.order, courseData?.code);
-          if (quizContent !== null) {
-            filteredChapters.push(chapter);
-          }
-        }
-        setChaptersWithQuizzes(filteredChapters);
-
-        // Load quiz attempts for chapters that have quizzes
-        await loadQuizAttempts(filteredChapters, courseData);
-
-        // Check if user is enrolled in this course
+        const chaptersData = chaptersResponse.data || [];
+        const filteredChapters = chaptersData.filter((chapter) => chapterHasQuiz(courseData.code, chapter.order));
         const enrolledCourses = enrolledResponse.data || [];
-        const enrolled = enrolledCourses.some(c => c._id === id || c._id === courseData._id);
-        setIsEnrolled(enrolled);
 
-        // Load quiz attempts for chapters with quizzes
-        if (enrolled) {
-          await loadQuizAttempts(chaptersResponse.data, courseData);
-        }
+        setCourse(courseData);
+        setChaptersWithQuizzes(filteredChapters);
+        setIsEnrolled(enrolledCourses.some((item) => item._id === courseId || item._id === courseData._id));
       } catch (error) {
         console.error('Failed to load course data:', error);
+        if (!cancelled) setCourse(null);
       } finally {
-        setLoading(false);
-        setChaptersLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+          setChaptersLoading(false);
+        }
       }
     };
 
     loadCourseData();
-  }, [id]);
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, course, location.pathname, navigate]);
 
-  const loadQuizAttempts = async (chaptersData, courseData) => {
-    const completions = {};
+  useEffect(() => {
+    if (!course) return;
 
-    for (const chapter of chaptersData) {
-      const quizContent = await getQuizContent(chapter.title, chapter.order, courseData?.code);
-      if (quizContent) {
-        try {
-          // Try to get quiz results by chapter ID
-          const resultsResponse = await quizzesAPI.getResultsByChapter(chapter._id);
-          if (resultsResponse.data && resultsResponse.data.attempts > 0) {
-            // Check if quiz has been attempted (any attempts)
-            completions[chapter._id] = true;
-          }
-        } catch (error) {
-          // Quiz not attempted or error - leave as false
-        }
-      }
+    if (!isEnrolled || chaptersWithQuizzes.length === 0) {
+      setAttemptsReady(true);
+      return;
     }
 
-    setQuizAttempts(completions);
-  };
+    let cancelled = false;
+    setAttemptsReady(false);
+
+    const loadAttempts = async () => {
+      const results = await Promise.all(chaptersWithQuizzes.map(async (chapter) => {
+        try {
+          const response = await quizzesAPI.getResultsByChapter(chapter._id);
+          return response.data?.attempts > 0 ? chapter._id : null;
+        } catch (error) {
+          return null;
+        }
+      }));
+
+      if (cancelled) return;
+
+      const completions = {};
+      results.forEach((id) => {
+        if (id) completions[id] = true;
+      });
+      setQuizAttempts(completions);
+      setAttemptsReady(true);
+    };
+
+    loadAttempts();
+    return () => {
+      cancelled = true;
+    };
+  }, [course, isEnrolled, chaptersWithQuizzes]);
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-96 bg-gray-50 dark:bg-gray-900">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500 dark:border-teal-400"></div>
+      <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
       </div>
     );
   }
 
   if (!course) {
     return (
-      <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course not found</h3>
-        <p className="text-gray-600 dark:text-gray-400">The course you're looking for doesn't exist.</p>
-        <Link
-          to="/quiz-hub"
-          className="inline-block mt-4 px-6 py-2 bg-teal-500 hover:bg-teal-600 dark:bg-teal-600 dark:hover:bg-teal-700 rounded-lg text-white transition-colors"
-        >
-          Back to Quiz Hub
-        </Link>
+      <div className="mx-auto max-w-6xl px-5 py-16 text-center md:px-8">
+        <div className="rounded-3xl border border-line bg-surface px-6 py-16">
+          <BookOpen className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+          <h1 className="mt-4 text-lg font-medium tracking-tight text-ink">Course not found</h1>
+          <p className="mt-2 text-[15px] leading-relaxed text-slate">This course is not on the quiz hub.</p>
+          <Link to="/quiz-hub" className="btn-primary mt-6">Back to quiz hub</Link>
+        </div>
       </div>
     );
   }
 
   if (!isEnrolled && !loading) {
     return (
-      <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl p-8">
-        <BookOpen className="h-16 w-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Course Not Enrolled</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">You need to enroll in this course to access its quizzes.</p>
-        <div className="flex gap-4 justify-center">
-          <Link
-            to="/quiz-hub"
-            className="inline-block px-6 py-2 bg-gray-500 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 rounded-lg text-white transition-colors"
-          >
-            Back to Quiz Hub
+      <div className="bg-canvas pb-20 text-ink">
+        <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+          <Link to="/quiz-hub" className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink">
+            <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+            Quiz hub
           </Link>
-          <Link
-            to="/courses"
-            className="inline-block px-6 py-2 bg-purple-600 hover:bg-purple-700 dark:bg-purple-600 dark:hover:bg-purple-700 rounded-lg text-white transition-colors"
-          >
-            Browse Courses
-          </Link>
-        </div>
+          <p className="mt-8 text-sm font-medium text-accent">{course.code || 'Course'}</p>
+          <h1 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            {course.title}
+          </h1>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-graphite">
+            Enroll in this course before taking its quizzes.
+          </p>
+          <div className="mt-8 flex flex-col gap-2 sm:flex-row">
+            <Link to="/courses" className="btn-primary">Browse courses</Link>
+            <Link to="/quiz-hub" className="btn-secondary">Back to quiz hub</Link>
+          </div>
+        </header>
       </div>
     );
   }
 
+  const attemptedCount = chaptersWithQuizzes.filter((chapter) => quizAttempts[chapter._id]).length;
+
   return (
-    <div className="max-w-5xl mx-auto">
-      {/* Main Course Card */}
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-6">
-        {/* Course Header */}
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex items-start gap-4 flex-1">
-            {/* Teal Icon */}
-            <div className="hidden md:block bg-teal-500 p-3 rounded-lg shrink-0">
-              <Target className="h-6 w-6 text-white" />
-            </div>
-            
-            {/* Course Info */}
-            <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{course.title}</h1>
-              <p className="text-gray-600 dark:text-gray-400 text-lg mb-4">{course.description || 'Test your knowledge with chapter quizzes'}</p>
-              
-              {/* Progress Indicators */}
-              <div className="flex items-center space-x-6 mb-3">
-                <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {chaptersWithQuizzes.length} quiz{chaptersWithQuizzes.length !== 1 ? 'es' : ''} available
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <BarChart3 className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {chapters.length} total chapters
-                  </span>
-                </div>
-              </div>
-            </div>
+    <div className="bg-canvas pb-20 text-ink">
+      <header className="mx-auto max-w-6xl px-5 pt-10 md:px-8 md:pt-16">
+        <Link to="/quiz-hub" className="inline-flex items-center gap-2 text-sm font-medium text-graphite hover:text-ink">
+          <ArrowLeft className="h-4 w-4" strokeWidth={1.75} />
+          Quiz hub
+        </Link>
+        <p className="rise-in mt-8 text-sm font-medium text-accent">{course.code || 'Course'}</p>
+        <h1 className="rise-in mt-3 max-w-2xl text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]" style={{ animationDelay: '70ms' }}>
+          {course.title}
+        </h1>
+        {course.description && (
+          <p className="rise-in mt-4 max-w-xl text-lg leading-relaxed text-graphite" style={{ animationDelay: '140ms' }}>
+            {course.description}
+          </p>
+        )}
+      </header>
+
+      <section className="mt-12 border-y border-line bg-surface" aria-label="Quiz progress">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2">
+          <div className="px-5 py-8 md:px-8">
+            <dt className="text-sm text-slate">Quizzes</dt>
+            <dd className="mt-1 text-3xl font-medium tracking-tight text-ink md:text-4xl">{chaptersWithQuizzes.length}</dd>
           </div>
-          
-          {/* Circular Button */}
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="w-12 h-12 bg-teal-500 hover:bg-teal-600 rounded-full flex items-center justify-center text-white transition-colors shrink-0 ml-4"
-          >
-            <ChevronUp className={`h-6 w-6 transition-transform duration-300 ${isExpanded ? '' : 'rotate-180'}`} />
-          </button>
-        </div>
+          <div className="border-l border-line px-5 py-8 md:px-8">
+            <dt className="text-sm text-slate">Attempted</dt>
+            <dd className="mt-1 text-3xl font-medium tracking-tight text-accent md:text-4xl">
+              {attemptsReady ? attemptedCount : '…'}<span className="text-slate">/{chaptersWithQuizzes.length}</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-        {/* Modules Section */}
-        {isExpanded && (
-          <div className="mt-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                Available Quizzes ({chaptersWithQuizzes.length})
-              </h2>
-            </div>
+      <section className="mx-auto max-w-6xl px-5 pt-16 md:px-8 md:pt-20">
+        <p className="text-sm font-medium text-accent">Chapters</p>
+        <h2 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+          Take a chapter quiz
+        </h2>
 
-            {chaptersLoading ? (
-              <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500 dark:border-teal-400"></div>
-              </div>
-            ) : chaptersWithQuizzes.length === 0 ? (
-              <div className="text-center py-12">
-                <Target className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <p className="text-gray-600 dark:text-gray-400">No quizzes available for this course yet.</p>
-              </div>
-            ) : (
-              <div className="space-y-2 max-h-96 overflow-y-auto pr-2">
-                {chaptersWithQuizzes.map((chapter) => {
-                  const hasBeenAttempted = quizAttempts[chapter._id];
-                  return (
-                    <Link
-                      key={chapter._id}
-                      to={`/quizzes/${chapter._id}`}
-                      className="flex items-center justify-between bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-lg p-4 transition-colors border border-gray-200 dark:border-gray-600 hover:border-teal-300 dark:hover:border-teal-500 group"
-                    >
-                      <div className="flex items-center space-x-4 flex-1 min-w-0">
-                        {/* Quiz Icon or Attempt Checkmark */}
-                        <div className={`hidden lg:flex shrink-0 w-6 h-6 rounded-full items-center justify-center ${
-                          hasBeenAttempted ? 'bg-green-500' : 'bg-teal-500'
-                        }`}>
-                          {hasBeenAttempted ? (
-                            <CheckCircle className="h-4 w-4 text-white fill-current" />
-                          ) : (
-                            <Target className="h-4 w-4 text-white fill-current" />
-                          )}
-                        </div>
-
-                        {/* Chapter Title */}
-                        <span className={`font-medium flex-1 truncate ${
-                          hasBeenAttempted ? 'text-gray-600 dark:text-gray-400' : 'text-gray-900 dark:text-white'
-                        }`}>
-                          {chapter.title}
-                          {hasBeenAttempted && (
-                            <span className="ml-2 text-green-600 dark:text-green-400 text-sm font-normal">
-                              (Attempted)
-                            </span>
-                          )}
-                        </span>
-                      </div>
-
-                      {/* Quiz Link */}
-                      <div className="flex items-center space-x-1 text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 font-medium ml-4 shrink-0">
-                        <span>{hasBeenAttempted ? 'Retake Quiz' : 'Take Quiz'}</span>
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
+        {chaptersLoading ? (
+          <div className="flex items-center justify-center py-16">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-line border-t-accent" />
+          </div>
+        ) : chaptersWithQuizzes.length === 0 ? (
+          <div className="mt-12 rounded-3xl border border-line bg-surface px-6 py-16 text-center">
+            <Target className="mx-auto h-8 w-8 text-slate" strokeWidth={1.75} />
+            <h3 className="mt-4 text-lg font-medium tracking-tight text-ink">No quizzes yet</h3>
+            <p className="mx-auto mt-2 max-w-sm text-[15px] leading-relaxed text-slate">
+              This course does not have chapter quizzes yet.
+            </p>
+          </div>
+        ) : (
+          <div className="mt-10 overflow-hidden rounded-3xl border border-line bg-surface">
+            {chaptersWithQuizzes.map((chapter, index) => {
+              const hasBeenAttempted = quizAttempts[chapter._id];
+              return (
+                <Link
+                  key={chapter._id}
+                  to={quizPath(course, chapter, chaptersWithQuizzes)}
+                  className={`group flex items-center justify-between gap-4 px-5 py-4 md:px-6 ${
+                    index < chaptersWithQuizzes.length - 1 ? 'border-b border-line' : ''
+                  } hover:bg-canvas`}
+                >
+                  <span className="flex min-w-0 items-center gap-3">
+                    {attemptsReady && hasBeenAttempted ? (
+                      <CheckCircle className="h-4 w-4 shrink-0 text-accent" strokeWidth={1.75} />
+                    ) : (
+                      <span className="h-4 w-4 shrink-0 rounded-full border border-line" />
+                    )}
+                    <span className="truncate text-sm font-medium text-ink">
+                      {chapter.order ? `${chapter.order}. ` : ''}{chapter.title}
+                    </span>
+                  </span>
+                  <span className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent">
+                    {attemptsReady ? (hasBeenAttempted ? 'Retake' : 'Start') : 'Open'}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={1.75} />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         )}
-      </div>
+      </section>
     </div>
   );
 };

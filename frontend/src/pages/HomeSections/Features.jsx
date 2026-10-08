@@ -1,74 +1,59 @@
-import React from 'react';
 import { Brain, Trophy, BarChart3, Users, Zap, Award } from 'lucide-react';
+import Reveal from '../../components/Reveal';
 
-const FeatureCard = ({ icon: Icon, title, description, color }) => (
-  <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300">
-    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${color}`}>
-      <Icon className="w-7 h-7 text-white" />
-    </div>
-    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{title}</h3>
-    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-      {description}
-    </p>
-  </div>
-);
+const features = [
+  {
+    icon: Brain,
+    title: 'Adaptive quizzes',
+    description: 'Questions get harder as you improve, so each session stays at the edge of what you know.',
+  },
+  {
+    icon: Trophy,
+    title: 'Gems and streaks',
+    description: 'Finish a quiz, keep a streak, and climb the board. The work shows up as progress you can see.',
+  },
+  {
+    icon: BarChart3,
+    title: 'A clear score',
+    description: 'See the topics you hold and the ones that still slip, before CA or the final exam.',
+  },
+  {
+    icon: Users,
+    title: 'A class to compete with',
+    description: 'Leaderboards turn private study into a shared score. You can see who is moving.',
+  },
+  {
+    icon: Zap,
+    title: 'Answers, explained',
+    description: 'Every miss comes with a reason. You correct it in the same sitting, not the night before the paper.',
+  },
+  {
+    icon: Award,
+    title: 'Course mastery',
+    description: 'Finish the course path and leave with a record of what you actually completed.',
+  },
+];
 
 const Features = () => {
-  const features = [
-    {
-      icon: Brain,
-      title: "Smart Adaptive Quizzes",
-      description: "Our AI-powered engine adjusts question difficulty based on your performance, ensuring you're always challenged just right.",
-      color: "bg-blue-500"
-    },
-    {
-      icon: Trophy,
-      title: "Gamified Progression",
-      description: "Earn gems, unlock badges, and maintain streaks. Turning study sessions into a rewarding adventure.",
-      color: "bg-purple-500"
-    },
-    {
-      icon: BarChart3,
-      title: "Detailed Analytics",
-      description: "Visualize your learning journey with deep insights into your strengths and areas for improvement.",
-      color: "bg-teal-500"
-    },
-    {
-      icon: Users,
-      title: "Community & Competition",
-      description: "Join leaderboards and compete with peers. Learning is more fun when we grow together.",
-      color: "bg-orange-500"
-    },
-    {
-      icon: Zap,
-      title: "Instant Feedback",
-      description: "Get immediate explanations for every answer. Learn from mistakes in real-time to master concepts faster.",
-      color: "bg-yellow-500"
-    },
-    {
-      icon: Award,
-      title: "Mastery Certificates",
-      description: "Complete courses and earn verifiable certificates to showcase your academic achievements.",
-      color: "bg-pink-500"
-    }
-  ];
-
   return (
-    <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Why TestMancer?</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            Everything You Need to Excel
-          </h3>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            We combine proven learning techniques with game design to help you study smarter, not harder.
-          </p>
-        </div>
+    <section className="py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal className="max-w-2xl">
+          <p className="text-sm font-medium text-accent">Why TestMancer</p>
+          <h2 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            Everything between the first quiz and the exam.
+          </h2>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+        <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map(({ icon: Icon, title, description }, index) => (
+            <Reveal key={title} as="article" className="group" delay={index * 70}>
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-accent-soft text-accent transition-transform duration-200 group-hover:-translate-y-1">
+                <Icon className="h-5 w-5" strokeWidth={1.75} />
+              </div>
+              <h3 className="mt-5 text-lg font-medium tracking-tight text-ink">{title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-slate">{description}</p>
+            </Reveal>
           ))}
         </div>
       </div>

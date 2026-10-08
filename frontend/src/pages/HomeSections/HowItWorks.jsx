@@ -1,65 +1,84 @@
-import React from 'react';
-import { UserPlus, Search, PlayCircle, TrendingUp } from 'lucide-react';
+import { useState } from 'react';
+import Reveal from '../../components/Reveal';
 
-const Step = ({ number, icon: Icon, title, description }) => (
-  <div className="relative flex flex-col items-center text-center">
-    <div className="w-16 h-16 rounded-full bg-white dark:bg-gray-800 border-4 border-purple-100 dark:border-purple-900/50 flex items-center justify-center mb-6 shadow-sm z-10">
-      <Icon className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-    </div>
-    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-      {number}. {title}
-    </h3>
-    <p className="text-gray-600 dark:text-gray-400 max-w-xs mx-auto">
-      {description}
-    </p>
-  </div>
-);
+const steps = [
+  {
+    title: 'Create an account',
+    description: 'Sign up with email or Google, then set the campus you actually attend.',
+    points: ['University, faculty, and department', 'Level from 100 to 600', 'A gem balance that starts at zero'],
+  },
+  {
+    title: 'Pick a course',
+    description: 'Search the library by code and enroll. The chapters for that course open from there.',
+    points: ['Filter by subject', 'Enroll in one course or several', 'Progress stays on the course'],
+  },
+  {
+    title: 'Answer the quizzes',
+    description: 'Work the chapter quiz, then the CA, then the exam. Each miss includes the reason.',
+    points: ['Chapter quizzes you can retake', 'CA once, 30 of the final 100', 'Exam once, after the CA'],
+  },
+  {
+    title: 'Watch the score',
+    description: 'Results, gems, and the leaderboard show whether the studying is landing.',
+    points: ['CA plus exam, out of 100', 'Boards for campus, faculty, and department', 'Gems for the work you finish'],
+  },
+];
 
 const HowItWorks = () => {
-  const steps = [
-    {
-      icon: UserPlus,
-      title: "Create Account",
-      description: "Sign up for free and set up your student profile in less than 2 minutes."
-    },
-    {
-      icon: Search,
-      title: "Choose Course",
-      description: "Browse our library of courses and select the subjects you want to master."
-    },
-    {
-      icon: PlayCircle,
-      title: "Take Quizzes",
-      description: "Challenge yourself with interactive quizzes that adapt to your skill level."
-    },
-    {
-      icon: TrendingUp,
-      title: "Track & Win",
-      description: "Watch your stats grow, earn rewards, and climb the global leaderboard."
-    }
-  ];
+  const [active, setActive] = useState(0);
+  const step = steps[active];
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-            How TestMancer Works
+    <section className="border-t border-line py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal className="max-w-2xl">
+          <p className="text-sm font-medium text-accent">How it works</p>
+          <h2 className="mt-3 text-3xl font-medium tracking-[-0.02em] text-ink md:text-5xl md:leading-[1.1]">
+            Four steps from signup to a score you can trust.
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            Your path to academic excellence is just four simple steps away.
-          </p>
-        </div>
+        </Reveal>
 
-        <div className="relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gray-100 dark:bg-gray-800 z-0 transform translate-y-0"></div>
+        <div className="mt-14 grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+          <ol className="space-y-2">
+            {steps.map((item, index) => {
+              const selected = index === active;
+              return (
+                <li key={item.title}>
+                  <button
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setActive(index)}
+                    className={`flex w-full items-start gap-4 rounded-2xl border px-4 py-4 text-left transition-colors ${
+                      selected
+                        ? 'border-accent bg-accent-soft'
+                        : 'border-transparent hover:bg-surface'
+                    }`}
+                  >
+                    <span className={`mt-0.5 text-sm font-medium ${selected ? 'text-accent' : 'text-slate'}`}>
+                      0{index + 1}
+                    </span>
+                    <span>
+                      <span className="block text-lg font-medium tracking-tight text-ink">{item.title}</span>
+                      <span className="mt-1 block text-[15px] leading-relaxed text-slate">{item.description}</span>
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
-            {steps.map((step, index) => (
-              <Step key={index} number={index + 1} {...step} />
-            ))}
-          </div>
+          <div className="rounded-3xl border border-line bg-surface p-6 sm:p-8" aria-live="polite">
+              <p className="text-sm font-medium text-accent">0{active + 1}</p>
+              <h3 className="mt-3 text-2xl font-medium tracking-tight text-ink">{step.title}</h3>
+              <ul className="mt-6 space-y-3">
+                {step.points.map((point) => (
+                  <li key={point} className="flex items-start gap-3 border-t border-line pt-3 text-[15px] leading-relaxed text-graphite">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
         </div>
       </div>
     </section>

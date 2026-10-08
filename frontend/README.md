@@ -35,6 +35,10 @@ At TestMancer, we empower students to learn effectively through:
 - 📈 Performance insights and reporting
 - 🎯 Customizable quiz and content creation
 
+## Design system
+
+UI changes follow [DESIGN.md](DESIGN.md). Colors, type, buttons, and motion are defined there and in `src/index.css`.
+
 ## 🛠️ Technology Stack
 
 - **Frontend**: React 19.2.0 with Vite
