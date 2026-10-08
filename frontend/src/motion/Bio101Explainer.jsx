@@ -82,10 +82,11 @@ function Backdrop({ frame }) {
           position: 'absolute',
           width: 980,
           height: 980,
-          left: -220 + drift,
+          left: -220,
           top: -320,
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(45,212,191,0.22), transparent 68%)',
+          transform: `translate3d(${drift}px, 0, 0)`,
         }}
       />
       <div
@@ -94,9 +95,10 @@ function Backdrop({ frame }) {
           width: 760,
           height: 760,
           right: -200,
-          bottom: -260 - drift,
+          bottom: -260,
           borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(250,204,21,0.10), transparent 70%)',
+          transform: `translate3d(0, ${-drift}px, 0)`,
         }}
       />
     </AbsoluteFill>
@@ -586,7 +588,18 @@ export const Bio101Explainer = ({ motion: film = motion }) => {
   const [handle] = useState(() => delayRender('Loading Geist'))
 
   useEffect(() => {
-    let cancelled = false
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      continueRender(handle)
+    }
+
+    if (document.fonts?.check?.('500 64px Geist')) {
+      finish()
+      return undefined
+    }
+
     const linkId = 'bio101-geist'
     if (!document.getElementById(linkId)) {
       const link = document.createElement('link')
@@ -596,14 +609,12 @@ export const Bio101Explainer = ({ motion: film = motion }) => {
       document.head.appendChild(link)
     }
 
-    document.fonts.load('500 64px Geist').then(() => {
-      if (!cancelled) continueRender(handle)
-    }).catch(() => {
-      if (!cancelled) continueRender(handle)
-    })
+    const timer = window.setTimeout(finish, 400)
+    document.fonts.load('500 64px Geist').then(finish).catch(finish)
 
     return () => {
-      cancelled = true
+      window.clearTimeout(timer)
+      finish()
     }
   }, [handle])
 
@@ -635,12 +646,24 @@ export const Bio101Explainer = ({ motion: film = motion }) => {
           }}
         />
         {film.audio.map((cue) => (
-          <Sequence key={cue.id} from={cue.from} durationInFrames={cue.durationInFrames} layout="none">
+          <Sequence
+            key={cue.id}
+            from={cue.from}
+            durationInFrames={cue.durationInFrames}
+            premountFor={20}
+            style={{ pointerEvents: 'none' }}
+          >
             <Audio src={staticFile(cue.src)} volume={1} />
           </Sequence>
         ))}
         {film.effects.map((cue) => (
-          <Sequence key={cue.id} from={cue.from} durationInFrames={cue.durationInFrames} layout="none">
+          <Sequence
+            key={cue.id}
+            from={cue.from}
+            durationInFrames={cue.durationInFrames}
+            premountFor={20}
+            style={{ pointerEvents: 'none' }}
+          >
             <Audio src={staticFile(cue.src)} volume={cue.volume} />
           </Sequence>
         ))}

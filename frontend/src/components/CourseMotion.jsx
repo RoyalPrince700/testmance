@@ -1,6 +1,6 @@
-import { Player } from '@remotion/player'
 import { Bio101Explainer } from '../motion/Bio101Explainer.jsx'
 import { getMotionResource } from '../motion/catalog.js'
+import MotionPlayer from './MotionPlayer.jsx'
 
 const PLAYERS = {
   'BIO 101': Bio101Explainer,
@@ -24,18 +24,7 @@ export default function CourseMotion({ courseCode }) {
       </p>
       <div className="mt-8 overflow-hidden rounded-3xl border border-line">
         <div style={{ aspectRatio: `${resource.width} / ${resource.height}` }}>
-          <Player
-            component={Component}
-            durationInFrames={resource.durationInFrames}
-            compositionWidth={resource.width}
-            compositionHeight={resource.height}
-            fps={resource.fps}
-            inputProps={{ motion: resource }}
-            controls
-            clickToPlay
-            showVolumeControls
-            style={{ width: '100%', height: '100%' }}
-          />
+          <MotionPlayer resource={resource} component={Component} />
         </div>
       </div>
       {/* <details className="mt-4 rounded-2xl border border-line bg-surface px-5 py-4">

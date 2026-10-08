@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { Player } from '@remotion/player'
 import { X } from 'lucide-react'
 import { Bio101Explainer } from '../motion/Bio101Explainer.jsx'
+import MotionPlayer from './MotionPlayer.jsx'
 
 export default function MotionDialog({ resource, onClose }) {
   useEffect(() => {
@@ -48,19 +48,7 @@ export default function MotionDialog({ resource, onClose }) {
         </div>
         <div className="overflow-hidden rounded-3xl border border-white/15 bg-[#071412]">
           <div style={{ aspectRatio: `${resource.width} / ${resource.height}` }}>
-            <Player
-              component={Bio101Explainer}
-              inputProps={{ motion: resource }}
-              durationInFrames={resource.durationInFrames}
-              compositionWidth={resource.width}
-              compositionHeight={resource.height}
-              fps={resource.fps}
-              autoPlay
-              controls
-              clickToPlay
-              showVolumeControls
-              style={{ width: '100%', height: '100%' }}
-            />
+            <MotionPlayer resource={resource} component={Bio101Explainer} autoPlay />
           </div>
         </div>
       </div>
